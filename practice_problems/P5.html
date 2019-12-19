@@ -1,0 +1,148 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>PRACTICE-05_COND-LOOPS</title>
+</head>
+<body>
+<h1>PRACTICE-05_COND-LOOPS</h1><h2>Points on a Plane (p1v1d1)</h2><hr>You will be given the (x,y) coordinates of 4 points in a plane (all coordinates will be integers) X1, X2, P, Q. In the first line of the output, write down the equation of the line formed by the first two points X1 and X2. Your equation must be of the form<br />
+$$y = ax + b$$<br />
+unless the line is a vertical line in which case you should give the equation in the form<br />
+$$x = c$$<br />
+The numbers a, b, c must be rounded off to three decimal places. In the next line, write down one of the following labels depending on how the points P and Q behave with respect to the line you just constructed.<br />
+<ol><br />
+<li><b>Both On The Line</b> if both points P and Q lie on the line<br />
+<li><b>One On The Line</b> if one point is on the line and the other is not on the line<br />
+<li><b>Together</b> if P and Q lie on the same side of the plane but none are on the line<br />
+<li><b>Apart</b> if P and Q are on different sides of the plane but none are on the line<br />
+</ol><br />
+<br />
+EXAMPLE:<br />
+INPUT<br />
+(0, 1) (2, 3) (10, 10) (20, 21)<br />
+<br />
+OUTPUT<br />
+y = 1.000x + 1.000<br />
+One On The Line<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>(0, 1) (2, 3) (10, 10) (20, 21)</td><td>y = 1.000x + 1.000<br />
+One On The Line</td></tr><tr><td>(-1, 1) (-1, 2) (1, 1) (2, 1)</td><td>x = -1.000<br />
+Together</td></tr><tr><td>(1, 3) (-1, -1) (0, 0) (-10, 10)</td><td>y = 2.000x + 1.000<br />
+Apart</td></tr><tr><td>(1, 2) (-2, -7) (0, -1) (-10, -31)</td><td>y = 3.000x + -1.000<br />
+Both On The Line</td></tr><tr><td>(100, 2) (-200, 3) (0, 0) (10, 5)</td><td>y = -0.003x + 2.333<br />
+Apart</td></tr><tr><td>(100, 2) (100, 3) (100, 0) (10, 5)</td><td>x = 100.000<br />
+One On The Line</td></tr></table><hr><hr><h2>A Tale of Two Circles (p1v2d1)</h2><hr>Given two circles in the format (x, y, r) where (x, y) is the center and r is the radius (all quantities will be integers), you have to decide which one of the following tags applies to these two circles and print that tag.<br />
+<ol><br />
+<li><b>Intersect</b> The two circles intersect<br />
+<li><b>Tangent External</b> The two circles are tangential externally<br />
+<li><b>Enclose</b> One circle encloses the other<br />
+<li><b>Tangent Internal</b> The two circles are tangential internally<br />
+<li><b>Disjoint</b> The two circles are disjoint<br />
+</ol><br />
+You can assume that the two circles will either have different centers or else have different radii. However, they may have the same center and different radii or else different centers and same radius.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>(0,0,2) (1,0,1)</td><td>Tangent Internal</td></tr><tr><td>(0,0,2) (1,0,2)</td><td>Intersect</td></tr><tr><td>(0,0,2) (0,3,1)</td><td>Tangent External</td></tr><tr><td>(-1,-1,2) (3,3,1)</td><td>Disjoint</td></tr><tr><td>(-1,-1,20) (3,3,1)</td><td>Enclose</td></tr><tr><td>(-1,-1,20) (-1,-1,30)</td><td>Enclose</td></tr></table><hr><hr><h2>Build a Rhombus Revisited (p1v3d1)</h2><hr>You will be given 2 integers, m and n. m will always be single digit and non-negative but n need not be single digit. However, n will always be greater than or equal to 1. You have to build the rhombus shape you built in week 2 using the digit m but now the size of the rhombus will be given by n.<br />
+<br />
+EXAMPLE<br />
+INPUT<br />
+1 3<br />
+<br />
+OUTPUT<br />
+1<br />
+11<br />
+111<br />
+111<br />
+ 11<br />
+  1<br />
+<br />
+INPUT<br />
+2 5<br />
+<br />
+OUTPUT<br />
+2<br />
+22<br />
+222<br />
+2222<br />
+22222<br />
+22222<br />
+ 2222<br />
+  222<br />
+   22<br />
+    2<br />
+<br />
+<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 3</td><td>1<br />
+11<br />
+111<br />
+111<br />
+ 11<br />
+  1<br />
+</td></tr><tr><td>2 5</td><td>2<br />
+22<br />
+222<br />
+2222<br />
+22222<br />
+22222<br />
+ 2222<br />
+  222<br />
+   22<br />
+    2<br />
+</td></tr><tr><td>0 6</td><td>0<br />
+00<br />
+000<br />
+0000<br />
+00000<br />
+000000<br />
+000000<br />
+ 00000<br />
+  0000<br />
+   000<br />
+    00<br />
+     0<br />
+</td></tr><tr><td>9 4</td><td>9<br />
+99<br />
+999<br />
+9999<br />
+9999<br />
+ 999<br />
+  99<br />
+   9<br />
+</td></tr></table><hr><hr><h2>Hello World Revisited (p1v4d1)</h2><hr>Write a program to read a positive integer n and print "Hello World" (without quotes) n times on n different lines.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1</td><td>Hello World<br />
+</td></tr><tr><td>3</td><td>Hello World<br />
+Hello World<br />
+Hello World<br />
+</td></tr><tr><td>6</td><td>Hello World<br />
+Hello World<br />
+Hello World<br />
+Hello World<br />
+Hello World<br />
+Hello World<br />
+</td></tr><tr><td>0</td><td></td></tr></table><hr><hr><h2>Crescendo (p1v5d1)</h2><hr>Write a program to take a positive integer greater than or equal to 1 and print the following pattern. Be very careful about not having extra spaces at the end of every line.<br />
+<br />
+INPUT<br />
+3<br />
+<br />
+OUTPUT<br />
+1<br />
+1 2<br />
+1 2 3<br />
+<br />
+INPUT<br />
+5<br />
+<br />
+OUTPUT<br />
+1<br />
+1 2<br />
+1 2 3<br />
+1 2 3 4<br />
+1 2 3 4 5<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1</td><td>1<br />
+</td></tr><tr><td>2</td><td>1<br />
+1 2<br />
+</td></tr><tr><td>5</td><td>1<br />
+1 2<br />
+1 2 3<br />
+1 2 3 4<br />
+1 2 3 4 5<br />
+</td></tr><tr><td>7</td><td>1<br />
+1 2<br />
+1 2 3<br />
+1 2 3 4<br />
+1 2 3 4 5<br />
+1 2 3 4 5 6<br />
+1 2 3 4 5 6 7<br />
+</td></tr></table><hr><hr></body>
+</html>

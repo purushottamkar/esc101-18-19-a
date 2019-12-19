@@ -1,0 +1,291 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>PRACTICE-10_MAT-FUN</title>
+</head>
+<body>
+<h1>PRACTICE-10_MAT-FUN</h1><h2>Super Getline (p1v1d1)</h2><hr>The getline function from string.h automatically expands its length to incorporate additional characters entered by the user. However, it can only read a single line of the input at a time. I want to write a routine that can read the entire input, not just a single line (i.e. till EOF) and also be able to expand the array size as needed.<br />
+<br />
+Start from the code given which begins with a character array of length just one and reads the entire user input (including newlines and other non-printable characters), all the while expanding the array in case more and more characters are found in the input. Print the entire user input .<br />
+<br />
+<b>Request</b>: It is very easy to cheat in this practice question and pass all the test cases by repeating the input (character by character) as shown below. However if you do so, you will lose an opportunity to learn about pointers and memory allocation and this may affect you in exams where you will not be able to cheat this way.<br />
+<br />
+<b>Example of cheating</b>:<br />
+do{<br />
+    printf("%c", ch = getchar());<br />
+}while(ch != EOF)<br />
+<br />
+<b>Bonus</b>: write a function superGetline which takes as two arguments, the address of the original string array (in other words, a pointer to a pointer) and the address of an integer variable storing the length of the original array and does the above.<br />
+<br />
+<b>You should be able to solve this problem nicely even without using functions. Functions will be covered in class next week. Functions allow you to write cleaner code and allow you to think about the problem in an organized manner. However, although it is perfectly possible to solve most problems in a reasonable manner without using functions at all, code (especially if it is long and complex) written without functions, tends to be more error prone and hard to debug.</b><h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>The<br />
+ Hills<br />
+  Are<br />
+   Alive<br />
+    With<br />
+     The<br />
+      Sound<br />
+       Of<br />
+        Music</td><td>-----------BEGIN USER INPUT-----------<br />
+The<br />
+ Hills<br />
+  Are<br />
+   Alive<br />
+    With<br />
+     The<br />
+      Sound<br />
+       Of<br />
+        Music<br />
+-----------END USER INPUT-----------<br />
+User string has 79 characters</td></tr><tr><td></td><td>-----------BEGIN USER INPUT-----------<br />
+<br />
+-----------END USER INPUT-----------<br />
+User string has 0 characters</td></tr><tr><td>ABCDEFGHIJ<br />
+KLMNOPQRS<br />
+TUVWXYZ01</td><td>-----------BEGIN USER INPUT-----------<br />
+ABCDEFGHIJ<br />
+KLMNOPQRS<br />
+TUVWXYZ01<br />
+-----------END USER INPUT-----------<br />
+User string has 30 characters</td></tr><tr><td>The seaweed is always greener<br />
+    In somebody else's lake.<br />
+You dream about going up there<br />
+    But that is a big mistake.</td><td>-----------BEGIN USER INPUT-----------<br />
+The seaweed is always greener<br />
+    In somebody else's lake.<br />
+You dream about going up there<br />
+    But that is a big mistake.<br />
+-----------END USER INPUT-----------<br />
+User string has 120 characters</td></tr><tr><td><br />
+<br />
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra risus nec odio lobortis, eu molestie tellus ultrices. Nullam aliquam egestas dapibus. Integer gravida mollis elit, sit amet ultrices nisi sagittis commodo. Praesent tincidunt turpis metus, ac sagittis sapien malesuada ac. Duis scelerisque risus quis turpis rutrum, et rutrum ligula finibus. Phasellus nec sagittis nunc. Vivamus convallis lorem sit amet leo bibendum malesuada.<br />
+<br />
+Nam porttitor condimentum faucibus. Proin bibendum lectus sit amet odio maximus lacinia. Etiam sit amet magna metus. Duis id dolor semper, lobortis orci quis, dignissim odio. Cras maximus egestas velit, at pellentesque nibh lobortis nec. Duis nulla velit, porttitor vel blandit in, dignissim laoreet odio. In quis consequat ligula. Vivamus mollis imperdiet orci eget bibendum. Aliquam nisi nisl, viverra ac eleifend sit amet, posuere ac felis. Sed id maximus risus.<br />
+<br />
+Sed sollicitudin metus vel risus ullamcorper, at tincidunt lorem efficitur. Vivamus ultrices pretium ex non cursus. Vestibulum eget interdum massa, nec mattis purus. Morbi ac arcu auctor, efficitur massa et, condimentum urna. Donec eget euismod tortor. Morbi consectetur dui quis erat blandit pellentesque. Curabitur eu magna euismod, rhoncus nisl ac, consequat sapien.<br />
+<br />
+Phasellus ornare fringilla est, id ultrices dolor dignissim in. Pellentesque sodales id tellus eget ullamcorper. Fusce viverra lobortis nunc, vitae laoreet nunc fringilla sed. Morbi tincidunt sodales libero eu fermentum. Donec accumsan ac risus in placerat. Donec in elit eget erat egestas cursus. Sed at erat scelerisque, rutrum arcu et, placerat sapien. Curabitur massa felis, tempus eu feugiat a, facilisis eget nunc. Aliquam augue tortor, commodo a dui et, ultrices blandit lorem. Nullam blandit nibh ut nisl elementum, quis ultrices justo vulputate.<br />
+<br />
+Aliquam id arcu lacus. Ut hendrerit rutrum nunc, eget facilisis ligula sodales eget. Sed convallis justo nunc, eget tincidunt mi posuere sed. Vivamus est enim, porta egestas est non, gravida imperdiet orci. Praesent eget arcu dapibus, lobortis ante at, tempor risus. Aliquam semper cursus libero, egestas finibus velit fringilla et. Mauris elit augue, blandit et semper in, congue eget odio. Phasellus condimentum urna risus, ut imperdiet ante congue id. Etiam pulvinar sed dui id vestibulum. In mauris lorem, varius in hendrerit eu, malesuada non mi. Maecenas tincidunt tellus mollis, ornare sem eget, lobortis augue. Nulla tellus urna, varius in est in, pulvinar aliquet ex. Nunc sed tortor rutrum, laoreet magna quis, lacinia quam. Proin eu hendrerit libero. Morbi a lacus eget lacus porttitor imperdiet id sit amet diam.<br />
+<br />
+Proin interdum diam nec nibh pellentesque, efficitur suscipit erat porta. Ut nibh lectus, vulputate eget sem ut, ultrices ullamcorper massa. Duis consectetur sagittis dolor, vel iaculis nibh gravida nec. Donec mollis pretium nulla et sodales. Curabitur vel odio sit amet sem tempor efficitur. Praesent ut sapien risus. Morbi faucibus nunc ac massa dapibus pharetra.<br />
+<br />
+Vivamus eget porttitor erat. Morbi commodo augue rhoncus felis malesuada, nec luctus magna vulputate. Nulla faucibus ligula arcu, in egestas massa mattis vitae. Maecenas consequat, ex placerat dignissim ullamcorper, metus risus convallis sem, eget finibus nibh mi non nisl. Donec in lobortis odio. Donec lobortis nulla non mi sagittis, nec lobortis diam dapibus. Nulla consequat elementum varius. Phasellus facilisis enim ac nunc mollis placerat. Mauris ultricies est sit amet risus scelerisque, ut gravida velit malesuada. Curabitur vehicula rhoncus venenatis. Sed magna neque, aliquet dignissim mattis ac, euismod non dolor. Donec aliquet tristique mi non lobortis. Cras ut turpis ut nisl porttitor rhoncus. Praesent nec eleifend justo. Curabitur in orci sed velit pharetra pulvinar.<br />
+<br />
+Fusce euismod sodales libero at lacinia. Mauris sit amet venenatis orci. Proin vitae dui ultricies risus ornare convallis eu condimentum nulla. Vestibulum mi sem, scelerisque et semper et, blandit sed orci. Sed eget imperdiet orci. Sed eu leo in nisl euismod ultricies vitae a massa. Aliquam varius est vel nisi sollicitudin maximus. Mauris id augue elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam imperdiet lectus ut arcu dictum, sit amet vulputate nisi ornare. Nam mattis dignissim mauris sit amet aliquam. Vestibulum fringilla, diam non tincidunt scelerisque, dolor dolor ullamcorper urna, nec venenatis nunc lorem ut odio.<br />
+<br />
+Vivamus dolor purus, consectetur sit amet molestie et, tempor id leo. Aliquam condimentum semper quam, eget lobortis urna posuere non. Etiam sed tincidunt ex. Nunc ac nisi vel tellus elementum scelerisque. Cras convallis varius pellentesque. Pellentesque mollis dui vitae elit tincidunt, mattis ultrices ante auctor. Vivamus a rutrum orci, a blandit velit. Integer pretium a dui bibendum molestie. Etiam iaculis nulla eu commodo mollis. Duis accumsan auctor diam ut faucibus. Suspendisse ultricies ac dolor eu hendrerit.<br />
+<br />
+Ut nec ante nulla. Phasellus finibus, eros nec volutpat molestie, odio purus convallis quam, sit amet mattis libero tellus ut nunc. Proin urna augue, lobortis tempor velit id, lacinia finibus mauris. Aliquam a iaculis eros. Phasellus semper placerat posuere. Phasellus vehicula tincidunt velit, finibus imperdiet tellus volutpat eget. Donec hendrerit, nibh ut fermentum ullamcorper, sapien sapien molestie nulla, ac dictum ligula dui vitae lacus.<br />
+<br />
+Aliquam ipsum lacus, luctus tempus sapien non, fringilla aliquet felis. Vivamus nec massa id neque ultricies lacinia. Vivamus feugiat orci sed odio faucibus, at gravida mi pulvinar. Curabitur feugiat, massa consequat aliquet mattis, neque augue luctus quam, quis tempor lectus orci non neque. Donec sagittis magna at neque pharetra, nec sodales nisl feugiat. Curabitur et nulla eleifend, congue risus vel, tempus elit. Fusce blandit mollis hendrerit. Nulla facilisi. Integer felis massa, iaculis venenatis consequat nec, dictum ut ligula.<br />
+<br />
+Quisque vel elit laoreet, dapibus dolor vel, sollicitudin tortor. Curabitur elementum eros vel dolor posuere, ut porttitor ante tristique. Cras semper volutpat eleifend. Mauris sit amet libero lectus. Vestibulum non pretium tortor. Proin mattis, erat id fermentum suscipit, metus velit finibus lectus, vitae dapibus nisi magna a neque. Mauris et risus efficitur, euismod nisi vel, lacinia massa. Curabitur lectus lacus, viverra at commodo ut, fringilla vel velit. Donec malesuada, felis a aliquet molestie, sem ante vehicula orci, ut blandit est lectus in metus. Etiam sit amet ornare lectus, non gravida nulla.<br />
+<br />
+Phasellus in pretium felis. Aliquam condimentum nec felis eget cursus. Phasellus leo dui, pulvinar at dictum eget, varius ac erat. Vestibulum eget nulla eget quam pellentesque consectetur. Aenean congue mattis commodo. Maecenas non tincidunt velit. Maecenas vel finibus dolor.<br />
+<br />
+Nunc eu iaculis urna, nec efficitur erat. Aenean vitae felis pharetra, auctor leo ut, vehicula sem. Praesent vitae convallis libero. Quisque ut ipsum dictum, scelerisque urna vitae, vestibulum urna. Ut eu justo feugiat, hendrerit libero et, suscipit tellus. Vivamus convallis odio ut dui lobortis tempor. Duis ut turpis vel diam maximus mollis non eu velit. Nunc consectetur lacus in rhoncus pharetra. Nam eu mi id arcu semper finibus. Duis ac turpis sed est laoreet consequat. Maecenas nec tellus a mauris pharetra luctus sed at mi. Fusce porta id erat et semper.<br />
+<br />
+Nullam eu placerat dui, sed dapibus libero. Sed nisl ligula, bibendum vel turpis sed, tempus pharetra mi. Etiam porta dolor ac magna bibendum, at vehicula lorem pellentesque. Aliquam eget porttitor tellus. Donec dapibus sapien mi, eu suscipit arcu scelerisque ac. Nam faucibus eu dolor et ultricies. Sed eget nisi mi. Mauris tempus ornare eleifend. Etiam eget lacus pellentesque, elementum lectus a, elementum risus. Mauris eu justo non sapien faucibus condimentum. Aliquam ut mollis ligula, faucibus commodo metus.<br />
+<br />
+Donec sed lacus ornare, vestibulum risus et, sagittis lacus. Duis hendrerit augue a metus rutrum fringilla. Pellentesque pellentesque dictum libero nec molestie. Phasellus placerat dui vulputate nisl tincidunt finibus. Morbi porta sapien nec ex tincidunt ultrices. Quisque eu ante a nulla mattis blandit. Curabitur imperdiet vulputate elit, sed ultrices dui rutrum eu. Vestibulum vitae mollis quam. Nunc consequat, nibh eget sagittis imperdiet, quam eros consequat arcu, sed hendrerit urna velit eget nulla.<br />
+<br />
+Praesent vel leo magna. Sed placerat odio nibh, ut convallis nulla lacinia vitae. Suspendisse volutpat consequat volutpat. Nam tempus lorem et lacinia aliquam. Donec quis gravida tellus. Mauris blandit ultricies bibendum. In venenatis lectus commodo ex porta tincidunt. Nam porta erat in eros varius porta. Phasellus tincidunt feugiat porta. Sed dapibus aliquam pharetra. Pellentesque placerat, quam vel blandit iaculis, tellus purus ultrices magna, in scelerisque ante libero id dolor. Morbi consequat dui quis lectus egestas congue.<br />
+<br />
+Duis vehicula ut magna a faucibus. Pellentesque accumsan mi vel bibendum malesuada. Integer venenatis mollis ex, nec fringilla metus mollis a. Vivamus ornare aliquet nulla, vitae dictum nulla. Pellentesque eu ligula aliquet, egestas risus pulvinar, scelerisque arcu. Suspendisse nec pharetra ante, nec convallis lacus. Maecenas consequat ullamcorper tristique. Phasellus nec varius lacus. Maecenas ornare urna non porttitor commodo. Vivamus eros mi, egestas eu ipsum at, aliquam mattis risus. Integer quis tempor arcu. Aenean ut fermentum augue.<br />
+<br />
+In venenatis tempor ornare. Cras in nisl et ipsum convallis laoreet vitae in tortor. Nunc a porttitor augue. Donec tristique lacinia lorem, gravida hendrerit augue lacinia vitae. Aliquam rutrum velit leo, a rhoncus nulla aliquet sit amet. Vivamus id nibh porta, volutpat arcu et, tempor tellus. Sed ultrices justo in molestie dictum. Duis non imperdiet sapien. Phasellus pharetra auctor quam non fermentum.</td><td>-----------BEGIN USER INPUT-----------<br />
+<br />
+<br />
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra risus nec odio lobortis, eu molestie tellus ultrices. Nullam aliquam egestas dapibus. Integer gravida mollis elit, sit amet ultrices nisi sagittis commodo. Praesent tincidunt turpis metus, ac sagittis sapien malesuada ac. Duis scelerisque risus quis turpis rutrum, et rutrum ligula finibus. Phasellus nec sagittis nunc. Vivamus convallis lorem sit amet leo bibendum malesuada.<br />
+<br />
+Nam porttitor condimentum faucibus. Proin bibendum lectus sit amet odio maximus lacinia. Etiam sit amet magna metus. Duis id dolor semper, lobortis orci quis, dignissim odio. Cras maximus egestas velit, at pellentesque nibh lobortis nec. Duis nulla velit, porttitor vel blandit in, dignissim laoreet odio. In quis consequat ligula. Vivamus mollis imperdiet orci eget bibendum. Aliquam nisi nisl, viverra ac eleifend sit amet, posuere ac felis. Sed id maximus risus.<br />
+<br />
+Sed sollicitudin metus vel risus ullamcorper, at tincidunt lorem efficitur. Vivamus ultrices pretium ex non cursus. Vestibulum eget interdum massa, nec mattis purus. Morbi ac arcu auctor, efficitur massa et, condimentum urna. Donec eget euismod tortor. Morbi consectetur dui quis erat blandit pellentesque. Curabitur eu magna euismod, rhoncus nisl ac, consequat sapien.<br />
+<br />
+Phasellus ornare fringilla est, id ultrices dolor dignissim in. Pellentesque sodales id tellus eget ullamcorper. Fusce viverra lobortis nunc, vitae laoreet nunc fringilla sed. Morbi tincidunt sodales libero eu fermentum. Donec accumsan ac risus in placerat. Donec in elit eget erat egestas cursus. Sed at erat scelerisque, rutrum arcu et, placerat sapien. Curabitur massa felis, tempus eu feugiat a, facilisis eget nunc. Aliquam augue tortor, commodo a dui et, ultrices blandit lorem. Nullam blandit nibh ut nisl elementum, quis ultrices justo vulputate.<br />
+<br />
+Aliquam id arcu lacus. Ut hendrerit rutrum nunc, eget facilisis ligula sodales eget. Sed convallis justo nunc, eget tincidunt mi posuere sed. Vivamus est enim, porta egestas est non, gravida imperdiet orci. Praesent eget arcu dapibus, lobortis ante at, tempor risus. Aliquam semper cursus libero, egestas finibus velit fringilla et. Mauris elit augue, blandit et semper in, congue eget odio. Phasellus condimentum urna risus, ut imperdiet ante congue id. Etiam pulvinar sed dui id vestibulum. In mauris lorem, varius in hendrerit eu, malesuada non mi. Maecenas tincidunt tellus mollis, ornare sem eget, lobortis augue. Nulla tellus urna, varius in est in, pulvinar aliquet ex. Nunc sed tortor rutrum, laoreet magna quis, lacinia quam. Proin eu hendrerit libero. Morbi a lacus eget lacus porttitor imperdiet id sit amet diam.<br />
+<br />
+Proin interdum diam nec nibh pellentesque, efficitur suscipit erat porta. Ut nibh lectus, vulputate eget sem ut, ultrices ullamcorper massa. Duis consectetur sagittis dolor, vel iaculis nibh gravida nec. Donec mollis pretium nulla et sodales. Curabitur vel odio sit amet sem tempor efficitur. Praesent ut sapien risus. Morbi faucibus nunc ac massa dapibus pharetra.<br />
+<br />
+Vivamus eget porttitor erat. Morbi commodo augue rhoncus felis malesuada, nec luctus magna vulputate. Nulla faucibus ligula arcu, in egestas massa mattis vitae. Maecenas consequat, ex placerat dignissim ullamcorper, metus risus convallis sem, eget finibus nibh mi non nisl. Donec in lobortis odio. Donec lobortis nulla non mi sagittis, nec lobortis diam dapibus. Nulla consequat elementum varius. Phasellus facilisis enim ac nunc mollis placerat. Mauris ultricies est sit amet risus scelerisque, ut gravida velit malesuada. Curabitur vehicula rhoncus venenatis. Sed magna neque, aliquet dignissim mattis ac, euismod non dolor. Donec aliquet tristique mi non lobortis. Cras ut turpis ut nisl porttitor rhoncus. Praesent nec eleifend justo. Curabitur in orci sed velit pharetra pulvinar.<br />
+<br />
+Fusce euismod sodales libero at lacinia. Mauris sit amet venenatis orci. Proin vitae dui ultricies risus ornare convallis eu condimentum nulla. Vestibulum mi sem, scelerisque et semper et, blandit sed orci. Sed eget imperdiet orci. Sed eu leo in nisl euismod ultricies vitae a massa. Aliquam varius est vel nisi sollicitudin maximus. Mauris id augue elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam imperdiet lectus ut arcu dictum, sit amet vulputate nisi ornare. Nam mattis dignissim mauris sit amet aliquam. Vestibulum fringilla, diam non tincidunt scelerisque, dolor dolor ullamcorper urna, nec venenatis nunc lorem ut odio.<br />
+<br />
+Vivamus dolor purus, consectetur sit amet molestie et, tempor id leo. Aliquam condimentum semper quam, eget lobortis urna posuere non. Etiam sed tincidunt ex. Nunc ac nisi vel tellus elementum scelerisque. Cras convallis varius pellentesque. Pellentesque mollis dui vitae elit tincidunt, mattis ultrices ante auctor. Vivamus a rutrum orci, a blandit velit. Integer pretium a dui bibendum molestie. Etiam iaculis nulla eu commodo mollis. Duis accumsan auctor diam ut faucibus. Suspendisse ultricies ac dolor eu hendrerit.<br />
+<br />
+Ut nec ante nulla. Phasellus finibus, eros nec volutpat molestie, odio purus convallis quam, sit amet mattis libero tellus ut nunc. Proin urna augue, lobortis tempor velit id, lacinia finibus mauris. Aliquam a iaculis eros. Phasellus semper placerat posuere. Phasellus vehicula tincidunt velit, finibus imperdiet tellus volutpat eget. Donec hendrerit, nibh ut fermentum ullamcorper, sapien sapien molestie nulla, ac dictum ligula dui vitae lacus.<br />
+<br />
+Aliquam ipsum lacus, luctus tempus sapien non, fringilla aliquet felis. Vivamus nec massa id neque ultricies lacinia. Vivamus feugiat orci sed odio faucibus, at gravida mi pulvinar. Curabitur feugiat, massa consequat aliquet mattis, neque augue luctus quam, quis tempor lectus orci non neque. Donec sagittis magna at neque pharetra, nec sodales nisl feugiat. Curabitur et nulla eleifend, congue risus vel, tempus elit. Fusce blandit mollis hendrerit. Nulla facilisi. Integer felis massa, iaculis venenatis consequat nec, dictum ut ligula.<br />
+<br />
+Quisque vel elit laoreet, dapibus dolor vel, sollicitudin tortor. Curabitur elementum eros vel dolor posuere, ut porttitor ante tristique. Cras semper volutpat eleifend. Mauris sit amet libero lectus. Vestibulum non pretium tortor. Proin mattis, erat id fermentum suscipit, metus velit finibus lectus, vitae dapibus nisi magna a neque. Mauris et risus efficitur, euismod nisi vel, lacinia massa. Curabitur lectus lacus, viverra at commodo ut, fringilla vel velit. Donec malesuada, felis a aliquet molestie, sem ante vehicula orci, ut blandit est lectus in metus. Etiam sit amet ornare lectus, non gravida nulla.<br />
+<br />
+Phasellus in pretium felis. Aliquam condimentum nec felis eget cursus. Phasellus leo dui, pulvinar at dictum eget, varius ac erat. Vestibulum eget nulla eget quam pellentesque consectetur. Aenean congue mattis commodo. Maecenas non tincidunt velit. Maecenas vel finibus dolor.<br />
+<br />
+Nunc eu iaculis urna, nec efficitur erat. Aenean vitae felis pharetra, auctor leo ut, vehicula sem. Praesent vitae convallis libero. Quisque ut ipsum dictum, scelerisque urna vitae, vestibulum urna. Ut eu justo feugiat, hendrerit libero et, suscipit tellus. Vivamus convallis odio ut dui lobortis tempor. Duis ut turpis vel diam maximus mollis non eu velit. Nunc consectetur lacus in rhoncus pharetra. Nam eu mi id arcu semper finibus. Duis ac turpis sed est laoreet consequat. Maecenas nec tellus a mauris pharetra luctus sed at mi. Fusce porta id erat et semper.<br />
+<br />
+Nullam eu placerat dui, sed dapibus libero. Sed nisl ligula, bibendum vel turpis sed, tempus pharetra mi. Etiam porta dolor ac magna bibendum, at vehicula lorem pellentesque. Aliquam eget porttitor tellus. Donec dapibus sapien mi, eu suscipit arcu scelerisque ac. Nam faucibus eu dolor et ultricies. Sed eget nisi mi. Mauris tempus ornare eleifend. Etiam eget lacus pellentesque, elementum lectus a, elementum risus. Mauris eu justo non sapien faucibus condimentum. Aliquam ut mollis ligula, faucibus commodo metus.<br />
+<br />
+Donec sed lacus ornare, vestibulum risus et, sagittis lacus. Duis hendrerit augue a metus rutrum fringilla. Pellentesque pellentesque dictum libero nec molestie. Phasellus placerat dui vulputate nisl tincidunt finibus. Morbi porta sapien nec ex tincidunt ultrices. Quisque eu ante a nulla mattis blandit. Curabitur imperdiet vulputate elit, sed ultrices dui rutrum eu. Vestibulum vitae mollis quam. Nunc consequat, nibh eget sagittis imperdiet, quam eros consequat arcu, sed hendrerit urna velit eget nulla.<br />
+<br />
+Praesent vel leo magna. Sed placerat odio nibh, ut convallis nulla lacinia vitae. Suspendisse volutpat consequat volutpat. Nam tempus lorem et lacinia aliquam. Donec quis gravida tellus. Mauris blandit ultricies bibendum. In venenatis lectus commodo ex porta tincidunt. Nam porta erat in eros varius porta. Phasellus tincidunt feugiat porta. Sed dapibus aliquam pharetra. Pellentesque placerat, quam vel blandit iaculis, tellus purus ultrices magna, in scelerisque ante libero id dolor. Morbi consequat dui quis lectus egestas congue.<br />
+<br />
+Duis vehicula ut magna a faucibus. Pellentesque accumsan mi vel bibendum malesuada. Integer venenatis mollis ex, nec fringilla metus mollis a. Vivamus ornare aliquet nulla, vitae dictum nulla. Pellentesque eu ligula aliquet, egestas risus pulvinar, scelerisque arcu. Suspendisse nec pharetra ante, nec convallis lacus. Maecenas consequat ullamcorper tristique. Phasellus nec varius lacus. Maecenas ornare urna non porttitor commodo. Vivamus eros mi, egestas eu ipsum at, aliquam mattis risus. Integer quis tempor arcu. Aenean ut fermentum augue.<br />
+<br />
+In venenatis tempor ornare. Cras in nisl et ipsum convallis laoreet vitae in tortor. Nunc a porttitor augue. Donec tristique lacinia lorem, gravida hendrerit augue lacinia vitae. Aliquam rutrum velit leo, a rhoncus nulla aliquet sit amet. Vivamus id nibh porta, volutpat arcu et, tempor tellus. Sed ultrices justo in molestie dictum. Duis non imperdiet sapien. Phasellus pharetra auctor quam non fermentum.<br />
+-----------END USER INPUT-----------<br />
+User string has 9962 characters</td></tr></table><hr><hr><h2>Tailor-made Tabs (p1v2d1)</h2><hr>The anatomy of the tab character is a bit funny. It does not always produce a sequence of 4 spaces. Instead, it produces just enough spaces so that the next character after the tab character is aligned to what is known as a <i>tab stop</i>. See the following websites for details<br />
+<a href = "https://en.wikipedia.org/wiki/Tab_key">https://en.wikipedia.org/wiki/Tab_key</a><br />
+<a href = "https://en.wikipedia.org/wiki/Tab_stop">https://en.wikipedia.org/wiki/Tab_stop</a><br />
+<br />
+In this question we will implement a new tab character where the user can specify the tab size. The first line of the input will contain a strictly positive integer n and the second line will contain a string. However, the string may contain escape sequences. You have to reprint the string realizing the escape sequences yourself. The escape sequences you have to handle are:<br />
+<br />
+\n Newline<br />
+\\ Backslash<br />
+\" Double quotation mark<br />
+\T Tailor-tab (described below)<br />
+<br />
+If the character \ (backslash) is followed by any other character, print the word "ERROR" (without quotes) as your output.<br />
+<br />
+For example, if the input string is #ABC\"DEF\"# (without the pound symbols), then your output should be<br />
+ABC"DEF"<br />
+<br />
+There will be no traditional tab (\t) character in the string. However, in addition to the above escape sequences, you have to handle a new escape sequence tailor-tab that we define below. Tailor-tab \T is a new tab character we are defining here that aligns characters to the next column divisible by n (n was given to you in line 1). For example if n = 3 and the string is #ABC\TDEF# (without the pound symbols), then your output should be<br />
+ABC  DEF<br />
+<br />
+Note that there are 2 spaces after the letter C so that the next character D gets printed in column 6 which is divisible by 3 (D would have otherwise gotten printed in column 4 which is not divisible by 3). Note that newline characters refresh the column count. Thus, if n = 3 and the user string is #ABC\n\TDEF# (without the pound symbols) then the output must be<br />
+ABC<br />
+  DEF<br />
+so that the character D gets printed in column 3 which is divisible by 3 (it would have otherwise been printed in column 1 which is not divisible by 3.<br />
+<br />
+The user input string will be given in a single line and contain no more than 499 characters. We also assure you that the total characters you have to output (including the extra spaces) will not exceed 999.<br />
+<br />
+<b>Bonus</b>: implement a new function tailorTabs that can take a string and the tab size as its two arguments and print that string according to the rules mentioned above.<br />
+<br />
+<b>You should be able to solve this problem nicely even without using functions. Functions will be covered in class next week. Functions allow you to write cleaner code and allow you to think about the problem in an organized manner. However, although it is perfectly possible to solve most problems in a reasonable manner without using functions at all, code (especially if it is long and complex) written without functions, tends to be more error prone and hard to debug.</b><h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5<br />
+This string \"tests\" whether usual\nescape sequences are handled\\or not</td><td>This string "tests" whether usual<br />
+escape sequences are handled\or not</td></tr><tr><td>3<br />
+This string \'should cause an error</td><td>ERROR</td></tr><tr><td>4<br />
+Tabs\Tcan\Treally\Tmake\nText\Tlook\Tnice</td><td>Tabs   can really  make<br />
+Text   looknice</td></tr><tr><td>5<br />
+Roll\TName\TSection\n001\TSam\TB12\n002\TJim\TB2\n\n003\TRick\TB6</td><td>RollName Section<br />
+001 Sam  B12<br />
+002 Jim  B2<br />
+<br />
+003 Rick B6</td></tr><tr><td>1<br />
+Roll\TName\TSection\n001\TSam\TB12\n002\TJim\TB2\n\n003\TRick\TB6</td><td>RollNameSection<br />
+001SamB12<br />
+002JimB2<br />
+<br />
+003RickB6</td></tr><tr><td>6<br />
+\"A\"\T\\B\\\TC\n\\GH\\\T\"IJ\"\TKL\nM\TN\TO</td><td>"A"  \B\   C<br />
+\GH\ "IJ"  KL<br />
+M    N     O</td></tr></table><hr><hr><h2>De-Duplicate (p1v3d1)</h2><hr>Read the input and print only those characters which have not previously appeared in input. The input may contain printable characters as well as whitespace characters. Print only the first occurrence of any character.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>abcdabcdefgh</td><td>abcdefgh</td></tr><tr><td>abcd<br />
+efgh<br />
+pqrs</td><td>abcd<br />
+efghpqrs</td></tr><tr><td>a%  bcd<br />
+AaEefgh<br />
+pqrs%''"</td><td>a% bcd<br />
+AEefghpqrs'"</td></tr><tr><td>10110010001</td><td>10</td></tr><tr><td>dddddddddddddddddddd</td><td>d</td></tr><tr><td>[[[[[[[[[$[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]{R}}}}}}}}}}}}((((((((((N((((((()</td><td>[$]{R}(N)</td></tr></table><hr><hr><h2>Matrix Mania (p1v4d1)</h2><hr>You will be given a strictly positive integer n in the first line of the input followed by an n x n matrix of integers in the following n lines, each line containing one row of the matrix. In the last line of the input, you will see a list of characters all of which will be capital letters from the set {L,R,H,V,D,A,X}. The list will be terminated by the letter X.<br />
+<br />
+L: rotate the matrix counterclockwise 90 degrees<br />
+R: rotate the matrix clockwise 90 degrees<br />
+H: flip the matrix horizontally<br />
+V: flip the matrix vertically<br />
+D: flip the matrix along its diagonal (i.e. take its transpose)<br />
+A: flip the matrix along its anti-diagonal (lets call it the anti-transpose operation)<br />
+<br />
+Do the operations in sequence and give the matrix after performing all the operations.<br />
+<br />
+<b>Hint</b>: Your code for this question can get very messy if you do not use functions. Define and implement six functions, one for each of the operations, to make your code cleaner and easier to debug.<br />
+<br />
+<b>You should be able to solve this problem nicely even without using functions. Functions will be covered in class next week. Functions allow you to write cleaner code and allow you to think about the problem in an organized manner. However, although it is perfectly possible to solve most problems in a reasonable manner without using functions at all, code (especially if it is long and complex) written without functions, tends to be more error prone and hard to debug.</b><h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+9 0 1 2<br />
+3 4 5 6<br />
+HX</td><td>4 3 2 1<br />
+8 7 6 5<br />
+2 1 0 9<br />
+6 5 4 3</td></tr><tr><td>4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+9 0 1 2<br />
+3 4 5 6<br />
+LX</td><td>4 8 2 6<br />
+3 7 1 5<br />
+2 6 0 4<br />
+1 5 9 3</td></tr><tr><td>4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+9 0 1 2<br />
+3 4 5 6<br />
+DX</td><td>1 5 9 3<br />
+2 6 0 4<br />
+3 7 1 5<br />
+4 8 2 6</td></tr><tr><td>4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+9 0 1 2<br />
+3 4 5 6<br />
+AX</td><td>6 2 8 4<br />
+5 1 7 3<br />
+4 0 6 2<br />
+3 9 5 1</td></tr><tr><td>4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+9 0 1 2<br />
+3 4 5 6<br />
+RDLX</td><td>6 2 8 4<br />
+5 1 7 3<br />
+4 0 6 2<br />
+3 9 5 1</td></tr><tr><td>4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+9 0 1 2<br />
+3 4 5 6<br />
+VX</td><td>3 4 5 6<br />
+9 0 1 2<br />
+5 6 7 8<br />
+1 2 3 4</td></tr><tr><td>4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+9 0 1 2<br />
+3 4 5 6<br />
+RHLX</td><td>3 4 5 6<br />
+9 0 1 2<br />
+5 6 7 8<br />
+1 2 3 4</td></tr><tr><td>4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+9 0 1 2<br />
+3 4 5 6<br />
+RX</td><td>3 9 5 1<br />
+4 0 6 2<br />
+5 1 7 3<br />
+6 2 8 4</td></tr><tr><td>4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+9 0 1 2<br />
+3 4 5 6<br />
+LLLX</td><td>3 9 5 1<br />
+4 0 6 2<br />
+5 1 7 3<br />
+6 2 8 4</td></tr><tr><td>4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+9 0 1 2<br />
+3 4 5 6<br />
+HARVARDX</td><td>6 2 8 4<br />
+5 1 7 3<br />
+4 0 6 2<br />
+3 9 5 1</td></tr><tr><td>4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+9 0 1 2<br />
+3 4 5 6<br />
+HARVARDLADX</td><td>3 4 5 6<br />
+9 0 1 2<br />
+5 6 7 8<br />
+1 2 3 4</td></tr></table><hr><hr></body>
+</html>

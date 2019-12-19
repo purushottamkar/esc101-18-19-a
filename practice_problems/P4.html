@@ -1,0 +1,132 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>PRACTICE-04_COND</title>
+</head>
+<body>
+<h1>PRACTICE-04_COND</h1><h2>Increasing Functions (p1v1d1)</h2><hr>f is a real-valued function over the real line. You are given the values f takes (all these values will be integers) at the points x = 1, x = 2, ... x = 5 in the format described below. If all these values are in increasing order, then output "Yes" (without the quotes), otherwise output "No" (without the quotes). If the answer is No, then on a new line, you also have to output the following number N<br />
+$$N = |\{i: f(i) < f(i-1), 2 <= i <= 5\}|$$<br />
+This number denotes the number of times the function violated the increasing property. If the answer is Yes then nothing else needs to be printed.<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+x = 1, f(x) = 1<br />
+x = 2, f(x) = 3<br />
+x = 3, f(x) = 8<br />
+x = 4, f(x) = 10<br />
+x = 5, f(x)  = 11<br />
+<br />
+OUTPUT:<br />
+Yes<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+x = 1, f(x) = 5<br />
+x = 2, f(x) = 1<br />
+x = 3, f(x) = 2<br />
+x = 4, f(x) = 6<br />
+x = 5, f(x)  = 4<br />
+<br />
+OUTPUT:<br />
+No<br />
+2<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>x = 1, f(x) = 5<br />
+x = 2, f(x) = 1<br />
+x = 3, f(x) = 2<br />
+x = 4, f(x) = 6<br />
+x = 5, f(x) = 4</td><td>No<br />
+2</td></tr><tr><td>x = 1, f(x) = 1<br />
+x = 2, f(x) = 3<br />
+x = 3, f(x) = 8<br />
+x = 4, f(x) = 10<br />
+x = 5, f(x) = 11</td><td>Yes</td></tr><tr><td>x = 1, f(x) = 1<br />
+x = 2, f(x) = 1<br />
+x = 3, f(x) = 2<br />
+x = 4, f(x) = 2<br />
+x = 5, f(x) = 4</td><td>Yes</td></tr><tr><td>x = 1, f(x) = 1<br />
+x = 2, f(x) = 3<br />
+x = 3, f(x) = 2<br />
+x = 4, f(x) = 2<br />
+x = 5, f(x) = 4</td><td>No<br />
+1</td></tr><tr><td>x = 1, f(x) = 11<br />
+x = 2, f(x) = 10<br />
+x = 3, f(x) = 8<br />
+x = 4, f(x) = 3<br />
+x = 5, f(x) = 1</td><td>No<br />
+4</td></tr></table><hr><hr><h2>Divide-by-zero (p1v2d1)</h2><hr>Divide-by-zero is an illegal step in mathematics, as well as considered illegal by Mr. C. You will be given two integers a and b. Your job is to output a/b correct to 3 decimal places if b is not equal to 0, else print "Divide-by-zero error!" (without the quotes).<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+1 3<br />
+<br />
+OUTPUT:<br />
+0.333<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+2 0<br />
+<br />
+OUTPUT:<br />
+Divide-by-zero error!<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 3</td><td>0.333</td></tr><tr><td>2 0</td><td>Divide-by-zero error!</td></tr><tr><td>0 0</td><td>Divide-by-zero error!</td></tr><tr><td>0 2</td><td>0.000</td></tr><tr><td>20 9</td><td>2.222</td></tr><tr><td>20 3</td><td>6.667</td></tr></table><hr><hr><h2>Largest power of 2 (p1v3d1)</h2><hr>You will be given an integer N. Print the largest number out of {1,2,4,8} which divides N. Note that if 8 divides N, then trivially 4 must also divide N. However, you have to output the largest power of 2 among those given, that divide N.<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+16<br />
+<br />
+OUTPUT:<br />
+8<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+12<br />
+<br />
+OUTPUT:<br />
+4<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>12</td><td>4</td></tr><tr><td>6</td><td>2</td></tr><tr><td>16</td><td>8</td></tr><tr><td>-3</td><td>1</td></tr><tr><td>-24</td><td>8</td></tr><tr><td>-28</td><td>4</td></tr></table><hr><hr><h2>Ordinal Indicators (p1v4d1)</h2><hr>The English language uses various morphemes known as <i>ordinal indicators</i>. For example, we say that Dr. Rajendra Prasad was the <b>1st</b> president of India whereas Buzz Aldrin was the <b>2nd</b> human being to walk on the moon. Given an integer between 1 and 50, print the appropriate ordinal indicator along with that number. The rules for ordinal indicators are given below.<br />
+<ol><br />
+<li>For 1, 21, 31, 41, append "st" (without quotes) to the number<br />
+<li>For 2, 22, 32, 42, append "nd" (without quotes) to the number<br />
+<li>For 3, 23, 33, 43, append "rd" (without quotes) to the number<br />
+<li>For all other numbers, append "th" (without quotes) to the number<br />
+</ol><br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+2<br />
+<br />
+OUTPUT:<br />
+2nd<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+43<br />
+<br />
+OUTPUT:<br />
+43rd<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2</td><td>2nd</td></tr><tr><td>1</td><td>1st</td></tr><tr><td>11</td><td>11th</td></tr><tr><td>23</td><td>23rd</td></tr><tr><td>22</td><td>22nd</td></tr><tr><td>41</td><td>41st</td></tr><tr><td>3</td><td>3rd</td></tr><tr><td>10</td><td>10th</td></tr></table><hr><hr><h2>Bulls-eye --- well almost (p1v5d1)</h2><hr>You are given the following quantities in a format described below<br />
+<ol><br />
+<li>The 2D coordinates of the center of a dartboard<br />
+<li>The 2D coordinates where the dart hit the dartboard<br />
+<li>The error margin<br />
+</ol><br />
+All coordinates and margins are floats. You have to print "Bulls-eye!" (without the quotes) if the dart hit the board at a distance (computed as Euclidean distance) closer than or equal to the margin, else print "Fail!" (without the quotes).<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+(1.0,1.0)<br />
+(1.1,1.2)<br />
+1.0<br />
+<br />
+OUTPUT:<br />
+Bulls-eye!<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>(1.0,1.0)<br />
+(1.1,1.2)<br />
+1.0</td><td>Bulls-eye!</td></tr><tr><td>(1.0,1.0)<br />
+(1.1,1.2)<br />
+0.01</td><td>Fail!</td></tr><tr><td>(10.0,0.0)<br />
+(0.0,10.0)<br />
+15.0</td><td>Bulls-eye!</td></tr><tr><td>(10.0,20.0)<br />
+(10.0,20.0)<br />
+0.001</td><td>Bulls-eye!</td></tr><tr><td>(0.0,0.0)<br />
+(0.0,0.0)<br />
+0.0001</td><td>Bulls-eye!</td></tr><tr><td>(-10.0,0.0)<br />
+(-5.0,0.0)<br />
+0.0001</td><td>Fail!</td></tr><tr><td>(-6.0,0.0)<br />
+(-5.0,0.0)<br />
+1.0001</td><td>Bulls-eye!</td></tr></table><hr><hr></body>
+</html>

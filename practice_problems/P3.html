@@ -1,0 +1,50 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>PRACTICE-03_TYPES</title>
+</head>
+<body>
+<h1>PRACTICE-03_TYPES</h1><h2>Aadhar Leak (p1v1d1)</h2><hr>You came across a website giving personal details (pin and date of birth) of various persons enrolled in some government scheme. The pin is an integer and date of birth is given in day/month/year format. The pin and date of birth are separated by a comma followed by a space.<br />
+<br />
+It turns out that you can figure out their Aadhar password using these details. The Aadhar password of any person is the pin number followed by the month in which the person was born. Write a program to automatically read these personal details and print the Aadhar password.<br />
+<br />
+INPUT:<br />
+PIN, DD/MM/YYYY<br />
+OUTPUT:<br />
+PASSWORD<br />
+<br />
+Example<br />
+INPUT<br />
+6744, 08/11/1978<br />
+OUTPUT<br />
+674411<br />
+<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>6744, 08/11/1978</td><td>674411</td></tr><tr><td>323, 7/9/2000</td><td>3239</td></tr><tr><td>34939, 14/10/6733</td><td>3493910</td></tr><tr><td>4566, 21/2/1456</td><td>45662</td></tr></table><hr><hr><h2>Neat Date Format (p1v2d1)</h2><hr>You are given a date in a slightly unusual format given below<br />
+[DD][MM][YYYY]<br />
+Moreover, the above uses a 4 digit format for the year (assume all years are between 1910 and 1999). However, you want to print the date a more compact format as<br />
+DD/MM/YY<br />
+Write a program to do so.<br />
+<br />
+EXAMPLE:<br />
+INPUT<br />
+[12][5][1998]<br />
+OUTPUT<br />
+12/5/98<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>[12][5][1998]</td><td>12/5/98</td></tr><tr><td>[15][8][1947]</td><td>15/8/47</td></tr><tr><td>[21][12][1965]</td><td>21/12/65</td></tr><tr><td>[14][1][1999]</td><td>14/1/99</td></tr></table><hr><hr><h2>Clock Mirror Time (p1v3d1)</h2><hr>Given a clock with time the format hr:min, write a C program to output the time shown by the mirror image of the clock in hours:minutes format. For example, if the clock shows time 2:30, its mirror image will represent time 9:30.<br />
+<br />
+EXAMPLE<br />
+INPUT:<br />
+2:30<br />
+OUTPUT<br />
+9:30<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2:30</td><td>9:30</td></tr><tr><td>4:50</td><td>7:10</td></tr><tr><td>5:08</td><td>6:52</td></tr><tr><td>8:09</td><td>3:51</td></tr><tr><td>5:05</td><td>6:55</td></tr></table><hr><hr><h2>Spy Games (p1v4d2)</h2><hr>You and your friend want to exchange a secret 3 digit pin number but do not want anyone else to find out. The way you do this is you devise a secret single digit number between 0 and 5 which we will call a shift. Suppose the secret pin is 179 and the shift is 5. Then you do the following<br />
+<ol><br />
+<li>Take the first digit 1. Add the shift 5 to it to get a new first digit 6.<br />
+<li>Take the second digit 7. Add the shift 5 to it to get 12. Since this is a two digit number, take the last digit 2 as the new second digit.<br />
+<li>Take the third digit 9. Add the shift 5 to it to get 14. Since this is a two digit number, take the last digit 4 as the new third digit.<br />
+</ol><br />
+So we get a new number 624 which we will call an "encrypted" number which you and your friend communicate to each other. Write a program to take this encrypted number 624 and the shift, and print the original secret number 179. Be careful that some of the digits in the original or the encrypted pin may be zero. Also be careful that the shift is between 0 and 5.<br />
+<br />
+EXAMPLE<br />
+INPUT<br />
+624 5<br />
+OUTPUT<br />
+179<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>624 5</td><td>179</td></tr><tr><td>213 2</td><td>091</td></tr><tr><td>019 3</td><td>786</td></tr><tr><td>155 4</td><td>711</td></tr></table><hr><hr><h2>Factorial (p1v5d1)</h2><hr>Write a program to calculate and print the factorial of 20.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td></td><td>2432902008176640000</td></tr><tr><td></td><td>2432902008176640000</td></tr></table><hr><hr></body>
+</html>

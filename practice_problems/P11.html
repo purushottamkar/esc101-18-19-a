@@ -1,0 +1,285 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>PRACTICE-11_FUN-PTR</title>
+</head>
+<body>
+<h1>PRACTICE-11_FUN-PTR</h1><h2>Circular Queue (p1v1d1)</h2><hr>Queues are very widely used in Computer Science (see week 10 lab problems Tuesday problem 1 and Thursday problem 1 - please understand those questions before solving this question). However, when implementing queues using arrays, managing the limited memory available becomes an issue. Suppose we have an array of size 5 and wish to implement a queue using this array.<br />
+<br />
+Suppose the operations given to us are (E = enqueue, D = dequeue, X = terminate)<br />
+E 1<br />
+E 2<br />
+E 3<br />
+E 4<br />
+E 5<br />
+D<br />
+D<br />
+Initially the array is empty (* denotes an empty location)<br />
+[* * * * *]<br />
+Then after the five enqueue operations, the array looks like<br />
+[1 2 3 4 5]<br />
+whereas after the next two dequeue operations, the array looks like<br />
+[* * 3 4 5]<br />
+the first two positions are no longer a part of the queue. Now if there are two more enqueue operations<br />
+E 6<br />
+E 7<br />
+then we have a problem in our hands. There is no more space to the right of the array (new elements in the queue always go to the back of the queue) so we can do either of the following three things<br />
+<ol><br />
+<li>Refuse to enqueue the two new elements: although simple, this is a waste of space since there are two empty locations in the array<br />
+<li>Shift the array to fill up the empty spaces: shift all entries two locations left so that the array looks like<br />
+[3 4 5 * *]<br />
+Now there is space to enqueue 6 and 7. However, this shifting business can take up a lot of time (imagine a queue with 3 million entries)<br />
+<li>Reuse the space to the left using a circular queue: this is what we will implement in this question.<br />
+</ol><br />
+A circular queue is very efficient in reusing space in that it cycles around if the array has no more space to the right. Thus, in a circular queue, E 6 would result in<br />
+[6 * 3 4 5]<br />
+and then E 7 would result in<br />
+[6 7 3 4 5]<br />
+If we now see a D instruction, we would pop 3 and the array pop an element from the front of the queue which is the element 3, and the array would look like<br />
+[6 7 * 4 5]<br />
+If we see 3 more D instructions, elements would keep getting popped from the front of the queue and the array would look like<br />
+[6 7 * * 5]<br />
+[6 7 * * *]<br />
+[* 7 * * *]<br />
+If we now see the instruction E 8, the array will get added to the back of the queue<br />
+[* 7 8 * *]<br />
+If we pop two elements now, the array would become all empty again<br />
+[* * * * *]<br />
+If we add a new element now E 9, it would get added to the back of the queue which gets reset to the first element of the array<br />
+[9 * * * *]<br />
+Remember, dequeuing from an empty queue results in an "UNDERFLOW" error and enqueuing to an already full queue results in an "OVERFLOW" error.<br />
+<br />
+You have to implement enqueue and dequeue operations in a circular queue as described above and print the state of the array after every operation (or else print the error message). The first line of the input will tell you the size of the array you should use.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5<br />
+E 1<br />
+E 2<br />
+E 3<br />
+E 4<br />
+E 5<br />
+E 6<br />
+D<br />
+D<br />
+E 7<br />
+E 8<br />
+E 9<br />
+D<br />
+D<br />
+D<br />
+E 0<br />
+D<br />
+D<br />
+D<br />
+D<br />
+X</td><td>[1 * * * *]<br />
+[1 2 * * *]<br />
+[1 2 3 * *]<br />
+[1 2 3 4 *]<br />
+[1 2 3 4 5]<br />
+OVERFLOW<br />
+[* 2 3 4 5]<br />
+[* * 3 4 5]<br />
+[7 * 3 4 5]<br />
+[7 8 3 4 5]<br />
+OVERFLOW<br />
+[7 8 * 4 5]<br />
+[7 8 * * 5]<br />
+[7 8 * * *]<br />
+[7 8 0 * *]<br />
+[* 8 0 * *]<br />
+[* * 0 * *]<br />
+[* * * * *]<br />
+UNDERFLOW<br />
+</td></tr><tr><td>5<br />
+E 1<br />
+E 2<br />
+E 3<br />
+D<br />
+E 4<br />
+D<br />
+E 5<br />
+D<br />
+E 6<br />
+D<br />
+E 7<br />
+D<br />
+E 8<br />
+D<br />
+E 9<br />
+D<br />
+E 0<br />
+D<br />
+X</td><td>[1 * * * *]<br />
+[1 2 * * *]<br />
+[1 2 3 * *]<br />
+[* 2 3 * *]<br />
+[* 2 3 4 *]<br />
+[* * 3 4 *]<br />
+[* * 3 4 5]<br />
+[* * * 4 5]<br />
+[6 * * 4 5]<br />
+[6 * * * 5]<br />
+[6 7 * * 5]<br />
+[6 7 * * *]<br />
+[6 7 8 * *]<br />
+[* 7 8 * *]<br />
+[* 7 8 9 *]<br />
+[* * 8 9 *]<br />
+[* * 8 9 0]<br />
+[* * * 9 0]<br />
+</td></tr><tr><td>4<br />
+E 0<br />
+E 0<br />
+E 0<br />
+E 0<br />
+D<br />
+D<br />
+D<br />
+D<br />
+D<br />
+E 1<br />
+E 1<br />
+E 1<br />
+E 1<br />
+E 1<br />
+D<br />
+E 2<br />
+E 2<br />
+E 2<br />
+D<br />
+D<br />
+D<br />
+D<br />
+X</td><td>[0 * * *]<br />
+[0 0 * *]<br />
+[0 0 0 *]<br />
+[0 0 0 0]<br />
+[* 0 0 0]<br />
+[* * 0 0]<br />
+[* * * 0]<br />
+[* * * *]<br />
+UNDERFLOW<br />
+[1 * * *]<br />
+[1 1 * *]<br />
+[1 1 1 *]<br />
+[1 1 1 1]<br />
+OVERFLOW<br />
+[* 1 1 1]<br />
+[2 1 1 1]<br />
+OVERFLOW<br />
+OVERFLOW<br />
+[2 * 1 1]<br />
+[2 * * 1]<br />
+[2 * * *]<br />
+[* * * *]<br />
+</td></tr></table><hr><hr><h2>Primes are here again (p1v2d1)</h2><hr>WARNING: This problem is otherwise very simple. The point of this question is to practice writing functions to perform simple operations to write nice code. Use the template provided and practice writing functions.<br />
+<br />
+You will be given a positive number n and then n positive integers. Store these numbers in an array arr. As your output, you have to print n numbers where ith number is arr[i-1]*(sum of all primes strictly less than arr[i-1]) where i runs from 1 to n. For this problem, 0 and 1 are not considered primes.<br />
+<br />
+WARNING: use long variables to perform computations even though the input will only be integer variables. The template is given below as well in case you erase it.<br />
+<br />
+Input Format:<br />
+n (integer denoting the size of the array)<br />
+n space separated positive integer<br />
+<br />
+Output Format:<br />
+n space separated integers<br />
+<br />
+Example:<br />
+Input:<br />
+1<br />
+2<br />
+<br />
+Output:<br />
+0<br />
+<br />
+#include &lt;stdio.h&gt;<br />
+<br />
+int check_prime(int n){<br />
+    if(n &lt; 2) return 0;<br />
+    for(int i = 2; i &lt; n; i++)<br />
+        if(n % i == 0)<br />
+            return 0;<br />
+    return 1;<br />
+}<br />
+<br />
+long prime_sum(int n){<br />
+    long sum = 0;<br />
+    for(int i = 2; i &lt; n; i++)<br />
+        if(check_prime(i))<br />
+            sum += i;<br />
+    return sum;<br />
+}<br />
+<br />
+int main(){<br />
+    int n, i;<br />
+    scanf("%d", &n);<br />
+    int arr[n];<br />
+    <br />
+    for(i = 0; i &lt; n; i++){<br />
+        scanf("%d", arr + i);<br />
+        printf("%ld", arr[i]*prime_sum(arr[i]));<br />
+        if(i &lt; n-1) printf(" "); // No trailing spaces<br />
+    }<br />
+<br />
+    return 0;<br />
+}<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1<br />
+2</td><td>0</td></tr><tr><td>2<br />
+2 3</td><td>0 6</td></tr><tr><td>20<br />
+41 59 66 2 80 12 52 30 33 16 89 61 10 31 78 67 93 88 40 74</td><td>8077 22479 33066 0 63280 336 17056 3870 5280 656 77786 26840 170 3999 55536 33567 89559 76912 7880 52688</td></tr><tr><td>50<br />
+5 22 12 59 31 62 68 11 30 63 39 30 53 6 71 30 97 12 99 61 39 80 81 18 71 45 54 61 94 52 46 10 49 82 51 42 22 33 78 6 55 72 22 60 57 66 89 80 6 73</td><td>25 1694 336 22479 3999 31062 38624 187 3870 31563 7683 3870 17384 60 40328 3870 93411 336 104940 26840 7683 63280 64071 1044 40328 12645 20574 26840 90522 17056 12926 170 16072 64862 16728 9996 1694 5280 55536 60 20955 46008 1694 26400 21717 33066 77786 63280 60 46647</td></tr><tr><td>50<br />
+5944 5281 4060 8065 8822 9209 7644 4020 5630 1983 9183 9051 5233 5560 6362 6535 3615 3490 2872 7461 6553 7760 1690 7418 5687 9924 4945 8842 6761 1022 7153 5558 4361 4748 5262 733 3465 1552 6549 1634 844 3126 6939 2491 2051 2142 2880 3238 6985 4038</td><td>12820096472 9016193209 4278245300 30540171010 39817955848 45052472398 26367465852 4154871000 10808620380 533573742 44671924839 42955901184 8796704398 10487972560 15647784340 16704682045 3046252050 2717914280 1587506616 24327366444 16836524605 27664881120 343570240 23966104072 11207513075 56335630344 7458741300 40142600422 18404577848 81953158 21756264374 10484199908 5238267482 6655005712 8928230094 31129044 2674411740 268025744 16783344966 318634902 47126428 1999802232 19885571091 1048242692 593099976 682359804 1600220160 2195383428 20406558755 4205972724</td></tr><tr><td>5<br />
+2 10 1 1 5</td><td>0 170 0 0 25</td></tr></table><hr><hr><h2>The Clones of the Clones (p1v3d1)</h2><hr>We have seen that C functions can call each other. However, C functions can call themselves as well. The process of a function calling itself is called recursion and it can be used to write very elegant solutions to complex-looking problems.<br />
+<br />
+The template code given with this problem gives you the recursive code to print the locations of all occurrences of a given character in a string. Modify this code to print all occurrences of a given substring in a string. Both the string, as well as the substring will be at most 99 characters long and will be given in a single line. We will first give the substring then the string in two separate lines.<br />
+<br />
+WARNING: programs that use recursion excessively can be slow due to the cloning process being a bit expensive. All C programs that are written using recursion, can also be written in a way that does not use any recursion. This result is a landmark and fundamental result in the theory of computation (CSE students will study this topic in the course CS340), guaranteed by the Church-Turing thesis. However, the non-recursive code can sometimes look very messy to humans whereas the recursive code looked very elegant, even though the messy code is faster than the elegant code.<br />
+<br />
+The template code is reproduced below in case you erase it while coding.<br />
+<br />
+------------ TEMPLATE CODE ------------<br />
+#include &lt;stdio.h&gt;<br />
+#include &lt;string.h&gt;<br />
+<br />
+// whereIsChar recursively calls itself to find out<br />
+// 1. the locations of all occurrences of c<br />
+// 2. total number of occurrences of c<br />
+// offset tells us how many chars of the string have we already searched<br />
+int whereIsChar(char* string, char c, int offset){<br />
+    char* ptr = strchr(string, c); // Find next occurrence of c<br />
+    if(ptr != NULL){ // Did we find c ?<br />
+        int foundIndex = offset + (int)(ptr - string);<br />
+        printf("Found at index %d\n", foundIndex);<br />
+        // Continue searching for c in the remaining string<br />
+        return 1 + whereIsChar(ptr + 1, c, foundIndex + 1);<br />
+    }else<br />
+        return 0; // Nothing more to do - no more occurences of c<br />
+}<br />
+<br />
+int main(){<br />
+    char c, str[100];<br />
+    scanf("%c\n", &c);<br />
+    gets(str);<br />
+    <br />
+    // Offset is 0 since none of the string has been searched so far<br />
+    printf("Found %d occurrence(s) of char %c", whereIsChar(str,c,0), c);<br />
+    <br />
+    return 0;<br />
+}<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>abc<br />
+abc</td><td>Found at index 0<br />
+Found 1 occurrence(s) of substring "abc"</td></tr><tr><td>abc<br />
+defghi</td><td>Found 0 occurrence(s) of substring "abc"</td></tr><tr><td>abc<br />
+abcdefabcdefabcdef</td><td>Found at index 0<br />
+Found at index 6<br />
+Found at index 12<br />
+Found 3 occurrence(s) of substring "abc"</td></tr><tr><td>aba<br />
+abacbabcbabababa</td><td>Found at index 0<br />
+Found at index 9<br />
+Found at index 11<br />
+Found at index 13<br />
+Found 4 occurrence(s) of substring "aba"</td></tr><tr><td>aaa<br />
+aacaaaabaaaaaba</td><td>Found at index 3<br />
+Found at index 4<br />
+Found at index 8<br />
+Found at index 9<br />
+Found at index 10<br />
+Found 5 occurrence(s) of substring "aaa"</td></tr></table><hr><hr></body>
+</html>

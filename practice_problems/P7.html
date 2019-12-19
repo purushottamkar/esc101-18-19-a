@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>PRACTICE-07_LOOPS-ARR</title>
+</head>
+<body>
+<h1>PRACTICE-07_LOOPS-ARR</h1><h2>Supersized Sum (p1v1d1)</h2><hr><b>This question does not require the use of arrays. Try solving it without using arrays.</b><br />
+<br />
+In the first line, you will be given two strictly positive long numbers M and N. After that, you will be given N long integers, say x1, x2, ... xN. All these integers will be strictly positive. You have to output the value of (x1 + x2 + ... + xN) % M.<br />
+<br />
+This question seems deceptively simple since you might think all you need to do is to maintain a running sum and then take the remainder with M. However, here is the twist. Even though the final output will definitely fit inside a long variable (since the final output is definitely less than M since it is a remainder with M which is itself a long variable), the sum of all the N numbers may not fit inside a long variable at all - it may be much bigger than the limit of long variables!<br />
+<br />
+<b>Hint</b> Use the following property of remainders. For any three strictly positive integers (or longs) p, q, r, we always have (p + q) % r = ((p % r) + (q % r)) % r<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5 10 1 2 3 4 5 6 7 8 9 10</td><td>0</td></tr><tr><td>100000 2 5678905678905678905 5678905678905678905</td><td>57810</td></tr><tr><td>1234567890 6 1111111111111111111 1111111111111111111 1111111111111111111 1111111111111111111 1111111111111111111 1111111111111111111</td><td>172840056</td></tr><tr><td>1111111111111111111  20 1111111111111111111 2222222222222222222 3333333333333333333 4444444444444444444 5555555555555555555 6666666666666666666 7777777777777777777 8888888888888888888 9999999999999999999 0 1111111111111111111 2222222222222222222 3333333333333333333 4444444444444444444 5555555555555555555 6666666666666666666 7777777777777777777 8888888888888888888 9999999999999999999 0 </td><td>668966295931773838</td></tr></table><hr><hr><h2>Degree of Compositionality (p1v2d1)</h2><hr><b>This question does not require the use of arrays. Try solving it without using arrays.</b><br />
+<br />
+Given a strictly positive integer, print its <i>degree of compositionality</i> (DoC for short). We define the DoC of a number as the number of prime divisors it has (i.e. excluding 1 but including the number itself if the number is itself prime), including repetitions.<br />
+<br />
+Examples:<br />
+<ol><br />
+<li>DoC of 5 is 1 since it has only one non-unity divisor, itself.<br />
+<li>DoC of 8 is 3 since 8 = 2 x 2 x 2<br />
+<li>DoC of 12 is 3 since 12 = 2 x 2 x 3<br />
+</ol><br />
+<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5</td><td>1</td></tr><tr><td>12</td><td>3</td></tr><tr><td>240</td><td>6</td></tr><tr><td>720720</td><td>10</td></tr><tr><td>665280</td><td>12</td></tr><tr><td>104729</td><td>1</td></tr></table><hr><hr><h2>Reverse the Stream (p1v3d1)</h2><hr><b>This question requires the use of arrays.</b><br />
+<br />
+You will be given a non-negative integer N followed by N integers, separated by a space. We assure you that N will be less than or equal to 20. You have the print the stream in reverse with spaces between two elements, there should be no space after the last element.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5 1 2 3 4 5</td><td>5 4 3 2 1</td></tr><tr><td>1 66</td><td>66</td></tr><tr><td>10 1 2 3 4 5 6 7 8 9 0 11 22 33 44 55 66 77 88 99 10</td><td>0 9 8 7 6 5 4 3 2 1</td></tr><tr><td>0 1 2 3</td><td></td></tr><tr><td>20 11 22 33 44 55 66 77 88 99 100 111 222 333 444 555 666 777 888 999 1100 1111 2222</td><td>1100 999 888 777 666 555 444 333 222 111 100 99 88 77 66 55 44 33 22 11</td></tr><tr><td>6 -6 -5 -4 -3 -2 -1 0</td><td>-1 -2 -3 -4 -5 -6</td></tr></table><hr><hr><h2>The Better Cricketer (p1v4d1)</h2><hr><b>This question requires the use of arrays.</b><br />
+<br />
+On the first line of the input you will be given the runs scored by Sachin in a few of his matches. On the second line of the input you will be given the runs scored by Dravid in a few of his matches in a similar manner.<br />
+<br />
+You have to output the least score achieved by Sachin in his list that is greater than or equal to at least half of the scores achieved by Dravid given in his list (i.e. if Dravid has 16 scores, this will apply if one of Sachin's score is greater than or equal to at least 8 of these scores). If no such score of Sachin exists, then print "psst ... Dravid is better" (without quotes).<br />
+<br />
+<ol><br />
+<li>The scores will be non-negative integers separated by a space.<br />
+<li>Scores given in the list need not be in increasing or decreasing order.<br />
+<li>All scores will be smaller than 500 (duh - even Brian Lara could not score that much)<br />
+<li>The list of scores for Sachin and Dravid will both end with a -1.<br />
+<li>We promise we wont give more than 20 scores for either of the cricketers. However, we may give scores for different number of matches for the two cricketers.<br />
+<li>For sake of convenience, we will always give an even number of scores for Dravid).<br />
+<li>None of the lists will be empty i.e. the very first number will never be -1 in any of the lists.<br />
+</ol> <h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>101 22 200 0 33 45 99 71 125 -1<br />
+60 40 20 30 50 0 -1</td><td>33</td></tr><tr><td>1 2 3 4 5 6 -1<br />
+1 2 4 8 16 32 64 128 -1</td><td>psst ... Dravid is better</td></tr><tr><td>1 -1<br />
+0 0 0 0 1 1 1 1 -1</td><td>1</td></tr><tr><td>5 3 2 1 -1<br />
+3 3 3 3 10 10 10 10 -1</td><td>3</td></tr><tr><td>5 3 2 1 -1<br />
+101 0 -1</td><td>1</td></tr><tr><td>5 3 2 1 -1 100 1000<br />
+101 6 -1 20 2000 20000</td><td>psst ... Dravid is better</td></tr></table><hr><hr><h2>Palindromes (p1v5d1)</h2><hr><b>This question requires the use of arrays.</b><br />
+<br />
+You will be given a stream of non-negative integers in the input, with two numbers separated by a space. There will be at most 20 numbers in the stream. At the end of the stream will be -1 (the final -1 is not a part of the stream). You have to print "YES" (without the quotes) if the sequence is a palindrome else print "NO" (without the quotes).<br />
+<br />
+A palindrome is a sequence whose mirror image is the same as the sequence itself. Examples of palindrome sequences are<br />
+<br />
+1 2 3 4 5 4 3 2 1<br />
+1 2 3 3 2 1<br />
+<br />
+Examples of non-palindromes<br />
+<br />
+1 2 3 4 5<br />
+1 2 3 3 4 1<br />
+9 0 4 0 8<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 2 3 4 5 4 3 2 1 -1</td><td>YES</td></tr><tr><td>1 2 3 3 4 1 -1</td><td>NO</td></tr><tr><td>0 9 8 7 7 8 9 0 -1</td><td>YES</td></tr><tr><td>1 0 9 8 7 5 100 5 7 8 9 0 1 -1</td><td>YES</td></tr><tr><td>1 0 9 8 7 5 100 101 5 7 8 9 0 1 -1</td><td>NO</td></tr><tr><td>100 -1</td><td>YES</td></tr></table><hr><hr></body>
+</html>

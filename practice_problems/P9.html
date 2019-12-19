@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>PRACTICE-09_PTR-MAT</title>
+</head>
+<body>
+<h1>PRACTICE-09_PTR-MAT</h1><h2>Monster Multiply Revisited (p1v1d1)</h2><hr>You will be given two non-negative integers a and b in two lines of the input. You have to print their product in the output.<br />
+The numbers a and b may contain upto 50 digits. However, for your convenience, we will pad the numbers with zeros to the left so that we always give you 50 digits for each number.<br />
+<br />
+Note, however, that your output must not contain leading zeros (i.e. do not output 00023, output 23 instead). Be careful that your output may contain more than 50 digits. If the product is zero, simply print a single zero in the output.<br />
+<br />
+The numbers in this question will not fit even inside long variables. You should use arrays to solve this problem.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>00000000000000000000000000000000000000000000001000<br />
+00000000000000000000000000000000000000000000000323</td><td>323000</td></tr><tr><td>00000000000000000000123456789012345678901234567890<br />
+00000000000000000000000000000000000000000000000000</td><td>0</td></tr><tr><td>00000023827889475437571832584970549769864590123843<br />
+00000000007504054608468557543849324032940329403894</td><td>178805783828236751094364439499041935436213406768686902529744400945011227927826444642</td></tr><tr><td>99999999999999999999999999999999999999999999999999<br />
+99999999999999999999999999999999999999999999999999</td><td>9999999999999999999999999999999999999999999999999800000000000000000000000000000000000000000000000001</td></tr><tr><td>11111111111111111111111111111111111111111111111111<br />
+11111111111111111111111111111111111111111111111111</td><td>123456790123456790123456790123456790123456790123454320987654320987654320987654320987654320987654321</td></tr><tr><td>10000000000000000000000000000000000000000000000000<br />
+10000000000000000000000000000000000000000000000000</td><td>100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</td></tr></table><hr><hr><h2>Proper Case (p1v2d1)</h2><hr>In a single line of input, you will be given a string containing only English alphabet letters, punctuation marks (the list of punctuation marks for this question is fullstop . comma , exclamation mark ! colon : semicolon ; hyphen -) and spaces and tabs. There will be no newline characters in the string. The string will contain at most 999 characters. However, the person writing the string has untidy capitalization in the string. The capitalization rule for this question is given below.<br />
+<ol><br />
+<li>If the first character in the line is an alphabet character, it should be in upper case.<br />
+<li>If an alphabet character occurs after a punctuation mark or a space/tab, it should be in upper case.<br />
+<li>All other occurrences of alphabet characters should be in lower case.<br />
+</ol><br />
+Rewrite and print the string with proper capitalization.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>hello WORLD</td><td>Hello World</td></tr><tr><td>HI,my name is MR C AND i can teach you programming.Are you ready!</td><td>Hi,My Name Is Mr C And I Can Teach You Programming.Are You Ready!</td></tr><tr><td>WoW! a::B is the same as A::b</td><td>Wow! A::B Is The Same As A::B</td></tr><tr><td>I can show you the world. sHINING shiMMering SPlenDid!Tell me princess-now when did you last let your heart decide</td><td>I Can Show You The World. Shining Shimmering Splendid!Tell Me Princess-Now When Did You Last Let Your Heart Decide</td></tr><tr><td>Many researchers choose this way of capitalization for their research-papers.</td><td>Many Researchers Choose This Way Of Capitalization For Their Research-Papers.</td></tr><tr><td>tAlE aS oLd As TiMe! TuNe As OlD aS sOnG.</td><td>Tale As Old As Time! Tune As Old As Song.</td></tr></table><hr><hr><h2>Num2Word (p1v3d1)</h2><hr>A long variable takes 8 bytes to store whereas a char takes 1 byte. This means a long variable has enough space to store 8 characters inside it. In the input, you will be given a single non-negative integer. Extract the 8 characters stored inside that long integer and store them inside a character array with 9 characters - the 9th character should be set by you to the NULL character. Print the character array as a string.<br />
+<br />
+Example: <br />
+'W' = 87 = 01010111<br />
+'O' = 79 = 01001111<br />
+'\0' = 0 = 00000000 (in binary)<br />
+<br />
+So the binary number 01010111 01001111 01010111 00000000 00000000 00000000 00000000 00000000<br />
+(spaces between bytes are just for ease of reading) which corresponds to the long integer<br />
+6291342861971488768<br />
+actually represents the sequence of 8 characters 'W' 'O' 'W' '\0' '\0' '\0' '\0' '\0'<br />
+<br />
+<b>HINT</b>: There are at least three ways to solve this problem - let us know on Piazza if you find more<br />
+<ol><br />
+<li>Method 1: use remainder and divide trick to extract bytes out of the long number<br />
+<li>Method 2: a convenient way of doing method 1 using bitshift operators (search online to learn more - we will do them in class later).<br />
+<li>Method 3: use a char* pointer to access individual bytes of the long variable. The week 8 tutorial will cover how to perform arithmetic using pointers. This can be used to extract characters from a long integer. WARNING: if using this method, be careful that the Prutor server is a <i>Little Endian</i> machine (search online to learn more) which means it actually stores the bytes in the reverse order i.e. the long number 6291342861971488768 will be stored as<br />
+00000000 00000000 00000000 00000000 00000000 01010111 01001111 01010111<br />
+</ol><h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>6291342861971488768</td><td>WOW</td></tr><tr><td>5217737160284717824</td><td>Hi Mr C</td></tr><tr><td>29590389553906432</td><td></td></tr><tr><td>5795967168569242112</td><td>Pointer</td></tr><tr><td>2531905900372128256</td><td>###</td></tr><tr><td>4714531563309524736</td><td>Amazing</td></tr></table><hr><hr><h2>Mr C meets Matrices (p1v4d1)</h2><hr>Just as Mr C can store arrays that look like vectors, he can also store matrices as a 2D array. He can also store higher order tensors as 3D, 4D arrays. Look at the code given to you which declares a matrix with 4 rows and 6 columns, reads elements from the input and prints them in row wise fashion.<br />
+<br />
+Modify this code to print the elements of the matrix in column wise order i.e. print column 1 elements first then column 2 elements and so on. Elements of a column should be printed on the same line, separated by a single space. Elements of different columns should be printed on different lines.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td></td><td>1 10 100 1000<br />
+2 20 200 2000<br />
+3 30 300 3000<br />
+4 40 400 4000<br />
+5 50 500 5000<br />
+6 60 600 6000</td></tr><tr><td></td><td>1 10 100 1000<br />
+2 20 200 2000<br />
+3 30 300 3000<br />
+4 40 400 4000<br />
+5 50 500 5000<br />
+6 60 600 6000</td></tr></table><hr><hr></body>
+</html>
