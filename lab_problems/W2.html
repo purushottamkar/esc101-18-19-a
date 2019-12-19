@@ -1,0 +1,772 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>LAB-PRAC-02_SCAN-PRINT</title>
+</head>
+<body>
+<h1>LAB-PRAC-02_SCAN-PRINT</h1><h2>Mr C goes on a diet (p1v1d1)</h2><hr><b>Mr C goes on a diet [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<b>Problem Statement</b><br />
+Some students told Mr C that he is getting a bit overweight so he decided to go on a diet. To do so, he wants to find the total surface area and volume of the glass he uses to measure his food. His glass is a cylinder with radius r and height h. Help him find our these two quantities.<br />
+<br />
+Your code should take 2 integers as input, the first is radius, the second is height, and then calculate and output the total surface area and volume of the cylinder in two separate lines. Don't forget the high-school formulae for the total surface area and volume of a cylinder :)<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>You need only output the integral part of the actual output i.e. if the actual volume is 100.56, output 100 and if the actual total surface area is 98.04, output 98.<br />
+<li>For this question, you may take the value of pi as 22/7.<br />
+<li>Do not use any datatype other than int.<br />
+<li>Do not use any library other than stdio.h<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>Visible test case number 1 is there to confirm if you are giving output in the correct format or not. Be careful about extra spaces and lines.<br />
+<li>Visible test case number 2 is there to check if you are performing integer arithmetic operations properly or not.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+radius height<br />
+<br />
+<b>OUTPUT</b>:<br />
+area<br />
+volume<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1 2<br />
+OUTPUT:<br />
+15<br />
+6<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. In each test case, 50% marks are for giving the correct total surface area and 50% marks will be for giving the correct volume i.e. if a test case is worth 2 points, 1 point is for correct total surface area and 1 point for correct volume.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if both answers are correct. Thus, if your surface area is correct but volume is incorrect, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get 50% partial marks.<br />
+<br />
+Each visible test case is worth 2 points and each hidden test case is worth 4 points.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>7 1</td><td>198<br />
+154</td></tr><tr><td>1 3</td><td>22<br />
+9</td></tr><tr><td>1 1</td><td>9<br />
+3</td></tr><tr><td>0 0</td><td>0<br />
+0</td></tr><tr><td>4 0</td><td>50<br />
+0</td></tr><tr><td>0 5</td><td>0<br />
+0</td></tr></table><hr><hr><h2>Permute Password (p1v2d1)</h2><hr><b>Permute Password [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<b>Problem Statement</b><br />
+You forgot the CVV of your ATM card which has 3 digits. Trying to recall it, you were able to remember the digits individually, but not their order. For example, you recall that the digits 5, 8, and 0 were there in the number but you have forgotten if the CVV number is 508 or 805 or something else.<br />
+<br />
+Mr C has offered to help you recover your CVV code. Mr. C will take 3 digits from you and print out all permutations of these digits, one permutation in each line. Your code should take 3 integers as input, each representing one digit of the CVV code. The permutations should be printed in increasing <br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Permutations should be output in increasing order, one on each line.<br />
+<li>Do not use any datatype other than int.<br />
+<li>Do not use any library other than stdio.h<br />
+</ol><br />
+You may assume that<br />
+<ol><br />
+<li>The three digits given to you are distinct<br />
+<li>The digits in the CVV code are also distinct, i.e. no digit repeats in your CVV code<br />
+<li>You will be given the digits in increasing order, i.e. in the previous example, the digits will be given to you in the order 0, 5, 8.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: Visible tests are there to show you how to give the output as well as warn you if you have extra spaces or extra lines etc in your output. There should be only 6 lines in your output, one corresponding to each permutation.<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+digit1 digit2 digit3<br />
+<br />
+<b>OUTPUT</b>:<br />
+permutation1<br />
+permutation2<br />
+permutation3<br />
+permutation4<br />
+permutation5<br />
+permutation6<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1 2 3<br />
+OUTPUT:<br />
+123<br />
+132<br />
+213<br />
+231<br />
+312<br />
+321<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of the order of the permutation (take help of visible test cases) as well as extra spaces and lines. Each visible test case is worth 2 points and each hidden test case is worth 4 points.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 2 3</td><td>123<br />
+132<br />
+213<br />
+231<br />
+312<br />
+321<br />
+</td></tr><tr><td>0 3 4</td><td>034<br />
+043<br />
+304<br />
+340<br />
+403<br />
+430<br />
+</td></tr><tr><td>2 4 6</td><td>246<br />
+264<br />
+426<br />
+462<br />
+624<br />
+642<br />
+</td></tr><tr><td>2 5 8</td><td>258<br />
+285<br />
+528<br />
+582<br />
+825<br />
+852<br />
+</td></tr><tr><td>1 3 8</td><td>138<br />
+183<br />
+318<br />
+381<br />
+813<br />
+831<br />
+</td></tr><tr><td>0 1 2</td><td>012<br />
+021<br />
+102<br />
+120<br />
+201<br />
+210<br />
+</td></tr></table><hr><hr><h2>Escapes around Tutors (p1v3d1)</h2><hr><b>Escapes around Tutors [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<b>Problem Statement</b>:<br />
+Your tutors work very hard to prepare for your tutorials, make questions for your lab assignments, quizzes, and exams. Motivate them by shouting out to them in following manner.<br />
+<br />
+"Tutors"<br />
+\Ka Tempo/<br />
+%HIGH hai!!!1!!!%<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+There is no input in this question.<br />
+<br />
+<b>OUTPUT</b>:<br />
+"Tutors"<br />
+\Ka Tempo/<br />
+%HIGH hai!!!1!!!%<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b><br />
+Total marks <b>[10 Points]</b><br />
+There will be no partial grading in this question. A complete match will get full marks whereas incomplete matches will get zero marks. Be careful about extra/missing spaces.<br />
+<br />
+----------------------------------------------------------------------<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td></td><td>"Tutors"<br />
+\Ka Tempo/<br />
+%HIGH hai!!!1!!!%</td></tr></table><hr><hr><h2>Amusing Fractions (p2v1d1)</h2><hr><b>Amusing Fractions [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Let’s start the day with some fraction arithmetic. You will be given two fractions as input. You are required to add and subtract the two fractions and display the integral part of both these values. For example, if the fractions are -10/2 and -3/4 then we have -10/2 + (-3/4) = -5.75 and -10/2 - (-3/4) = -4.25 and so your answers should be -5 and -4. Be careful -- as these examples demonstrate, the integral part is not found by either rounding up or down - the integral part is found by simply ignoring the fractional part of the number.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Do not use math.h or any header file other than stdio.h<br />
+<li>Use only integer variables. No floats, doubles etc.<br />
+<li>Fractions need not be provided to you in their lowest form i.e. the numerator and denominator may have common factors other than one.<br />
+<li>The fractions we give may be negative, or else their sum or difference may be negative<br />
+<li>We will never give any of the denominators to be zero so do not worry about divide-by-zero errors<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>Visible test case number 1 is there to confirm if you are giving output in the correct format or not. Be careful about extra spaces and lines.<br />
+<li>Visible test case number 2 is there to check if you are performing integer arithmetic operations properly or not.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+numerator1 denominator1 numerator2 denominator2<br />
+<b>OUTPUT</b>:<br />
+sum<br />
+difference<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+-10 2 3 -4<br />
+OUTPUT:<br />
+-5<br />
+-4<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. In each test case, 50% marks are for giving the correct sum and 50% marks will be for giving the correct difference i.e. if a test case is worth 2 points, 1 point is for correct sum and 1 point for correct difference.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if both answers are correct. Thus, if your sum is correct but difference is incorrect, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get 50% partial marks.<br />
+<br />
+Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible test cases and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>-10 2 3 -4</td><td>-5<br />
+-4</td></tr><tr><td>10 7 33 9</td><td>5<br />
+-2</td></tr><tr><td>-75 3 55 8</td><td>-18<br />
+-31</td></tr><tr><td>-15 2 55 6</td><td>1<br />
+-16</td></tr><tr><td>6 3 2 4</td><td>2<br />
+1</td></tr><tr><td>9 3 5 6</td><td>3<br />
+2</td></tr></table><hr><hr><h2>P and C (p2v2d1)</h2><hr><b>P and C [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You are given 3 NON-ZERO numbers between 1-9 i.e. they are SINGLE DIGIT. The digits will be given in increasing order. For example, you may be given the digits 3,6,8 in that order. Your job is to print out all positive numbers strictly less than 100 (i.e. 100 not included) that can be created out of these 3 digits. Print all these numbers in increasing order and one number per line.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>The three digits given to you are distinct and are given in increasing order.<br />
+<li>The numbers you form out of these digits may have repetitions. For example, if you are given the digits 3,6,8, then the number 33 is perfectly valid since it is less than 100 and is formed out of the digits given to you.<br />
+<li>Your numbers should be output in increasing order, one on each line.<br />
+<li>Do not use any datatype other than int.<br />
+<li>Do not use any library other than stdio.h<br />
+</ol><br />
+<br />
+HINTS: Visible test cases are there to show you how to give the output as well as warn you if you have extra spaces or extra lines etc in your output.<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+digit1 digit2 digit3<br />
+<b>OUTPUT</b>:<br />
+number1<br />
+number2<br />
+...<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1 2 3<br />
+OUTPUT:<br />
+1<br />
+2<br />
+3<br />
+11<br />
+12<br />
+13<br />
+21<br />
+22<br />
+23<br />
+31<br />
+32<br />
+33<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of the order of the permutation (take help of visible test cases) as well as extra spaces and lines. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible test cases and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 2 3</td><td>1<br />
+2<br />
+3<br />
+11<br />
+12<br />
+13<br />
+21<br />
+22<br />
+23<br />
+31<br />
+32<br />
+33</td></tr><tr><td>4 6 9</td><td>4<br />
+6<br />
+9<br />
+44<br />
+46<br />
+49<br />
+64<br />
+66<br />
+69<br />
+94<br />
+96<br />
+99</td></tr><tr><td>1 6 8</td><td>1<br />
+6<br />
+8<br />
+11<br />
+16<br />
+18<br />
+61<br />
+66<br />
+68<br />
+81<br />
+86<br />
+88</td></tr><tr><td>2 4 8</td><td>2<br />
+4<br />
+8<br />
+22<br />
+24<br />
+28<br />
+42<br />
+44<br />
+48<br />
+82<br />
+84<br />
+88</td></tr><tr><td>3 4 5</td><td>3<br />
+4<br />
+5<br />
+33<br />
+34<br />
+35<br />
+43<br />
+44<br />
+45<br />
+53<br />
+54<br />
+55</td></tr><tr><td>1 2 7</td><td>1<br />
+2<br />
+7<br />
+11<br />
+12<br />
+17<br />
+21<br />
+22<br />
+27<br />
+71<br />
+72<br />
+77</td></tr></table><hr><hr><h2>Build a Rhombus (p2v3d1)</h2><hr><b>Build a Rhombus [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given a single digit number as input. You need to print the number in the format given below. For example, if the digit is 1, print the following pattern,<br />
+1<br />
+11<br />
+111<br />
+1111<br />
+1111<br />
+ 111<br />
+  11<br />
+   1<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Take good care not to have extra/missing spaces or extra/missing lines in your output. These will fail an exact match and the autograder will give you a zero.<br />
+<li>Do not use any library other than stdio.h<br />
+<li>The code to take in an input (using scanf) has already been provided to you.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>Make sure your code can handle all digits.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+A single digit from 0-9<br />
+<b>OUTPUT</b>:<br />
+A rhombus design made completely out of that digit (see below)<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1<br />
+OUTPUT:<br />
+1<br />
+11<br />
+111<br />
+1111<br />
+1111<br />
+ 111<br />
+  11<br />
+   1<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 2 points and each hidden test case is worth 4 points.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>4</td><td>4<br />
+44<br />
+444<br />
+4444<br />
+4444<br />
+ 444<br />
+  44<br />
+   4</td></tr><tr><td>8</td><td>8<br />
+88<br />
+888<br />
+8888<br />
+8888<br />
+ 888<br />
+  88<br />
+   8</td></tr><tr><td>0</td><td>0<br />
+00<br />
+000<br />
+0000<br />
+0000<br />
+ 000<br />
+  00<br />
+   0</td></tr></table><hr><hr><h2>Developing Interest at IITK (p3v1d1)</h2><hr><b>Developing Interest at IITK [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Your batchmate applied for a loan to pay for their studies at IITK. The bank calculates loans in an interesting manner. For the first two years, it applies simple interest to the loan amount and for the next two years it applies compound interest on the loan amount. Assume that your batchmate does not pay any loan amount in the 4 years they are spending at IITK so the loan only keeps building up. Also, the interest rate stays the same for all four years.<br />
+<br />
+For example, if the principal loan amount is Rs 100 and annual interest rate is 1%, then the interest calculation would take place as follows<br />
+<ol><br />
+<li>First year: starting loan amount Rs 100, simple interest Re 1, final loan amount Rs 101<br />
+<li>Second year: starting loan amount Rs 101, simple interest Re 1 (recall that simple interest is calculated on principal amount i.e. Rs 100, and not current loan amount), final loan amount Rs 102<br />
+<li>Third year: starting loan amount Rs 102, compound interest Rs 1% of Rs 102 (recall that compound interest is calculated on current loan amount, and not principal loan amount), final loan amount Rs 103.02<br />
+<li> Fourth year: starting loan amount Rs 103.02, compound interest Rs 1% of 103.02, final loan amount Rs 104.0502<br />
+</ol><br />
+Your job is to output the integer part of the loan amount at the end of the 2nd and 4th year. In the above example, these amounts are 102 and 104 respectively. Please note that these are not rounded up or rounded down values. If the true amount is 114.79, you should output 114. If the true amount is 78.23, you should output 78.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Do not use math.h or any header file other than stdio.h<br />
+<li>Use only integer variables. No floats, doubles etc.<br />
+<li>Principal and rate of interest will be non-negative integers.<br />
+<li>Do not use loops or conditional statements.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>Visible test case number 1 is there to confirm if you are giving output in the correct format or not. Be careful about extra spaces and lines.<br />
+<li>Visible test case number 2 is there to check if you are performing integer arithmetic operations properly or not.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+principal interestrate<br />
+<b>OUTPUT</b>:<br />
+loan amount after 2 years<br />
+loan amount after 4 years<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+100 1<br />
+OUTPUT:<br />
+102<br />
+104<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. In each test case, 50% marks are for giving the correct amount after 2 years and 50% marks will be for giving the correct amount after 4 years i.e. if a test case is worth 2 points, 1 point is for correct amount after 2 years and 1 point for correct amount after 4 years.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<br />
+<br />
+Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible test cases and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>10 100</td><td>30<br />
+120</td></tr><tr><td>100 5</td><td>110<br />
+121</td></tr><tr><td>100 1</td><td>102<br />
+104</td></tr><tr><td>50 50</td><td>100<br />
+225</td></tr><tr><td>50 200</td><td>250<br />
+2250</td></tr><tr><td>100 0</td><td>100<br />
+100</td></tr></table><hr><hr><h2>Pick your Choice (p3v2d1)</h2><hr><b>Pick your choice [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+We will give you 4 distinct digits from 0-9, i.e. no two digits will be the same. The digits will be given to you as integers in increasing order. For example, we may give you 1, 5, 6, 8. Your job is to find the following<br />
+<ol><br />
+<li>Find the largest and second largest single digit number you can form out of the given digits and print their sum. E.g., in the above case, the two largest single digit numbers out of the given digits are 8 and 6, and their sum is 14.<br />
+<li>Find the largest and second largest double digit number you can form out of the given digits and print their sum. Note that no number should repeat digits but the two numbers may share digits. E.g., in the above case, the two largest double digit numbers out of the given digits are 86 and 85, and their sum is 171. Note that no number repeats digits although the digit 8 is shared across the numbers.<br />
+<li>Find the largest and second largest triple digit number you can form out of the given digits and print their sum. No number should repeat digits but the two numbers may share digits. E.g., in the above case, the sum of the two largest triple digit numbers out of the given digits is 1726.<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Print all three numbers on different lines.<br />
+<li>The four digits given to you are distinct and are given in increasing order.<br />
+<li>The two double digit numbers you construct should not repeat digits but the two numbers may share digits.<br />
+<li>The two triple digit numbers you construct should not repeat digits but the two numbers may share digits.<br />
+<li>Do not use any datatype other than int.<br />
+<li>Do not use any library other than stdio.h<br />
+</ol><br />
+<br />
+<b>HINTS</b>: Visible test cases are there to show you how to give the output as well as warn you if you have extra spaces or extra lines etc in your output.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+digit1 digit2 digit3 digit4<br />
+<b>OUTPUT</b>:<br />
+sum1<br />
+sum2<br />
+sum3<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1 5 6 8<br />
+OUTPUT:<br />
+14<br />
+171<br />
+1726<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible test cases and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 5 6 8</td><td>14<br />
+171<br />
+1726</td></tr><tr><td>0 1 2 3</td><td>5<br />
+63<br />
+641</td></tr><tr><td>1 2 3 4</td><td>7<br />
+85<br />
+863</td></tr><tr><td>3 7 8 9</td><td>17<br />
+195<br />
+1970</td></tr><tr><td>2 3 8 9</td><td>17<br />
+191<br />
+1965</td></tr><tr><td>6 7 8 9</td><td>17<br />
+195<br />
+1973</td></tr></table><hr><hr><h2>Lego Safe (p3v3d1)</h2><hr><b>Lego Safe [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Your friend wants to give you a secret digit. The digit is confidential and he would like you to store it in a safe. This safe has to be made using lego blocks. To assure him that you’ll keep the digit perfectly secret, you have to send him a image of the safe with the number kept inside it. Following is an empty secure safe.<br />
+<br />
+/---\<br />
+|%%%|<br />
+|% %|<br />
+|%%%|<br />
+\---/<br />
+<br />
+If the number 5 is kept inside, the safe should look like the following<br />
+/---\<br />
+|%%%|<br />
+|%5%|<br />
+|%%%|<br />
+\---/<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Take good care not to have extra/missing spaces or extra/missing lines in your output. These will fail an exact match and the autograder will give you a zero.<br />
+<li>Do not use any library other than stdio.h<br />
+<li>The code to take in an input (using scanf) has already been provided to you.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: Use the visible test cases to make sure you do not have any extra/missing lines or extra/missing spaces.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+<b>INPUT</b>:<br />
+5<br />
+<br />
+<b>OUTPUT</b>:<br />
+/---\<br />
+|%%%|<br />
+|%5%|<br />
+|%%%|<br />
+\---/<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 2 points and each hidden test case is worth 4 points. There is 1 visible and 2 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5</td><td>/---\<br />
+|%%%|<br />
+|%5%|<br />
+|%%%|<br />
+\---/<br />
+</td></tr><tr><td>0</td><td>/---\<br />
+|%%%|<br />
+|%0%|<br />
+|%%%|<br />
+\---/<br />
+</td></tr><tr><td>2</td><td>/---\<br />
+|%%%|<br />
+|%2%|<br />
+|%%%|<br />
+\---/<br />
+</td></tr></table><hr><hr><h2>Race Car (p4v1d1)</h2><hr><b>Race Car [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Let us recall the equations of motion. If u is initial velocity, a is acceleration, t is time spent, s is displacement, and v is final velocity, then we have<br />
+<ol><br />
+<li>v = u + a * t<br />
+<li>s = u*t + 1/2*a*t*t<br />
+<li>v*v = u*u + 2*a*s<br />
+</ol><br />
+Your car is driving at current speed u m/sec. You decide to accelerate at a m/sec for t seconds. Your job is to output your velocity at the end of t seconds as well as your displacement in these t seconds. If he velocity or displacement answers are not integers, output just the integer part of the answer. For example, if your velocity is 78.23 m/sec, you should output 78. Similarly, if your displacement is 114.79 m, you should output 114. Print both outputs on different lines.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Do not use math.h or any header file other than stdio.h<br />
+<li>Use only integer variables. No floats, doubles etc.<br />
+<li>Do not use loops or conditional statements.<br />
+<li>Be careful about missing/extra spaces and missing/extra lines.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>Visible test case number 1 is there to confirm if you are giving output in the correct format or not. Be careful about extra spaces and lines.<br />
+<li>Visible test case number 2 is there to check if you are performing integer arithmetic operations properly or not.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+u a t<br />
+<b>OUTPUT</b>:<br />
+velocity after t seconds<br />
+displacement during these t seconds<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1 1 1<br />
+OUTPUT:<br />
+2<br />
+1<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. In each test case, 50% marks are for giving the correct velocity and 50% marks will be for giving the correct displacement i.e. if a test case is worth 2 points, 1 point is for correct velocity and 1 point for correct displacement.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<br />
+<br />
+Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible test cases and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 1 1</td><td>2<br />
+1<br />
+</td></tr><tr><td>2 1 5</td><td>7<br />
+22<br />
+</td></tr><tr><td>10 10 10</td><td>110<br />
+600<br />
+</td></tr><tr><td>10 3 5</td><td>25<br />
+87<br />
+</td></tr><tr><td>2 10 3</td><td>32<br />
+51<br />
+</td></tr><tr><td>2 7 1</td><td>9<br />
+5<br />
+</td></tr></table><hr><hr><h2>Reverse Gear (p4v2d1)</h2><hr><b>Reverse Gear [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given two positive integers, greater than or equal to 100, but strictly less than 1000 (i.e. these will be 3 digit numbers). For example, we give you 123 and 456. Your first job is to find the digits of the first number. These are 1, 2 and 3. Next, your next job is to compute the number formed if we write these digits in reverse order i.e. in this case it will be the number 321. Your next job is to compute the sum of this reversed number and the second number. In this case, the answer is 321 + 456 = 777.<br />
+Print the digits of the first number (in their original i.e. unreversed order) on 3 different lines followed by the sum of the reversed number and the second number on a different line. For example, in the above case, you have to print<br />
+1<br />
+2<br />
+3<br />
+777<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Print all four outputs on four different lines.<br />
+<li>The numbers you are given may contain zero. Be careful while reversing. For example, if the two numbers are 300 and 500, then after reversing the first number we will get the number 003 which is just 3. In this case the output should be<br />
+3<br />
+0<br />
+0<br />
+503<br />
+<li>Do not use any datatype other than int.<br />
+<li>Do not use any library other than stdio.h<br />
+</ol><br />
+<br />
+<b>HINTS</b>: Visible test cases are there to show you how to give the output as well as warn you if you have extra spaces or extra lines etc in your output.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+number1 number2<br />
+<b>OUTPUT</b>:<br />
+digit1<br />
+digit2<br />
+digit3<br />
+sum<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+300 500<br />
+OUTPUT:<br />
+3<br />
+0<br />
+0<br />
+503<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible test cases and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>101 202</td><td>1<br />
+0<br />
+1<br />
+303</td></tr><tr><td>123 456</td><td>1<br />
+2<br />
+3<br />
+777</td></tr><tr><td>400  700</td><td>4<br />
+0<br />
+0<br />
+704</td></tr><tr><td>456 987</td><td>4<br />
+5<br />
+6<br />
+1641</td></tr><tr><td>203 876</td><td>2<br />
+0<br />
+3<br />
+1178</td></tr><tr><td>222 333</td><td>2<br />
+2<br />
+2<br />
+555</td></tr></table><hr><hr><h2>Numerical Flowers (p4v3d1)</h2><hr><b>Numerical Flowers [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+We will give you two single digit non-negative numbers, i.e. between 0-9. Suppose we give you the digits 3 and 0. Then your job is to print the following flowery pattern.<br />
+0 0 0<br />
+\ | /<br />
+ ---3---<br />
+/ | \<br />
+0 0 0<br />
+We can reveal that there are 3 spaces between the zeros. <br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Take good care not to have extra/missing spaces or extra/missing lines in your output. These will fail an exact match and the autograder will give you a zero.<br />
+<li>Do not use any library other than stdio.h<br />
+<li>The code to take in an input (using scanf) has already been provided to you.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: Use the visible test cases to make sure you do not have any extra/missing lines or extra/missing spaces.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+<b>INPUT</b>:<br />
+3 0<br />
+<br />
+<b>OUTPUT</b>:<br />
+0 0 0<br />
+\ | /<br />
+ ---3---<br />
+/ | \<br />
+0 0 0<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 2 points and each hidden test case is worth 4 points. There is 1 visible and 2 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>3 0</td><td>0   0   0<br />
+\   |   /<br />
+ ---3---<br />
+/   |   \<br />
+0   0   0<br />
+</td></tr><tr><td>1 7</td><td>7   7   7<br />
+\   |   /<br />
+ ---1---<br />
+/   |   \<br />
+7   7   7<br />
+</td></tr><tr><td>8 8</td><td>8   8   8<br />
+\   |   /<br />
+ ---8---<br />
+/   |   \<br />
+8   8   8<br />
+</td></tr></table><hr><hr></body>
+</html>

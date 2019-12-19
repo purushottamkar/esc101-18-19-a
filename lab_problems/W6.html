@@ -1,0 +1,671 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>LAB-PRAC-06_LOOPS</title>
+</head>
+<body>
+<h1>LAB-PRAC-06_LOOPS</h1><h2>Fill in the Square (p1v1d1)</h2><hr><b>Fill in the Square [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The entire Cartesian plane has been divided into unit squares. Squares in the 1st and 3rd quadrant are filled with 0 and squares in the 2nd and 4th quadrant are filled with 1 as shown below.<br />
+<div style="text-align:center"><img width = "400" src="http://web.cse.iitk.ac.in/users/purushot/courses/esc/2018-19-a/misc/w6p1v1f1.png"></div><br />
+<br />
+You are given the side length (<b>always a non-negative integer</b>) of a square and the <b>integer</b> coordinates of its bottom left corner. You have to show us in your output, what that square looks like. For example if the side length is 4 and the bottom-left corner is (-2,-2), then the square looks like<br />
+<div style="text-align:center"><img width = "400" src="http://web.cse.iitk.ac.in/users/purushot/courses/esc/2018-19-a/misc/w6p1v1f2.png"></div><br />
+In this case you have to print<br />
+1100<br />
+1100<br />
+0011<br />
+0011<br />
+Notice that there are not spaces anywhere and no extra new lines. As another example, if the side length is 4 and the bottom-left corner is (0,0), then the square looks like<br />
+<div style="text-align:center"><img width = "400" src="http://web.cse.iitk.ac.in/users/purushot/courses/esc/2018-19-a/misc/w6p1v1f3.png"></div><br />
+In this case you have to print<br />
+0000<br />
+0000<br />
+0000<br />
+0000<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Remember, side length can be any non-negative integer, not just 4 as in the visible test cases. Coordinates can be negative or positive integers and can even be zero.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Be very careful, even though the evaluation may give you marks for extra spaces and newlines, the autograder will give you zero marks for any extra spaces or new lines.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+4 -2 -2<br />
+<br />
+OUTPUT:<br />
+1100<br />
+1100<br />
+0011<br />
+0011<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>4 0 0</td><td>0000<br />
+0000<br />
+0000<br />
+0000</td></tr><tr><td>4 -2 -2</td><td>1100<br />
+1100<br />
+0011<br />
+0011</td></tr><tr><td>6 -2 0</td><td>110000<br />
+110000<br />
+110000<br />
+110000<br />
+110000<br />
+110000</td></tr><tr><td>3 0 -2</td><td>000<br />
+111<br />
+111</td></tr><tr><td>1 5 -5</td><td>1</td></tr><tr><td>2 -1 -1</td><td>10<br />
+01</td></tr></table><hr><hr><h2>Pretty Numbers (p1v2d1)</h2><hr><b>Pretty Numbers [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Given a <b>strictly positive integer</b> N, on the first line, output K defined as the sum of the digits of N. Then output the smallest number strictly greater than N, that is a perfect square, and also divisible by K. For example, if N = 13, then the sum of digits of N is 1 + 3 = 4. The smallest perfect square divisible by 4 and strictly greater than 13 is 16, so the output should be<br />
+4<br />
+16<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Although it is not absolutely needed, you may use the log10() function by including math.h that can help you calculate the length, i.e. number of digits, of an integer.<br />
+<li>Please note the unusual grading scheme for this question. The grading scheme is described below.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first line carries 25% weightage whereas the second line carries 75% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>3</td><td>3<br />
+9</td></tr><tr><td>15</td><td>6<br />
+36</td></tr><tr><td>81</td><td>9<br />
+144</td></tr><tr><td>6789</td><td>30<br />
+8100</td></tr><tr><td>1000</td><td>1<br />
+1024</td></tr><tr><td>10000</td><td>1<br />
+10201</td></tr></table><hr><hr><h2>Block Cipher (p1v3d1)</h2><hr><b>Block Cipher [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given a <b>long integer</b> N and another <b>integer</b> k as input. You have to take the number N and divide it into blocks of length k. For example if the number is 1999567890 and k = 3, then the blocks would be<br />
+(1)(999)(567)(890). Note that the last block has only one digit in it.<br />
+Given this block structure, we derive an encrypted number as follows: take each block and add the last digit of that block to that block. Take the last k digits of the new number we get as the sum to get the encrypted block. For example, in the above case, we have k = 3, so<br />
+890 + 0 = (890)<br />
+567 + 7 = (574)<br />
+999 + 9 = 1(008)<br />
+1 + 1 = (2)<br />
+The encrypted number is formed by concatenating all the encrypted blocks i.e.<br />
+2008574890<br />
+<br />
+On the first line, print the number of blocks in the integer. In the above example, there are 4 blocks in the number. On the second line print the encrypted number.<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Please note the unusual grading scheme for this question. The grading scheme is described below.<br />
+</ol><br />
+<b>HINTS</b>: Please include the math.h library in your code in case you feel it helps you solve this problem. The log10() function available through the math.h library may help you calculate the number of digits in a number.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1999567890  3<br />
+OUTPUT:<br />
+4<br />
+2008574890<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first line carries 25% weightage and the second line carries 75% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>123456 1</td><td>6<br />
+246802</td></tr><tr><td>112233445566 2</td><td>6<br />
+122436486072</td></tr><tr><td>999888777666 3</td><td>4<br />
+8896784672</td></tr><tr><td>1234567890123456789 3</td><td>7<br />
+2238574890126462798</td></tr><tr><td>123456789 9</td><td>1<br />
+123456798</td></tr><tr><td>999999999999 6</td><td>2<br />
+8000008</td></tr></table><hr><hr><h2>The Fibonacci Facade (p2v1d1)</h2><hr><b>The Fibonacci Facade [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Recall that the Fibonacci numbers are defined as follows<br />
+F(0) = 0<br />
+F(1) = 1<br />
+F(n) = F(n-1) + F(n-2), for n > 1<br />
+<br />
+Given an <b>integer n</b>, print the Fibonacci triangle described below in the example. The triangle should have n rows<br />
+<ol><br />
+<li>The first row should print F(0)<br />
+<li>The second row should print F(0) F(1) (i.e. the first two Fibonacci numbers <b>separated by a single space</b>)<br />
+<li>The third row should print F(0) F(1) F(2) (i.e. the first three Fibonacci numbers each </b>separated by a single space</b>)<br />
+<li>... and so on<br />
+</ol><br />
+There should be no space after the last number in any line. There should be no extra newline after the last line of the output. If n < 1, then your program should print "INVALID INPUT" (without quotes).<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Fibonacci numbers can get very large. Even though n will fit inside int variables, <b>use long variables</b> to do all your computation and all your printing.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Note that there is <b>no trailing space</b> at the end of the last number F(j-1). If your output has trailing spaces, you will receive no marks as there is no partial grading in this question.<br />
+<li>Note that there is <b>no trailing new line</b> after the last line of the output.<br />
+<li>Be very careful, even though the evaluation may give you marks for extra spaces and newlines, <b>the autograder will give you zero marks</b> for any extra spaces or new lines.<br />
+<li>Take care of capitalization and spelling mistakes.<br />
+</ol><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+5<br />
+<br />
+OUTPUT:<br />
+0<br />
+0 1<br />
+0 1 1<br />
+0 1 1 2<br />
+0 1 1 2 3<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5</td><td>0<br />
+0 1<br />
+0 1 1<br />
+0 1 1 2<br />
+0 1 1 2 3</td></tr><tr><td>-12</td><td>INVALID INPUT</td></tr><tr><td>0</td><td>INVALID INPUT</td></tr><tr><td>10</td><td>0<br />
+0 1<br />
+0 1 1<br />
+0 1 1 2<br />
+0 1 1 2 3<br />
+0 1 1 2 3 5<br />
+0 1 1 2 3 5 8<br />
+0 1 1 2 3 5 8 13<br />
+0 1 1 2 3 5 8 13 21<br />
+0 1 1 2 3 5 8 13 21 34</td></tr><tr><td>50</td><td>0<br />
+0 1<br />
+0 1 1<br />
+0 1 1 2<br />
+0 1 1 2 3<br />
+0 1 1 2 3 5<br />
+0 1 1 2 3 5 8<br />
+0 1 1 2 3 5 8 13<br />
+0 1 1 2 3 5 8 13 21<br />
+0 1 1 2 3 5 8 13 21 34<br />
+0 1 1 2 3 5 8 13 21 34 55<br />
+0 1 1 2 3 5 8 13 21 34 55 89<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155 165580141<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155 165580141 267914296<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155 165580141 267914296 433494437<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155 165580141 267914296 433494437 701408733<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155 165580141 267914296 433494437 701408733 1134903170<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155 165580141 267914296 433494437 701408733 1134903170 1836311903<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155 165580141 267914296 433494437 701408733 1134903170 1836311903 2971215073<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155 165580141 267914296 433494437 701408733 1134903170 1836311903 2971215073 4807526976<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229 832040 1346269 2178309 3524578 5702887 9227465 14930352 24157817 39088169 63245986 102334155 165580141 267914296 433494437 701408733 1134903170 1836311903 2971215073 4807526976 7778742049</td></tr><tr><td>30</td><td>0<br />
+0 1<br />
+0 1 1<br />
+0 1 1 2<br />
+0 1 1 2 3<br />
+0 1 1 2 3 5<br />
+0 1 1 2 3 5 8<br />
+0 1 1 2 3 5 8 13<br />
+0 1 1 2 3 5 8 13 21<br />
+0 1 1 2 3 5 8 13 21 34<br />
+0 1 1 2 3 5 8 13 21 34 55<br />
+0 1 1 2 3 5 8 13 21 34 55 89<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811<br />
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 10946 17711 28657 46368 75025 121393 196418 317811 514229</td></tr></table><hr><hr><h2>Stream AM GM (p2v2d1)</h2><hr><b>Stream AM GM [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given a stream of integers, <b>both positive as well as negative</b>. Your job is to calculate the arithmetic mean and the geometric mean of the numbers in the stream till -1 is encountered (excluding -1). Print the AM and GM <b>rounded off to 4 decimal places</b> on <b>two different lines</b>.<br />
+<br />
+If the GM of the numbers turns out to be complex number (since the product of the numbers, not including the last -1 is negative) then print the AM as is but in place of GM, print "INVALID INPUT" (without the quotes). If the stream is empty, i.e. the first number is itself -1, then print the following words "EMPTY STREAM" (without the quotes) on both lines.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about capitalization and spelling errors.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Note that the stream may contain positive as well as negative numbers. However, you only have to calculate AM and GM of the numbers till -1 is encountered (not including the -1).<br />
+<li>Although the stream input will fit inside int variable, use <b>double variables and double typecasts</b> to do all your calculations.<br />
+<li>Careful: the GM is always a positive number<br />
+<li>Dont forget to include math.h in your code if you need math functions<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1 2 3 4 5 6 7 8 9 10 -1<br />
+<br />
+OUTPUT:<br />
+5.5000<br />
+4.5287<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 -4 -1</td><td>-1.0000<br />
+INVALID INPUT</td></tr><tr><td>1 2 3 4 5 6 7 8 9 10 -1</td><td>5.5000<br />
+4.5287<br />
+</td></tr><tr><td>-1</td><td>EMPTY STREAM<br />
+EMPTY STREAM</td></tr><tr><td>9 9 9 9 9 9 9 9 9 -1 100 100 100 100</td><td>9.0000<br />
+9.0000<br />
+</td></tr><tr><td>1 2 3 4 5 6 7 8 9 0 9 8 7 6 5 4 3 2 1 -1 1000 1000 10000 100000</td><td>4.7368<br />
+0.0000<br />
+</td></tr><tr><td>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 -1</td><td>50.5000<br />
+37.9927<br />
+</td></tr></table><hr><hr><h2>Int on Int (p2v3d1)</h2><hr><b>Int on Int [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given two <b>non-negative integers</b> N, k, with the guarantee that both are not zero simultaneously. Your job is very simple. In the first line, print the sum 1^k + 2^k + 3^k + 4^k + 5^k. In the second line, print the sum 1^k + 2^k + ... + N^k. We want your output to be printed as an integer with all its digits intact - i.e. no approximations.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Even though N, k will fit inside int variables, use <b>long variables and long typecasts</b> in your calculations.<br />
+<li>Remember, datatypes like float and double can distort the numbers they store inside them.<br />
+<li>For N = 0, the summation 1^k + 2^k + ... + N^k is empty and is value should be printed as 0.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<b>INPUT</b>:<br />
+N k<br />
+<b>OUTPUT</b>:<br />
+1^k + 2^k + 3^k + 4^k + 5^k<br />
+1^k + 2^k + ... + N^k<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1 1<br />
+<br />
+OUTPUT:<br />
+15<br />
+1<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 2</td><td>55<br />
+1</td></tr><tr><td>5 2</td><td>55<br />
+55</td></tr><tr><td>30000 0</td><td>5<br />
+30000</td></tr><tr><td>0 10</td><td>10874275<br />
+0</td></tr><tr><td>14 11</td><td>53201625<br />
+7012409924625</td></tr><tr><td>12 10</td><td>10874275<br />
+102769130750</td></tr></table><hr><hr><h2>Bejewelled Brooch (p3v1d1)</h2><hr><b>Bejewelled Brooch [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You have to print the following beautiful pattern, given two <b>strictly positive integers</b> M and N. The first input will be M and then N will be provided after a space<br />
+<br />
+1 3<br />
+0000000<br />
+0#0#0#0<br />
+0000000<br />
+<br />
+2 2<br />
+00000<br />
+0#0#0<br />
+00000<br />
+0#0#0<br />
+00000<br />
+<br />
+Thus, as you see, there will be M special rows where 0 (zero) and # alternate. There are N # signs present in each of these special rows and each # sign has one 0 sign to the left and to the right. Also, each special row has a row filled with 0 signs below and above it.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>There should be no trailing spaces at the end of each line or trailing new lines.<br />
+<li>Be very careful, even though the evaluation may give you marks for extra spaces and newlines, <b>the autograder will give you zero marks</b> for any extra spaces or new lines.<br />
+</ol><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 1</td><td>000<br />
+0#0<br />
+000</td></tr><tr><td>1 3</td><td>0000000<br />
+0#0#0#0<br />
+0000000</td></tr><tr><td>2 3</td><td>0000000<br />
+0#0#0#0<br />
+0000000<br />
+0#0#0#0<br />
+0000000</td></tr><tr><td>1 10</td><td>000000000000000000000<br />
+0#0#0#0#0#0#0#0#0#0#0<br />
+000000000000000000000</td></tr><tr><td>10 1</td><td>000<br />
+0#0<br />
+000<br />
+0#0<br />
+000<br />
+0#0<br />
+000<br />
+0#0<br />
+000<br />
+0#0<br />
+000<br />
+0#0<br />
+000<br />
+0#0<br />
+000<br />
+0#0<br />
+000<br />
+0#0<br />
+000<br />
+0#0<br />
+000</td></tr><tr><td>4 6</td><td>0000000000000<br />
+0#0#0#0#0#0#0<br />
+0000000000000<br />
+0#0#0#0#0#0#0<br />
+0000000000000<br />
+0#0#0#0#0#0#0<br />
+0000000000000<br />
+0#0#0#0#0#0#0<br />
+0000000000000</td></tr></table><hr><hr><h2>Mobile Mixup (p3v2d1)</h2><hr><b>Mobile Mixup [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+On planet Vormir, where last week's aliens resided, mobile numbers can be upto 18 digits long and are not of fixed length i.e. some mobile numbers may have just 5 digits and others may have 18 digits. Facebook recently opened its operations in Vormir but its messaging system broke down and transmitted mobile numbers in reverse (Mark Zuckerberg had to apologize in front of the Vormir parliament too).<br />
+<br />
+Vormir aliens know that a real mobile number may end with zero but never start with a zero, just like Earth mobile numbers. However, when the mobile numbers were reversed, the zeros at the end were lost. You will be given two numbers a <b>long integer</b> M containing the reversed mobile number and an <b>integer</b> n tell you how many digits that mobile number has.<br />
+<br />
+In the first line of your output, give the first 3 digits of the original (unreversed) mobile number (no spaces between the digits) and in the next line, give the complete mobile number.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Use long variables to input and process the reversed and the original mobile numbers. They may not fit inside an int variable.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>The partial grading scheme in this question is unusual. See below for grading policy for this question.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>The function log10(n) available from math.h gives you back the base 10 logarithm of a number n. This function can help you in finding the number of digits in an integer n. Include math.h in your code to use this.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+M n<br />
+<br />
+<b>OUTPUT</b>:<br />
+First three digits of original mobile number (no spaces)<br />
+Complete original mobile number<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+9 8<br />
+<br />
+OUTPUT:<br />
+900<br />
+90000000<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. The first line carries 20% weightage and the second line carries 80% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1234567891 10</td><td>198<br />
+1987654321</td></tr><tr><td>9 8</td><td>900<br />
+90000000</td></tr><tr><td>1122334455 18</td><td>554<br />
+554433221100000000</td></tr><tr><td>123456789123456789 18</td><td>987<br />
+987654321987654321</td></tr><tr><td>102030405 16</td><td>504<br />
+5040302010000000</td></tr><tr><td>9801762354 10</td><td>453<br />
+4532671089</td></tr></table><hr><hr><h2>Primes are in C (p3v3d1)</h2><hr><b>Primes are in C [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Prime factorization is an important topic in analytic and computational number theory. Any positive integer can be expressed as product of prime numbers. You will be given a <b>strictly positive integer</b> N, and you have to print two quantities on <b>two separate lines</b><br />
+<ol><br />
+<li>the number of divisors of N (including 1 and the number itself)<br />
+<li>the sum of all prime divisors of N (including the number itself if N is itself prime)<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>In the first line, we want the number of all divisors (including 1 and the number itself). We do not care if the divisors are prime or not in this line.<br />
+<li>In the second line, we want the sum of only the prime divisors of N (including the number itself).<br />
+<li>1 is not considered a prime number but 2 is considered a prime number<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+4<br />
+<br />
+OUTPUT:<br />
+3<br />
+2<br />
+<b>Explanation</b> 4 has 3 divisors 1, 2, 4, out of which only 2 is prime so sum of primes is just 2.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>9</td><td>3<br />
+3</td></tr><tr><td>4</td><td>3<br />
+2</td></tr><tr><td>1</td><td>1<br />
+0</td></tr><tr><td>37</td><td>2<br />
+37</td></tr><tr><td>6578932</td><td>12<br />
+96768</td></tr><tr><td>47379084</td><td>36<br />
+10961</td></tr></table><hr><hr><h2>Towering Numbers (p4v1d1)</h2><hr><b>Towering Numbers [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Given a <b>strictly positive integer</b> N >= 1, your job is to print a number pyramid as show below. Suppose N = 5, then the pyramid should look like<br />
+    5<br />
+   454<br />
+  34543<br />
+ 2345432<br />
+123454321<br />
+<br />
+The first line has four spaces and then a 5, then no extra spaces. The second line has three spaces and then 454 (no spaces between the numbers) and then no extra spaces, and so on. There is no trailing new line after the last line is over.<br />
+<br />
+Suppose N = 3, then the pyramid should look like<br />
+  3<br />
+ 232<br />
+12321<br />
+The first line has two spaces and then a 3, then no extra spaces. The second line has one space and then 232 (no spaces between the numbers) and then no extra spaces, and so on. There is no trailing new line after the last line is over.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Be very careful, even though the evaluation may give you marks for extra spaces and newlines, the autograder will give you zero marks for any extra spaces or new lines.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5</td><td>    5<br />
+   454<br />
+  34543<br />
+ 2345432<br />
+123454321</td></tr><tr><td>3</td><td>  3<br />
+ 232<br />
+12321</td></tr><tr><td>1</td><td>1</td></tr><tr><td>6</td><td>     6<br />
+    565<br />
+   45654<br />
+  3456543<br />
+ 234565432<br />
+12345654321</td></tr><tr><td>9</td><td>        9<br />
+       898<br />
+      78987<br />
+     6789876<br />
+    567898765<br />
+   45678987654<br />
+  3456789876543<br />
+ 234567898765432<br />
+12345678987654321</td></tr><tr><td>4</td><td>   4<br />
+  343<br />
+ 23432<br />
+1234321</td></tr></table><hr><hr><h2>A Run of One (p4v2d1)</h2><hr><b>A Run of One [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+We will give you a sequence of integers which are guaranteed to be either 0 or 1. The sequence will be ended by a -1. You have to output three quantities as your output on <b>three different lines</b><br />
+<ol><br />
+<li>Total number of integers in the sequence, not including the final -1<br />
+<li>Total number of zeros in the sequence<br />
+<li>The maximum length of a continuous sub-sequence of 1s in the sequence<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+<li>The sequence may be empty (first number may itself be -1) or else the sequence may contain only one integer.<br />
+<li>Please note the unusual partial grading scheme for this question, given at the bottom.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: Recall we learnt about running counters and running sums in our earlier discussions. Those may help you solve this problem.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+0 1 0 0 1 1 1 0 1 1 -1<br />
+<br />
+OUTPUT:<br />
+10<br />
+4<br />
+3<br />
+<b>Explanation</b>: There are 10 integers in the sequence (not including the final -1), there are 4 zeros in total, and the continuous sub-sequences containing only 1s are the following (marked using brackets)<br />
+0 (1) 0 0 (1 1 1) 0 (1 1) -1<br />
+Of these, the longest such sequence is of length 3.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are three lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first two lines carry 12.5% weightage each and the last line carries 75% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>0 1 0 0 1 1 1 0 1 1 -1</td><td>10<br />
+4<br />
+3</td></tr><tr><td>1 0 1 0 -1</td><td>4<br />
+2<br />
+1</td></tr><tr><td>-1</td><td>0<br />
+0<br />
+0</td></tr><tr><td>1 -1</td><td>1<br />
+0<br />
+1</td></tr><tr><td>1 1 0 0 1 1 1 0 0 0 1 1 1 1 -1</td><td>14<br />
+5<br />
+4</td></tr><tr><td>0 0 0 0 0 0 0 0 0 0 -1</td><td>10<br />
+10<br />
+0</td></tr></table><hr><hr><h2>Where are the primes- (p4v3d1)</h2><hr><b>Where are the primes? [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+An interesting result in number theory states that the difference between any strictly positive integer and the number formed by reversing its digits is always divisible by 9, hence the difference can never be prime. However, Mr. C is more interested in prime numbers, and hence decides to find a prime number just greater than this difference.<br />
+<br />
+Given a <b>strictly positive integer</b> N as input, find the least prime number - P that is greater than the absolute difference between N and the number formed by reversing its digits. Print the absolute difference and P in two separate lines as output.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>1 is not considered a prime<br />
+<li>The number formed by reversing the digits of a number may be greater or smaller than the number itself.<br />
+<li>You may use the abs function to calculate the absolute value of an integer. Include stdlib.h in case you do wish to use this function.<br />
+<li>We assure you that the numbers we give you and the outputs, will always fit inside int.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+<br />
+<b>OUTPUT</b>:<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+37<br />
+<br />
+OUTPUT:<br />
+36<br />
+37<br />
+<br />
+<b>Explanation</b>: The number formed by reversing 37 is 73. The difference between 37 and 73 is 36. The prime number just larger than 36 is 37 itself.<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>37</td><td>36<br />
+37</td></tr><tr><td>4</td><td>0<br />
+2</td></tr><tr><td>10001</td><td>0<br />
+2</td></tr><tr><td>12314000</td><td>12272679<br />
+12272681</td></tr><tr><td>176000154</td><td>275000517<br />
+275000543</td></tr><tr><td>543786892</td><td>245099547<br />
+245099551</td></tr></table><hr><hr></body>
+</html>

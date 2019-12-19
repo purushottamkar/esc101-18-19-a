@@ -1,0 +1,691 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>LAB-PRAC-04_COND</title>
+</head>
+<body>
+<h1>LAB-PRAC-04_COND</h1><h2>Trouble with Triangles (p1v1d1)</h2><hr><b>Trouble with Triangles [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be provided the side lengths of a triangle in increasing order, <b>separated by commas</b>. Side lengths will be <b>strictly positive integers</b>. Depending on the input, you have to output <b>only one</b> of the following labels<br />
+<ol><br />
+<li><b>Invalid</b>: if the lengths provided cannot belong to a triangle. Remember that 3 positive integers can form the sides of a valid triangle if and only if the sum of any two of the side lengths is larger than or equal to the length of the third side. That means that if we have side lengths a, b, c, then for these to form a triangle, we must have<br />
+$$\begin{align}a + b &\geq c\\b + c &\geq a\\c + a &\geq b\end{align}$$<br />
+The above inequalities are often called the <b>triangle inequalities</b>.<br />
+<li><b>Equilateral</b>: if all sides of the triangle are equal<br />
+<li><b>Isosceles</b>: if any two sides of the triangle are equal<br />
+<li><b>Scalene</b>: if all sides of the triangle are unequal<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Output only one label. If you feel that more than one label applies to the triangle, please follow the rules given below.<br />
+<ol><br />
+<li>If the side lengths are invalid, for example 3, 4, 8, print only "Invalid" (without quotes) for this case. Do not print "Scalene" or "Isosceles" for such examples since they do not form valid triangles.<br />
+<li>If all side lengths are equal, for example 5, 5, 5, print only "Equilateral" in this case. Do not print "Isosceles" in this case.<br />
+</ol><br />
+<li>Side lengths will be integers and be given in increasing order.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<b>INPUT</b>:<br />
+length1, length2, length3<br />
+<br />
+<b>OUTPUT</b>:<br />
+Label<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+3, 4, 5<br />
+<br />
+OUTPUT:<br />
+Scalene<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>3, 4, 5</td><td>Scalene</td></tr><tr><td>3, 4, 9</td><td>Invalid</td></tr><tr><td>3, 3, 9</td><td>Invalid</td></tr><tr><td>20, 20, 20</td><td>Equilateral</td></tr><tr><td>20, 40, 60</td><td>Scalene</td></tr><tr><td>2, 9, 9</td><td>Isosceles</td></tr></table><hr><hr><h2>Ms- Mathematica (p1v2d1)</h2><hr><b>Ms. Mathematica [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Ms. Mathematica really loves numbers but some numbers are more loved than others. Currently, she likes complex numbers which have special real and imaginary coefficients. She needs your help to find out if a given complex number is her favorite or not.<br />
+<br />
+You will be given a complex number n = a + bi in a format described below, with both the real and imaginary parts being <b>4-digit integers</b> and an integer m, on <b>two separate lines</b>. Your job is to output the following in <b>two different lines</b><br />
+<ol><br />
+<li>The sum of the digits of the real part a of the number n and the product of the digits of the imaginary part b of the number n. Both numbers should be output on the same line, <b>separated by a comma and a space</b><br />
+<li> If both the sum and product values you calculated above are divisible by m then print “Favorite" (without the quotes), else print "Not favorite" (without the quotes).<br />
+</ol><br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Both the sum and the product should be output on the same line (the first line) and be separated by a single comma and a single space.<br />
+<li>Output the sum and product as integers with no leading zeros or decimal points etc.<br />
+<li>The four digit numbers we give you as a and b, may have zeros in their representation.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+a + bi<br />
+m<br />
+<br />
+<b>OUTPUT</b>:<br />
+sum, product<br />
+message<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1234 + 5678i<br />
+5<br />
+<br />
+OUTPUT:<br />
+10, 1680<br />
+Favorite<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<br />
+<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1234 + 5678i<br />
+5</td><td>10, 1680<br />
+Favorite</td></tr><tr><td>9455 + 3498i<br />
+23</td><td>23, 864<br />
+Not favorite</td></tr><tr><td>0002 + 1112i<br />
+2</td><td>2, 2<br />
+Favorite</td></tr><tr><td>7322 + 5764i<br />
+7</td><td>14, 840<br />
+Favorite</td></tr><tr><td>4563 + 5432i<br />
+25</td><td>18, 120<br />
+Not favorite</td></tr><tr><td>1234 + 5678i<br />
+4</td><td>10, 1680<br />
+Not favorite</td></tr></table><hr><hr><h2>Pollution Problem (p1v3d1)</h2><hr><b>Pollution Problem [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The Kanpur city has a growing problem of particulate matter (PM) pollution. IITK researchers are trying to help measure and correct the problem. You will be given four quantities in <b>four different lines</b> in a format described below -- all four quantities will be <b>non-integer</b>. On the first line, we will give you a threshold, and then on the next three lines we will give you PM pollution levels in Kanpur for Monday, Tuesday and Wednesday, say PM1, PM2 and PM3. <b>Assume that the PM pollution level on Sunday is always 1.0</b> (since being a holiday PM levels are less).<br />
+<br />
+You have to output the following on <b>four different lines</b>.<br />
+<ol><br />
+<li>For each day Mon, Tue, Wed, if the PM level on that day minus the level on the previous day is <b>greater than or equal to</b> the threshold, print High (see below for exact format) else print Low.<br />
+<li>Print the output for every day on a different line.<br />
+<li>For Monday, take Sunday as the previous day for which PM level is given above.<br />
+<li>If the number of days where your answer above was high is <b>less than</b> two, output 0.000 on the fourth line. If the number of such days is <b>greater than or equal to</b> two, then print the following quantity <b>rounded to three decimal places</b> in the fourth line<br />
+$$\sqrt{\frac{PM1^2 + PM2^2 + PM3^2}3}$$<br />
+</ol><br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Using float variables to read and perform calculations should be sufficient. In other words, you should not require the use of double variables in this question.<br />
+<li>Although you may use copy (CTRL+C) and paste (CTRL+V) to avoid typing similar code again and again, be careful to not make mistakes while doing so.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+threshold<br />
+Monday: PM1<br />
+Tuesday: PM2<br />
+Wednesday: PM3<br />
+<br />
+<b>OUTPUT</b>:<br />
+Monday: message<br />
+Tuesday: message<br />
+Wednesday: message<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+0.1<br />
+Monday: 1.2<br />
+Tuesday: 1.4<br />
+Wednesday: 1.6<br />
+<br />
+OUTPUT:<br />
+Monday: High<br />
+Tuesday: High<br />
+Wednesday: High<br />
+1.409<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are four lines in your output. Printing each line correctly, in the correct order, carries 25% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>0.1<br />
+Monday: 1.2<br />
+Tuesday: 1.4<br />
+Wednesday: 1.6</td><td>Monday: High<br />
+Tuesday: High<br />
+Wednesday: High<br />
+1.409</td></tr><tr><td>0.5<br />
+Monday: 0.0<br />
+Tuesday: 0.0<br />
+Wednesday: 1.0</td><td>Monday: Low<br />
+Tuesday: Low<br />
+Wednesday: High<br />
+0.000</td></tr><tr><td>1.2<br />
+Monday: 14.56<br />
+Tuesday: 11.22<br />
+Wednesday: 15.78</td><td>Monday: High<br />
+Tuesday: Low<br />
+Wednesday: High<br />
+13.987</td></tr><tr><td>0.0<br />
+Monday: 1.0<br />
+Tuesday: 1.0<br />
+Wednesday: 1.0</td><td>Monday: High<br />
+Tuesday: High<br />
+Wednesday: High<br />
+1.000</td></tr><tr><td>1.2<br />
+Monday: 1.2<br />
+Tuesday: 1.3<br />
+Wednesday: 2.49</td><td>Monday: Low<br />
+Tuesday: Low<br />
+Wednesday: Low<br />
+0.000</td></tr><tr><td>0.0<br />
+Monday: 0.0<br />
+Tuesday: 0.0<br />
+Wednesday: 0.0</td><td>Monday: Low<br />
+Tuesday: High<br />
+Wednesday: High<br />
+0.000</td></tr></table><hr><hr><h2>In or Out (p2v1d1)</h2><hr><b>In or Out [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given the 2D coordinates of the center of a circle and its radius in a format given below. You will also be given the 2D coordinates of another point. You have to print "In" (without quotes) if the point is inside the boundary of the circle, "On" (without quotes) if the point is on the boundary of the circle, and "Out" (without quotes) if the point is outside the boundary of the circle. All coordinates and radii will be <b>integers</b>.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Be careful that although the coordinates can be stored as int variables, your calculations may involve values that are too large for the int variable. Take care and use appropriate datatypes.<br />
+</ol><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+(xcenter, ycenter), r = radius<br />
+(x, y)<br />
+<br />
+<b>OUTPUT</b>:<br />
+Label (In/On/Out)<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+(7, 6), r = 4<br />
+(3, 3)<br />
+<br />
+OUTPUT:<br />
+Out<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>(10000, 10000), r = 50000<br />
+(40000, 50000)</td><td>On</td></tr><tr><td>(7, 6), r = 4<br />
+(3, 3)</td><td>Out</td></tr><tr><td>(111, 111), r = 121<br />
+(41, 23)</td><td>In</td></tr><tr><td>(23456789, 23456789), r = 1000<br />
+(23456789, 23456789)</td><td>In</td></tr><tr><td>(1, 1), r = 5<br />
+(4, 5)</td><td>On</td></tr><tr><td>(1000000, 1000000), r = 100<br />
+(2, 2)</td><td>Out</td></tr></table><hr><hr><h2>Rick-s Number (p2v2d1)</h2><hr><b>Rick's Number [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given two <b>non-negative four digit integers</b>, call them m = abcd and n = pqrs. Given these two numbers, we define the Rick's number as follows<br />
+<ol><br />
+<li>If the sum of the digits of <b>exactly one of m and n</b> are even, then the Rick's number is defined to be the number with the digits apbqcrds.<br />
+<li>Otherwise, the Rick's number is defined to be the number with the digits paqbrcsd.<br />
+</ol><br />
+There will be <b>four lines</b> in your output<br />
+<ol><br />
+<li>In the first line of your output, you have to print the sum of the digits of m<br />
+<li>In the second line of your output, you have to print the sum of the digits of n<br />
+<li>In the third line of your output, you have to print "Both" (without quotes) if both the above sums are even, "One" (without quotes) if exactly one of the sums is even, and "Neither" (without quotes) if neither of the sums is even.<br />
+<li>In the fourth line of your output, you have to print the Rick's number <b>as an integer</b> without any leading zeros i.e. if the Rick's number is 02145698, then print 2145698.<br />
+</ol><br />
+<b>Caution</b><br />
+<ol><br />
+<li>The digits of the number m and n may contain zeros<br />
+<li>The Rick's number has to be output as an integer without any leading zeros. As mentioned above, if the Rick's number is 02145698, then print 2145698.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+m n<br />
+<br />
+<b>OUTPUT</b>:<br />
+sum1<br />
+sum2<br />
+Both/One/Neither<br />
+Rick'sNumber<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1234 5678<br />
+<br />
+OUTPUT:<br />
+10<br />
+26<br />
+Both<br />
+51627384<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are four lines in your output. The first two lines carry 12.5% weightage, the third line carries 25% weightage and the last line carries 50% weightage. Printing each line correctly, in the correct order, will give you the corresponding partial marks. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1234 5678</td><td>10<br />
+26<br />
+Both<br />
+51627384</td></tr><tr><td>0234 1638</td><td>9<br />
+18<br />
+One<br />
+1263348</td></tr><tr><td>5433 5877</td><td>15<br />
+27<br />
+Neither<br />
+55847373</td></tr><tr><td>0000 1111</td><td>0<br />
+4<br />
+Both<br />
+10101010</td></tr><tr><td>3333 0000</td><td>12<br />
+0<br />
+Both<br />
+3030303</td></tr><tr><td>5079 0103</td><td>21<br />
+4<br />
+One<br />
+50017093</td></tr></table><hr><hr><h2>Its Tax Time (p2v3d1)</h2><hr><b>Its Tax Time [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In a week's time, all Indian citizens who are income tax assessees will have to file their tax returns (your instructor is one of them). Can you help your instructor file his taxes? The Indian tax code for personal income is a bit more complicated so we will use a simplified tax code below. Let the income of Mr C be Rupees X<br />
+<ol><br />
+<li>Slab 1: If X is less than or equal to 100,000, no tax is to be paid<br />
+<li>Slab 2: If X is greater than 100,000 but less than or equal to 200,000, then tax paid is 10% of (X-100,000)<br />
+<li>Slab 3: If X is greater than 200,000 but less than or equal to 300,000, then tax paid is 10,000 + 20% of (X-200,000)<br />
+<li>Slab 4: If X is greater than 300,000, then tax paid is 30,000 + 30% of (X-300,000)<br />
+</ol><br />
+You will be given an income value as a <b>positive integer</b>. You have to give output in <b>two lines</b>. In the first line you have to output which Slab does the income fall in and in the second line you have to output the total tax <b>rounded off to two decimal places</b>.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>The commas in the amounts above are just for ease of reading. Do not put commas in numbers when coding. Mr. C does not understand commas inside integers.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Carefully read the tax code. Do not make mistakes between "greater than" and "greater than or equal to"<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+income<br />
+<br />
+<b>OUTPUT</b>:<br />
+Slab<br />
+Tax<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+250000<br />
+<br />
+OUTPUT:<br />
+Slab 3<br />
+20000.00<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>250000</td><td>Slab 3<br />
+20000.00</td></tr><tr><td>123456789</td><td>Slab 4<br />
+36977036.70</td></tr><tr><td>100000</td><td>Slab 1<br />
+0.00</td></tr><tr><td>200001</td><td>Slab 3<br />
+10000.20</td></tr><tr><td>300003</td><td>Slab 4<br />
+30000.90</td></tr><tr><td>199999</td><td>Slab 2<br />
+9999.90</td></tr></table><hr><hr><h2>The Toppers (p3v1d1)</h2><hr><b>The Toppers [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given the roll number and marks (out of 100) for three students in a format described below. The roll numbers <b>will not repeat</b> as well as <b>no two students will have the same marks</b>. All roll numbers and marks will be given <b>as positive integers</b>. You have to print the roll number of the students with the highest and the second highest marks. Both roll numbers should be on the same line, and be separated by a comma and a single space.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Be careful that you have to output the roll numbers and not the marks.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+(roll1, marks1) (roll2, marks2) (roll3, marks3)<br />
+<br />
+<b>OUTPUT</b>:<br />
+rollHighest, rollNextHighest<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+<br />
+OUTPUT:<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>(1011, 25) (1211, 47) (1098, 99)</td><td>1098, 1211</td></tr><tr><td>(1011, 100) (1211, 60) (1098, 40)</td><td>1011, 1211</td></tr><tr><td>(12011, 21) (12211, 55) (12098, 15)</td><td>12211, 12011</td></tr><tr><td>(150151, 43) (152151, 87) (150958, 51)</td><td>152151, 150958</td></tr><tr><td>(16151, 77) (16251, 12) (16958, 45)</td><td>16151, 16958</td></tr><tr><td>(11153, 77) (11253, 66) (11953, 99)</td><td>11953, 11153</td></tr></table><hr><hr><h2>Isotonic Regression (p3v2d1)</h2><hr><b>Isotonic Regression [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given 5 (x,y) coordinate pairs (<b>all coordinates will be integers</b>), say (x1, y1) till (x5, y5) in a format described below. The values x1, x2, x3, x4, x5 will always be unique and given in increasing order. Given this, we define the following function<br />
+$$<br />
+\begin{align}<br />
+f(x1) &= y1\\<br />
+f(x2) &= \begin{cases}<br />
+y2 &\mbox{if } y2 \geq f(x1) \\<br />
+f(x1) &\mbox{if } y2 < f(x1)\end{cases}\\<br />
+f(x3) &= \begin{cases}<br />
+y3 &\mbox{if } y3 \geq f(x2) \\<br />
+f(x2) &\mbox{if } y3 < f(x2)\end{cases}\\<br />
+f(x4) &= \begin{cases}<br />
+y4 &\mbox{if } y4 \geq f(x3) \\<br />
+f(x3) &\mbox{if } y4 < f(x3)\end{cases}\\<br />
+f(x5) &= \begin{cases}<br />
+y5 &\mbox{if } y5 \geq f(x4) \\<br />
+f(x4) &\mbox{if } y5 < f(x4)\end{cases}<br />
+\end{align}<br />
+$$<br />
+Your job is to output, on <b>four different lines</b> the values f(x2), f(x3), f(x4) and f(x5) in the format described below. All values of f will be <b>integers</b>.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Be careful that you do not have to print f(x1). You only have to print f(x2), f(x3), f(x4) and f(x5), and that too on 4 different lines using the format described below.<br />
+<li>Although x1, x2 etc are unique, y1, y2 etc may not be unique.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+(x1, y1) (x2, y2) (x3, y3) (x4, y4) (x5, y5)<br />
+<br />
+<b>OUTPUT</b>:<br />
+f(value of x2) = f(x2)<br />
+f(value of x3) = f(x3)<br />
+f(value of x4) = f(x4)<br />
+f(value of x5) = f(x5)<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+(1, 1) (2, 4) (3, 9) (4, 4) (5, 1)<br />
+<br />
+OUTPUT:<br />
+f(2) = 4<br />
+f(3) = 9<br />
+f(4) = 9<br />
+f(5) = 9<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are four lines in your output. Printing each line correctly, in the correct order, carries 25% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>(1, 1) (2, 4) (3, 9) (4, 4) (5, 1)</td><td>f(2) = 4<br />
+f(3) = 9<br />
+f(4) = 9<br />
+f(5) = 9</td></tr><tr><td>(1, 1) (2, 4) (3, 9) (4, 16) (5, 25)</td><td>f(2) = 4<br />
+f(3) = 9<br />
+f(4) = 16<br />
+f(5) = 25</td></tr><tr><td>(11, 1) (21, 4) (31, 4) (41, 2) (51, 44)</td><td>f(21) = 4<br />
+f(31) = 4<br />
+f(41) = 4<br />
+f(51) = 44</td></tr><tr><td>(101, 66) (201, 55) (301, 44) (401, 33) (501, 22)</td><td>f(201) = 66<br />
+f(301) = 66<br />
+f(401) = 66<br />
+f(501) = 66</td></tr><tr><td>(110, 66) (210, 66) (310, 440) (410, 33) (510, 2200)</td><td>f(210) = 66<br />
+f(310) = 440<br />
+f(410) = 440<br />
+f(510) = 2200</td></tr><tr><td>(110, 66) (2100, 77) (3010, 88) (4010, 99) (5100, 22)</td><td>f(2100) = 77<br />
+f(3010) = 88<br />
+f(4010) = 99<br />
+f(5100) = 99</td></tr></table><hr><hr><h2>Super Leap Years (p3v3d1)</h2><hr><b>Super Leap Years [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Suppose we have 3 positive numbers A, B, C, and are given a year Y. Using these we define 3 rules as given below<br />
+<ol><br />
+<li><b>Rule 1</b>: If Y is divisible by A, we <b>call</b> Y a super leap year<br />
+<li><b>Rule 2</b>: If Y is divisible by A but is also divisible by B, we <b>don't call</b> Y a super leap year<br />
+<li><b>Rule 3</b>: If Y is divisible by A but is also divisible by both B and C, we <b>call</b> Y a super leap year<br />
+</ol><br />
+Any year that is not called a super leap year is called a super common year.<br />
+<br />
+You will be given a year Y, as a <b>positive integer</b>, as well as four numbers, A, B, C, N, all four given as <b>positive integers</b>, in a format given below. <b>The number N will be either 1, 2 or 3</b>. You have to output the following two labels in two different lines.<br />
+<ol><br />
+<li>Apply rules 1, 2, and 3 with Y, A, B, C to find if Y is called a super leap year or not. If it is a super leap year, print "Leap" (without quotes) else print "Common" (without quotes).<br />
+<li>Apply only rules from rule 1 till rule N with Y, A, B, C to find if Y is called a super leap year or not. If it is a super leap year, print "Leap" (without quotes) else print "Common" (without quotes). Remember that the number N will be either 1, 2 or 3.<br />
+</ol><br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>For example, if N = 2, then in the second line, you only have to apply rules 1 and 2 to find out if Y is a super leap year or not. If N = 1, then in the second line, you only have to apply rule 1 to find out if Y is a super leap year or not.<br />
+<li>In the first line, all three rules must be applied to find out whether the year is a super leap year or not, irrespective of the value of N.<br />
+<li>Note that there are no restrictions on A, B, C other than that they are positive integers. A, B, C need not be in increasing or decreasing order. A need not divide B or C or vice versa etc etc.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+Y A B C N<br />
+<b>OUTPUT</b>:<br />
+Leap/Common<br />
+Leap/Common<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2000 4 100 400 2<br />
+<br />
+OUTPUT:<br />
+Leap<br />
+Common<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2000 4 100 400 2</td><td>Leap<br />
+Common</td></tr><tr><td>55 7 13 5 1</td><td>Common<br />
+Common</td></tr><tr><td>40 7 4 5 2</td><td>Common<br />
+Common</td></tr><tr><td>1800 4 100 400 1</td><td>Common<br />
+Leap</td></tr><tr><td>1280 4 8 64 2</td><td>Leap<br />
+Common</td></tr><tr><td>12 4 8 64 2</td><td>Leap<br />
+Leap</td></tr></table><hr><hr><h2>Make Room for Rectangles (p4v1d1)</h2><hr><b>Make Room for Rectangles [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given the coordinates of the bottom-left and top-right corners of an axis-aligned rectangle (i.e. a rectangle whose sides are parallel to the x and y axes). The input format is given below. The 4 quadrants on the plane are defined below for your convenience<br />
+<ol><br />
+<li> Quadrant I: x >= 0, y >= 0<br />
+<li> Quadrant II: x < 0, y >= 0<br />
+<li> Quadrant III: x < 0, y < 0<br />
+<li> Quadrant IV: x >= 0, y < 0<br />
+</ol><br />
+You will need out output the number of quadrants with which this rectangle intersects. The coordinates will be given as <b>integer</b> numbers.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Be careful about using relational operators.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+(xbotleft, ybotleft) (xtopright, ytopright)<br />
+<br />
+<b>OUTPUT</b>:<br />
+number<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+(-1, -1) (2, 2)<br />
+<br />
+OUTPUT:<br />
+4<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>(1, 1) (5, 5)</td><td>1</td></tr><tr><td>(-1, -1) (2, 2)</td><td>4</td></tr><tr><td>(-6, -6) (1, -2)</td><td>2</td></tr><tr><td>(0, 0) (1, 2)</td><td>1</td></tr><tr><td>(-1, 0) (0, 1)</td><td>2</td></tr><tr><td>(-2, -2) (0, 0)</td><td>4</td></tr></table><hr><hr><h2>Quadratic Quandry Revisited (p4v2d1)</h2><hr><b>Quadratic Quandry Revisited [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You are given a quadratic equation with <b>integer</b> coefficients in a format described below. You have to find out and output various quantities about this quadratic equation as given below.<br />
+<ol><br />
+<li>In the first line of your output, print "Real" (without quotes) if the equation has real roots else print "Complex" (without quotes) if the equation has complex roots.<br />
+<li>In the second line of your output, print the discriminant of the equation (it will also be an integer)<br />
+$$D = b^2 - 4ac$$<br />
+<li>In the third line of your output, print the root which you get as<br />
+$$\frac{-b + \sqrt{D}}{2a}$$<br />
+<li>In the fourth line of your output, print the root which you get as<br />
+$$\frac{-b - \sqrt{D}}{2a}$$<br />
+</ol><br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>If a root is real, output it <b>rounded off to 3 decimal places</b>.<br />
+<li>If the root is imaginary, output it in the following format<br />
+r + qi or r - qi<br />
+where r and q should be <b>rounded off to 3 decimal places</b><br />
+<li>If the equation has repeated roots, you have to output the same root twice in both the third and the fourth lines.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+ax^2 + bx + c<br />
+<br />
+<b>OUTPUT</b>:<br />
+Real/Complex<br />
+Discriminant<br />
+Root1<br />
+Root2<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1x^2 + 4x + 3<br />
+<br />
+OUTPUT:<br />
+Real<br />
+4<br />
+-1.000<br />
+-3.000<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are four lines in your output. Printing each line correctly, in the correct order, carries 25% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1x^2 + 4x + 3</td><td>Real<br />
+4<br />
+-1.000<br />
+-3.000</td></tr><tr><td>1x^2 + 1x + 1</td><td>Complex<br />
+-3<br />
+-0.500+0.866i<br />
+-0.500-0.866i<br />
+</td></tr><tr><td>-2x^2 + 3x + 5</td><td>Real<br />
+49<br />
+-1.000<br />
+2.500</td></tr><tr><td>-20x^2 + 10000x + 50</td><td>Real<br />
+100004000<br />
+-0.005<br />
+500.005</td></tr><tr><td>-9x^2 + 24x + -16</td><td>Real<br />
+0<br />
+1.333<br />
+1.333</td></tr><tr><td>2x^2 + 4x + 16</td><td>Complex<br />
+-112<br />
+-1.000+2.646i<br />
+-1.000-2.646i<br />
+</td></tr></table><hr><hr><h2>Grade Grab (p4v3d1)</h2><hr><b>Grade Grab [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Your instructor teaches another large course called CS771: Introduction to Machine Learning. Help him perform grading for that course. You will be given the total marks scored by a student out of 100, say M, the percentage of lectures the student has attended, say A, and a attendance weightage out of 100, say W. <b>All numbers will be given as an integer</b>.<br />
+<br />
+The grade of a student is calculated by using their <i>effective marks</i>. If the marks of a student M are <b>greater than or equal to 50</b> then their effective marks is M itself. Otherwise, the effective marks is calculated as the <b>integer portion</b> of the following quantity (M + W% of A) i.e. by discarding digits after the decimal place. For example, if M = 33, A = 50 and W = 50 then effective marks will be (33 + 50% of 50) = (33 + 25) = 58. If the above calculation gives effective marks as <b>greater than 100</b>, then the effective marks is set to 100.<br />
+<br />
+Given the effective marks of a student, grading is done using the following chart.<br />
+<table class="table table-bordered"><br />
+	<tr><th>Marks</th><th>Grade</th></tr><br />
+        <tr><td>0-49</td><td>D</td></tr><br />
+        <tr><td>50-69</td><td>C</td></tr><br />
+        <tr><td>70-89</td><td>B</td></tr><br />
+        <tr><td>90-100</td><td>A</td></tr><br />
+</table><br />
+<br />
+You have to give your output in four lines as shown below<br />
+<ol><br />
+<li>In the first line, output the effective marks of the student <b>as an integer</b><br />
+<li>In the second line, print the grade the student got<br />
+<li>In the third line, print the grade the student would have got if their marks were the same but attendance was 0%<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Be careful that in the third line, the case may be such that the effective marks of the student changes due to change in attendance.<br />
+<li>You may be tempted to use copy-paste while coding this question. Be careful while doing so to avoid making errors.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+M A W<br />
+<br />
+<b>OUTPUT</b>:<br />
+EffMarks<br />
+Grade<br />
+GradeZeroAttendance<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+83 50 50<br />
+<br />
+OUTPUT:<br />
+83<br />
+B<br />
+B<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are three lines in your output. Printing each line correctly, in the correct order, carries partial weightage. The first line is worth 20% weightage and the second and third lines are worth 40% weightage each. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>83 50 50</td><td>83<br />
+B<br />
+B</td></tr><tr><td>33 50 50</td><td>58<br />
+C<br />
+D</td></tr><tr><td>69 100 100</td><td>69<br />
+C<br />
+C</td></tr><tr><td>40 85 82</td><td>100<br />
+A<br />
+D</td></tr><tr><td>89 10 60</td><td>89<br />
+B<br />
+B</td></tr><tr><td>38 64 50</td><td>70<br />
+B<br />
+D</td></tr></table><hr><hr></body>
+</html>

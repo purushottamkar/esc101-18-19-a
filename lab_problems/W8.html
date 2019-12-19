@@ -1,0 +1,664 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>LAB-PRAC-08_ARR-STR</title>
+</head>
+<body>
+<h1>LAB-PRAC-08_ARR-STR</h1><h2>Il fratello di Fibonacci (p1v1d1)</h2><hr><b>Il fratello di Fibonacci [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+We have seen the Fibonacci sequence, and its generalization, the the Lucas sequence, in previous weeks. Today, let us look at another generalization of the Fibonancci sequence where, instead of the first two non-negative integers deciding the sequence, the first k non-negative integers decide the sequence. Let us call this the k-FF-sequence (short for kth order fratello di Fibonacci).<br />
+<br />
+The n-th number in the k-FF sequence is defined to be the sum of the previous k numbers in the k-FF sequence. The first k numbers in the k-FF sequence are 0, 1, ..., k-1. We will give you two strictly positive integers k and n, separated by a single space, as input. As output, you have to output the (k+1)-th number, as well as the n-th number in the k-FF sequence, on the same line but separated by a space.<br />
+<br />
+We promise that k and n will both be less than or equal to 49 and your outputs will always fit inside an int variable.<br />
+<br />
+P.S.: the title of this problem means "Fibonacci's brother" in French. <br />
+<br />
+<b>Caution</b>: Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+<br />
+<b>HINT</b>: Use an array to store the first k k-FF numbers and also calculate the subsequent ones. Remember, we will never give k,n > 100.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+2 5<br />
+<br />
+OUTPUT:<br />
+1 3<br />
+<br />
+<b>Explanation</b>: the first two non-negative integers are 0 and 1. So the 2-FF-sequence will be as follows<br />
+2-FF1: 0<br />
+2-FF2: 1<br />
+2-FF3: 0 + 1 = 1<br />
+2-FF4: 1 + 1 = 2<br />
+2-FF5: 1 + 2 = 3<br />
+so the (k+1)-th 2-FF number is the 3rd 2-FF number which is 1 and the 5th 2-FF number is 3.<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+3 6<br />
+<br />
+OUTPUT:<br />
+3 11<br />
+<br />
+<b>Explanation</b>: the first three non-negative integers are 0, 1, and 2. So the 3-FF-sequence will be as follows<br />
+3-FF1: 0<br />
+3-FF2: 1<br />
+3-FF3: 2<br />
+3-FF4: 0 + 1 + 2 = 3<br />
+3-FF5: 1 + 2 + 3 = 6<br />
+3-FF6: 2 + 3 + 6 = 11<br />
+so the (k+1)-th FF number is the 4th 3-FF number which is 3 and the 6th 3-FF number is 11.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 13</td><td>1 144</td></tr><tr><td>3 10</td><td>3 125</td></tr><tr><td>5 10</td><td>10 149</td></tr><tr><td>6 20</td><td>15 109065</td></tr><tr><td>50 20</td><td>1225 19</td></tr><tr><td>4 20</td><td>6 116072</td></tr></table><hr><hr><h2>Hidden Palindrome (p1v2d1)</h2><hr><b>Hidden Palindrome [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The input will contain a string containing n characters (we promise that n will be equal to or less than 49). Read this string into a character array (lets call it str) (i.e. 1st character of the string is stored in str[0], 2nd character in str[1], and last character in str[n-1]. Additionally, s[n] = ‘\0’ should be ensured by Mr C if you read the string from the input properly).<br />
+<br />
+Find the length of the largest substring of str (including str itself) which is a palindrome. Print this length as the first line of your output. In the second and third lines of your output, print the indices of the starting character and the ending character of the this largest substring.<br />
+<br />
+If there are two or more such substrings which are palindromes and of largest length, print the starting and ending indices of the substring with the least starting index.<br />
+<br />
+We promise we will not give you a string that contains whitespace or non-printable characters like space/tab/newline. We also promise we will never give you an empty string as input.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>A single letter/character is trivially a palindrome too, although a very short one.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+<br />
+<b>HINT</b>:  The strlen() function can help you find the length of a string. Given a character array, it returns the number of characters in the array uptil, but not including, the first occurrence of the null character in the array. Include the header file string.h to use this function.<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1 </b>:<br />
+INPUT<br />
+cbcdc<br />
+<br />
+OUTPUT:<br />
+3<br />
+0<br />
+2<br />
+<br />
+<b>Explanation</b>: “cbc” and “cdc” both are substrings in the given string which are palindromes. Since there are no substrings of size 4 or larger which are palindromes, the output is 3. The substring with the smallest starting index is “cbc”, with starting index 0 and ending index 2. <br />
+<br />
+<b>EXAMPLE 2 </b>:<br />
+INPUT<br />
+abcde<br />
+<br />
+OUTPUT:<br />
+1<br />
+0<br />
+0<br />
+<br />
+<b>Explanation</b>: The only substrings of the given string which are palindromes are of size 1 (i.e. the trivial palindromes “a”,”b”,”c”,”d”,”e”). Hence, the length of the largest palindrome is 1. The substring with the smallest starting index is “a”, with starting index 0 and ending index 0. <br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are three lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first line carries 50% weightage and the next two lines carry 25% weightage each. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>abcba</td><td>5<br />
+0<br />
+4</td></tr><tr><td>abcbd</td><td>3<br />
+1<br />
+3</td></tr><tr><td>baaaaaaaaaaaaaaaaaaa</td><td>19<br />
+1<br />
+19</td></tr><tr><td>s</td><td>1<br />
+0<br />
+0</td></tr><tr><td>abcdcdcdefefefegggg</td><td>7<br />
+8<br />
+14</td></tr><tr><td>wowowmomom</td><td>5<br />
+0<br />
+4</td></tr></table><hr><hr><h2>Hush Hush Hash (p1v3d1)</h2><hr><b>Hush Hush Hash [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The concept of a hashing is critical in computer science. Hashing is the art and science of converting a given piece of data, like a string, into a single number which can be stored. For instance, the CC (or even GMail, Piazza, Gradescope etc) does not store your password anywhere. It just hashes your password stores the hash. When you try to logon to CC Email and enter your password, the CC hashes what you have entered and compares this hash value and compares it to the hash value that it has stored. If the two match, you are given login otherwise, you are denied login.<br />
+<br />
+The CC etc use sophisticated and cryptographically secure hash functions like SHA etc. In this question, we will design two very simple hash functions. Your input will be a string with n characters where n will be equal to 499 or less. We promise that the characters will either be English letters 'A', 'x', 'E' etc or else digits '0', '6' etc. You have to take this string and convert this into a number as follows:<br />
+<br />
+Assign every character a number in the following manner<br />
+<ol><br />
+<li>Digits get assigned their own value i.e. '0' gets assigned value 0, '6' gets assigned value 6 etc.<br />
+<li>Letters get assigned a value equal to their position in their alphabet. E.g. 'A' and 'a' both have value 1, 'C' and 'c' both have value 3, 'Z' and 'z' both have value 26 etc.<br />
+<li>Note that the values as calculated above are always non-negative integers.<br />
+</ol><br />
+<br />
+Suppose your string is sitting inside a character array called str with the n characters stored in str[0] to str[n-1] and str[n] being the NULL character '\0' which Mr C should himself put in if you read the string from the input properly. Calculate the following two hash values for this string. For a character x let val(x) denote its value as calculated above.<br />
+<br />
+$$<br />
+\begin{align*}<br />
+hash1(str) &= \sum_{i=0}^{n-1} val(str[i])\\<br />
+hash2(str) &= \left( \prod_{i=0}^{n-1} val(str[i]) \right) \% 100000<br />
+\end{align*}<br />
+$$<br />
+<br />
+Print the two hash values calculated above (they will always be non-negative integers), in two separate lines in your output.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+<li>Once you have gone back home after finishing today's lab, you may want to look up the term "Hash function" on the internet (don't browse the internet during the lab though - it is banned)<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>The product of 499 numbers may be very large (and may overflow the limit of int/long) but the hash value in hash2 is always between 0 and 99999. Use the modulus trick we earlier saw that (a * b) % c  = ((a % c) * (b % c)) %c<br />
+<li>You may want to use the strlen function from string.h to find out the length of a string<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+1234<br />
+<br />
+OUTPUT:<br />
+10<br />
+24<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+AbCd<br />
+<br />
+OUTPUT:<br />
+10<br />
+24<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>Zephyr</td><td>98<br />
+88000</td></tr><tr><td>123456789</td><td>45<br />
+62880</td></tr><tr><td>Iwonderhowmanyletterswouldittaketobreachtheintegerlimit987654321</td><td>718<br />
+0</td></tr><tr><td>88888888888888888888</td><td>160<br />
+46976</td></tr><tr><td>HelloESC101</td><td>81<br />
+0</td></tr><tr><td>18181818181818181818181818181818181818181818181818181818181818181818181818181818</td><td>360<br />
+44576</td></tr></table><hr><hr><h2>Maximum Match (p2v1d1)</h2><hr><b>Maximum Match [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the first line of the input, you will be given two integers n and k. We assure you that n will be strictly positive but less than or equal to 1000. In the second line of the input, you will be given n integers sorted in non-decreasing order, with integers separated by a single space. You need to find out if there are any two distinct elements in the list such that the sum of the two elements is equal to k.<br />
+<br />
+Your output should be in two lines.<br />
+<ol><br />
+<li>Case 1: there are no two numbers in the list that sum to k. In this case, in the first line, print the words "No Match" (without quotes).<br />
+<li>Case 2: there are exactly two numbers in the list of numbers that sum to k. In this case, in the first line, output the two numbers, which sum up to k. The two numbers should be printed in increasing order, separated by a single space. In the second line, print the locations at which these numbers occur in the list. The locations should be printed separated by a single space.<br />
+<li>Case 3: there are more than one pair of numbers in the list that sum to k. In this case, choose the pair whose sum of locations is the maximum (an illustrative example is given below) and output the numbers and their locations as directed in Case 2 above.<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>When printing locations, use the human convention where the first location in the list is 1 (not the array index convention where locations begin with 0).<br />
+<li>For the purposes of this question, two numbers in the list are distinct if they occur at distinct locations, even if they share the same value. Thus, the list 1 1 2 3 4 consists of two distinct elements of value 1.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+<br />
+<b>HINT</b>: You may want to use an array to store the list of numbers<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+8 11<br />
+1 2 3 8 8 8 10 11<br />
+<br />
+OUTPUT:<br />
+3 8<br />
+3 6<br />
+<br />
+<b>Explanation</b>: although the pairs (3,8) (note that 8 occurs thrice in the list) and (1,10) both add up to 11, the pair (3,8) occurs at the locations (3,6) in the list whereas (1,10) occurs at locations (1,7) since 3+6 > 1+7, we chose the pair (3,8).<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+6 10<br />
+1 2 3 4 5 21<br />
+<br />
+OUTPUT:<br />
+No Match<br />
+<br />
+<b>Explanation</b>: no two distinct numbers in the list add up to 10.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>8 6<br />
+-5 0 3 3 4 4 5 6</td><td>0 6<br />
+2 8</td></tr><tr><td>6 10<br />
+-4 -2 4 8 14 16</td><td>-4 14<br />
+1 5</td></tr><tr><td>8 11<br />
+1 2 3 8 8 8 10 11</td><td>3 8<br />
+3 6</td></tr><tr><td>1 4<br />
+2</td><td>No Match</td></tr><tr><td>6 -2<br />
+-5 -4 -1 -1 10 12<br />
+</td><td>-1 -1<br />
+3 4</td></tr></table><hr><hr><h2>El secreto de sus I (p2v2d1)</h2><hr><b>El secreto de sus I [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given a string containing at least 1 and at most 999 characters. The string will only contain upper case English alphabets . In the first line, output the number of times the letter 'I' appears in the string. In the next line, you have to encrypt the sting in the following manner -- shift every letter in the English alphabet by the number of times the letter 'I' appeared.<br />
+<br />
+For example, if the letter 'I' appears twice in the string, then we will English letters by 2, 'A' would become 'C', 'P' would become 'R', 'Z' would become 'B' etc. In the second line of your output, print the string from the first point the letter 'I' appeared in the string, but using the shifted alphabet (see an example below). If the letter 'I' does not appear in the original string at all, in the second line of the output, just print the original string again.<br />
+<br />
+P.S. The name of this problem literally translates from Spanish to "The secret in their I" since in this problem the secret shift does lie in the letter I. The name is a play on the title of an Oscar-winning Argentinian crime drama called "El secreto de sus ojos" (The secret in their eyes).<br />
+<br />
+<b>Caution</b>: Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>You may want to use the strlen function by including string.h. The function tells you the length of a string (number of characters uptil but not including the first NULL character).<br />
+<li>The strcpy function copies one string to another and may come in handy.<br />
+<li>The strchr function in string.h may help you as well. It returns a pointer to the first occurrence of a given character in a string. If you feed that pointer into printf while using the %s format specifier, the string gets printed from that point onward. For example, printf("%s",strchr("Hello",'e')); will print "ello" without the quotes.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT:<br />
+NOCHANGE<br />
+<br />
+OUTPUT:<br />
+0<br />
+NOCHANGE<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT:<br />
+ABCDIABCDI<br />
+<br />
+OUTPUT:<br />
+2<br />
+KCDEFK<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first line carries 25% weightage and the second line carries 75% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>NOCHANGE</td><td>0<br />
+NOCHANGE</td></tr><tr><td>ABCDIABCDI</td><td>2<br />
+KCDEFK</td></tr><tr><td>IIIIIIIIIIIIIIII</td><td>16<br />
+YYYYYYYYYYYYYYYY</td></tr><tr><td>ZZIIIIZIIIIZIIIIZIIIIZIIIIZIIIIZZ</td><td>24<br />
+GGGGXGGGGXGGGGXGGGGXGGGGXGGGGXX</td></tr><tr><td>ABCDEABCDEABCDEABCDEABCDEPQRSTPQRSTPQRSTPQRSTPQRSTPQRSTVWXYZVWXYZVWXYZVWXYZVWXYZVWXYZ</td><td>0<br />
+ABCDEABCDEABCDEABCDEABCDEPQRSTPQRSTPQRSTPQRSTPQRSTPQRSTVWXYZVWXYZVWXYZVWXYZVWXYZVWXYZ</td></tr><tr><td>ABCDEABCDEABCDEABCDEABCDEPQRSTPQRSTPQRSTPQRSTPQRSTPQRSTVWXYZVWXYZVWXYZVWXYZVWXYZVWXYZIIII</td><td>4<br />
+MMMM</td></tr></table><hr><hr><h2>Star Replacement (p2v3d1)</h2><hr><b>Star Replacement [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will given a string containing n characters where n is at least 1 but at most 499. We assure you that the string will contain only upper case English letters i.e. from 'A' to 'Z'. In the second line of the input, you will be given a single character which will also be an upper case English letter. You will have to change this string such that each occurrence of that character in the string is replaced by two consecutive asterisk/star characters i.e. "**" (without the quotes).<br />
+<br />
+In the first line of your output, calculate and print the length of this new string. Next, print this new string in the second line of your output. We assure you that the new string will be of length 999 or less. If the character does not appear in the original string at all, the string will remain unchanged.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>If you are storing the elements in a character array, then you will have to shift elements of the character array to the right since you will be replacing one character by two * characters. Use a loop carefully to shift elements to the right.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>To do the above properly, you will find it helpful to first calculate the length of the final string. You anyway have to do this for the first part of the question.<br />
+<li>The strlen function from string.h can be used to calculate the length of a string.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+ABCDE<br />
+C<br />
+<br />
+OUTPUT:<br />
+6<br />
+AB**DE<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first line carries 20% weightage and the second line carries 80% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>ABCDE<br />
+C</td><td>6<br />
+AB**DE</td></tr><tr><td>ABCDE<br />
+Z</td><td>5<br />
+ABCDE</td></tr><tr><td>CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC<br />
+C</td><td>438<br />
+******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************</td></tr><tr><td>ZZAAZZBBZZCCZZDDZZEEZZFFZZGGZZHHZZIIZZJJZZKKZZLLZZMMZZNNZZOOZZPPZZQQZZRRZZSSZZTTZZUUZZVVZZWWZZXXZZYYZZZZZZ<br />
+Z</td><td>162<br />
+****AA****BB****CC****DD****EE****FF****GG****HH****II****JJ****KK****LL****MM****NN****OO****PP****QQ****RR****SS****TT****UU****VV****WW****XX****YY************</td></tr><tr><td>ZZAAZZBBZZCCZZDDZZEEZZFFZZGGZZHHZZIIZZJJZZKKZZLLZZMMZZNNZZOOZZPPZZQQZZRRZZSSZZTTZZUUZZVVZZWWZZXXZZYYZZZZZZ<br />
+A</td><td>108<br />
+ZZ****ZZBBZZCCZZDDZZEEZZFFZZGGZZHHZZIIZZJJZZKKZZLLZZMMZZNNZZOOZZPPZZQQZZRRZZSSZZTTZZUUZZVVZZWWZZXXZZYYZZZZZZ</td></tr><tr><td>BCDEFGHIJKLMNOPQRSTUVWXYZAAAAAAAAAAA<br />
+A</td><td>47<br />
+BCDEFGHIJKLMNOPQRSTUVWXYZ**********************</td></tr></table><hr><hr><h2>Stronger together (p3v1d1)</h2><hr><b>Stronger Together [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the first line of the input you will be given a strictly positive integer n. We assure you that n will be less than or equal to 1000. In the next line you will be given a list of n integers. Given this, there arise two cases<br />
+<ol><br />
+<li>If there are no two distinct values in the list, print the word "DEFAULT" (without quotes).<br />
+<li>If there are at least two distinct values in the list, then you have to find the two distinct values in the list that give the maximum possible sum. In the first line of the output, give the locations of these two numbers in the list in increasing order separated by a single space. In the second line of the output, give the elements at those locations, separated by a single space.<br />
+<li>If there are more than one pair of elements in the array which give the same (maximum sum), then you have to give the pair and where the locations, as printed in the first line, are <i>lexicographically smallest</i>.<br />
+</ol><br />
+<br />
+Given two pairs of integers (a,b) and (c,d), we find the lexicographically smaller one as follows<br />
+<ol><br />
+<li>If a < c then (a,b) is lexicographically smaller. If a > c then (c,d) is lexicographically smaller<br />
+<li>If a == c but b < d then (a,b) is lexicographically smaller. If a == c but b > d then (c,d) is lexicographically smaller<br />
+<li>If a == c and b == d then obviously the two pairs are identical.<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>While printing the locations, use human convention for locations and not array index convention i.e. the first element of the array is to be considered to be at location 1, and not location 0.<br />
+<li>The list need not be in sorted order.<br />
+<li>For the sake of this question, two elements are considered distinct only if they do not have the same value. For example, if the list consists of 5 elements, 1 2 4 4 6, then there are only 4 distinct elements in the list, namely 1,2,4 and 6.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>You may benefit from storing the list in an array first.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+5<br />
+8 8 7 7 7<br />
+<br />
+OUTPUT:<br />
+1 3<br />
+8 7<br />
+<br />
+<b>Explanation</b>: Note that, the list has only two distinct elements (8 and 7), with 8 being at locations 1 & 2, while 7 is at indices 3,4,5. Clearly, the smallest pair, in terms of lexicographic ordering is (1, 3).<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+4<br />
+8 8 8 8<br />
+<br />
+OUTPUT:<br />
+DEFAULT<br />
+<br />
+<b>Explanation</b>: There are no two distinct elements in the list.<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>8<br />
+-5 0 6 3 4 4 5 6</td><td>3 7<br />
+6 5</td></tr><tr><td>8<br />
+5 5 5 -5 6 6 6 -2</td><td>1 5<br />
+5 6</td></tr><tr><td>1<br />
+8<br />
+</td><td>DEFAULT</td></tr><tr><td>6<br />
+4 6 6 5 2 1</td><td>2 4<br />
+6 5</td></tr><tr><td>12 <br />
+6 2 3 4 6 6 6 6 12 13 15 14</td><td>11 12<br />
+15 14</td></tr><tr><td>5<br />
+9 9 9 9 9<br />
+</td><td>DEFAULT</td></tr></table><hr><hr><h2>Rigorous and repeated redaction (p3v2d1)</h2><hr><b>Rigorous and repeated redaction [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given a non-empty string consisting only of upper case and lower case English alphabets in the first line of the input. The string will contain no more than 999 characters. The second line of the input will contain another non-empty string of only upper and lower case English alphabets with no more than 99 characters. The first string is a message your wish to publish online whereas the second string is sensitive material (e.g. passwords etc). You have to replace all instances of occurrences of the sensitive string in the original string with the letters "XXX" (without quotes). This process is often called <i>redaction</i>.<br />
+<br />
+In the first line of your output, print how many times does the first letter of the message appear in the message either in lower or upper case. In the second line, print the redacted string. If the sensitive material is not present in the message at all, just print the original message in the second line.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+<li>Although while counting how many times the first character of the message appears in the message, you have to count both upper and lower case occurrences, when checking for occurrences of the sensitive string, do so in a case sensitive manner (see example below).<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>The string.h library provides the strlen function to calculate the length of a string and the strstr function to find the occurrence of substrings in a given string. However, you need to be able to manipulate pointers to use strstr.<br />
+<li>This question can be solved without using pointers as well.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+hellohitHisismehighupinthesky<br />
+hi<br />
+<br />
+OUTPUT:<br />
+6<br />
+helloXXXtHisismeXXXghupinthesky<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first line carries 25% weightage and the second line carries 75% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>hellohitHisismehighupinthesky<br />
+hi</td><td>6<br />
+helloXXXtHisismeXXXghupinthesky</td></tr><tr><td>Thisisacleanmessagerequiringnoredaction<br />
+secret</td><td>2<br />
+Thisisacleanmessagerequiringnoredaction</td></tr><tr><td>hellohitHisismehighupintheskyHihi<br />
+hi</td><td>8<br />
+helloXXXtHisismeXXXghupintheskyHiXXX</td></tr><tr><td>wwwcseiitkacin<br />
+www<br />
+</td><td>3<br />
+XXXcseiitkacin</td></tr><tr><td>mypasswordishelloworldbutdonttellanyone<br />
+helloworld<br />
+</td><td>1<br />
+mypasswordisXXXbutdonttellanyone</td></tr><tr><td>IcanbeverycarelessandwriteanythingSECRETinthisstringanditwillallgetredactedbymynicecode<br />
+secret<br />
+</td><td>9<br />
+IcanbeverycarelessandwriteanythingSECRETinthisstringanditwillallgetredactedbymynicecode</td></tr></table><hr><hr><h2>strnrev (p3v3d1)</h2><hr><b>strnrev [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Some languages have offer library functions such as strrev to reverse a string (CLang does not though). We will implement a code in this question to reverse the first n characters of a given string - something that could be called str<b>n</b>rev. You will be given a non-empty string in the first line of the input and a non-negative integer n in the second line of the input. The string will contain no more than 999 characters and all those characters will either be lower or upper case English letters, digits, or spaces (no newlines though). Print the string with the first n characters reversed (see example below).<br />
+<br />
+If n is 0, print the original string itself. If n is greater than the length of the string, print "ILLEGAL" (without quotes) and print nothing else.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+hello world<br />
+5<br />
+<br />
+OUTPUT:<br />
+olleh world<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>hello world<br />
+5</td><td>olleh world</td></tr><tr><td>esc101 teaches C programming<br />
+100</td><td>ILLEGAL</td></tr><tr><td>esc101 teaches C programming<br />
+7</td><td> 101cseteaches C programming</td></tr><tr><td>hello 5<br />
+5</td><td>olleh 5</td></tr><tr><td>it is a wonderful world<br />
+0</td><td>it is a wonderful world</td></tr><tr><td>i dream of jeanie<br />
+1</td><td>i dream of jeanie</td></tr></table><hr><hr><h2>Monster and Mini Multiply (p4v1d1)</h2><hr><b>Monster and Mini Multiply [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The input will be given in three lines, on the first two lines, you will be given two very large non-negative integers a and b with exactly 40 digits each. In the third line, you will be given a single non-negative, single digit integer x. You have to print the value of a*x + b as your output in a single line.<br />
+<br />
+There should not be any leading zeros in your output. However, if the final answer is itself zero, just print a single "0" (without quotes) as your output.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>The huge integers a and b will have exactly 40 digits in the way they are given to you. However, some of the leading digits in the representation of a and b may be zero (please see example below).<br />
+<li>However, there should not be any leading zeros in your output.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output. More specifically, do not print 0000000000000000000000000000000000000037 as your output. Print 37 instead.<br />
+<li>Your output may have more than 40 digits<br />
+</ol><br />
+<br />
+<b>HINT</b>: The integers you will be given cannot be stored even in a long variable. Consider storing them in an array.<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+9517330874833405504130385982694719818199<br />
+5691066055059061890234375756180617820379<br />
+4<br />
+<br />
+OUTPUT:<br />
+43760389554392683906755919686959497093175<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>9517330874833405504130385982694719818199<br />
+5691066055059061890234375756180617820379<br />
+4</td><td>43760389554392683906755919686959497093175</td></tr><tr><td>0000000000000000000000000000000000000009<br />
+0000000000000000000000000000000000000001<br />
+4</td><td>37</td></tr><tr><td>0000000000000000000000000000000000000000<br />
+1234567890123456789012345678901234567890<br />
+4</td><td>1234567890123456789012345678901234567890</td></tr><tr><td>1234567890123456789012345678901234567890<br />
+0000000000000000000000000000000000000000<br />
+0</td><td>0</td></tr><tr><td>9999999999999999999999999999999999999999<br />
+9999999999999999999999999999999999999999<br />
+9</td><td>99999999999999999999999999999999999999990</td></tr><tr><td>0000875165097885844858410188187208148080<br />
+0000003083134303357327630204563117267823<br />
+7</td><td>6129238819504271336501521873574304383</td></tr></table><hr><hr><h2>Clash of the Substrings (p4v2d1)</h2><hr><b>Clash of the Substrings [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given two strings str1 and str2 in two lines of the input. Both strings will contain less than or equal to 999 characters. You have to print the maximum length of a substring of str1 which is also a substring of str2. If there is no non-trivial substring of str1 which is also a substring of str2, print "0" (without quotes) as your output.<br />
+<br />
+The name of this problem is a play on the movie "Clash of the Titans" which is based on Greek mythology.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>There is only one line in your output.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>The string.h library provides the strlen function to calculate the length of a string and the strstr function to find the occurrence of substrings in a given string. However, you need to be able to manipulate pointers to use strstr.<br />
+<li>This question can be solved without using pointers as well.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+ESC101 is a course on programming<br />
+Mr C teaches ESC101<br />
+<br />
+OUTPUT:<br />
+6<br />
+<br />
+<b>Explanation</b>: The largest substring common to both strings is "ESC101" (without quotes)<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+ESC101 is a course on programming<br />
+Mr C teaches ESC101 which is a course on programming<br />
+<br />
+OUTPUT:<br />
+27<br />
+<br />
+<b>Explanation</b>: The largest substring common to both strings is " is a course on programming" (without quotes)<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>ESC101 is a course on programming<br />
+Mr C teaches ESC101</td><td>6</td></tr><tr><td>ESC101 is a course on programming<br />
+Mr C teaches ESC101 which is a course on programming</td><td>27</td></tr><tr><td>abcdefgh<br />
+ijklmnopq</td><td>0</td></tr><tr><td>Life Is Beautiful is a movie about the holocaust<br />
+Yesterday, I watched a movie. It was called "Life Is  Beautiful". I quite liked it.</td><td>10</td></tr><tr><td>abcdefghijklmnopqrstuvwxyz<br />
+abcdefghijklmnopqrstuvwxyz</td><td>26</td></tr><tr><td>Hotaru no Haka is a heartbreaking movie about children trapped in war<br />
+Watashi wa eiga Hotaru no Haka ga suki</td><td>15</td></tr></table><hr><hr><h2>Personalizing Emails (p4v3d1)</h2><hr><b>Personalizing Emails [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+I wish to write an email to the entire ESC101 class but I want to personalize it. In the first line of the input, you will be given a message string which will contain only printable characters and spaces/tabs (but no new lines obviously). In the second line of the input, you will be given the name of a student. The message string will contain no more than 999 characters and the name string will contain no more than 99 characters.<br />
+<br />
+The message string may contain the substring "#NAME#" (without quotes). You have to replace all occurrences of this substring in the message string with the name string which you were given in the second line (see example below).<br />
+<br />
+In the first line of the output, print the new message string. In the second line of the output, print how many times does the substring #NAME# appear in the message. If the substring #NAME# does not appear in the message string at all, just print the original message string in the first line and "0" (without quotes) in the second line.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>The string.h library provides the strlen function to calculate the length of a string and the strstr function to find the occurrence of substrings in a given string. However, you need to be able to manipulate pointers to use strstr.<br />
+<li>This question can be solved without using pointers as well.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+Hello #NAME#, Welcome to ESC101<br />
+Mr C<br />
+<br />
+OUTPUT:<br />
+Hello Mr C, Welcome to ESC101<br />
+1<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+Hello John, Welcome to ESC101<br />
+Mr C<br />
+<br />
+OUTPUT:<br />
+Hello John, Welcome to ESC101<br />
+0<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first line carries 75% weightage and the second line carries 25% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>Hello #NAME#, Welcome to ESC101<br />
+Mr C</td><td>Hello Mr C, Welcome to ESC101<br />
+1</td></tr><tr><td>Hello John, Welcome to ESC101<br />
+Mr C</td><td>Hello John, Welcome to ESC101<br />
+0</td></tr><tr><td>Hello #NAME#, Welcome to ESC101. Your registered name in the course is #NAME#. Please verify this<br />
+Susan</td><td>Hello Susan, Welcome to ESC101. Your registered name in the course is Susan. Please verify this<br />
+2</td></tr><tr><td>Hello #NAME#, Welcome to ESC101. Your name in our records is #NAME#. So we will call you "#NAME#". Please verify this #NAME# and get back to us if there is a mistake.<br />
+Tyler</td><td>Hello Tyler, Welcome to ESC101. Your name in our records is Tyler. So we will call you "Tyler". Please verify this Tyler and get back to us if there is a mistake.<br />
+4</td></tr><tr><td>Hello #NAME#, Welcome to ESC101. Your name in our records is #NA ME#. So we will call you "#NAME#". Please verify this #NAME and get back to us if there is a mistake.<br />
+Carrie</td><td>Hello Carrie, Welcome to ESC101. Your name in our records is #NA ME#. So we will call you "Carrie". Please verify this #NAME and get back to us if there is a mistake.<br />
+2</td></tr><tr><td>Hello Amelia<br />
+Amelia</td><td>Hello Amelia<br />
+0</td></tr></table><hr><hr></body>
+</html>

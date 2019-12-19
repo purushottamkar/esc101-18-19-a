@@ -1,0 +1,552 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>LAB-PRAC-05_CONDLOOPS</title>
+</head>
+<body>
+<h1>LAB-PRAC-05_CONDLOOPS</h1><h2>Forgetful Mr C (p1v1d1)</h2><hr><b>Forgetful Mr C [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr. C is teaching the course ESC101 next semester. Given that the number of students and sections in the course is very large, he is unable to remember the lab day and the tutorial rooms for every section. He turns to you for help! Using the table given below, write a program which take input a section number in the format given below and print the lab day and the tutorial room in the format given below.<br />
+<br />
+<b>Note</b>?: If the section provided as input is not present in the table given below then your program should print "Incorrect section!" (without quotes).<br />
+<br />
+<table border = 1><br />
+<tr><th>Section</th><th>Day of Lab</th><th>Tutorial Room</th></tr><br />
+<tr><td>B1</td><th>Monday</td><td>TB 105</td></tr><br />
+<tr><td>B2</td><th>Monday</td><td>TB 106</td></tr><br />
+<tr><td>B3</td><th>Monday</td><td>TB 111</td></tr><br />
+<tr><td>B4</td><th>Tuesday</td><td>TB 112</td></tr><br />
+<tr><td>B5</td><th>Tuesday</td><td>TB 203</td></tr><br />
+<tr><td>B6</td><th>Tuesday</td><td>TB 204</td></tr><br />
+<tr><td>B7</td><th>Thursday</td><td>TB 205</td></tr><br />
+<tr><td>B8</td><th>Thursday</td><td>TB 206</td></tr><br />
+<tr><td>B9</td><th>Thursday</td><td>TB 207</td></tr><br />
+<tr><td>B10</td><th>Wednesday</td><td>TB 208</td></tr><br />
+<tr><td>B11</td><th>Wednesday</td><td>TB 209</td></tr><br />
+<tr><td>B12</td><th>Wednesday</td><td>TB 210</td></tr><br />
+<tr><td>B13</td><th>Tuesday</td><td>TB 211</td></tr><br />
+<tr><td>B14</td><th>Wednesday</td><td>TB 212</td></tr><br />
+</table><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Be careful about spelling mistakes while printing various text messages.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+B1<br />
+<br />
+OUTPUT:<br />
+Monday TB 105<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>B1</td><td>Monday TB 105</td></tr><tr><td>B100</td><td>Incorrect section!</td></tr><tr><td>B0</td><td>Incorrect section!</td></tr><tr><td>B10</td><td>Wednesday TB 208</td></tr><tr><td>B13</td><td>Tuesday TB 211</td></tr><tr><td>B7</td><td>Thursday TB 205</td></tr></table><hr><hr><h2>Rich Mr C (p1v2d1)</h2><hr><b>Rich Mr C [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The family of Mr. C is super rich. Each sibling of Mr. C has a single but vast piece of land in the outskirts of Kanpur city. The shape of the lands owned by siblings of Mr C can be either a square or a triangle. They want to sell their lands but they don’t have the information about its area. All they know is the shape of their land and length of sides. They ask Mr. C to help them with the calculation of the area.<br />
+<br />
+You are given as input, the shape of the land (represented as an integer as shown below). If the shape is a square, you are given its side length. If the shape is a triangle, then all three side lengths are given. Side lengths may be given as <b>non-integers</b>. Print the name of the shape and its area <b>rounded to three decimal places</b>. These two outputs must be printed on <b>different lines</b>.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Use <b>double variables</b> and double typecasting while doing area calculations to avoid loss of precision. Do not use float variables and float typecasting.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>A square is represented by the integer 0<br />
+<li>A triangle is represented by the integer 1<br />
+<li>To calculate the area of triangle, Mr. C recalls the Heron’s formula from his high school. If a, b, c are the side lengths of a triangle, then if we let s = (a + b + c)/2 then<br />
+$$area = \sqrt{s(s-a)(s-b)(s-c)}$$<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+0 2<br />
+OUTPUT:<br />
+Square<br />
+4.000<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>0 2.0</td><td>Square<br />
+4.000</td></tr><tr><td>1 2 2 2</td><td>Triangle<br />
+1.732<br />
+</td></tr><tr><td>0 2.5</td><td>Square<br />
+6.250</td></tr><tr><td>1 20 20 20</td><td>Triangle<br />
+173.205<br />
+</td></tr><tr><td>1 10000 10000 10000</td><td>Triangle<br />
+43301270.189<br />
+</td></tr><tr><td>0 125.5</td><td>Square<br />
+15750.250</td></tr></table><hr><hr><h2>Perfect Numbers (p1v3d1)</h2><hr><b>Perfect Numbers [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+A positive integer is called a perfect number if the sum of proper divisors of that number is equal to the number itself. When you go back home, you can read more about this here:  https://en.wikipedia.org/wiki/Perfect_number (however, DO NOT BROWSE these websites during the lab).<br />
+<br />
+The proper divisors of a number are all those numbers, except the number itself, which divide that number. Thus, 1 is a proper divisor of every number but 1 itself. For example, the proper divisors of 6 are: 1, 2 and 3. Clearly, 6 = 1 + 2 + 3. Thus, 6 is a perfect number.<br />
+<br />
+You will be given <b>a positive number as an int</b> as input and you will have to give two outputs in <b>two different lines</b>. In the first line, give the sum of the proper divisors of that number and in the second line, print "YES" (without quotes) if the number is a perfect number, otherwise print "NO".<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>This question will require you to use loops. We are giving below, the general structure of a loop, to help you.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>A loop is written as follows<br />
+int counter;<br />
+for(counter = 1; counter <= 5; counter++){<br />
+    // Do something with the counter<br />
+}<br />
+<li>You can change the initial value 1, final value 5, and the update step as you wish.<br />
+<li>Inside a for loop, you can put in any number of statements.<br />
+<li>Be careful that the sum of the divisors of a number may not fit inside the int datatype even if the number itself is int datatype. To avoid such errors, use the long datatype to perform computations.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+28<br />
+<br />
+OUTPUT:<br />
+28<br />
+YES<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>28</td><td>28<br />
+YES</td></tr><tr><td>15</td><td>9<br />
+NO</td></tr><tr><td>1</td><td>0<br />
+NO</td></tr><tr><td>8128</td><td>8128<br />
+YES</td></tr><tr><td>100000000</td><td>149511591<br />
+NO</td></tr><tr><td>150000</td><td>334344<br />
+NO</td></tr></table><hr><hr><h2>Mr C builds a Calculator (p2v1d1)</h2><hr><b>Mr C builds a Calculator [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr. C is fed up of making calculation mistakes in his CHM101 lab assignments and decides to build a scientific calculator to help him do calculations accurately. He needs some of the basic arithmetic and trigonometric functions for the lab. Help Mr C build this calculator.<br />
+<br />
+You will be given an operation (e.g. addition, sin etc) represented using a code given below, followed by the inputs for that operation. Write a program to read the operation as well as the inputs and then perform the operation on those inputs. Your answers should always be printed rounded off to 4 decimal places.<br />
+<br />
+<table border = 1><br />
+	<tr><th>Operation Code</th><th>Operation Symbol</th><th>Input1</th><th>Input2</th><th>Output</th></tr><br />
+	<tr><td>1</td><td>+</td><td>a</td><td>b</td><td>a+b</td></tr><br />
+	<tr><td>2</td><td>-</td><td>a</td><td>b</td><td>a-b</td></tr><br />
+	<tr><td>3</td><td>*</td><td>a</td><td>b</td><td>a*b</td></tr><br />
+	<tr><td>4</td><td>/</td><td>a</td><td>b</td><td>a/b</td></tr><br />
+	<tr><td>5</td><td>pow</td><td>a</td><td>b</td><td>pow(a,b)</td></tr><br />
+	<tr><td>6</td><td>sin</td><td>a</td><td></td><td>sin(a)</td></tr><br />
+	<tr><td>7</td><td>cos</td><td>a</td><td></td><td>cos(a)</td></tr><br />
+	<tr><td>8</td><td>fabs</td><td>a</td><td></td><td>fabs(a)</td></tr><br />
+</table><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Note that the input numbers <b>may be non-integer</b><br />
+<li>It is advised that you use double datatype and double typecasts in your code<br />
+<li>Note that some of the above operations are binary e.g. * and pow, whereas others are unary e.g. sin, fabs. If the operation is a unary operation, we will supply you only one number, if the operation is a binary operation, we will supply you two numbers.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1 2 3<br />
+<br />
+OUTPUT:<br />
+5.0000<br />
+<br />
+<b>Note</b> 1 stands for addition, so we added the two numbers 2 and 3 and output it rounded to four decimal places as 5.000<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 2 3</td><td>5.0000</td></tr><tr><td>8 -2.5</td><td>2.5000</td></tr><tr><td>2 3 4</td><td>-1.0000</td></tr><tr><td>5 2 10</td><td>1024.0000</td></tr><tr><td>6 3.14</td><td>0.0016</td></tr><tr><td>7 6.28</td><td>1.0000</td></tr></table><hr><hr><h2>Love for Primes (p2v2d1)</h2><hr><b>Love for Primes [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Given a positive <b>integer</b> N >= 2, write a program to find the smallest divisor D of N such that D > 1. Further if N is prime, then <b>on a second line</b> print "PRIME" (without quotes) otherwise print "COMPOSITE" (without quotes).<br />
+<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>The smallest divisor D of N such that D > 1 may be N itself (if this does happen, what does this say about the number N)?<br />
+<li>We will always give you a value of N that can fit inside int variable<br />
+<li>Be careful about the primality of small single digit numbers<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+3<br />
+<br />
+OUTPUT:<br />
+3<br />
+PRIME<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2</td><td>2<br />
+PRIME</td></tr><tr><td>323</td><td>17<br />
+COMPOSITE</td></tr><tr><td>3</td><td>3<br />
+PRIME</td></tr><tr><td>10000005</td><td>3<br />
+COMPOSITE</td></tr><tr><td>1022117</td><td>1009<br />
+COMPOSITE</td></tr><tr><td>15478777</td><td>15478777<br />
+PRIME</td></tr></table><hr><hr><h2>Tryst with Taylor (p2v3d1)</h2><hr><b>Tryst with Taylor [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Given a <b>real number</b> x such that |x| < 1, and a <b>positive integer</b> k, we can calculate the value of log(1+x) using the first k terms of the Taylor series for the log function as follows<br />
+$$<br />
+\log(1+x) = x - \frac{x^2}2 + \frac{x^3}3 - \frac{x^4}4 + \ldots + (-1)^{k+1}\frac{x^k}k<br />
+$$<br />
+We will give you the real number x such that |x| < 1 and a positive integer k. You have to output <b>on two different lines</b><br />
+<ol><br />
+<li>the value of log(1+x) calculated using the Taylor series upto 3 terms<br />
+<li>the value of log(1+x) calculated using the Taylor series upto k terms<br />
+</ol><br />
+Give all outputs <b>rounded to four decimal places</b><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>The number x may be negative too<br />
+<li>Use double variable to store x and use double typecasts and computations for this problem.<br />
+<li>Do not attempt to cheat and use the math.h function log() to compute this. The math.h function uses a really large number of terms while calculating the log function whereas we will ask you to use smaller number of terms. You will fail the test cases if you try to use the math.h log function.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+x k<br />
+<br />
+<b>OUTPUT</b>:<br />
+log(1+x) computed using the first 3 terms of the Taylor series<br />
+log(1+x) computed using the first k terms of the Taylor series<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+<br />
+OUTPUT:<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>0.1 5</td><td>0.0953<br />
+0.0953</td></tr><tr><td>0.1 1</td><td>0.0953<br />
+0.1000</td></tr><tr><td>-0.1 1</td><td>-0.1053<br />
+-0.1000</td></tr><tr><td>0.9 2</td><td>0.7380<br />
+0.4950</td></tr><tr><td>-0.9 6</td><td>-1.5480<br />
+-1.9187</td></tr><tr><td>0 6</td><td>0.0000<br />
+0.0000</td></tr></table><hr><hr><h2>Mr C is very busy (p3v1d1)</h2><hr><b>Mr C is very busy [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr. C’s son Cc is in primary school. He knows the textual word representation for numbers from 1 to 20 (e.g. 11 is eleven, 19 is nineteen, and so on). Next week Cc has to submit a homework in which he has to write the word representation for numbers from 21 to 99. <br />
+<br />
+Now Mr. C is a very busy man as he has to run all the loops you are making him execute this week. He doesn’t have the time to teach his son Cc the word representation for all the numbers between 21 and 99. Write a program which will take an input integer from 21 to 99 and print it’s word representation.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>In particular, for the number 40, we want the text "Forty" (without the quotes) and not the string "Forty " (note the extra space at the end).<br />
+<li>Please note that the evaluation may show you that you have passed the test case even if you write "Forty ". However, the final autograder will give you zero marks if you do this.<br />
+<li>Also note that for words like 22, the expected output is "Twenty two" (without the quotes). Note the spelling of the word "two" is in small case.<br />
+<li>Look at the visible test cases carefully to see where you are going wrong.<br />
+<li>You may use copy-paste to avoid typing code again and again. However, be careful not to make typing errors while doing so.<br />
+</ol><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+40<br />
+<br />
+OUTPUT:<br />
+Forty<br />
+<br />
+<b>Note</b>: no extra space after the word Forty<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+22<br />
+<br />
+OUTPUT:<br />
+Twenty two<br />
+<br />
+<b>Note</b>: only one space between the words Twenty and two no extra space after the word two<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>40</td><td>Forty</td></tr><tr><td>22</td><td>Twenty two</td></tr><tr><td>35</td><td>Thirty five</td></tr><tr><td>99</td><td>Ninety nine</td></tr><tr><td>67</td><td>Sixty seven</td></tr><tr><td>80</td><td>Eighty</td></tr></table><hr><hr><h2>Fabulous Fibonacci (p3v2d1)</h2><hr><b>Fabulous Fibonacci [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The Fibonacci sequence forms one of the most important number series in the nature. Many natural phenomenon follows this sequence. However, we will look at an even more general class of sequences known as Lucas sequences in this question. You will be given three <b>integers</b>, P, Q, n. n will always be non-negative.<br />
+<br />
+Given P, Q, the Lucas numbers of the first kind are defined as follows<br />
+$$\begin{align}<br />
+L_0 &= 0\\<br />
+L_1 &= 1\\<br />
+L_n &= P \cdot L_{n-1} - Q \cdot L_{n-2},\qquad\text{for } n \geq 2<br />
+\end{align}$$<br />
+You will first have to output L_5 for the given value of P and Q. In <b>the next line</b> you will have to output L_n for the given value of P and Q.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Remember that n can be 0 or 1 too<br />
+<li>Remember that P, Q can be negative or positive integers too<br />
+<li>Lucas numbers can grow very very quickly. Use a long datatype to perform all your computations.<br />
+<li>All Lucas numbers are integers. Using float or double variables will result in errors.<br />
+<li>You may use copy-paste to avoid typing code to the print the first and second lines twice. However, be careful not to make typing errors while doing so.<br />
+<li>Warning: if you use try to use recursion to solve this problem, you may land up with a TLE error<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+P Q n<br />
+<br />
+<b>OUTPUT</b>:<br />
+L_5<br />
+L_n<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+<br />
+OUTPUT:<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 -1 20</td><td>5<br />
+6765</td></tr><tr><td>3 -5 23</td><td>241<br />
+38537005750589</td></tr><tr><td>3 -5 0</td><td>241<br />
+0</td></tr><tr><td>2 4 35</td><td>-16<br />
+-17179869184</td></tr><tr><td>5 4 25</td><td>341<br />
+375299968947541</td></tr><tr><td>4 -3 1</td><td>409<br />
+1</td></tr></table><hr><hr><h2>Digit Debacle (p3v3d1)</h2><hr><b>Digit Debacle [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given two <b>strictly positive integer</b> (i.e. positive and non-zero) N and another <b>non-negative integer</b> K. We promise that the integers will not contain any leading zeros i.e. we will never give you N as 0123 or 00123 -- instead we will always give N as 123 i.e. the first digit of N in the way we give it to you will always be non-zero. You will have output two things on <b>two different lines</b><br />
+<ol><br />
+<li>On the first line, print the number of digits in the number N<br />
+<li>On the second line, print "YES" (without quotes) if the sum of the first K digits of N is greater than K*K. If not, print "NO" (without quotes).<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Be careful about the capitalization of the words YES and NO.<br />
+<li>The number N we give you might not fit inside an int variable so use a long variable to store N.<br />
+<li>Be careful that K may be zero as well<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>The function log10(n) available from math.h gives you back the base 10 logarithm of a number n. This function can help you in finding the number of digits in an integer n.<br />
+<li>We can extract the first i.e. leading digit of any integer n by using the formula<br />
+$$(\text{int})(n/\text{pow}(10,len - 1))$$<br />
+where len is the number of digits in n.<br />
+</ol><br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+125 2<br />
+<br />
+OUTPUT:<br />
+3<br />
+NO<br />
+<br />
+<b>Explanation</b>: The number of digits in 125 is 3. The sum of the first 2 digits is 3 which is not greater than 2*2 = 4 so the second answer is NO.<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5 1</td><td>1<br />
+YES</td></tr><tr><td>105 3</td><td>3<br />
+NO</td></tr><tr><td>18999 4</td><td>5<br />
+YES</td></tr><tr><td>133 0</td><td>3<br />
+NO</td></tr><tr><td>987654321987 9</td><td>12<br />
+NO</td></tr><tr><td>111111111111111111 1</td><td>18<br />
+NO</td></tr></table><hr><hr><h2>May the fourth be with you (p4v1d1)</h2><hr><b>May the fourth be with you [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+On the coming 4th of May, IIT Kanpur astronomy club is planning to celebrate Star-Wars day. For 10 days starting from 4th of May and lasting till 13th of May, movie screenings are planned for original as well as prequel movies of Star-Wars series.<br />
+<br />
+The schedule is given below:<br />
+<table border = 1><br />
+	<tr><th>Dates</th><th>Movie</th></tr><br />
+	<tr><td>4 May, 7 May, 10 May</td><td>The Phantom Menace</td></tr><br />
+	<tr><td>5 May, 11 May</td><td>Attack of the Clones</td></tr><br />
+	<tr><td>6 May, 8 May, 9 May, 12 May</td><td>Revenge of the Sith</td></tr><br />
+	<tr><td>13 May</td><td>A New Hope</td></tr><br />
+</table><br />
+<br />
+Write a program which will take input a date <b>in the form of an integer</b> and print the name of the movie that will be screened on that day, if the input date is not on the schedule, print "Outside schedule!" (without quotes).<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Note that the same movie is shown on multiple days<br />
+<li>Be very careful about spelling mistakes and capitalization errors. Autograder will mark all spelling mistakes and capitalization errors with a zero.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+14<br />
+<br />
+OUTPUT:<br />
+Outside schedule!<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>9</td><td>Revenge of the Sith</td></tr><tr><td>15</td><td>Outside schedule!</td></tr><tr><td>7</td><td>The Phantom Menace</td></tr><tr><td>1</td><td>Outside schedule!</td></tr><tr><td>5</td><td>Attack of the Clones</td></tr><tr><td>13</td><td>A New Hope</td></tr></table><hr><hr><h2>Phone a friend (p4v2d1)</h2><hr><b>Phone a friend [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In a planet called Vormir, there is a weird system for determining friendship between two persons.<br />
+<ul><br />
+<li>If the <b>number of even digits</b> in their telephone numbers are the same, then the two persons are friends<br />
+<li>If two persons are not friends but the <b>sum of the number of even digits</b> in their telephone numbers is even, then they are acquaintances.<br />
+<li>If two persons are neither friends nor acquaintances, they are enemies.<br />
+</ul><br />
+<br />
+It is known that the planet has an <b>eight digit phone number</b> system. Write a program which takes as input, two phone numbers given as <b>positive integers</b> separated by a space and first prints the total number of even digits in each phone number, <b>separated by a space</b>, then in a <b>new line</b>, prints the relationship of the two people (Friends, Acquaintances, Enemies).<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Be careful not to make spelling mistakes in the output. The label should be either of "Friends", "Acquaintances", or "Enemies" (without quotes)<br />
+<li>0 is considered and even number<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+11111111 22222222<br />
+<br />
+OUTPUT:<br />
+0 8<br />
+Acquaintances<br />
+<br />
+<b>Explanation</b> 0 is not equal to 8 but their sum is 8 which is even<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>11111111 22222222</td><td>0 8<br />
+Acquaintances</td></tr><tr><td>12121212 90909009</td><td>4 4<br />
+Friends</td></tr><tr><td>33445567 11100000</td><td>3 5<br />
+Acquaintances</td></tr><tr><td>11805520 11107305</td><td>4 2<br />
+Acquaintances</td></tr><tr><td>12345678 12345678</td><td>4 4<br />
+Friends</td></tr><tr><td>00000000 00000000</td><td>8 8<br />
+Friends</td></tr></table><hr><hr><h2>The legend of Chess (p4v3d1)</h2><hr><b>The legend of Chess [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+There is a famous legend related to the origin of the game of chess. There was an emperor who was very impressed by this game and wished to reward the inventor. The conversation between them is given below. In this world however, the chessboard only has 7 squares on each side, for a total of 49 squares on the board.<br />
+<br />
+<b>Emperor</b>: Name your reward, O wise one!<br />
+<b>Inventor</b>: O generous emperor, my wish is simple. I only wish for this -- give me one grain of rice for the first square of the chessboard, two grains for the next square, four for the next, eight for the next and so on for all 49 squares, with each square having double the number of grains as the square before.<br />
+<br />
+We will provide you with the number of rice grains present with the emperor as a <b>long integer</b><br />
+<ol><br />
+<li>If the king is able to fulfill his promise with those many rice grains, print <b>YES</b> in the first line and then in the <b>next line</b>, print how many grains of rice he will be left with after fulfilling his promise.<br />
+<li>If the king is not able to fulfill his promise with those many grains of rice, print <b>NO</b> in the first line and then in the <b>next line</b>, print the last square he was able to <b>completely fill</b>. This will be a number between 0 and 49.<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>The number of rice grains can be very large. Use a long type variable to do calculations.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2<br />
+<br />
+OUTPUT:<br />
+NO<br />
+1<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2</td><td>NO<br />
+1<br />
+</td></tr><tr><td>1125899906842624</td><td>YES<br />
+562949953421313</td></tr><tr><td>3</td><td>NO<br />
+2<br />
+</td></tr><tr><td>0</td><td>NO<br />
+0<br />
+</td></tr><tr><td>562949953421311</td><td>YES<br />
+0</td></tr><tr><td>1023</td><td>NO<br />
+10<br />
+</td></tr></table><hr><hr></body>
+</html>

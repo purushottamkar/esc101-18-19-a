@@ -1,0 +1,2909 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>LAB-PRAC-11_FUN-PTR</title>
+</head>
+<body>
+<h1>LAB-PRAC-11_FUN-PTR</h1><h2>Name the Clones (p1v1d1)</h2><hr><b>Name the Clones [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C has a large number of clones that come to life when you call functions. He wants to give these clones, names for which he wants your help. In the input, you will be given two strictly positive integers n and k, separated by a space. You will have to generate names for the clones of Mr C. These names should all contain exactly k characters and all of these characters must be from the first n lower-case English alphabet characters (no upper-case characters, spaces or punctuation marks allowed). However, the allowed characters can repeat any number of times in a name.<br />
+<br />
+Mr C has requested that the names that you suggest be in <i>lexicographically</i> increasing order. We explain lexicographic ordering below. Thus, you have to first output the lexicographically smallest string of length k you can construct out of the first n lower-case letters of the English alphabet. Then find the lexicographically next smallest string of length k and so on till you have generated all such names possible. <br />
+<br />
+<b>Lexicographic ordering</b><br />
+Just as given two digit sequences, say 1923 and 3122, we can say which digit sequence is "smaller" and which is "larger" (by interpreting the digit sequences as numbers), two sequences of alphabets, i.e. strings, can also be compared and given two sequences of alphabets, we can say which one is smaller and which one is larger.<br />
+<br />
+The rules of doing so are pretty simple if the two strings are of the same length, which will be the case in this question. We first declare that the character 'a' is smaller than the character 'b', which is in turn smaller than the character 'c' and so on. To compare two strings, simply look at their first characters - the string with the larger character wins. If both strings have the same first character, then the second characters of the two strings are compared and so on.<br />
+<br />
+Thus, we have "cat" = "cat" since the two strings are exactly the same but we have "cap" < "cat" since 'p' is smaller than 't'. Also, we have "mat" > "cat" since 'm' is larger than 'c' and also "aazd" < "abbb" since 'a' is smaller than 'b' (The third characters 'z' and 'b' do not get compared at all since "abbb" wins when the second characters get compared).<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Using recursion is not compulsory in this question. However, you will have to write much less code if you use recursion.<br />
+<li>Do not output names in incorrect order. The autograder will heavily penalize you if you do this since it will give you marks only if a correct name is output in its correct location.<br />
+<li>We will not penalize you for stray newlines at the end of your output. However, do not have stray spaces at the end of each line of your output. You will not pass test cases if you have these.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+This problem may seem very complicated if you try to write a loop to solve the problem but it can be very elegantly solved using recursion as we explain below. Suppose we want to generate all names of length 3 out of the first two alphabets, in lexicographic order. This can be solved if we first generate all names starting with a and then generate all names starting with b (since names starting with a come before those starting with b in lexicographic order).<br />
+<br />
+However, notice that generating all names starting with a, and that too in lexicographic order, we simply need to find all names of length 2 in lexicographic order, and simply add an a before them. But this is just a smaller version of the original problem which is why recursion can be used. Indeed, all names of length 2 (formed out of the first two alphabets) in alphabetical order are simply<br />
+aa<br />
+ab<br />
+ba<br />
+bb<br />
+and if we prepend (add to the beginning) an a to all these names, we get all names starting with a in alphabetical order!<br />
+aaa<br />
+aab<br />
+aba<br />
+abb<br />
+<br />
+Write a function that takes partially filled in names and recursively calls itself to complete the names. Write a function generateNames(char* name, int k, int n, int left) which takes in four arguments<br />
+<ol><br />
+<li>a character array name of length k+1 (k characters for the names and one for the NULL character)<br />
+<li>the value of k (will help you know what is the length of the array)<br />
+<li>the value of n (which all letters of the English alphabet can you use)<br />
+<li>the value of how many letters are left to be filled in<br />
+</ol><br />
+The base case of the recursion can be left = 0 which means we have a complete name which can simply be printed. To print all names starting with the letter 'a', you could do something like the following:<br />
+char name[k+1];<br />
+name[k] = '\0'; // Do not forget the NULL character<br />
+name[0] = 'a';<br />
+generateNames(name, k, n, k - 1); // one character already filled and k-1 left to be filled<br />
+<br />
+Use these hints to completely solve the problem<br />
+----------------------------------------------------------------------<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2 3<br />
+<br />
+OUTPUT:<br />
+aaa<br />
+aab<br />
+aba<br />
+abb<br />
+baa<br />
+bab<br />
+bba<br />
+bbb<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 3</td><td>aaa<br />
+aab<br />
+aba<br />
+abb<br />
+baa<br />
+bab<br />
+bba<br />
+bbb<br />
+</td></tr><tr><td>5 2</td><td>aa<br />
+ab<br />
+ac<br />
+ad<br />
+ae<br />
+ba<br />
+bb<br />
+bc<br />
+bd<br />
+be<br />
+ca<br />
+cb<br />
+cc<br />
+cd<br />
+ce<br />
+da<br />
+db<br />
+dc<br />
+dd<br />
+de<br />
+ea<br />
+eb<br />
+ec<br />
+ed<br />
+ee<br />
+</td></tr><tr><td>1 5</td><td>aaaaa<br />
+</td></tr><tr><td>2 5</td><td>aaaaa<br />
+aaaab<br />
+aaaba<br />
+aaabb<br />
+aabaa<br />
+aabab<br />
+aabba<br />
+aabbb<br />
+abaaa<br />
+abaab<br />
+ababa<br />
+ababb<br />
+abbaa<br />
+abbab<br />
+abbba<br />
+abbbb<br />
+baaaa<br />
+baaab<br />
+baaba<br />
+baabb<br />
+babaa<br />
+babab<br />
+babba<br />
+babbb<br />
+bbaaa<br />
+bbaab<br />
+bbaba<br />
+bbabb<br />
+bbbaa<br />
+bbbab<br />
+bbbba<br />
+bbbbb<br />
+</td></tr><tr><td>5 4</td><td>aaaa<br />
+aaab<br />
+aaac<br />
+aaad<br />
+aaae<br />
+aaba<br />
+aabb<br />
+aabc<br />
+aabd<br />
+aabe<br />
+aaca<br />
+aacb<br />
+aacc<br />
+aacd<br />
+aace<br />
+aada<br />
+aadb<br />
+aadc<br />
+aadd<br />
+aade<br />
+aaea<br />
+aaeb<br />
+aaec<br />
+aaed<br />
+aaee<br />
+abaa<br />
+abab<br />
+abac<br />
+abad<br />
+abae<br />
+abba<br />
+abbb<br />
+abbc<br />
+abbd<br />
+abbe<br />
+abca<br />
+abcb<br />
+abcc<br />
+abcd<br />
+abce<br />
+abda<br />
+abdb<br />
+abdc<br />
+abdd<br />
+abde<br />
+abea<br />
+abeb<br />
+abec<br />
+abed<br />
+abee<br />
+acaa<br />
+acab<br />
+acac<br />
+acad<br />
+acae<br />
+acba<br />
+acbb<br />
+acbc<br />
+acbd<br />
+acbe<br />
+acca<br />
+accb<br />
+accc<br />
+accd<br />
+acce<br />
+acda<br />
+acdb<br />
+acdc<br />
+acdd<br />
+acde<br />
+acea<br />
+aceb<br />
+acec<br />
+aced<br />
+acee<br />
+adaa<br />
+adab<br />
+adac<br />
+adad<br />
+adae<br />
+adba<br />
+adbb<br />
+adbc<br />
+adbd<br />
+adbe<br />
+adca<br />
+adcb<br />
+adcc<br />
+adcd<br />
+adce<br />
+adda<br />
+addb<br />
+addc<br />
+addd<br />
+adde<br />
+adea<br />
+adeb<br />
+adec<br />
+aded<br />
+adee<br />
+aeaa<br />
+aeab<br />
+aeac<br />
+aead<br />
+aeae<br />
+aeba<br />
+aebb<br />
+aebc<br />
+aebd<br />
+aebe<br />
+aeca<br />
+aecb<br />
+aecc<br />
+aecd<br />
+aece<br />
+aeda<br />
+aedb<br />
+aedc<br />
+aedd<br />
+aede<br />
+aeea<br />
+aeeb<br />
+aeec<br />
+aeed<br />
+aeee<br />
+baaa<br />
+baab<br />
+baac<br />
+baad<br />
+baae<br />
+baba<br />
+babb<br />
+babc<br />
+babd<br />
+babe<br />
+baca<br />
+bacb<br />
+bacc<br />
+bacd<br />
+bace<br />
+bada<br />
+badb<br />
+badc<br />
+badd<br />
+bade<br />
+baea<br />
+baeb<br />
+baec<br />
+baed<br />
+baee<br />
+bbaa<br />
+bbab<br />
+bbac<br />
+bbad<br />
+bbae<br />
+bbba<br />
+bbbb<br />
+bbbc<br />
+bbbd<br />
+bbbe<br />
+bbca<br />
+bbcb<br />
+bbcc<br />
+bbcd<br />
+bbce<br />
+bbda<br />
+bbdb<br />
+bbdc<br />
+bbdd<br />
+bbde<br />
+bbea<br />
+bbeb<br />
+bbec<br />
+bbed<br />
+bbee<br />
+bcaa<br />
+bcab<br />
+bcac<br />
+bcad<br />
+bcae<br />
+bcba<br />
+bcbb<br />
+bcbc<br />
+bcbd<br />
+bcbe<br />
+bcca<br />
+bccb<br />
+bccc<br />
+bccd<br />
+bcce<br />
+bcda<br />
+bcdb<br />
+bcdc<br />
+bcdd<br />
+bcde<br />
+bcea<br />
+bceb<br />
+bcec<br />
+bced<br />
+bcee<br />
+bdaa<br />
+bdab<br />
+bdac<br />
+bdad<br />
+bdae<br />
+bdba<br />
+bdbb<br />
+bdbc<br />
+bdbd<br />
+bdbe<br />
+bdca<br />
+bdcb<br />
+bdcc<br />
+bdcd<br />
+bdce<br />
+bdda<br />
+bddb<br />
+bddc<br />
+bddd<br />
+bdde<br />
+bdea<br />
+bdeb<br />
+bdec<br />
+bded<br />
+bdee<br />
+beaa<br />
+beab<br />
+beac<br />
+bead<br />
+beae<br />
+beba<br />
+bebb<br />
+bebc<br />
+bebd<br />
+bebe<br />
+beca<br />
+becb<br />
+becc<br />
+becd<br />
+bece<br />
+beda<br />
+bedb<br />
+bedc<br />
+bedd<br />
+bede<br />
+beea<br />
+beeb<br />
+beec<br />
+beed<br />
+beee<br />
+caaa<br />
+caab<br />
+caac<br />
+caad<br />
+caae<br />
+caba<br />
+cabb<br />
+cabc<br />
+cabd<br />
+cabe<br />
+caca<br />
+cacb<br />
+cacc<br />
+cacd<br />
+cace<br />
+cada<br />
+cadb<br />
+cadc<br />
+cadd<br />
+cade<br />
+caea<br />
+caeb<br />
+caec<br />
+caed<br />
+caee<br />
+cbaa<br />
+cbab<br />
+cbac<br />
+cbad<br />
+cbae<br />
+cbba<br />
+cbbb<br />
+cbbc<br />
+cbbd<br />
+cbbe<br />
+cbca<br />
+cbcb<br />
+cbcc<br />
+cbcd<br />
+cbce<br />
+cbda<br />
+cbdb<br />
+cbdc<br />
+cbdd<br />
+cbde<br />
+cbea<br />
+cbeb<br />
+cbec<br />
+cbed<br />
+cbee<br />
+ccaa<br />
+ccab<br />
+ccac<br />
+ccad<br />
+ccae<br />
+ccba<br />
+ccbb<br />
+ccbc<br />
+ccbd<br />
+ccbe<br />
+ccca<br />
+cccb<br />
+cccc<br />
+cccd<br />
+ccce<br />
+ccda<br />
+ccdb<br />
+ccdc<br />
+ccdd<br />
+ccde<br />
+ccea<br />
+cceb<br />
+ccec<br />
+cced<br />
+ccee<br />
+cdaa<br />
+cdab<br />
+cdac<br />
+cdad<br />
+cdae<br />
+cdba<br />
+cdbb<br />
+cdbc<br />
+cdbd<br />
+cdbe<br />
+cdca<br />
+cdcb<br />
+cdcc<br />
+cdcd<br />
+cdce<br />
+cdda<br />
+cddb<br />
+cddc<br />
+cddd<br />
+cdde<br />
+cdea<br />
+cdeb<br />
+cdec<br />
+cded<br />
+cdee<br />
+ceaa<br />
+ceab<br />
+ceac<br />
+cead<br />
+ceae<br />
+ceba<br />
+cebb<br />
+cebc<br />
+cebd<br />
+cebe<br />
+ceca<br />
+cecb<br />
+cecc<br />
+cecd<br />
+cece<br />
+ceda<br />
+cedb<br />
+cedc<br />
+cedd<br />
+cede<br />
+ceea<br />
+ceeb<br />
+ceec<br />
+ceed<br />
+ceee<br />
+daaa<br />
+daab<br />
+daac<br />
+daad<br />
+daae<br />
+daba<br />
+dabb<br />
+dabc<br />
+dabd<br />
+dabe<br />
+daca<br />
+dacb<br />
+dacc<br />
+dacd<br />
+dace<br />
+dada<br />
+dadb<br />
+dadc<br />
+dadd<br />
+dade<br />
+daea<br />
+daeb<br />
+daec<br />
+daed<br />
+daee<br />
+dbaa<br />
+dbab<br />
+dbac<br />
+dbad<br />
+dbae<br />
+dbba<br />
+dbbb<br />
+dbbc<br />
+dbbd<br />
+dbbe<br />
+dbca<br />
+dbcb<br />
+dbcc<br />
+dbcd<br />
+dbce<br />
+dbda<br />
+dbdb<br />
+dbdc<br />
+dbdd<br />
+dbde<br />
+dbea<br />
+dbeb<br />
+dbec<br />
+dbed<br />
+dbee<br />
+dcaa<br />
+dcab<br />
+dcac<br />
+dcad<br />
+dcae<br />
+dcba<br />
+dcbb<br />
+dcbc<br />
+dcbd<br />
+dcbe<br />
+dcca<br />
+dccb<br />
+dccc<br />
+dccd<br />
+dcce<br />
+dcda<br />
+dcdb<br />
+dcdc<br />
+dcdd<br />
+dcde<br />
+dcea<br />
+dceb<br />
+dcec<br />
+dced<br />
+dcee<br />
+ddaa<br />
+ddab<br />
+ddac<br />
+ddad<br />
+ddae<br />
+ddba<br />
+ddbb<br />
+ddbc<br />
+ddbd<br />
+ddbe<br />
+ddca<br />
+ddcb<br />
+ddcc<br />
+ddcd<br />
+ddce<br />
+ddda<br />
+dddb<br />
+dddc<br />
+dddd<br />
+ddde<br />
+ddea<br />
+ddeb<br />
+ddec<br />
+dded<br />
+ddee<br />
+deaa<br />
+deab<br />
+deac<br />
+dead<br />
+deae<br />
+deba<br />
+debb<br />
+debc<br />
+debd<br />
+debe<br />
+deca<br />
+decb<br />
+decc<br />
+decd<br />
+dece<br />
+deda<br />
+dedb<br />
+dedc<br />
+dedd<br />
+dede<br />
+deea<br />
+deeb<br />
+deec<br />
+deed<br />
+deee<br />
+eaaa<br />
+eaab<br />
+eaac<br />
+eaad<br />
+eaae<br />
+eaba<br />
+eabb<br />
+eabc<br />
+eabd<br />
+eabe<br />
+eaca<br />
+eacb<br />
+eacc<br />
+eacd<br />
+eace<br />
+eada<br />
+eadb<br />
+eadc<br />
+eadd<br />
+eade<br />
+eaea<br />
+eaeb<br />
+eaec<br />
+eaed<br />
+eaee<br />
+ebaa<br />
+ebab<br />
+ebac<br />
+ebad<br />
+ebae<br />
+ebba<br />
+ebbb<br />
+ebbc<br />
+ebbd<br />
+ebbe<br />
+ebca<br />
+ebcb<br />
+ebcc<br />
+ebcd<br />
+ebce<br />
+ebda<br />
+ebdb<br />
+ebdc<br />
+ebdd<br />
+ebde<br />
+ebea<br />
+ebeb<br />
+ebec<br />
+ebed<br />
+ebee<br />
+ecaa<br />
+ecab<br />
+ecac<br />
+ecad<br />
+ecae<br />
+ecba<br />
+ecbb<br />
+ecbc<br />
+ecbd<br />
+ecbe<br />
+ecca<br />
+eccb<br />
+eccc<br />
+eccd<br />
+ecce<br />
+ecda<br />
+ecdb<br />
+ecdc<br />
+ecdd<br />
+ecde<br />
+ecea<br />
+eceb<br />
+ecec<br />
+eced<br />
+ecee<br />
+edaa<br />
+edab<br />
+edac<br />
+edad<br />
+edae<br />
+edba<br />
+edbb<br />
+edbc<br />
+edbd<br />
+edbe<br />
+edca<br />
+edcb<br />
+edcc<br />
+edcd<br />
+edce<br />
+edda<br />
+eddb<br />
+eddc<br />
+eddd<br />
+edde<br />
+edea<br />
+edeb<br />
+edec<br />
+eded<br />
+edee<br />
+eeaa<br />
+eeab<br />
+eeac<br />
+eead<br />
+eeae<br />
+eeba<br />
+eebb<br />
+eebc<br />
+eebd<br />
+eebe<br />
+eeca<br />
+eecb<br />
+eecc<br />
+eecd<br />
+eece<br />
+eeda<br />
+eedb<br />
+eedc<br />
+eedd<br />
+eede<br />
+eeea<br />
+eeeb<br />
+eeec<br />
+eeed<br />
+eeee<br />
+</td></tr><tr><td>3 6</td><td>aaaaaa<br />
+aaaaab<br />
+aaaaac<br />
+aaaaba<br />
+aaaabb<br />
+aaaabc<br />
+aaaaca<br />
+aaaacb<br />
+aaaacc<br />
+aaabaa<br />
+aaabab<br />
+aaabac<br />
+aaabba<br />
+aaabbb<br />
+aaabbc<br />
+aaabca<br />
+aaabcb<br />
+aaabcc<br />
+aaacaa<br />
+aaacab<br />
+aaacac<br />
+aaacba<br />
+aaacbb<br />
+aaacbc<br />
+aaacca<br />
+aaaccb<br />
+aaaccc<br />
+aabaaa<br />
+aabaab<br />
+aabaac<br />
+aababa<br />
+aababb<br />
+aababc<br />
+aabaca<br />
+aabacb<br />
+aabacc<br />
+aabbaa<br />
+aabbab<br />
+aabbac<br />
+aabbba<br />
+aabbbb<br />
+aabbbc<br />
+aabbca<br />
+aabbcb<br />
+aabbcc<br />
+aabcaa<br />
+aabcab<br />
+aabcac<br />
+aabcba<br />
+aabcbb<br />
+aabcbc<br />
+aabcca<br />
+aabccb<br />
+aabccc<br />
+aacaaa<br />
+aacaab<br />
+aacaac<br />
+aacaba<br />
+aacabb<br />
+aacabc<br />
+aacaca<br />
+aacacb<br />
+aacacc<br />
+aacbaa<br />
+aacbab<br />
+aacbac<br />
+aacbba<br />
+aacbbb<br />
+aacbbc<br />
+aacbca<br />
+aacbcb<br />
+aacbcc<br />
+aaccaa<br />
+aaccab<br />
+aaccac<br />
+aaccba<br />
+aaccbb<br />
+aaccbc<br />
+aaccca<br />
+aacccb<br />
+aacccc<br />
+abaaaa<br />
+abaaab<br />
+abaaac<br />
+abaaba<br />
+abaabb<br />
+abaabc<br />
+abaaca<br />
+abaacb<br />
+abaacc<br />
+ababaa<br />
+ababab<br />
+ababac<br />
+ababba<br />
+ababbb<br />
+ababbc<br />
+ababca<br />
+ababcb<br />
+ababcc<br />
+abacaa<br />
+abacab<br />
+abacac<br />
+abacba<br />
+abacbb<br />
+abacbc<br />
+abacca<br />
+abaccb<br />
+abaccc<br />
+abbaaa<br />
+abbaab<br />
+abbaac<br />
+abbaba<br />
+abbabb<br />
+abbabc<br />
+abbaca<br />
+abbacb<br />
+abbacc<br />
+abbbaa<br />
+abbbab<br />
+abbbac<br />
+abbbba<br />
+abbbbb<br />
+abbbbc<br />
+abbbca<br />
+abbbcb<br />
+abbbcc<br />
+abbcaa<br />
+abbcab<br />
+abbcac<br />
+abbcba<br />
+abbcbb<br />
+abbcbc<br />
+abbcca<br />
+abbccb<br />
+abbccc<br />
+abcaaa<br />
+abcaab<br />
+abcaac<br />
+abcaba<br />
+abcabb<br />
+abcabc<br />
+abcaca<br />
+abcacb<br />
+abcacc<br />
+abcbaa<br />
+abcbab<br />
+abcbac<br />
+abcbba<br />
+abcbbb<br />
+abcbbc<br />
+abcbca<br />
+abcbcb<br />
+abcbcc<br />
+abccaa<br />
+abccab<br />
+abccac<br />
+abccba<br />
+abccbb<br />
+abccbc<br />
+abccca<br />
+abcccb<br />
+abcccc<br />
+acaaaa<br />
+acaaab<br />
+acaaac<br />
+acaaba<br />
+acaabb<br />
+acaabc<br />
+acaaca<br />
+acaacb<br />
+acaacc<br />
+acabaa<br />
+acabab<br />
+acabac<br />
+acabba<br />
+acabbb<br />
+acabbc<br />
+acabca<br />
+acabcb<br />
+acabcc<br />
+acacaa<br />
+acacab<br />
+acacac<br />
+acacba<br />
+acacbb<br />
+acacbc<br />
+acacca<br />
+acaccb<br />
+acaccc<br />
+acbaaa<br />
+acbaab<br />
+acbaac<br />
+acbaba<br />
+acbabb<br />
+acbabc<br />
+acbaca<br />
+acbacb<br />
+acbacc<br />
+acbbaa<br />
+acbbab<br />
+acbbac<br />
+acbbba<br />
+acbbbb<br />
+acbbbc<br />
+acbbca<br />
+acbbcb<br />
+acbbcc<br />
+acbcaa<br />
+acbcab<br />
+acbcac<br />
+acbcba<br />
+acbcbb<br />
+acbcbc<br />
+acbcca<br />
+acbccb<br />
+acbccc<br />
+accaaa<br />
+accaab<br />
+accaac<br />
+accaba<br />
+accabb<br />
+accabc<br />
+accaca<br />
+accacb<br />
+accacc<br />
+accbaa<br />
+accbab<br />
+accbac<br />
+accbba<br />
+accbbb<br />
+accbbc<br />
+accbca<br />
+accbcb<br />
+accbcc<br />
+acccaa<br />
+acccab<br />
+acccac<br />
+acccba<br />
+acccbb<br />
+acccbc<br />
+acccca<br />
+accccb<br />
+accccc<br />
+baaaaa<br />
+baaaab<br />
+baaaac<br />
+baaaba<br />
+baaabb<br />
+baaabc<br />
+baaaca<br />
+baaacb<br />
+baaacc<br />
+baabaa<br />
+baabab<br />
+baabac<br />
+baabba<br />
+baabbb<br />
+baabbc<br />
+baabca<br />
+baabcb<br />
+baabcc<br />
+baacaa<br />
+baacab<br />
+baacac<br />
+baacba<br />
+baacbb<br />
+baacbc<br />
+baacca<br />
+baaccb<br />
+baaccc<br />
+babaaa<br />
+babaab<br />
+babaac<br />
+bababa<br />
+bababb<br />
+bababc<br />
+babaca<br />
+babacb<br />
+babacc<br />
+babbaa<br />
+babbab<br />
+babbac<br />
+babbba<br />
+babbbb<br />
+babbbc<br />
+babbca<br />
+babbcb<br />
+babbcc<br />
+babcaa<br />
+babcab<br />
+babcac<br />
+babcba<br />
+babcbb<br />
+babcbc<br />
+babcca<br />
+babccb<br />
+babccc<br />
+bacaaa<br />
+bacaab<br />
+bacaac<br />
+bacaba<br />
+bacabb<br />
+bacabc<br />
+bacaca<br />
+bacacb<br />
+bacacc<br />
+bacbaa<br />
+bacbab<br />
+bacbac<br />
+bacbba<br />
+bacbbb<br />
+bacbbc<br />
+bacbca<br />
+bacbcb<br />
+bacbcc<br />
+baccaa<br />
+baccab<br />
+baccac<br />
+baccba<br />
+baccbb<br />
+baccbc<br />
+baccca<br />
+bacccb<br />
+bacccc<br />
+bbaaaa<br />
+bbaaab<br />
+bbaaac<br />
+bbaaba<br />
+bbaabb<br />
+bbaabc<br />
+bbaaca<br />
+bbaacb<br />
+bbaacc<br />
+bbabaa<br />
+bbabab<br />
+bbabac<br />
+bbabba<br />
+bbabbb<br />
+bbabbc<br />
+bbabca<br />
+bbabcb<br />
+bbabcc<br />
+bbacaa<br />
+bbacab<br />
+bbacac<br />
+bbacba<br />
+bbacbb<br />
+bbacbc<br />
+bbacca<br />
+bbaccb<br />
+bbaccc<br />
+bbbaaa<br />
+bbbaab<br />
+bbbaac<br />
+bbbaba<br />
+bbbabb<br />
+bbbabc<br />
+bbbaca<br />
+bbbacb<br />
+bbbacc<br />
+bbbbaa<br />
+bbbbab<br />
+bbbbac<br />
+bbbbba<br />
+bbbbbb<br />
+bbbbbc<br />
+bbbbca<br />
+bbbbcb<br />
+bbbbcc<br />
+bbbcaa<br />
+bbbcab<br />
+bbbcac<br />
+bbbcba<br />
+bbbcbb<br />
+bbbcbc<br />
+bbbcca<br />
+bbbccb<br />
+bbbccc<br />
+bbcaaa<br />
+bbcaab<br />
+bbcaac<br />
+bbcaba<br />
+bbcabb<br />
+bbcabc<br />
+bbcaca<br />
+bbcacb<br />
+bbcacc<br />
+bbcbaa<br />
+bbcbab<br />
+bbcbac<br />
+bbcbba<br />
+bbcbbb<br />
+bbcbbc<br />
+bbcbca<br />
+bbcbcb<br />
+bbcbcc<br />
+bbccaa<br />
+bbccab<br />
+bbccac<br />
+bbccba<br />
+bbccbb<br />
+bbccbc<br />
+bbccca<br />
+bbcccb<br />
+bbcccc<br />
+bcaaaa<br />
+bcaaab<br />
+bcaaac<br />
+bcaaba<br />
+bcaabb<br />
+bcaabc<br />
+bcaaca<br />
+bcaacb<br />
+bcaacc<br />
+bcabaa<br />
+bcabab<br />
+bcabac<br />
+bcabba<br />
+bcabbb<br />
+bcabbc<br />
+bcabca<br />
+bcabcb<br />
+bcabcc<br />
+bcacaa<br />
+bcacab<br />
+bcacac<br />
+bcacba<br />
+bcacbb<br />
+bcacbc<br />
+bcacca<br />
+bcaccb<br />
+bcaccc<br />
+bcbaaa<br />
+bcbaab<br />
+bcbaac<br />
+bcbaba<br />
+bcbabb<br />
+bcbabc<br />
+bcbaca<br />
+bcbacb<br />
+bcbacc<br />
+bcbbaa<br />
+bcbbab<br />
+bcbbac<br />
+bcbbba<br />
+bcbbbb<br />
+bcbbbc<br />
+bcbbca<br />
+bcbbcb<br />
+bcbbcc<br />
+bcbcaa<br />
+bcbcab<br />
+bcbcac<br />
+bcbcba<br />
+bcbcbb<br />
+bcbcbc<br />
+bcbcca<br />
+bcbccb<br />
+bcbccc<br />
+bccaaa<br />
+bccaab<br />
+bccaac<br />
+bccaba<br />
+bccabb<br />
+bccabc<br />
+bccaca<br />
+bccacb<br />
+bccacc<br />
+bccbaa<br />
+bccbab<br />
+bccbac<br />
+bccbba<br />
+bccbbb<br />
+bccbbc<br />
+bccbca<br />
+bccbcb<br />
+bccbcc<br />
+bcccaa<br />
+bcccab<br />
+bcccac<br />
+bcccba<br />
+bcccbb<br />
+bcccbc<br />
+bcccca<br />
+bccccb<br />
+bccccc<br />
+caaaaa<br />
+caaaab<br />
+caaaac<br />
+caaaba<br />
+caaabb<br />
+caaabc<br />
+caaaca<br />
+caaacb<br />
+caaacc<br />
+caabaa<br />
+caabab<br />
+caabac<br />
+caabba<br />
+caabbb<br />
+caabbc<br />
+caabca<br />
+caabcb<br />
+caabcc<br />
+caacaa<br />
+caacab<br />
+caacac<br />
+caacba<br />
+caacbb<br />
+caacbc<br />
+caacca<br />
+caaccb<br />
+caaccc<br />
+cabaaa<br />
+cabaab<br />
+cabaac<br />
+cababa<br />
+cababb<br />
+cababc<br />
+cabaca<br />
+cabacb<br />
+cabacc<br />
+cabbaa<br />
+cabbab<br />
+cabbac<br />
+cabbba<br />
+cabbbb<br />
+cabbbc<br />
+cabbca<br />
+cabbcb<br />
+cabbcc<br />
+cabcaa<br />
+cabcab<br />
+cabcac<br />
+cabcba<br />
+cabcbb<br />
+cabcbc<br />
+cabcca<br />
+cabccb<br />
+cabccc<br />
+cacaaa<br />
+cacaab<br />
+cacaac<br />
+cacaba<br />
+cacabb<br />
+cacabc<br />
+cacaca<br />
+cacacb<br />
+cacacc<br />
+cacbaa<br />
+cacbab<br />
+cacbac<br />
+cacbba<br />
+cacbbb<br />
+cacbbc<br />
+cacbca<br />
+cacbcb<br />
+cacbcc<br />
+caccaa<br />
+caccab<br />
+caccac<br />
+caccba<br />
+caccbb<br />
+caccbc<br />
+caccca<br />
+cacccb<br />
+cacccc<br />
+cbaaaa<br />
+cbaaab<br />
+cbaaac<br />
+cbaaba<br />
+cbaabb<br />
+cbaabc<br />
+cbaaca<br />
+cbaacb<br />
+cbaacc<br />
+cbabaa<br />
+cbabab<br />
+cbabac<br />
+cbabba<br />
+cbabbb<br />
+cbabbc<br />
+cbabca<br />
+cbabcb<br />
+cbabcc<br />
+cbacaa<br />
+cbacab<br />
+cbacac<br />
+cbacba<br />
+cbacbb<br />
+cbacbc<br />
+cbacca<br />
+cbaccb<br />
+cbaccc<br />
+cbbaaa<br />
+cbbaab<br />
+cbbaac<br />
+cbbaba<br />
+cbbabb<br />
+cbbabc<br />
+cbbaca<br />
+cbbacb<br />
+cbbacc<br />
+cbbbaa<br />
+cbbbab<br />
+cbbbac<br />
+cbbbba<br />
+cbbbbb<br />
+cbbbbc<br />
+cbbbca<br />
+cbbbcb<br />
+cbbbcc<br />
+cbbcaa<br />
+cbbcab<br />
+cbbcac<br />
+cbbcba<br />
+cbbcbb<br />
+cbbcbc<br />
+cbbcca<br />
+cbbccb<br />
+cbbccc<br />
+cbcaaa<br />
+cbcaab<br />
+cbcaac<br />
+cbcaba<br />
+cbcabb<br />
+cbcabc<br />
+cbcaca<br />
+cbcacb<br />
+cbcacc<br />
+cbcbaa<br />
+cbcbab<br />
+cbcbac<br />
+cbcbba<br />
+cbcbbb<br />
+cbcbbc<br />
+cbcbca<br />
+cbcbcb<br />
+cbcbcc<br />
+cbccaa<br />
+cbccab<br />
+cbccac<br />
+cbccba<br />
+cbccbb<br />
+cbccbc<br />
+cbccca<br />
+cbcccb<br />
+cbcccc<br />
+ccaaaa<br />
+ccaaab<br />
+ccaaac<br />
+ccaaba<br />
+ccaabb<br />
+ccaabc<br />
+ccaaca<br />
+ccaacb<br />
+ccaacc<br />
+ccabaa<br />
+ccabab<br />
+ccabac<br />
+ccabba<br />
+ccabbb<br />
+ccabbc<br />
+ccabca<br />
+ccabcb<br />
+ccabcc<br />
+ccacaa<br />
+ccacab<br />
+ccacac<br />
+ccacba<br />
+ccacbb<br />
+ccacbc<br />
+ccacca<br />
+ccaccb<br />
+ccaccc<br />
+ccbaaa<br />
+ccbaab<br />
+ccbaac<br />
+ccbaba<br />
+ccbabb<br />
+ccbabc<br />
+ccbaca<br />
+ccbacb<br />
+ccbacc<br />
+ccbbaa<br />
+ccbbab<br />
+ccbbac<br />
+ccbbba<br />
+ccbbbb<br />
+ccbbbc<br />
+ccbbca<br />
+ccbbcb<br />
+ccbbcc<br />
+ccbcaa<br />
+ccbcab<br />
+ccbcac<br />
+ccbcba<br />
+ccbcbb<br />
+ccbcbc<br />
+ccbcca<br />
+ccbccb<br />
+ccbccc<br />
+cccaaa<br />
+cccaab<br />
+cccaac<br />
+cccaba<br />
+cccabb<br />
+cccabc<br />
+cccaca<br />
+cccacb<br />
+cccacc<br />
+cccbaa<br />
+cccbab<br />
+cccbac<br />
+cccbba<br />
+cccbbb<br />
+cccbbc<br />
+cccbca<br />
+cccbcb<br />
+cccbcc<br />
+ccccaa<br />
+ccccab<br />
+ccccac<br />
+ccccba<br />
+ccccbb<br />
+ccccbc<br />
+ccccca<br />
+cccccb<br />
+cccccc<br />
+</td></tr></table><hr><hr><h2>The Race of the Clones (p1v2d1)</h2><hr><b>The Race of the Clones [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C and his clones are having a 400 metre race around the track. There are n clones in total and each of them completes the race in a different amount of time (all times are strictly positive integers). In the first line of the input, you will be given n and in the next line, you will be given the n times as strictly positive integers, separated by a space.<br />
+<br />
+At time t = 0, all the clones start the race. However, if a clone finishes a race and finds that not all other clones have finished, that clone feels bad and starts racing again to give others company. Thus, the clones stop running only when all of them reach the finish line simultaneously.<br />
+<br />
+In your output, first give the time it takes for the clones to stop running if only the first two of the n clones were participating in the race. In the next line, give the time it takes for the clones to stop running if all n of them are in the race.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>The running times of the clones is not guaranteed to be in increasing or decreasing order. Two or more clones may have the same running time.<br />
+<li>The solution to this question does not necessarily involve recursion. However, you should try to write code in a modular manner, using functions, to make it easier to write and debug.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+5<br />
+2 3 5 8 4<br />
+<br />
+OUTPUT:<br />
+6<br />
+120<br />
+<br />
+<b>Explanation</b>: If the first two clones were the only ones running, then since the first clone finishes in 2 seconds and the second in 3 seconds, the will reach the finish line together after 6 seconds have passed. However, if all the clones are running, then the first time they will all reach the finish line together is after 120 seconds.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[ Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. They are worth 25% and 75% of the weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5<br />
+2 3 5 8 4</td><td>6<br />
+120</td></tr><tr><td>6<br />
+6 5 4 3 2 1</td><td>30<br />
+60</td></tr><tr><td>9<br />
+6 6 6 6 6 6 6 6 6</td><td>6<br />
+6</td></tr><tr><td>10<br />
+12 6 1 2 3 4 1 2 3 4</td><td>12<br />
+12</td></tr><tr><td>10<br />
+1 3 5 8 4 300 1231 1200 200 500</td><td>3<br />
+7386000</td></tr><tr><td>15<br />
+31 2 1 2 1 100 200 300 11 30 40 33 44 91 13</td><td>62<br />
+18618600</td></tr></table><hr><hr><h2>Partial Palindrome (p1v3d1)</h2><hr><b>Partial Palindrome [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the first line of the input, we will give you a string with at most 99 characters. The string will only contain lower-case English alphabet letters. In the first line of the output, you have to print the minimum number of characters that must be appended (i.e. put at the end of the string) to make it a palindrome and in the second line of the output, you have to print the resultant palindrome. If the string given to you is itself a palindrome, print 0 in the first line and the string itself in the second line.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>There is no specific need to use recursion to solve this problem. However, you may want to write a modular code with functions to make your solution easier to read and easier to debug.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+abede<br />
+<br />
+OUTPUT:<br />
+2<br />
+abedeba<br />
+<br />
+<b>Explanation</b>: the string is itself not a palindrome. Appending a single character can never make it a palindrome since the string abede* is never a palindrome no matter what character we use in place of *. However, if we append two characters, namely b and a, then the string becomes a palindrome.<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+mom<br />
+<br />
+OUTPUT:<br />
+0<br />
+mom<br />
+<br />
+<b>Explanation</b>: the string is itself a palindrome.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>abede</td><td>2<br />
+abedeba</td></tr><tr><td>mom</td><td>0<br />
+mom</td></tr><tr><td>abcdefghijklmnopqrstuvwxyz</td><td>25<br />
+abcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcba</td></tr><tr><td>aaaaabcdefghijjihgfedcbaaaaa</td><td>0<br />
+aaaaabcdefghijjihgfedcbaaaaa</td></tr><tr><td>xyzzyxaaaaabcdefghijjihgfedcbaaaaa</td><td>6<br />
+xyzzyxaaaaabcdefghijjihgfedcbaaaaaxyzzyx</td></tr><tr><td>iwouldlovetolearnmalayalam</td><td>17<br />
+iwouldlovetolearnmalayalamnraelotevoldluowi</td></tr></table><hr><hr><h2>Growth Curve (p2v1d1)</h2><hr><b>Growth Curve [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C is fascinated with non-decreasing functions since they represent growth. A function $f: \mathbb{N} \rightarrow \mathbb{N}$ (where $\mathbb{N}$ is the set of natural numbers) is called non-decreasing if whenever $i \geq j$, we have $f(i) \geq f(j)$ where $i,j \in \mathbb{N}$. Thus, as we move from left to right on then number line, the function value may stay the same or go up, but never go down.<br />
+<br />
+In the input, you will be given two non-negative integers n and MAX, separated by a space. As your output, in separate lines, you will have to list all non-decreasing functions of the form<br />
+\[<br />
+f: [0 : n-1] \rightarrow [0 : \text{MAX}]<br />
+\]<br />
+by printing the values those functions take on the inputs $0, 1, 2, \ldots, n-1$, separated by a space. However, you have to list these functions in a certain <i>lexicographic</i> order, as described below.<br />
+<br />
+<b>Lexicographic ordering</b><br />
+Just as given two digit sequences, say 1923 and 3122, we can say which digit sequence is "smaller" and which is "larger" (by interpreting the digit sequences as numbers), given two sequences of non-negative numbers, say [0 8 11 4] and [1 0 2 3], we can say which digit sequence is "smaller" and which is "larger" in a very intuitive manner.<br />
+<br />
+The rules of doing so are pretty simple if the two sequences are of the same length, which will be the case in this question (both sequences will have only n elements). To compare two sequences, simply look at the first numbers in the two sequences - the sequence with the larger number wins and is declared larger. If both sequences have the same first number, then the second numbers of the two sequences are compared and so on.<br />
+<br />
+Note that we can use exactly these very rules to pronounce 3122 > 1923 but these rules allow us to declare that [0 8 11 4] < [1 0 2 3] since 0 < 1 (The second numbers 8 and 0 do not get compared at all since [1 0 2 3] wins as the larger number when the first numbers get compared). Similarly we have [3 5 9 3] < [3 8 1 1].<br />
+<br />
+In your output, you will have to first output the "smallest function" i.e. the function that corresponds to the lexicographically smallest sequence, then the next smallest function, then the next smallest function and so on.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>The integers n and MAX are non-negative. However, they can be zero.<br />
+<li>Using recursion is not compulsory in this question. However, you will have to write much less code if you use recursion.<br />
+<li>Do not output functions in incorrect order. The autograder will heavily penalize you if you do this since it will give you marks only if a correct function is output in its correct location.<br />
+<li>We will not penalize you for stray newlines at the end of your output. However, do not have stray spaces at the end of each line of your output. You will not pass test cases if you have these.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+This problem may seem complicated if you try to write a loop to solve the problem but it can be very elegantly solved using recursion as we explain below. Suppose we want to generate all functions of the form $f: [0 : 2] \rightarrow [0 : 1]$ (say n = 3 and MAX = 1), in lexicographic order. This can be solved if we first generate all functions that satisfy $f(0) = 0$ and then generate all functions that satisfy $f(0) = 1$ (since functions that have $f(0) = 0$ come before those that have $f(0) = 1$ in lexicographic order).<br />
+<br />
+However, notice that in order to generate all functions with $f(0) = 0$, and that too in lexicographic order, we simply need to find all functions of the form  $f: [1 : 2] \rightarrow [0 : 1]$. However, this can simply be thought of as a smaller version of the original problem.<br />
+<br />
+Similarly, in order to generate all functions with $f(0) = 1$, and that too in lexicographic order, we simply need to find all functions of the form  $f: [1 : 2] \rightarrow [1]$ (we are only interested in non-decreasing functions and since $f(0) = 1$, we must have $f(1), f(2) \geq 1$ but since $MAX = 1$, we are stuck). There is only one such function [1 1 1].<br />
+<br />
+Write a function that takes partially filled in integer sequences (corresponding to functions) and recursively calls itself to complete the function descriptions. Write a function genFunctions(int *func, int n, int MAX, int i, int y) which takes in five arguments<br />
+<ol><br />
+<li>an integer array func with n elements to describe the function values on 0 : n-1<br />
+<li>the value of n (will help you know what is the length of the array)<br />
+<li>the value of MAX (which all numbers are valid outputs of the function)<br />
+<li>the value of i indicating that we have already decided f(0), f(1), ... f(i-1)<br />
+<li>the value of y = f(i - 1) (you need this since you need to ensure that $f(j) \geq f(i - 1)$ for all $j > i - 1$)<br />
+</ol><br />
+The base case of the recursion can be i = n which indicates that we have filled in the complete sequence corresponding to a function which can simply be printed. To print all functions that satisfy $f(0) = 0$, you could do something like the following:<br />
+int func[n];<br />
+func[0] = 0;<br />
+genFunctions(func, n, MAX, 1, 0); // one function value f(0) = 0 already filled in, rest of function values to be filled in non-decreasing order<br />
+<br />
+To print all functions that satisfy $f(0) = 0$ and $f(1) = 5$ (assuming $MAX \geq 5$), you could do something like the following:<br />
+int func[n];<br />
+func[0] = 0;<br />
+func[1] = 5;<br />
+genFunctions(func, n, MAX, 2, 5); // Two values filled in with current max function value 5 rest to be filled in<br />
+<br />
+Use these hints to completely solve the problem by writing the definition of the function genFunctions. Remember that genFunctions will need to call itself with suitable parameters.<br />
+----------------------------------------------------------------------<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+3 1<br />
+<br />
+OUTPUT:<br />
+0 0 0<br />
+0 0 1<br />
+0 1 1<br />
+1 1 1<br />
+<br />
+<b>Explanation</b>: Note that the function [0 1 0] is not on the list since it is not a non-decreasing function. Many other such invalid functions (e.g. [1 0 1] etc) are not on the list.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>3 1</td><td>0 0 0<br />
+0 0 1<br />
+0 1 1<br />
+1 1 1<br />
+</td></tr><tr><td>2 4</td><td>0 0<br />
+0 1<br />
+0 2<br />
+0 3<br />
+0 4<br />
+1 1<br />
+1 2<br />
+1 3<br />
+1 4<br />
+2 2<br />
+2 3<br />
+2 4<br />
+3 3<br />
+3 4<br />
+4 4<br />
+</td></tr><tr><td>5 0</td><td>0 0 0 0 0<br />
+</td></tr><tr><td>5 1</td><td>0 0 0 0 0<br />
+0 0 0 0 1<br />
+0 0 0 1 1<br />
+0 0 1 1 1<br />
+0 1 1 1 1<br />
+1 1 1 1 1<br />
+</td></tr><tr><td>4 4</td><td>0 0 0 0<br />
+0 0 0 1<br />
+0 0 0 2<br />
+0 0 0 3<br />
+0 0 0 4<br />
+0 0 1 1<br />
+0 0 1 2<br />
+0 0 1 3<br />
+0 0 1 4<br />
+0 0 2 2<br />
+0 0 2 3<br />
+0 0 2 4<br />
+0 0 3 3<br />
+0 0 3 4<br />
+0 0 4 4<br />
+0 1 1 1<br />
+0 1 1 2<br />
+0 1 1 3<br />
+0 1 1 4<br />
+0 1 2 2<br />
+0 1 2 3<br />
+0 1 2 4<br />
+0 1 3 3<br />
+0 1 3 4<br />
+0 1 4 4<br />
+0 2 2 2<br />
+0 2 2 3<br />
+0 2 2 4<br />
+0 2 3 3<br />
+0 2 3 4<br />
+0 2 4 4<br />
+0 3 3 3<br />
+0 3 3 4<br />
+0 3 4 4<br />
+0 4 4 4<br />
+1 1 1 1<br />
+1 1 1 2<br />
+1 1 1 3<br />
+1 1 1 4<br />
+1 1 2 2<br />
+1 1 2 3<br />
+1 1 2 4<br />
+1 1 3 3<br />
+1 1 3 4<br />
+1 1 4 4<br />
+1 2 2 2<br />
+1 2 2 3<br />
+1 2 2 4<br />
+1 2 3 3<br />
+1 2 3 4<br />
+1 2 4 4<br />
+1 3 3 3<br />
+1 3 3 4<br />
+1 3 4 4<br />
+1 4 4 4<br />
+2 2 2 2<br />
+2 2 2 3<br />
+2 2 2 4<br />
+2 2 3 3<br />
+2 2 3 4<br />
+2 2 4 4<br />
+2 3 3 3<br />
+2 3 3 4<br />
+2 3 4 4<br />
+2 4 4 4<br />
+3 3 3 3<br />
+3 3 3 4<br />
+3 3 4 4<br />
+3 4 4 4<br />
+4 4 4 4<br />
+</td></tr><tr><td>6 2</td><td>0 0 0 0 0 0<br />
+0 0 0 0 0 1<br />
+0 0 0 0 0 2<br />
+0 0 0 0 1 1<br />
+0 0 0 0 1 2<br />
+0 0 0 0 2 2<br />
+0 0 0 1 1 1<br />
+0 0 0 1 1 2<br />
+0 0 0 1 2 2<br />
+0 0 0 2 2 2<br />
+0 0 1 1 1 1<br />
+0 0 1 1 1 2<br />
+0 0 1 1 2 2<br />
+0 0 1 2 2 2<br />
+0 0 2 2 2 2<br />
+0 1 1 1 1 1<br />
+0 1 1 1 1 2<br />
+0 1 1 1 2 2<br />
+0 1 1 2 2 2<br />
+0 1 2 2 2 2<br />
+0 2 2 2 2 2<br />
+1 1 1 1 1 1<br />
+1 1 1 1 1 2<br />
+1 1 1 1 2 2<br />
+1 1 1 2 2 2<br />
+1 1 2 2 2 2<br />
+1 2 2 2 2 2<br />
+2 2 2 2 2 2<br />
+</td></tr></table><hr><hr><h2>The Family Tree of Mr C (p2v2d1)</h2><hr><b>The Family Tree of Mr C [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Believe it or not, Mr C too has parents, grandparents, and higher ancestors, and is quite a darling to them. In this problem, we will get to meet some of them. All of Mr C's ancestors have names that are strictly positive integers. These will be given to you in a certain format. In the first line of the input, you will be given n, a strictly positive integer. In the second line of the input, you will be given n strictly positive integers, separated by a space. These represent the names of n of Mr C's ancestors. Store these names in an array called names. Below we tell you how these names are arranged.<br />
+<ol><br />
+<li>names[0] is the name of Mr C's mother<br />
+<li>names[1] is the name of Mr C's father<br />
+<li>For any index i, the index 2*(i+1) stores the name of the mother of the person at index i<br />
+<li>For any index i, the index 2*(i+1) + 1 stores the name of the father of the person at index i<br />
+</ol><br />
+Thus, the index 4 stores the name of Mr C's father's mother, i.e. Mr C's grandmother and index 6 stores the name of Mr C's mother's mother's mother i.e. Mr C's great grand mother.<br />
+<br />
+In the third line of the input, we will give you four strictly positive integers, separated by a space, which are supposed to be names of Mr C's ancestors. For each name, you have to print one of the following messages, on separate lines.<br />
+<ol><br />
+<li>If the name does not appear at all in the list, print "NO RELATIONS" (without quotes)<br />
+<li>If the name appears more than once in the list, print "MULTIPLE RELATIONS" (without quotes)<br />
+<li>If the name appears just once in the list, print the relation that person has with Mr C. The relation must be printed in ALL CAPITAL letters, as shown in the example below.<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful to count how "grand" a certain ancestor is e.g. is the person a great grand parent or a great great grand parent?<br />
+<li>Hint: even indices always store names of "mothers" and odd indices always store names of "fathers".<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+10<br />
+1 2 3 4 5 6 7 8 9 10<br />
+1 5 7 10<br />
+<br />
+OUTPUT:<br />
+MOTHER<br />
+GRAND MOTHER<br />
+GREAT GRAND MOTHER<br />
+GREAT GRAND FATHER<br />
+<br />
+<b>Explanation</b>:<br />
+<ol><br />
+<li>index 0 is mother<br />
+<li>index 4 is father's mother<br />
+<li>index 6 is mother's mother's mother<br />
+<li>index 9 is mother's father's father<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are four lines in your output. Printing each line correctly, in the correct order, carries 25% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>10<br />
+1 2 3 4 5 6 7 8 9 10<br />
+1 5 7 10</td><td>MOTHER<br />
+GRAND MOTHER<br />
+GREAT GRAND MOTHER<br />
+GREAT GRAND FATHER</td></tr><tr><td>20<br />
+1 9 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 17 20<br />
+19 9 20 7</td><td>NO RELATIONS<br />
+MULTIPLE RELATIONS<br />
+GREAT GREAT GRAND FATHER<br />
+GREAT GRAND MOTHER</td></tr><tr><td>88<br />
+5 27 22 51 45 53 88 57 24 31 17 18 61 22 16 38 67 96 68 49 80 36 95 75 35 72 2 32 28 86 13 55 14 99 87 74 30 6 15 42 78 93 54 82 60 46 1 12 10 65 21 41 97 26 11 79 50 91 48 52 29 64 39 19 25 92 90 73 70 94 7 81 37 4 77 71 33 89 40 8 85 34 43 3 69 63 23 59<br />
+50 80 59 22<br />
+</td><td>GREAT GREAT GREAT GRAND MOTHER<br />
+GREAT GREAT GRAND MOTHER<br />
+GREAT GREAT GREAT GREAT GRAND FATHER<br />
+MULTIPLE RELATIONS</td></tr><tr><td>50<br />
+52 82 8 83 43 96 46 48 74 15 81 72 30 57 21 5 46 54 13 82 17 24 82 81 14 23 24 29 44 33 83 48 81 80 72 58 25 38 28 84 3 41 39 5 99 7 58 28 94 43<br />
+52 82 88 83</td><td>MOTHER<br />
+MULTIPLE RELATIONS<br />
+NO RELATIONS<br />
+MULTIPLE RELATIONS</td></tr><tr><td>50<br />
+52 82 8 83 43 96 46 48 74 15 81 72 30 57 21 5 46 54 13 82 17 24 82 81 14 23 24 29 44 33 83 48 81 80 72 58 25 38 28 84 3 41 39 5 99 7 58 28 94 43<br />
+96 74 81 15</td><td>GRAND FATHER<br />
+GREAT GRAND MOTHER<br />
+MULTIPLE RELATIONS<br />
+GREAT GRAND FATHER</td></tr><tr><td>50<br />
+52 82 8 83 43 96 46 48 74 15 81 72 30 57 21 5 46 54 13 82 17 24 82 81 14 23 24 29 44 33 83 48 81 80 72 58 25 38 28 84 3 41 39 5 99 7 58 28 94 43<br />
+7 99 48 488</td><td>GREAT GREAT GREAT GRAND FATHER<br />
+GREAT GREAT GREAT GRAND MOTHER<br />
+MULTIPLE RELATIONS<br />
+NO RELATIONS</td></tr></table><hr><hr><h2>Timely Tasks (p2v3d1)</h2><hr><b>Timely Tasks [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C has a lot of tasks to perform (your compilation requests, evaluation requests etc) and each of these tasks take a different amount of time. To avoid taking too much time on a single tasks, and neglecting other tasks, for example if one task runs into an infinite loop, all modern machines (including Prutor) follow a certain set of rules while executing these tasks.  He  does not execute a task till completion, but only runs it for a certain amount of time, called the <i>burst time</i>, say B seconds.<br />
+<br />
+If the task completes within this period, nice. Otherwise, the task is kept aside and the next task waiting in line is picked up and given B seconds of time. Then the third task in line is given B seconds and so on. Tasks that complete before the allotted B second burst time is over, are removed from the waiting line. Once all tasks have been given a chance at B second bursts, the first task that is still in waiting is given a chance at another B seconds and the process continues till all tasks are completed. The time at which a task is completed is called its <i>completion time</i>.<br />
+<br />
+The input will first give you the number of tasks n and the burst time value B, separated by a single space. Then it will give you a list of n strictly positive integers which will denote the time it takes for the n tasks to finish also called their <i>execution time</i>.<br />
+<br />
+Suppose there are 5 tasks at hand which require various number of seconds to execute, say [5 2 3 6 1] and suppose B = 3 seconds. Then in the first round, each task is given a chance at 3 seconds each<br />
+<ol><br />
+<li>Task 1 takes up all the 3 seconds but still needs 2 more seconds so it is kept aside (t = 3 now)<br />
+<li>Task 2 finishes in 2 seconds itself and is removed from the waiting list (t = 5 now)<br />
+<li>Task 3 takes up all the 3 seconds and finishes and is removed from the waiting list (t = 8 now)<br />
+<li>Task 4 takes up all the 3 seconds but still needs 3 more seconds so it is kept aside (t = 11 now)<br />
+<li>Task 5 finishes in 1 second itself and is removed from the waiting list (t = 12 now)<br />
+</ol><br />
+So the first round finishes after 11 seconds with the following as the state of the tasks (* indicates completed task) [2 * * 3 *]. Now the second round begins.<br />
+<ol><br />
+<li>Task 1 finishes in 2 seconds itself and is removed from the waiting list (t = 14 now)<br />
+<li>Task 4 takes up all the 3 seconds and finishes and is removed from the waiting list (t = 17 now)<br />
+</ol><br />
+Now all tasks have finished so Mr C can rest. Your have to print as your output, on a different line, when did each task finish.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Burst time and execution times will always be strictly positive integers.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+5 3<br />
+5 2 3 6 1<br />
+<br />
+OUTPUT:<br />
+14<br />
+5<br />
+8<br />
+17<br />
+12<br />
+<br />
+<b>Explanation</b>: As per the calculations above, task 1 finished at 14 seconds, task 2 finished at 5 seconds etc.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5 3<br />
+5 2 3 6 1</td><td>14<br />
+5<br />
+8<br />
+17<br />
+12</td></tr><tr><td>2 1<br />
+1 2</td><td>1<br />
+3</td></tr><tr><td>1 3<br />
+5</td><td>5</td></tr><tr><td>5 3<br />
+12 3 6 18 24</td><td>39<br />
+6<br />
+21<br />
+54<br />
+63</td></tr><tr><td>16 7<br />
+5 22 10 54 21 13 5 1 6 7 8 9 54 22 1 11</td><td>5<br />
+182<br />
+105<br />
+244<br />
+167<br />
+125<br />
+45<br />
+46<br />
+52<br />
+59<br />
+126<br />
+128<br />
+249<br />
+197<br />
+88<br />
+146</td></tr><tr><td>30 14<br />
+2 1 3 566 43 78 222 4567 66 1 2 4 5 6 19 444 5 22 10 54 21 13 5 1 6 9 54 22 1 11</td><td>2<br />
+3<br />
+6<br />
+2256<br />
+562<br />
+758<br />
+1330<br />
+6263<br />
+722<br />
+91<br />
+93<br />
+97<br />
+102<br />
+108<br />
+356<br />
+2026<br />
+141<br />
+378<br />
+165<br />
+644<br />
+399<br />
+206<br />
+211<br />
+212<br />
+218<br />
+227<br />
+656<br />
+421<br />
+256<br />
+267</td></tr></table><hr><hr><h2>Plenty of Palindromes (p3v1d1)</h2><hr><b>Plenty of Palindromes [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the input, you will be given two strictly positive integers n and k, separated by a space. You have to generate all possible strings that satisfy the following properties<br />
+<ol><br />
+<li>The strings should all be of length k<br />
+<li>The strings should only contain the first n lower-case English alphabet characters. However, the allowed characters may repeat any number of times (some characters may be absent as well).<br />
+<li>The strings should all be palindromes<br />
+</ol><br />
+Print each palindrome string on a different line of your output. You have to print the strings in <i>lexicographically</i> increasing order, i.e. the order in which these strings would appear in a dictionary. We explain lexicographic ordering below. Thus, you have to first output the lexicographically smallest palindrome string of length k you can construct out of the first n lower-case letters of the English alphabet. Then find the lexicographically next smallest palindrome string of length k and so on till you have generated all such palindromes possible.<br />
+<br />
+<b>Lexicographic ordering</b><br />
+Just as given two digit sequences, say 1923 and 3122, we can say which digit sequence is "smaller" and which is "larger" (by interpreting the digit sequences as numbers), two sequences of alphabets, i.e. strings, can also be compared and given two sequences of alphabets, we can say which one is smaller and which one is larger.<br />
+<br />
+The rules of doing so are pretty simple if the two strings are of the same length, which will be the case in this question. We first declare that the character 'a' is smaller than the character 'b', which is in turn smaller than the character 'c' and so on. To compare two strings, simply look at their first characters - the string with the larger character wins. If both strings have the same first character, then the second characters of the two strings are compared and so on.<br />
+<br />
+Thus, we have "cat" = "cat" since the two strings are exactly the same but we have "cap" < "cat" since 'p' is smaller than 't'. Also, we have "mat" > "cat" since 'm' is larger than 'c' and also "aazd" < "abbb" since 'a' is smaller than 'b' (The third characters 'z' and 'b' do not get compared at all since "abbb" wins when the second characters get compared).<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Using recursion is not compulsory in this question. However, you will have to write much less code if you use recursion.<br />
+<li>Do not output the strings in incorrect order. The autograder will heavily penalize you if you do this since it will give you marks only if a correct string is output in its correct location.<br />
+<li>We will not penalize you for stray newlines at the end of your output. However, do not have stray spaces at the end of each line of your output. You will not pass test cases if you have these.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+This problem may seem very complicated if you try to write a loop to solve the problem but it can be very elegantly solved using recursion as we explain below. Suppose we want to generate all palindromes of length 4 out of the first two alphabet letters, in lexicographic order. This can be solved if we first generate all palindromes starting with a and then generate all palindromes starting with b (since strings starting with a come before those starting with b in lexicographic order).<br />
+<br />
+However, if a palindrome starts with an a, it must also end with an a. This means that all such palindromes must be of the form a**a where ** is a palindrome of length 2. Thus, we can solve this problem using a smaller version of the original problem which is why recursion can be used (to generate all palindromes of length 4, we need all palindromes of length 2).<br />
+<br />
+Write a function that takes partially filled in palindromes and recursively calls itself to complete the palindromes. Write a function generatePalindromes(char* str, int k, int n, int next) which takes in four arguments<br />
+<ol><br />
+<li>a character array name of length k+1 (k characters for the names and one for the NULL character)<br />
+<li>the value of k (will help you know what is the length of the array)<br />
+<li>the value of n (which all letters of the English alphabet can you use)<br />
+<li>the first unfilled position in the array (denoted by * in the above example)<br />
+</ol><br />
+The base case of the recursion can be when only one or two positions are left unfilled in the string (depending on whether k is odd or even). In this base case, we simply need to loop through all valid characters and use them to fill in the empty positions. To start off, you can invoke this recursion using something like the following<br />
+<br />
+char str[k+1];<br />
+str[k] = '\0';<br />
+generatePalindromes(str, k, n, 0);<br />
+<br />
+where next = 0 indicates that the array is completely empty at this point.<br />
+<br />
+Use these hints to completely solve the problem<br />
+----------------------------------------------------------------------<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+2 4<br />
+<br />
+OUTPUT:<br />
+aaaa<br />
+abba<br />
+baab<br />
+bbbb<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+2 5<br />
+<br />
+OUTPUT:<br />
+aaaaa<br />
+aabaa<br />
+ababa<br />
+abbba<br />
+baaab<br />
+babab<br />
+bbabb<br />
+bbbbb<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 4</td><td>aaaa<br />
+abba<br />
+baab<br />
+bbbb<br />
+</td></tr><tr><td>5 2</td><td>aa<br />
+bb<br />
+cc<br />
+dd<br />
+ee<br />
+</td></tr><tr><td>3 8</td><td>aaaaaaaa<br />
+aaabbaaa<br />
+aaaccaaa<br />
+aabaabaa<br />
+aabbbbaa<br />
+aabccbaa<br />
+aacaacaa<br />
+aacbbcaa<br />
+aaccccaa<br />
+abaaaaba<br />
+ababbaba<br />
+abaccaba<br />
+abbaabba<br />
+abbbbbba<br />
+abbccbba<br />
+abcaacba<br />
+abcbbcba<br />
+abccccba<br />
+acaaaaca<br />
+acabbaca<br />
+acaccaca<br />
+acbaabca<br />
+acbbbbca<br />
+acbccbca<br />
+accaacca<br />
+accbbcca<br />
+acccccca<br />
+baaaaaab<br />
+baabbaab<br />
+baaccaab<br />
+babaabab<br />
+babbbbab<br />
+babccbab<br />
+bacaacab<br />
+bacbbcab<br />
+baccccab<br />
+bbaaaabb<br />
+bbabbabb<br />
+bbaccabb<br />
+bbbaabbb<br />
+bbbbbbbb<br />
+bbbccbbb<br />
+bbcaacbb<br />
+bbcbbcbb<br />
+bbccccbb<br />
+bcaaaacb<br />
+bcabbacb<br />
+bcaccacb<br />
+bcbaabcb<br />
+bcbbbbcb<br />
+bcbccbcb<br />
+bccaaccb<br />
+bccbbccb<br />
+bccccccb<br />
+caaaaaac<br />
+caabbaac<br />
+caaccaac<br />
+cabaabac<br />
+cabbbbac<br />
+cabccbac<br />
+cacaacac<br />
+cacbbcac<br />
+caccccac<br />
+cbaaaabc<br />
+cbabbabc<br />
+cbaccabc<br />
+cbbaabbc<br />
+cbbbbbbc<br />
+cbbccbbc<br />
+cbcaacbc<br />
+cbcbbcbc<br />
+cbccccbc<br />
+ccaaaacc<br />
+ccabbacc<br />
+ccaccacc<br />
+ccbaabcc<br />
+ccbbbbcc<br />
+ccbccbcc<br />
+cccaaccc<br />
+cccbbccc<br />
+cccccccc<br />
+</td></tr><tr><td>7 1</td><td>a<br />
+b<br />
+c<br />
+d<br />
+e<br />
+f<br />
+g<br />
+</td></tr><tr><td>1 7</td><td>aaaaaaa<br />
+</td></tr><tr><td>2 9</td><td>aaaaaaaaa<br />
+aaaabaaaa<br />
+aaababaaa<br />
+aaabbbaaa<br />
+aabaaabaa<br />
+aabababaa<br />
+aabbabbaa<br />
+aabbbbbaa<br />
+abaaaaaba<br />
+abaabaaba<br />
+ababababa<br />
+ababbbaba<br />
+abbaaabba<br />
+abbababba<br />
+abbbabbba<br />
+abbbbbbba<br />
+baaaaaaab<br />
+baaabaaab<br />
+baababaab<br />
+baabbbaab<br />
+babaaabab<br />
+babababab<br />
+babbabbab<br />
+babbbbbab<br />
+bbaaaaabb<br />
+bbaabaabb<br />
+bbabababb<br />
+bbabbbabb<br />
+bbbaaabbb<br />
+bbbababbb<br />
+bbbbabbbb<br />
+bbbbbbbbb<br />
+</td></tr></table><hr><hr><h2>Count and Say Sequence (p3v2d1)</h2><hr><b> Count and Say Sequence [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Sometimes Mr C likes to play games to relieve himself from all the hard work he has to do compiling and running your programs. One of his favorite games is <i>Speak and Say</i> and is described below.<br />
+<ol><br />
+<li>The game starts with a single digit number, for example 4<br />
+<li>The first line of the game is simply the starting digit itself i.e. the string "4" (without quotes)<br />
+<li>The second line of the game is obtained by speaking out the first line and then writing it in numbers. Since there is just "one four" in the first line, the second line is "14" (without quotes).<br />
+<li>The third line is obtained by speaking and writing the second line. Since there is "one one followed by one four" in the second line, the third line is "1114" (without quotes).<br />
+<li>The fourth line is "3114" (without quotes) since there are "three ones followed by one four" in the third line<br />
+<li>The game continues for several rounds like this.<br />
+</ol><br />
+The input will give you two strictly positive numbers, n and k, separated by a space. The number n will be a single digit. You have to print k lines of the game starting with the digit n.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>We assure you that all lines of the game will require 99 or less characters to print.<br />
+<li>We assure you that in none of the lines, will any digit occur more than 9 times consecutively<br />
+<li>This question will not necessarily benefit from recursive use of functions. However, you should use functions to write neat and easy-to--debug code.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1 6<br />
+<br />
+OUTPUT:<br />
+1<br />
+11<br />
+21<br />
+1211<br />
+111221<br />
+312211<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1 6</td><td>1<br />
+11<br />
+21<br />
+1211<br />
+111221<br />
+312211</td></tr><tr><td>4 8</td><td>4<br />
+14<br />
+1114<br />
+3114<br />
+132114<br />
+1113122114<br />
+311311222114<br />
+13211321322114</td></tr><tr><td>5 10</td><td>5<br />
+15<br />
+1115<br />
+3115<br />
+132115<br />
+1113122115<br />
+311311222115<br />
+13211321322115<br />
+1113122113121113222115<br />
+31131122211311123113322115</td></tr><tr><td>1 12</td><td>1<br />
+11<br />
+21<br />
+1211<br />
+111221<br />
+312211<br />
+13112221<br />
+1113213211<br />
+31131211131221<br />
+13211311123113112211<br />
+11131221133112132113212221<br />
+3113112221232112111312211312113211</td></tr><tr><td>2 14</td><td>2<br />
+12<br />
+1112<br />
+3112<br />
+132112<br />
+1113122112<br />
+311311222112<br />
+13211321322112<br />
+1113122113121113222112<br />
+31131122211311123113322112<br />
+132113213221133112132123222112<br />
+11131221131211132221232112111312111213322112<br />
+31131122211311123113321112131221123113111231121123222112<br />
+1321132132211331121321231231121113112221121321133112132112211213322112</td></tr><tr><td>9 11</td><td>9<br />
+19<br />
+1119<br />
+3119<br />
+132119<br />
+1113122119<br />
+311311222119<br />
+13211321322119<br />
+1113122113121113222119<br />
+31131122211311123113322119<br />
+132113213221133112132123222119</td></tr></table><hr><hr><h2>Orbiting Indices (p3v3d1)</h2><hr><b>Orbiting Indices [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The first line of the input will give you a strictly positive number n. The next line of the input will give you a list of n non-negative integers, separated by a space. Store these in an array, say arr. We will play a game with this array. Say our starting index is j. Then in the next step, we will walk arr[j] + 1 steps to the right of the array. If we reach the end of the array while walking to the right, we simply wrap around and start walking from index 0. This is the first round of the game.<br />
+<br />
+Say the index we land after following the above procedure is k. Then we repeat the above process again for another round, this time moving arr[k] + 1 steps to the right and wrapping around if we ever reach the end of the array. If following this process again and again, if we ever reach the original, starting index j, then index j is called an <i>orbiting index</i> since we keep coming back to that index again and again when playing this game.<br />
+<br />
+In your output, print, for each of the n indices of the array, if that index is an orbiting index or not. If the index is not an orbiting index, print -1 else print the number of minimum number of rounds required to reach that index from the index itself.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>This problem will not necessarily benefit from recursive formulations but you should write your program using functions to make it neat and easy-to-debug.<br />
+<li>The integers in the list will be non-negative but can be zero.<br />
+<li>Be careful about spelling and capitalization errors.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+4<br />
+1 1 1 1<br />
+<br />
+OUTPUT:<br />
+2<br />
+2<br />
+2<br />
+2<br />
+<br />
+<b>Explanation</b>: All the indices are orbiting indices. The orbits for the different indices are given below. All orbits are of length 2.<br />
+<ol><br />
+<li>0 => 2 => 0<br />
+<li>1 => 3 => 1<br />
+<li>2 => 0 => 2<br />
+<li>3 => 1 => 3<br />
+</ol><br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+4<br />
+0 0 0 2<br />
+<br />
+OUTPUT:<br />
+-1<br />
+-1<br />
+2<br />
+2<br />
+<br />
+<b>Explanation</b>: The first two indices are not orbiting indices - starting from them causes us to get stuck inside a (3 => 2 => 3) loop and we are never able to reach the original indices themselves. The orbits for last two indices are given below. Both orbits are of length 2.<br />
+<ol><br />
+<li>2 => 3 => 2<br />
+<li>3 => 2 => 3<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>4<br />
+1 1 1 1</td><td>2<br />
+2<br />
+2<br />
+2</td></tr><tr><td>4<br />
+0 0 0 2</td><td>-1<br />
+-1<br />
+2<br />
+2</td></tr><tr><td>6<br />
+1 2 3 4 2 3</td><td>2<br />
+2<br />
+2<br />
+-1<br />
+2<br />
+-1</td></tr><tr><td>10<br />
+1 0 1 0 1 0 1 0 1 0</td><td>5<br />
+-1<br />
+5<br />
+-1<br />
+5<br />
+-1<br />
+5<br />
+-1<br />
+5<br />
+-1</td></tr><tr><td>10<br />
+1 0 1 0 1 0 2 3 4 1</td><td>-1<br />
+5<br />
+5<br />
+-1<br />
+5<br />
+-1<br />
+5<br />
+-1<br />
+-1<br />
+5</td></tr><tr><td>11<br />
+0 0 0 8 0 0 0 0 6 0 10</td><td>-1<br />
+3<br />
+3<br />
+3<br />
+5<br />
+5<br />
+5<br />
+5<br />
+5<br />
+-1<br />
+1</td></tr></table><hr><hr><h2>Zig-zag Numbers (p4v1d1)</h2><hr><b>Zig-zag Numbers [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+A number is called a zig-zag number if the second digit of the number is strictly greater than the first, the third digit of the number is strictly smaller than the second, the fourth digit is strictly smaller than the third, and so on. Some examples include 121212, 1425 etc.<br />
+<br />
+In the input, you will be given two strictly positive integers n and k, separated by a space. You will have to generate all possible zig-zag numbers that have exactly k digits in them, using only the digits 1,2,..,n. You must print all the possible zig-zag numbers in increasing order. A digit may repeat any number of times in a zig-zag number but the zig-zag rule must be followed.<br />
+<br />
+We assure you that n will be strictly greater than 1 but strictly less than 10 (i.e. it will be a single digit number but not 1 or 0). To make this question a bit easier for you, we also assure you that k will be always an even number.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Using recursion is not compulsory in this question. However, you will have to write much less code if you use recursion.<br />
+<li>Do not output the numbers in incorrect order. The autograder will heavily penalize you if you do this since it will give you marks only if a correct number is output at its correct location.<br />
+<li>We will not penalize you for stray newlines at the end of your output. However, do not have stray spaces at the end of each line of your output. You will not pass test cases if you have these.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+This problem may seem very complicated if you try to write a loop to solve the problem but it can be very elegantly solved using recursion as we explain below. It is easy to see that there can be no zig-zag numbers using a single digit. Let us try to construct all zig-zag numbers with two digits. It is again easy to see, that if n = 2, then there is only one zig-zag number with 2 digits i.e. 12. If n = 3, then we have more two-digit zig-zag numbers, namely 12, 13 and 23. If n = 4, then we have the possible two-digit zig-zag numbers as 12, 13, 14, 23, 24.<br />
+<br />
+This forms the simplest case of a recursive definition of zig-zag numbers. Suppose we want to generate all zig-zag numbers with 8 digits starting with 15, then notice that this problem can be solved simply by appending to 15, all possible zig-zag numbers with 6 digits. However, there is a tiny restriction here that these 6 digit zig-zag numbers must start with a digit that is strictly smaller than 5.<br />
+<br />
+Write a function that takes partially filled in zig-zag numbers and recursively calls itself to complete the numbers. Write a function generateZigZag(char* num, int k, int n, int left, int max) which takes in five arguments<br />
+<ol><br />
+<li>a character array name of length k+1 (k characters for the number and one for the NULL character)<br />
+<li>the value of k (will help you know what is the length of the array)<br />
+<li>the value of n (which all digits can be used in the number)<br />
+<li>left: how many digits are left to be filled in?<br />
+<li>max: what is the maximum value that the first digit in the remaining number can take<br />
+</ol><br />
+The base case of the recursion can be left = 0 which means we have a complete number which can simply be printed. To print all zig-zag numbers using digits 1,2, ..., n starting with the "15", you could do something like the following:<br />
+char num[k+1];<br />
+num[k] = '\0'; // Do not forget the NULL character<br />
+num[0] = '1';<br />
+num[1] = '5';<br />
+generateZigZag(num, k, n, k - 2, 4) // two digits already filled, k-2 left to be filled, next digit must be strictly smaller than 5<br />
+<br />
+Use these hints to completely solve the problem.<br />
+----------------------------------------------------------------------<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+2 4<br />
+<br />
+OUTPUT:<br />
+1212<br />
+<br />
+<b>Explanation</b>: 1212 is the only four-digit zig-zag number possible using the digits 1,2.<br />
+<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+3 4<br />
+<br />
+OUTPUT:<br />
+1212<br />
+1213<br />
+1312<br />
+1313<br />
+1323<br />
+2312<br />
+2313<br />
+2323<br />
+<br />
+<b>Explanation</b>: Notice that all the numbers are placed in increasing order.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 4</td><td>1212<br />
+</td></tr><tr><td>3 4</td><td>1212<br />
+1213<br />
+1312<br />
+1313<br />
+1323<br />
+2312<br />
+2313<br />
+2323<br />
+</td></tr><tr><td>5 2</td><td>12<br />
+13<br />
+14<br />
+15<br />
+23<br />
+24<br />
+25<br />
+34<br />
+35<br />
+45<br />
+</td></tr><tr><td>3 6</td><td>121212<br />
+121213<br />
+121312<br />
+121313<br />
+121323<br />
+131212<br />
+131213<br />
+131312<br />
+131313<br />
+131323<br />
+132312<br />
+132313<br />
+132323<br />
+231212<br />
+231213<br />
+231312<br />
+231313<br />
+231323<br />
+232312<br />
+232313<br />
+232323<br />
+</td></tr><tr><td>4 4</td><td>1212<br />
+1213<br />
+1214<br />
+1312<br />
+1313<br />
+1314<br />
+1323<br />
+1324<br />
+1412<br />
+1413<br />
+1414<br />
+1423<br />
+1424<br />
+1434<br />
+2312<br />
+2313<br />
+2314<br />
+2323<br />
+2324<br />
+2412<br />
+2413<br />
+2414<br />
+2423<br />
+2424<br />
+2434<br />
+3412<br />
+3413<br />
+3414<br />
+3423<br />
+3424<br />
+3434<br />
+</td></tr><tr><td>4 6</td><td>121212<br />
+121213<br />
+121214<br />
+121312<br />
+121313<br />
+121314<br />
+121323<br />
+121324<br />
+121412<br />
+121413<br />
+121414<br />
+121423<br />
+121424<br />
+121434<br />
+131212<br />
+131213<br />
+131214<br />
+131312<br />
+131313<br />
+131314<br />
+131323<br />
+131324<br />
+131412<br />
+131413<br />
+131414<br />
+131423<br />
+131424<br />
+131434<br />
+132312<br />
+132313<br />
+132314<br />
+132323<br />
+132324<br />
+132412<br />
+132413<br />
+132414<br />
+132423<br />
+132424<br />
+132434<br />
+141212<br />
+141213<br />
+141214<br />
+141312<br />
+141313<br />
+141314<br />
+141323<br />
+141324<br />
+141412<br />
+141413<br />
+141414<br />
+141423<br />
+141424<br />
+141434<br />
+142312<br />
+142313<br />
+142314<br />
+142323<br />
+142324<br />
+142412<br />
+142413<br />
+142414<br />
+142423<br />
+142424<br />
+142434<br />
+143412<br />
+143413<br />
+143414<br />
+143423<br />
+143424<br />
+143434<br />
+231212<br />
+231213<br />
+231214<br />
+231312<br />
+231313<br />
+231314<br />
+231323<br />
+231324<br />
+231412<br />
+231413<br />
+231414<br />
+231423<br />
+231424<br />
+231434<br />
+232312<br />
+232313<br />
+232314<br />
+232323<br />
+232324<br />
+232412<br />
+232413<br />
+232414<br />
+232423<br />
+232424<br />
+232434<br />
+241212<br />
+241213<br />
+241214<br />
+241312<br />
+241313<br />
+241314<br />
+241323<br />
+241324<br />
+241412<br />
+241413<br />
+241414<br />
+241423<br />
+241424<br />
+241434<br />
+242312<br />
+242313<br />
+242314<br />
+242323<br />
+242324<br />
+242412<br />
+242413<br />
+242414<br />
+242423<br />
+242424<br />
+242434<br />
+243412<br />
+243413<br />
+243414<br />
+243423<br />
+243424<br />
+243434<br />
+341212<br />
+341213<br />
+341214<br />
+341312<br />
+341313<br />
+341314<br />
+341323<br />
+341324<br />
+341412<br />
+341413<br />
+341414<br />
+341423<br />
+341424<br />
+341434<br />
+342312<br />
+342313<br />
+342314<br />
+342323<br />
+342324<br />
+342412<br />
+342413<br />
+342414<br />
+342423<br />
+342424<br />
+342434<br />
+343412<br />
+343413<br />
+343414<br />
+343423<br />
+343424<br />
+343434<br />
+</td></tr></table><hr><hr><h2>Parent Palindrome (p4v2d1)</h2><hr><b>Parent Palindrome [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the first line of the input, we will give you a string, lets call it str, with at most 99 characters. str will only contain lower-case English alphabet letters. You have to find the shortest palindrome string, lets call it ptr, such that str is a substring of ptr. In the first line of the output, you have to print the length of ptr and in the second line of the output, you have to print the string ptr itself.<br />
+<br />
+If str is itself a palindrome, print the length of str in the first line and str itself in the second line. If there are multiple strings of the same (shortest) length that are palindromes which contain str as a substring, print the string that is <i>lexicographically smallest</i>. We explain lexicographic ordering below.<br />
+<br />
+<b>Lexicographic ordering</b><br />
+Just as given two digit sequences, say 1923 and 3122, we can say which digit sequence is "smaller" and which is "larger" (by interpreting the digit sequences as numbers), two sequences of alphabets, i.e. strings, can also be compared and given two sequences of alphabets, we can say which one is smaller and which one is larger.<br />
+<br />
+The rules of doing so are pretty simple if the two strings are of the same length, which will be the case in this question. We first declare that the character 'a' is smaller than the character 'b', which is in turn smaller than the character 'c' and so on. To compare two strings, simply look at their first characters - the string with the larger character wins. If both strings have the same first character, then the second characters of the two strings are compared and so on.<br />
+<br />
+Thus, we have "cat" = "cat" since the two strings are exactly the same but we have "cap" < "cat" since 'p' is smaller than 't'. Also, we have "mat" > "cat" since 'm' is larger than 'c' and also "aazd" < "abbb" since 'a' is smaller than 'b' (The third characters 'z' and 'b' do not get compared at all since "abbb" wins when the second characters get compared).<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>There is no specific need to use recursion to solve this problem. However, you may want to write a modular code with functions to make your solution easier to read and easier to debug.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+edens<br />
+<br />
+OUTPUT:<br />
+7<br />
+snedens<br />
+<br />
+<b>Explanation</b>: the string is itself not a palindrome. However, adding two appropriate letters to the left of the string makes it a palindrome.<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+malayalam<br />
+<br />
+OUTPUT:<br />
+9<br />
+malayalam<br />
+<br />
+<b>Explanation</b>: the string is itself a palindrome.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>edens</td><td>7<br />
+snedens</td></tr><tr><td>malayalam</td><td>9<br />
+malayalam</td></tr><tr><td>aoob</td><td>7<br />
+aoobooa</td></tr><tr><td>abcde</td><td>9<br />
+abcdedcba</td></tr><tr><td>iwouldlovetolearnmalayalam</td><td>43<br />
+iwouldlovetolearnmalayalamnraelotevoldluowi</td></tr><tr><td>momars</td><td>9<br />
+sramomars</td></tr></table><hr><hr><h2>Leaderboard (p4v3d1)</h2><hr><b>Leaderboard [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C is participating in a contest where one can play any number of times. Every time Mr C plays, he gets a non-negative score. Based on his score and scores that other players have received, he is assigned a rank. However, the rank is calculated in a very careful manner. The highest score is awarded rank 1, the next highest score is awarded rank 2, and so on. However, if two scores are the same, then they are awarded the same rank.<br />
+<br />
+Consider the following example. Suppose the scores of the players are [100 100 50 40 40 20 10]. Then the first two 100 scores both get rank 1. However, the score 50 gets rank 2. The next two 40 scores get rank 3. The score 20 gets rank 4 and the score 10 gets rank 5.<br />
+<br />
+In the first line of the input you will be given a strictly positive integer n, separated by a space. n tells you how many player scores are already there. In the next line, there will be n non-negative player scores give to you in non-increasing order (i.e. from left to right, the scores will stay the same or go down, never go up), two scores separated by a space. Store these scores in an array.<br />
+<br />
+In the next line you will be given another strictly positive integer m, which tells you the number of attempts Mr C makes in the game. In the next line, you will be given m non-negative scores that Mr C got in each of his attempts, two scores separated by a space. Read each score, store it in the correct position in the array and find the rank of Mr C's score and print it on a separate line of the output.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>You may want to create an array of size m+n since you will have to store those many elements eventually (n original scores of other players and m scores of Mr C).<br />
+<li>Mr C's rank for his second score should be calculated after his first score has been inserted into the array at the correct location. Mr C's rank for his third score should be calculated after his first two scores have been inserted into the array at the correct location. <br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+7<br />
+100 100 50 40 40 20 10<br />
+4<br />
+5 25 50 120<br />
+<br />
+OUTPUT:<br />
+6<br />
+4<br />
+2<br />
+1<br />
+<br />
+<b>Explanation</b><br />
+<ol><br />
+<li>Initially the score list is [100 100 50 40 40 20 10].<br />
+<li>Inserting 5 into the list gives us [100 100 50 40 40 40 20 10 5] and its rank is 6<br />
+<li>Inserting 25 into the list gives us [100 100 50 40 40 40 25 20 10 5] and its rank is 4<br />
+<li>Inserting 50 into the list gives us [100 100 50 50 40 40 40 25 20 10 5] and its rank is 2<br />
+<li>Inserting 120 into the list gives us [120 100 100 50 50 40 40 40 25 20 10 5] and its rank is 1<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>7<br />
+100 100 50 40 40 20 10<br />
+4<br />
+5 25 50 120</td><td>6<br />
+4<br />
+2<br />
+1<br />
+</td></tr><tr><td>10<br />
+200 180 150 130 120 100 70 60 50 40 <br />
+6<br />
+40 70 100 130 170 190</td><td>10<br />
+7<br />
+6<br />
+4<br />
+3<br />
+2<br />
+</td></tr><tr><td>15<br />
+5000 1300 1299 1100 1000 1000 1000 1000 900 900 800 754 700 400 300 <br />
+8<br />
+500 755 800 900 1000 1000 4000 5000</td><td>10<br />
+8<br />
+7<br />
+6<br />
+5<br />
+5<br />
+2<br />
+1<br />
+</td></tr><tr><td>200<br />
+997 988 981 966 957 937 933 930 929 928 927 926 922 920 916 915 903 896 887 874 872 866 863 863 860 859 858 857 857 847 847 842 830 819 815 809 803 797 796 794 794 789 785 783 778 772 765 765 764 757 755 751 744 740 737 733 730 730 724 716 710 709 691 690 684 677 676 653 652 650 625 620 619 602 587 587 585 583 571 568 568 556 552 546 541 540 538 531 530 529 527 506 504 501 498 493 493 492 489 482 475 468 457 452 445 442 441 438 435 435 433 430 429 427 422 422 414 408 404 400 396 394 387 384 380 379 374 371 369 369 369 368 366 365 363 354 351 341 337 336 328 325 318 316 314 307 306 302 287 282 281 277 276 271 246 238 236 230 229 229 228 227 220 212 199 194 179 173 171 168 150 144 136 125 125 124 122 118 98 98 95 92 88 85 70 68 61 60 59 44 43 35 32 30 28 23 20 13 12 12<br />
+50<br />
+83 129 140 184 198 300 312 325 341 344 349 356 370 405 423 444 465 471 491 500 506 508 539 543 569 591 607 612 614 623 645 670 689 726 744 747 764 773 777 787 805 811 819 829 841 905 918 918 955 997</td><td>169<br />
+160<br />
+159<br />
+153<br />
+152<br />
+136<br />
+133<br />
+129<br />
+125<br />
+125<br />
+125<br />
+123<br />
+118<br />
+108<br />
+105<br />
+97<br />
+94<br />
+93<br />
+90<br />
+87<br />
+84<br />
+84<br />
+79<br />
+77<br />
+73<br />
+69<br />
+68<br />
+68<br />
+68<br />
+66<br />
+65<br />
+62<br />
+59<br />
+53<br />
+48<br />
+48<br />
+44<br />
+42<br />
+42<br />
+39<br />
+34<br />
+33<br />
+31<br />
+31<br />
+30<br />
+17<br />
+15<br />
+15<br />
+6<br />
+1<br />
+</td></tr><tr><td>7<br />
+100 100 50 40 40 20 10<br />
+5<br />
+5 25 50 100 120</td><td>6<br />
+4<br />
+2<br />
+1<br />
+1<br />
+</td></tr><tr><td>10<br />
+200 180 150 130 120 100 70 60 50 40 <br />
+9<br />
+40 70 100 130 170 190 200 200 200</td><td>10<br />
+7<br />
+6<br />
+4<br />
+3<br />
+2<br />
+1<br />
+1<br />
+1<br />
+</td></tr></table><hr><hr></body>
+</html>

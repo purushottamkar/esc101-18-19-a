@@ -1,0 +1,817 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>LAB-PRAC-03_TYPES</title>
+</head>
+<body>
+<h1>LAB-PRAC-03_TYPES</h1><h2>FIFA Fever (p1v1d1)</h2><hr><b>FIFA Fever [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+FIFA World Cup is a global footballing event in which nations compete to win the coveted title of World Champion. This year’s cup was held in Russia and was a delight to watch from a neutral point of view. Not so much if you were wishing for the biggies to win. There were so many surprises in this year’s edition: Germany getting knocked out at group stage, Argentina being humbled by eventual winners France, and Croatia showing grit and will to reach their maiden Final.<br />
+<br />
+In the first line of input you are given an integer representing the team. You are then provided the scores of three matches of that team: a - b, c - d, e – f where a, c, e represent goals scored by the team, and b, d, f represent goals scored against them. You need to compute the goal difference: total goals scored by them minus the total goals scored<br />
+against them.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Do not use any libraries other than stdio.h<br />
+<li>Be careful of extra/missing spaces and extra/missing lines. Use the visible test cases to guide yourself.<br />
+</ol><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+X<br />
+a - b, c - d, e - f<br />
+<b>OUTPUT</b>:<br />
+Goal Difference for Team X: goaldifference<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+<br />
+OUTPUT:<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>7<br />
+1 - 1, 0 - 3, 2 - 1</td><td>Goal Difference for Team 7: -2</td></tr><tr><td>0<br />
+0 - 0, 0 - 0, 1 - 1</td><td>Goal Difference for Team 0: 0</td></tr><tr><td>1<br />
+7 - 1, 5 - 0, 3 - 3</td><td>Goal Difference for Team 1: 11</td></tr><tr><td>2<br />
+15 - 1, 3 - 0, 0 - 1</td><td>Goal Difference for Team 2: 16</td></tr><tr><td>625<br />
+1 - 1, 0 - 0, 0 - 1</td><td>Goal Difference for Team 625: -1</td></tr><tr><td>11257<br />
+12 - 11, 99 - 2, 1 - 22</td><td>Goal Difference for Team 11257: 77</td></tr></table><hr><hr><h2>Matrix Math (p1v2d1)</h2><hr><b>Matrix Math [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You are given two 3 x 3 floating point matrices A and B. The rows of the matrices will be given in different lines, one row in each line and there will be a blank line between the two matrices. The different entries of the matrix will be separated by a single space. Let’s define matrices C and D as follows:<br />
+C = A + B<br />
+D = A x B<br />
+You have to print C and D as described in the output format. The elements of the output matrices should have only 2 digits beyond decimal point.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Print each row of the matrices C and D on <b>separate lines</b>, with a single space between 2 matrix entries in the same row.<br />
+<li>Include <b>two blank lines</b> between printing the matrices C and D.<br />
+</ol><br />
+<br />
+<b>HINT</b>: To print a floating point number, we use the notation %f in printf statements. To print a floating point number to only 2 digits beyond the decimal point, use the notation %0.2f in your printf statements.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+A11 A12 A13<br />
+A21 A22 A23<br />
+A31 A32 A33<br />
+<br />
+B11 B12 B13<br />
+B21 B22 B23<br />
+B31 B32 B33<br />
+<br />
+<b>OUTPUT</b>:<br />
+C11 C12 C13<br />
+C21 C22 C23<br />
+C31 C32 C33<br />
+<br />
+D11 D12 D13<br />
+D21 D22 D23<br />
+D31 D32 D33<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+0 0 0<br />
+0 0 0<br />
+0 0 0<br />
+<br />
+1 1 1<br />
+1 1 1<br />
+1 1 1<br />
+<br />
+OUTPUT:<br />
+1.00 1.00 1.00<br />
+1.00 1.00 1.00<br />
+1.00 1.00 1.00<br />
+<br />
+<br />
+0.00 0.00 0.00<br />
+0.00 0.00 0.00<br />
+0.00 0.00 0.00<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. Printing each line of the output (there will be total of 8 lines in your output) will carry equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible test cases and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>0 0 0<br />
+0 0 0<br />
+0 0 0<br />
+<br />
+1 1 1<br />
+1 1 1<br />
+1 1 1</td><td>1.00 1.00 1.00<br />
+1.00 1.00 1.00<br />
+1.00 1.00 1.00<br />
+<br />
+<br />
+0.00 0.00 0.00<br />
+0.00 0.00 0.00<br />
+0.00 0.00 0.00</td></tr><tr><td>1 0 0<br />
+0 1 0<br />
+0 0 1<br />
+<br />
+1 0 0<br />
+0 1 0<br />
+0 0 1</td><td>2.00 0.00 0.00<br />
+0.00 2.00 0.00<br />
+0.00 0.00 2.00<br />
+<br />
+<br />
+1.00 0.00 0.00<br />
+0.00 1.00 0.00<br />
+0.00 0.00 1.00</td></tr><tr><td>1 1 1<br />
+1 1 1<br />
+1 1 1<br />
+<br />
+1 1 1<br />
+1 1 1<br />
+1 1 1</td><td>2.00 2.00 2.00<br />
+2.00 2.00 2.00<br />
+2.00 2.00 2.00<br />
+<br />
+<br />
+3.00 3.00 3.00<br />
+3.00 3.00 3.00<br />
+3.00 3.00 3.00</td></tr><tr><td>1 2 3<br />
+4 5 6<br />
+7 8 9<br />
+<br />
+1 0 0<br />
+0 1 0<br />
+0 0 1</td><td>2.00 2.00 3.00<br />
+4.00 6.00 6.00<br />
+7.00 8.00 10.00<br />
+<br />
+<br />
+1.00 2.00 3.00<br />
+4.00 5.00 6.00<br />
+7.00 8.00 9.00</td></tr><tr><td>91 2.2 34.5<br />
+4.0 53.1 62.3<br />
+7.7 8.4 9.9<br />
+<br />
+11.1 13.3 12.4<br />
+32.3 99.9 91.3<br />
+12.1 22.2 89.9</td><td>102.10 15.50 46.90<br />
+36.30 153.00 153.60<br />
+19.80 30.60 99.80<br />
+<br />
+<br />
+1498.61 2195.98 4430.81<br />
+2513.36 6740.95 10498.40<br />
+476.58 1161.35 1752.41</td></tr><tr><td>9100.1 1.234 34.5<br />
+4.0 53.1 6002.3<br />
+765.47 812.434 9876.9<br />
+<br />
+11.71 13.23 102.4<br />
+32.13 909.9 91.31<br />
+102.1 22.12 89.95</td><td>9111.81 14.46 136.90<br />
+36.13 963.00 6093.61<br />
+867.57 834.55 9966.85<br />
+<br />
+<br />
+110124.27 122280.27 935066.12<br />
+614587.75 181139.48 545165.06<br />
+1043498.69 967838.00 1040994.62</td></tr></table><hr><hr><h2>The Tale of Three Lines (p1v3d1)</h2><hr><b>The Tale of Three Lines [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You are given the equation of three lines in three variables. The equations will only contain integer values. Consider the 3 x 3 matrix formed by this system of equations. Find the three minors of this matrix corresponding to the three elements in the first row of this matrix (in order) as well as the determinant of this matrix. Output these four numbers in four different lines.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>First output the value of the minor M_11 then M_12 then M_13 followed by the determinant of this matrix. Give all values on different lines. Recall that M_ij denotes the minor of the matrix formed by removing the ith row and jth column of the matrix.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+ax + by + c = 0<br />
+dx + ey + f = 0<br />
+gx + hy + i = 0<br />
+<br />
+<b>OUTPUT</b>:<br />
+M11<br />
+M12<br />
+M13<br />
+Determinant<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+0x + 1y + 0 = 0<br />
+1x + 0y + 0 = 0<br />
+1x + 1y + 1 = 0<br />
+<br />
+OUTPUT:<br />
+0<br />
+1<br />
+1<br />
+-1<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. Printing each line of the output (there will be total of4 lines in your output) will carry equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible test cases and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>0x + 1y + 0 = 0<br />
+1x + 0y + 0 = 0<br />
+1x + 1y + 1 = 0</td><td>0<br />
+1<br />
+1<br />
+-1</td></tr><tr><td>20x + 1y + 10 = 0<br />
+1x + -20y + 10 = 0<br />
+1x + 1y + 1 = 0</td><td>-30<br />
+-9<br />
+21<br />
+-381</td></tr><tr><td>1x + 2y + 3 = 0<br />
+2x + 3y + 1 = 0<br />
+3x + 1y + 2 = 0</td><td>5<br />
+1<br />
+-7<br />
+-18</td></tr><tr><td>0x + 0y + 0 = 0<br />
+0x + 0y + 0 = 0<br />
+0x + 0y + 0 = 0</td><td>0<br />
+0<br />
+0<br />
+0</td></tr><tr><td>12x + -27y + 3 = 0<br />
+31x + 41y + 34 = 0<br />
+66x + -97y + 52 = 0</td><td>5430<br />
+-632<br />
+-5713<br />
+30957</td></tr><tr><td>10x + 0y + 0 = 0<br />
+0x + 100y + 0 = 0<br />
+0x + 0y + 1000 = 0</td><td>100000<br />
+0<br />
+0<br />
+1000000</td></tr></table><hr><hr><h2>Fiery FIFA Fever (p2v1d1)</h2><hr><b>Fiery FIFA Fever [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+A Round Robin tournament is one in which a contestant meets all other contestants in turn. If each contestant plays all other contestants twice, then this is called double round robin tournament. Football leagues around the world follow the double round robin format, in which teams play all other teams twice, once at their own stadium, designated as ‘Home’ match and once at their opponent’s stadium, called ‘Away’ match.<br />
+<br />
+You will be given the goal data of two of the teams in this double round robin tournament in the format described below.<br />
+TeamID1 a1 - b1, c1 - d1<br />
+TeamID2 a2 - b2, c2 - d2<br />
+where TeamID1 is the integer ID for team1. a1 and c1 represent goals scored by team1 in its two matches, and b1, d1 represent goals scored against team1 in those two matches. Similarly for team2 with ID TeamID2.<br />
+<br />
+A points table is a table which shows the points scored by all the teams in the tournament. You have to output this table for the two teams for whom you have been given data. In the following, GF stands for Goals For, GA stands for Goals Against, and GD stands for Goal Difference. Your table will have four columns, and three rows:<br />
+<ol><br />
+<li>The first row will contain the text headings ID, GF, GA, and GD.<br />
+<li>The second row with contain the text ID of team1, followed by the total goals scored by team1, followed by total goals scored against team1, followed by the goal difference.<br />
+<li>The third row with the same details, but for team2.<br />
+<li>You have to ensure that the first characters in each of the columns should be aligned vertically with the corresponding column heading. Use the tab character (with escape sequence ‘\t’) between ID and GF, GF and GA and GD columns to achieve this.<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Press Evaluate/Submit once without writing any code to see how the output is expected.<br />
+<li>Use the tab character instead of space between two entries of two side-by-side columns.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+ID_1 a - b, c - d<br />
+ID_2 w - x, y - z<br />
+<br />
+<b>OUTPUT</b>:<br />
+ID      GF      GA       GD<br />
+ID_1  (a + c) (b + d) (gd1)<br />
+ID_2  (w + y) (x + z) (gd2)<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+7 1 - 1, 0 - 0<br />
+5 0 - 0, 2 - 1<br />
+<br />
+OUTPUT:<br />
+ID GF GA GD<br />
+7   1    1    0<br />
+5   2    1    1<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>7 1 - 1, 0 - 0<br />
+5 0 - 0, 2 - 1</td><td>ID	GF	GA	GD<br />
+7	1	1	0<br />
+5	2	1	1<br />
+</td></tr><tr><td>7 25 - 1, 0 - 6<br />
+5 16 - 5, 3 - 1</td><td>ID	GF	GA	GD<br />
+7	25	7	18<br />
+5	19	6	13<br />
+</td></tr><tr><td>17 5 - 1, 0 - 6<br />
+51 6 - 5, 3 - 1</td><td>ID	GF	GA	GD<br />
+17	5	7	-2<br />
+51	9	6	3<br />
+</td></tr><tr><td>82 11 - 1, 232 - 325<br />
+23 223 - 23, 5 - 5</td><td>ID	GF	GA	GD<br />
+82	243	326	-83<br />
+23	228	28	200<br />
+</td></tr><tr><td>100 1 - 1, 2 - 3<br />
+101 15 - 1, 12 - 0</td><td>ID	GF	GA	GD<br />
+100	3	4	-1<br />
+101	27	1	26<br />
+</td></tr><tr><td>300 106 - 11, 200 - 300<br />
+401 15 - 71, 12 - 90</td><td>ID	GF	GA	GD<br />
+300	306	311	-5<br />
+401	27	161	-134<br />
+</td></tr></table><hr><hr><h2>The Final Rational (p2v2d1)</h2><hr><b>The Final Rational [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You are given a rational number with 6 digits after the decimal point. You have to output the first three and the last three digits of the number after the decimal place. For example if the number is 123.456789, then the output should be 456 and 789. Both outputs should be given on two separate lines.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Give both numbers on different lines<br />
+<li>Note that you have to output the digits themselves i.e. if the last three digits are 0, 5 and 6, you have to output 056 and not 56.<br />
+<li>Be careful that there is no guarantee how many digits the number has <i>before</i> the decimal point. Only the number of digits after the decimal point are known to be 6.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+N<br />
+where N is a floating point value with 6 digits after the decimal.<br />
+<br />
+<b>OUTPUT</b>:<br />
+First three digits after the decimal<br />
+Last three digits after the decimal<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+123.456789<br />
+<br />
+OUTPUT:<br />
+456<br />
+789<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Giving correct output in each line carries 50% of the marks. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases. Ensure that there are no missing/extra spaces or missing/extra lines in your output.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>9.100000</td><td>100<br />
+000</td></tr><tr><td>123.456789</td><td>456<br />
+789</td></tr><tr><td>0.123123</td><td>123<br />
+123</td></tr><tr><td>0.000001</td><td>000<br />
+001</td></tr><tr><td>1000.989898</td><td>989<br />
+898</td></tr><tr><td>000.000000</td><td>000<br />
+000</td></tr></table><hr><hr><h2>Quadratic Quandary (p2v3d1)</h2><hr><b>Quadratic Quandary [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given a <b>quadratic equation with integer coefficients</b> which is guaranteed to have real roots (maybe repeated) in the following form.<br />
+ax^2 + bx + c = 0<br />
+You need to compute the  following four quantities with respect to the given quadratic equation<br />
+<ol><br />
+<li>The discriminant of the quadratic equation<br />
+<li>The point where the quadratic curve described by the equation attains its maximum or minimum i.e. if a > 0, find the point where the curve attains its minimum and if a < 0, find the point where the curve attains its maximum.<br />
+<li>Sum of the two roots of the equation<br />
+<li>Absolute difference of the two roots of the equation<br />
+</ol><br />
+Print each result on a different line. Print each result <b>correct to three decimal places</b>.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Give all four numbers on different lines.<br />
+<li>Print all results correct only to three decimal places.<br />
+<li>The quadratic equation we give you will always have real roots but may have repeated roots<br />
+<li>The equation will have integer coefficients but the roots, determinant etc may be non-integer.<br />
+</ol><br />
+<br />
+<b>Hint</b>: The math.h library has been included for you. Use the fabs(x) function to calculate the absolute value of a float/double variable x. Use sqrt(x) to calculate the square root of a float or double variable x. Use the notation %0.3f or the shorthand %.3f to print a float/double variable correct to three decimal places.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+ax^2 + bx + c = 0<br />
+where a, b, c are integers and a is non-zero.<br />
+<br />
+<b>OUTPUT</b>:<br />
+Discriminant: D<br />
+Extremum: E<br />
+Sum: R1 + R2<br />
+Difference: |R1-R2|<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1x^2 + 2x + -6 = 0<br />
+<br />
+OUTPUT:<br />
+Discriminant: 28.00<br />
+Extremum: -1.00<br />
+Sum: -2.00<br />
+Difference: 5.29<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are four lines in your output. Giving correct output in each line carries 25% of the marks. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases. Ensure that there are no missing/extra spaces or missing/extra lines in your output.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1x^2 + 2x + -6 = 0</td><td>Discriminant: 28.000<br />
+Extremum: -1.000<br />
+Sum: -2.000<br />
+Difference: 5.292</td></tr><tr><td>1x^2 + 5x + 6 = 0</td><td>Discriminant: 1.000<br />
+Extremum: -2.500<br />
+Sum: -5.000<br />
+Difference: 1.000</td></tr><tr><td>15311x^2 + -3234x + -10151 = 0</td><td>Discriminant: 632146624.000<br />
+Extremum: 0.106<br />
+Sum: 0.211<br />
+Difference: 1.642</td></tr><tr><td>3x^2 + 1x + -1 = 0</td><td>Discriminant: 13.000<br />
+Extremum: -0.167<br />
+Sum: -0.333<br />
+Difference: 1.202</td></tr><tr><td>14x^2 + 1x + 0 = 0</td><td>Discriminant: 1.000<br />
+Extremum: -0.036<br />
+Sum: -0.071<br />
+Difference: 0.071</td></tr><tr><td>2x^2 + 4x + 2 = 0</td><td>Discriminant: 0.000<br />
+Extremum: -1.000<br />
+Sum: -2.000<br />
+Difference: 0.000</td></tr></table><hr><hr><h2>FIFA Fractions (p3v1d1)</h2><hr><b>FIFA Fractions [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The FIFA World Cup is a global footballing event in which nations compete to win the coveted title of World Champion. This year’s cup was held in Russia and was a delight to watch from a neutral point of view. Not so much if you were wishing for the biggies to win. There were so many surprises in this year’s edition: Germany getting knocked out at group stage, Argentina being humbled by eventual winners France, and Croatia showing grit and will to reach their maiden Final.<br />
+<br />
+In the first line of input you are given the team number which will be an <b>integer</b> and in the second line, you are provided the scores of three matches played by that team: a - b, c - d, e - f where a, c, e are <b>integers</b> representing goals scored by that team, and b, d, f are <b>integers</b> representing  goals scored against that team by the opponent team.<br />
+<br />
+The goal ratio of a match is defined as the ratio of goal scored by the team to the goals scored against that team. You need to compute the <b>sum of goal ratios</b> of all three matches in the format given below. The output should be rounded off to 3 places beyond the decimal point.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>We are asking for the sum of the goal ratios of the three matches.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+Team Number: x<br />
+a - b, c - d, e - f<br />
+<br />
+<b>OUTPUT</b>:<br />
+Goal Ratio sum for Team x: ratio<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+Team Number: 10<br />
+1 - 1, 0 - 3, 2 - 1<br />
+<br />
+OUTPUT:<br />
+Goal Ratio sum for Team 10: 3.000<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>Team Number: 10<br />
+1 - 1, 0 - 3, 2 - 1</td><td>Goal Ratio sum for Team 10: 3.000</td></tr><tr><td>Team Number: 25<br />
+0 - 1, 2 - 4, 2 - 1</td><td>Goal Ratio sum for Team 25: 2.500</td></tr><tr><td>Team Number: 40<br />
+3 - 5, 4 - 5, 7 - 9</td><td>Goal Ratio sum for Team 40: 2.178</td></tr><tr><td>Team Number: 40<br />
+9 - 11, 13 - 15, 7 - 17</td><td>Goal Ratio sum for Team 40: 2.097</td></tr><tr><td>Team Number: 40<br />
+4 - 6, 3 - 8, 0 - 1</td><td>Goal Ratio sum for Team 40: 1.042</td></tr><tr><td>Team Number: 40<br />
+1 - 2, 3 - 6, 0 - 1</td><td>Goal Ratio sum for Team 40: 1.000</td></tr></table><hr><hr><h2>Digit Dilemma (p3v2d1)</h2><hr><b>Digit Dilemma [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You are given a 4-digit <b>integer number</b> N and another single digit <b>integer</b> A. On the first line, output the sum of digits of the number N. On the second line, output how many times does the digit A appear in the number N.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Be careful that the number N may contain zeros (even at the beginning), as well as the digit A may itself be zero. For example if N = 0501, A = 0, then we will say that A appears <b>twice</b> in N<br />
+<li>Give your outputs on two different lines<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+N A<br />
+<b>OUTPUT</b>:<br />
+sum of digits of N<br />
+number of times digit A appears in N<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1223 2<br />
+<br />
+OUTPUT:<br />
+8<br />
+2<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. Your output has two lines. Printing each line correctly will get you 50% marks. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1223 2</td><td>8<br />
+2</td></tr><tr><td>1011 9</td><td>3<br />
+0</td></tr><tr><td>0000 0</td><td>0<br />
+4</td></tr><tr><td>1111 1</td><td>4<br />
+4</td></tr><tr><td>0890 0</td><td>17<br />
+2</td></tr><tr><td>0001 0</td><td>1<br />
+3</td></tr></table><hr><hr><h2>Recursive Recharge (p3v3d1)</h2><hr><b>Recursive Recharge [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Just as the factorial function is defined in terms of itself, we are defining a new function below. The function is defined on non-negative integers i.e. 0, 1, 2, 3, ...<br />
+$$f(0) = P$$$$f(n) = f(n-1)^2 + \frac{n\cdot m}{\sqrt v + e}$$<br />
+The values of m, v, e, P will be provided to you as <b>integers</b>. Your job is to output f(1), f(2), f(3), f(4) in <b>different lines</b>. All your outputs should be rounded off to to <b>three decimal places</b><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>The inputs will be integers but the outputs may be non-integers.<br />
+<li>Try using double values/double typecasting in case you are getting errors with float variables and float typecasting. Be careful that while %f works while printing doubles, when using scanf with doubles, always use %lf.<br />
+<li>The integer v will always be given as positive but other integers M, e, P, may be negative.<br />
+</ol><br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>The math.h library has been included for you as you may require it for the square root and other functions.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+m, v, e, P<br />
+<br />
+<b>OUTPUT</b>:<br />
+f(1)<br />
+f(2)<br />
+f(3)<br />
+f(4)<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+1, 2, 3, 2<br />
+<br />
+OUTPUT:<br />
+4.227<br />
+18.317<br />
+336.182<br />
+113019.391<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are 4 lines in your output. Each will receive 25% of the total points if entered correctly. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>1, 2, 3, 2</td><td>4.227<br />
+18.317<br />
+336.182<br />
+113019.391</td></tr><tr><td>1, 1, 1, 1</td><td>1.500<br />
+3.250<br />
+12.062<br />
+147.504</td></tr><tr><td>0, 1, 0, 0</td><td>0.000<br />
+0.000<br />
+0.000<br />
+0.000</td></tr><tr><td>-10, 2, 1, -2</td><td>-0.142<br />
+-8.264<br />
+55.868<br />
+3104.712</td></tr><tr><td>5, 2, 1, -1</td><td>3.071<br />
+13.574<br />
+190.456<br />
+36281.633</td></tr><tr><td>1, 4, -3, 1</td><td>0.000<br />
+-2.000<br />
+1.000<br />
+-3.000</td></tr></table><hr><hr><h2>Breaking the Lego Safe (p4v1d1)</h2><hr><b>Breaking the Lego Safe [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In last week’s lab we talked about a Lego safe in which your friend wanted to give you a secret digit. The safe is to be built using lego blocks. Last time you sent an image of the number in the safe to your friend as a proof of your trustworthiness. Seeing the image that you had sent, your friend agrees that you are indeed trustworthy, and now wants to use this safe for his task. He will provide two safes, each containing <b>an integer</b>, and you have to return the arithmetic mean of the given two numbers in a new safe. The new safe is constructed by replacing ‘#’ with a character with a 'O' symbol (capital letter O). Note that for greater security, the bars of the new safe also have four more ‘-’ symbols. The arithmetic mean stored in the safe should have <b>only one digit beyond the decimal point</b>.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>The arithmetic mean stored in the safe should have only one digit beyond the decimal point.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+#-#-# #-#-#<br />
+#-a-# #-b-#<br />
+#-#-# #-#-#<br />
+<br />
+<b>OUTPUT</b>:<br />
+O---O---O<br />
+O--C--O<br />
+O---O---O<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+#-#-# #-#-#<br />
+#-3-# #-4-#<br />
+#-#-# #-#-#<br />
+<br />
+OUTPUT:<br />
+O---O---O<br />
+O--3.5--O<br />
+O---O---O<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 marks. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>#-#-# #-#-#<br />
+#-3-# #-4-#<br />
+#-#-# #-#-#</td><td>O---O---O<br />
+O--3.5--O<br />
+O---O---O</td></tr><tr><td>#-#-# #-#-#<br />
+#-10-# #-10-#<br />
+#-#-# #-#-#</td><td>O---O---O<br />
+O--10.0--O<br />
+O---O---O</td></tr><tr><td>#-#-# #-#-#<br />
+#-1-# #-2-#<br />
+#-#-# #-#-#</td><td>O---O---O<br />
+O--1.5--O<br />
+O---O---O</td></tr><tr><td>#-#-# #-#-#<br />
+#-30-# #-459-#<br />
+#-#-# #-#-#</td><td>O---O---O<br />
+O--244.5--O<br />
+O---O---O</td></tr><tr><td>#-#-# #-#-#<br />
+#-333-# #-777-#<br />
+#-#-# #-#-#</td><td>O---O---O<br />
+O--555.0--O<br />
+O---O---O</td></tr><tr><td>#-#-# #-#-#<br />
+#-0-# #-0-#<br />
+#-#-# #-#-#</td><td>O---O---O<br />
+O--0.0--O<br />
+O---O---O</td></tr></table><hr><hr><h2>The Final Rational Revisited (p4v2d1)</h2><hr><b>The Final Rational [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You are given a rational number N with 6 digits after the decimal point. You have to first output the number formed by the digits after the decimal place - call this number P. Then find the number formed by reversing the six digits (call this new number Q) and output the sum P+Q on <b>a different line</b>. For example if the number is 123.456789, then P = 456789 and Q = 987654 and so the output should be 456789 and 1444443. Both outputs should be given on two separate lines.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>Give both numbers on different lines<br />
+<li>Note that you don't have to output the digits themselves i.e. if the digits after the decimal place are 0, 0, 5, 6, 1, 2, you have to output 5612 and not 005612.<br />
+<li>Be careful that there is no guarantee how many digits the number has <i>before</i> the decimal point. Only the number of digits after the decimal point are known to be 6.<br />
+</ol><br />
+<br />
+<b>HINTS</b>:<br />
+<ol><br />
+<li>You may require the use of math.h functions for which math.h has been included for you. However, it is <b>not necessary to use math.h functions</b> to solve this problem.<br />
+<li>If you are facing precision issues, <b>use a double variable</b> instead of float variable to perform calculations.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+N<br />
+where N is a floating point value with 6 digits after the decimal<br />
+<br />
+<b>OUTPUT</b>:<br />
+Number P formed out of digits after the decimal point<br />
+P + Q where Q is the number formed by reversing <b>all the digits</b> after the decimal point<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+123.456789<br />
+<br />
+OUTPUT:<br />
+456789<br />
+1444443<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Giving correct output in each line carries 50% of the marks. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases. Ensure that there are no missing/extra spaces or missing/extra lines in your output.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>123.456789</td><td>456789<br />
+1444443</td></tr><tr><td>9.100000</td><td>100000<br />
+100001</td></tr><tr><td>0.456456</td><td>456456<br />
+1111110</td></tr><tr><td>0.000002</td><td>2<br />
+200002</td></tr><tr><td>10.989898</td><td>989898<br />
+1888887</td></tr><tr><td>000.000000</td><td>0<br />
+0</td></tr></table><hr><hr><h2>Developing an interest in interest (p4v3d1)</h2><hr><b>Developing an interest in interest [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Loans and interest are crucial to modern economy. The argument for interest is as follows: It is preferable to receive a given good now rather than in the future and therefore interest is compensation for the time the lender forgoes the benefit of spending the money. You are given the following quantities<br />
+<ol><br />
+<li>principal amount P<br />
+<li>annual rate of interest R (in %)<br />
+<li>first duration of time in years T1<br />
+<li>second duration of time in years T2<br />
+<li>number of times interest is compounded per year N<br />
+</ol><br />
+All the above quantities will be provided to you as <b>integers</b>. You need to give the following outputs <b>on different lines</b><br />
+<ol><br />
+<li>total interest accrued if simple interest is applied for T1 years<br />
+<li>if after T1 years of simple interest, we start applying compound interest for T2 years (compounded N times a year), then total compound interest accrued in those T2 years.<br />
+<li>total interest accrued if we had just applied simple interest for T1 + T2 years<br />
+<li>total interest accrued if we had just applied compound interest for T1 + T2 years (compounded N times a year)<br />
+</ol><br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces.<br />
+<li>All outputs ask for interest amounts, not final amounts.<br />
+<li>All the <b>outputs should be rounded to 3 places</b> beyond the decimal point.<br />
+<li>Use double variables for all your computations. <b>Do not use float</b> as it may cause you loss of precision.<br />
+</ol><br />
+<b>HINT</b>: You may require the use of functions from the math.h library which has been included for you. The formula for calculating the <b>final amount</b> if interest is compounded N times a year for T years at R% rate with principal P is $$P*(1+R/(100*N))^{N*T}$$<br />
+----------------------------------------------------------------------<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+P = 1000<br />
+R = 10<br />
+T1 = 1<br />
+T2 = 1<br />
+N = 1<br />
+<br />
+OUTPUT:<br />
+100.000<br />
+110.000<br />
+200.000<br />
+210.000<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There will be 4 lines in your output. Each carries 25% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>P = 1000<br />
+R = 10<br />
+T1 = 1<br />
+T2 = 1<br />
+N = 1</td><td>100.000<br />
+110.000<br />
+200.000<br />
+210.000<br />
+</td></tr><tr><td>P = 1000<br />
+R = 10<br />
+T1 = 0<br />
+T2 = 3<br />
+N = 1</td><td>0.000<br />
+331.000<br />
+300.000<br />
+331.000<br />
+</td></tr><tr><td>P = 1000<br />
+R = 7<br />
+T1 = 3<br />
+T2 = 3<br />
+N = 1</td><td>210.000<br />
+272.302<br />
+420.000<br />
+500.730<br />
+</td></tr><tr><td>P = 1000<br />
+R = 7<br />
+T1 = 3<br />
+T2 = 3<br />
+N = 4</td><td>210.000<br />
+280.042<br />
+420.000<br />
+516.443<br />
+</td></tr><tr><td>P = 123456<br />
+R = 9<br />
+T1 = 3<br />
+T2 = 10<br />
+N = 12</td><td>33333.120<br />
+227556.999<br />
+144443.520<br />
+272585.551<br />
+</td></tr><tr><td>P = 999<br />
+R = 100<br />
+T1 =  5<br />
+T2 =  5<br />
+N = 2</td><td>4995.000<br />
+339650.244<br />
+9990.000<br />
+3320932.473<br />
+</td></tr></table><hr><hr></body>
+</html>

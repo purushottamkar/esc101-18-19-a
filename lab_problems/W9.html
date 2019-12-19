@@ -1,0 +1,1473 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>LAB-PRAC-09_PTR-MAT</title>
+</head>
+<body>
+<h1>LAB-PRAC-09_PTR-MAT</h1><h2>Mr C writes a Story (p1v1d1)</h2><hr><b>Mr C writes a Story [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C is trying to write a story. However, he is so tired from ESC101 duties that all is not going according to plan. He starts writing the story, writes a few characters, but falls asleep in the middle and after that types some garbage characters. He wakes up, all groggy, and being unable to distinguish story from garbage, starts writing the story all over again. However, he yet again falls asleep midway and this process repeats a few times.<br />
+<br />
+In your input, the first line will contain a single strictly positive integer n indicating the number of attempts Mr C made at writing his story. n will be no more than 100. The next n lines will each contain a single attempt. The attempts may contain printable characters, spaces, tabs but no non-printable characters. Each attempt will be contained in a single line. Each attempt will contain no more than 499 characters. We also promise that no attempt will contain zero characters.<br />
+<br />
+You have to print the longest <i>prefix substring</i> that is common to all attempts of Mr C in you output. This is arguably the longest portion of the story Mr C was ever able to complete in an attempt before falling asleep. A prefix substring is a substring that begins with the first character of the string e.g. "P", "Pr", "Pre", "Prea" are all prefix substrings of "Preamble" but the substrings "amble", "l", "eam", are not valid prefix substrings. For this question, the empty substring with zero characters is considered a valid prefix substring of any string.<br />
+<br />
+If there is no prefix substring common to all attempts of Mr C (in other words if the empty substring is the only common substring) then print "EMPTY" in your output.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>The prefix substring can contain spaces and tabs.<br />
+<li>Note n is going to be provided in the first line and the strings on line 2 onward. This means there will be a new line character after n. Be careful not to read that newline character into your strings.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+3<br />
+TheSongOfIce<br />
+TheSongOfFire<br />
+TheDanceOfWinds<br />
+<br />
+OUTPUT:<br />
+The<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+3<br />
+Wake up<br />
+Fall down<br />
+Rise up<br />
+<br />
+OUTPUT:<br />
+EMPTY<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>3<br />
+The Song Of Ice<br />
+The Song Of Fire<br />
+The Silence of the Lambs</td><td>The S</td></tr><tr><td>4<br />
+Wake up<br />
+Fall down<br />
+Rise up<br />
+Do it again</td><td>EMPTY</td></tr><tr><td>6<br />
+I will write my story today<br />
+I will wzzzzzzz<br />
+I will zzzz my story today<br />
+I wzzzzzzz<br />
+I will write mzzzzzzzz<br />
+I will write my story today</td><td>I w</td></tr><tr><td>6<br />
+I will write my story today<br />
+I will wzzzzzzz<br />
+I will zzzz my story today<br />
+ I wzzzzzzz<br />
+I will write mzzzzzzzz<br />
+I will write my story today</td><td>EMPTY</td></tr><tr><td>1<br />
+I will definitely write my story today</td><td>I will definitely write my story today</td></tr><tr><td>15<br />
+abcdefghijklmnopqrstuvwxyz<br />
+abcdefghijklmnopqrstuvw<br />
+abcdefghijklmnopqrst<br />
+abcdefghijklmno<br />
+abcdefghijkl<br />
+abcdefghi<br />
+abcdef<br />
+abc<br />
+abcdef<br />
+abcdefghi<br />
+abcdefghijkl<br />
+abcdefghijklmno<br />
+abcdefghijklmnopqrst<br />
+abcdefghijklmnopqrstuvw<br />
+abcdefghijklmnopqrstuvwxyz</td><td>abc</td></tr></table><hr><hr><h2>Matrix Arithmetic (p1v2d1)</h2><hr><b>Matrix Arithmetic [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Matrices possess a lot of the structures integers possess, some of which will be introduced to you in MTH102 and beyond. In this question we will look at two simple operations on squares matrices. In the first line of the input you will be given 2 strictly positive integers m and p. In the next m lines you will be given the entries of an m x m square integer matrix - lets call this matrix A. Each row of the matrix will be given in a different line with two elements separated by a single space.<br />
+<br />
+You will have to output the matrices $P = p \cdot A$ and $Q = A^p$ in your output. The matrix $p \cdot A$ is defined as the matrix each of whose entries is equal to p multiplied with the corresponding entry of A i.e. i,j entry of P = i,j entry of A times p. The matrix $A^p$ is obtained as the iterated product (((((A \cdot A) \cdot A) \cdot A) \cdot A) ... \cdot A) where A is multiplied with itself p times (since A is square, these products make sense dimensions wise).<br />
+<br />
+Print the matrices P and Q with each row printed on a different line with a single space between two elements of each row. There should be no trailing whitespaces at the end of any line. n and p will be smaller than or equal to 100 and all your outputs will fit inside the int datatype.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Although m, p will always be strictly positive, the matrix entries may be zero or negative as well.<br />
+<li>Matrix product is not commutative but it is associative i.e. if the product of three matrices A, B, C makes sense (i.e. dimensions wise) then we always have (A * B) * C = A * (B * C)<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>You may try to compute the matrix exponential as a <i>running power</i> i.e. find A^1 and then A^2 and then A^3 and so on.<br />
+<li>In order to find the matrix exponential A^p, you have to organize your storage a bit. Use three matrices, one to store A, another to store the running power, and a third temporary matrix. Use the temporary matrix to compute and store the next power of A, given the previous power of A and then copy these values to the running power matrix.<br />
+</ol><br />
+<br />
+<b>Code to manipulate matrices</b><br />
+int num[4][6] = {<br />
+        {1,2,3,4,5,6},<br />
+        {10,20,30,40,50,60},<br />
+        {100,200,300,400,500,600},<br />
+        {1000,2000,3000,4000,5000,6000}<br />
+    };<br />
+    int i,j;<br />
+    for(i = 0; i &lt; 4; i++){<br />
+        for(j = 0; j &lt; 6; j++){<br />
+            printf("%d", num[i][j]);<br />
+            if(j &lt; 5) printf(" "); // No stray spaces at the end<br />
+        }<br />
+        if(i &lt; 3) printf("\n"); // No stray new lines at the end<br />
+    }<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2 2<br />
+1 2<br />
+2 1<br />
+<br />
+OUTPUT:<br />
+2 4<br />
+4 2<br />
+5 4<br />
+4 5<br />
+<br />
+<b>Explanation</b>: The product matrix P is<br />
+2 4<br />
+4 2<br />
+and the matrix exponential is<br />
+5 4<br />
+4 5<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are will be 2 * m lines in your output, depending on the value of m. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 2<br />
+1 2<br />
+2 1</td><td>2 4<br />
+4 2<br />
+5 4<br />
+4 5</td></tr><tr><td>4 5<br />
+1 1 1 1<br />
+1 1 1 1<br />
+1 1 1 1<br />
+1 1 1 1</td><td>5 5 5 5<br />
+5 5 5 5<br />
+5 5 5 5<br />
+5 5 5 5<br />
+256 256 256 256<br />
+256 256 256 256<br />
+256 256 256 256<br />
+256 256 256 256</td></tr><tr><td>5 30<br />
+-1 0 0 0 0<br />
+0 1 0 0 0<br />
+0 0 -1 0 0<br />
+0 0 0 1 0<br />
+0 0 0 0 -1</td><td>-30 0 0 0 0<br />
+0 30 0 0 0<br />
+0 0 -30 0 0<br />
+0 0 0 30 0<br />
+0 0 0 0 -30<br />
+1 0 0 0 0<br />
+0 1 0 0 0<br />
+0 0 1 0 0<br />
+0 0 0 1 0<br />
+0 0 0 0 1</td></tr><tr><td>7 10<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 2 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0</td><td>0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 20 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 1024 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0</td></tr><tr><td>9 100<br />
+1 0 0 0 0 0 0 0 0<br />
+0 1 0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0 0 0<br />
+0 0 0 1 0 0 0 0 0<br />
+0 0 0 0 0 0 0 0 0<br />
+0 0 0 0 0 1 0 0 0<br />
+0 0 0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0 1 0<br />
+0 0 0 0 0 0 0 0 1</td><td>100 0 0 0 0 0 0 0 0<br />
+0 100 0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0 0 0<br />
+0 0 0 100 0 0 0 0 0<br />
+0 0 0 0 0 0 0 0 0<br />
+0 0 0 0 0 100 0 0 0<br />
+0 0 0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0 100 0<br />
+0 0 0 0 0 0 0 0 100<br />
+1 0 0 0 0 0 0 0 0<br />
+0 1 0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0 0 0<br />
+0 0 0 1 0 0 0 0 0<br />
+0 0 0 0 0 0 0 0 0<br />
+0 0 0 0 0 1 0 0 0<br />
+0 0 0 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0 1 0<br />
+0 0 0 0 0 0 0 0 1</td></tr><tr><td>4 5<br />
+1 1 1 1<br />
+0 1 1 1<br />
+0 0 1 1<br />
+0 0 0 1</td><td>5 5 5 5<br />
+0 5 5 5<br />
+0 0 5 5<br />
+0 0 0 5<br />
+1 5 15 35<br />
+0 1 5 15<br />
+0 0 1 5<br />
+0 0 0 1</td></tr></table><hr><hr><h2>Spin the Matrix (p1v3d1)</h2><hr><b>Spin the Matrix [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the first line you will be given a single strictly positive integer n. In the next n lines, you will be given an n x n matrix, call it A, filled with integers. Each row of the matrix will be given in a single line with entries in a row separated by a single space. In the last (n+2)-th line of the input, you will be given a list of characters delimited by the character 'X'. The list will only contain the characters 'L' and 'R' and not contain the terminating character 'X'. The list will contain at least one 'L' or 'R' character but no more than 99 L/R characters.<br />
+<br />
+Each 'L' is an instruction to <i>rotate</i> the matrix A counterclockwise by 90 degrees (see example below). Each 'R' is an instruction to <i>rotate</i> the matrix A clockwise by 90 degrees (see example below). Find the matrix that forms after following the L/R instructions in the list. Call this matrix B.<br />
+<br />
+For your output, first print the matrix as you would get it if you were to just rotate it 90 degrees clockwise. Then output the matrix B as calculated above (by following the instructions in the list).<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>When printing matrices, print each row on a separate line, with a single space between two elements. Be careful to not include any stray spaces at the end of any line.<br />
+<li>There will be a newline character after n as well as one before the list of L/R begins. Be careful to discard these newline characters.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2<br />
+1 2<br />
+3 4<br />
+LRLX<br />
+<br />
+OUTPUT:<br />
+3 1<br />
+4 2<br />
+2 4<br />
+1 3<br />
+<br />
+<b>Explanation</b>: After rotating the matrix A once clockwise 90 degrees, we get the matrix<br />
+3 1<br />
+4 2<br />
+If we are to follow the instructions LRL, we effectively rotate the matrix counterclockwise 90 degrees (L and R cancel each other) and we get the matrix<br />
+2 4<br />
+1 3<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are 2 * n in your output depending on n. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2<br />
+1 2<br />
+3 4<br />
+LRLX</td><td>3 1<br />
+4 2<br />
+2 4<br />
+1 3</td></tr><tr><td>3<br />
+1 1 1<br />
+0 1 1<br />
+0 0 1<br />
+LRRRRRLLRX</td><td>0 0 1<br />
+0 1 1<br />
+1 1 1<br />
+1 1 1<br />
+1 1 0<br />
+1 0 0</td></tr><tr><td>5<br />
+1 2 3 4 5<br />
+0 2 3 4 5<br />
+0 0 3 4 5<br />
+0 0 0 4 5<br />
+0 0 0 0 5<br />
+LRRRRLLRX</td><td>0 0 0 0 1<br />
+0 0 0 2 2<br />
+0 0 3 3 3<br />
+0 4 4 4 4<br />
+5 5 5 5 5<br />
+5 0 0 0 0<br />
+5 4 0 0 0<br />
+5 4 3 0 0<br />
+5 4 3 2 0<br />
+5 4 3 2 1</td></tr><tr><td>4<br />
+1 2 3 4<br />
+0 2 3 4<br />
+0 0 3 4<br />
+0 0 0 4<br />
+LLLLRRRRLRX</td><td>0 0 0 1<br />
+0 0 2 2<br />
+0 3 3 3<br />
+4 4 4 4<br />
+1 2 3 4<br />
+0 2 3 4<br />
+0 0 3 4<br />
+0 0 0 4</td></tr><tr><td>6<br />
+1 0 0 0 0 0<br />
+0 1 0 0 0 0<br />
+0 0 1 0 0 0<br />
+0 0 0 1 0 0<br />
+0 0 0 0 1 0<br />
+0 0 0 0 0 1<br />
+LLLX</td><td>0 0 0 0 0 1<br />
+0 0 0 0 1 0<br />
+0 0 0 1 0 0<br />
+0 0 1 0 0 0<br />
+0 1 0 0 0 0<br />
+1 0 0 0 0 0<br />
+0 0 0 0 0 1<br />
+0 0 0 0 1 0<br />
+0 0 0 1 0 0<br />
+0 0 1 0 0 0<br />
+0 1 0 0 0 0<br />
+1 0 0 0 0 0</td></tr><tr><td>7<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+0 8 8 8 8 8 8<br />
+RLLLRLRRRX</td><td>0 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+0 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8</td></tr></table><hr><hr><h2>Crony Capitalization (p2v1d1)</h2><hr><b>Crony Capitalization [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C has a friend who likes to type in a very untidy manner and then cajoles Mr C to clean up his text. The first line of the input will contain a strictly positive integer n followed by n lines, each containing an untidy string. Each string will contain English alphabets (upper and lower case), numerals, spaces as well as all punctuation marks (brackets, colon, semicolon, quotes etc). The three punctuation marks full stop . exclamation mark ! and question mark ? will be designated as <i>termination symbols</i>.<br />
+<br />
+Your output should convert each of the n input lines and convert them to proper capitalization as described below. Print each corrected line in a separate output line. The rules for for capitalization are very simple<br />
+<ol><br />
+<li>Sentences are terminated by termination symbols and may be followed by one or more spaces before the next sentence starts. Each line of input will contain one or more sentences.<br />
+<li>Sentences must contain exactly one termination symbol but may otherwise be empty.<br />
+<li>If the first non-space character in a sentence is an alphabet character, it must be in upper case.<br />
+<li>All other alphabet characters in a sentence must be in lower case.<br />
+<li>Case rules do not apply to non-alphabet characters.<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Sentences may start with any non-space character.<br />
+<li>Sentences may be empty.<br />
+<li>Your output lines must not differ from the input lines in terms of words or their order or number or spaces etc. The only modification that is needed is fixing the capitalization.<br />
+<li>Your output must contain exactly n lines.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2<br />
+Hello, My name is Mr C<br />
+What is your name? I teach ESC101<br />
+<br />
+OUTPUT:<br />
+Hello, my name is mr c<br />
+What is your name? I teach esc101<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2<br />
+Hello, My name is Mr C<br />
+What is your name? I teach ESC101</td><td>Hello, my name is mr c<br />
+What is your name? I teach esc101</td></tr><tr><td>3<br />
+i'M trYinG to Stop tYping Like this.<br />
+but it's not heLPINg. <br />
+senD helP! this IS CATASTROPHIC!</td><td>I'm trying to stop typing like this.<br />
+But it's not helping. <br />
+Send help! This is catastrophic!</td></tr><tr><td>2<br />
+Welcome to ESC101!<br />
+450 students in single class is a lot :) wouldn't you think? I think so.</td><td>Welcome to esc101!<br />
+450 students in single class is a lot :) wouldn't you think? I think so.</td></tr><tr><td>5<br />
+i'M trYinG to <br />
+Stop tYping Like this. <br />
+but it's not heLPINg.  <br />
+senD helP! <br />
+this IS CATASTROPHIC!</td><td>I'm trying to <br />
+Stop typing like this. <br />
+But it's not helping.  <br />
+Send help! <br />
+This is catastrophic!</td></tr><tr><td>5<br />
+i'M trYinG to <br />
+   Stop tYping Like this. <br />
+  but it's not heLPINg.  <br />
+      senD helP! <br />
+   this IS CATASTROPHIC!</td><td>I'm trying to <br />
+   Stop typing like this. <br />
+  But it's not helping.  <br />
+      Send help! <br />
+   This is catastrophic!</td></tr><tr><td>2<br />
+Thanks! i appreciate your help... see you soon.<br />
+well, i am glad you    got the help you needed :) you are welcome<br />
+</td><td>Thanks! I appreciate your help... See you soon.<br />
+Well, i am glad you    got the help you needed :) you are welcome</td></tr></table><hr><hr><h2>Matrix Mirroring (p2v2d1)</h2><hr><b>Matrix Mirroring [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the first line of the input you will be given two strictly positive integers n and m. In the next n lines you will be given the n rows of an n x m integer matrix, one row in each line, with a single space separating two entries in a row. You have to perform two mirroring operations on the matrix which will enlarge the matrix, and print the final output. See below for an example.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Print each row of your output matrix on a separate line. There should be a single space between two entries in a row.<br />
+<li>Be careful not to have any trailing spaces at the end of any line or else have any trailing new lines at the end of the output.<br />
+</ol><br />
+<b>Code to manipulate matrices</b><br />
+int m, n;<br />
+scanf("%d %d", &m, &n);<br />
+int num[m][n], i, j;<br />
+for(i = 0; i < m; i++)<br />
+	for(j = 0; j < n; j++)<br />
+		scanf("%d", &num[i][j]);    <br />
+		printf("%d", num[i][j]);<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2 2<br />
+10 20<br />
+30 40<br />
+<br />
+<b>Explanation</b> First mirror the matrix vertically to get the following enlarged matrix<br />
+10 20<br />
+30 40<br />
+30 40<br />
+10 20<br />
+<br />
+Now mirror this enlarged matrix horizontally to get an even larger matrix.<br />
+10 20 20 10<br />
+30 40 40 30<br />
+30 40 40 30<br />
+10 20 20 10<br />
+<br />
+OUTPUT:<br />
+10 20 20 10<br />
+30 40 40 30<br />
+30 40 40 30<br />
+10 20 20 10<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 2<br />
+10 20<br />
+30 40</td><td>10 20 20 10<br />
+30 40 40 30<br />
+30 40 40 30<br />
+10 20 20 10</td></tr><tr><td>2 3<br />
+1 2 3<br />
+4 5 6</td><td>1 2 3 3 2 1<br />
+4 5 6 6 5 4<br />
+4 5 6 6 5 4<br />
+1 2 3 3 2 1</td></tr><tr><td>1 1<br />
+8</td><td>8 8<br />
+8 8</td></tr><tr><td>5 1<br />
+100<br />
+200<br />
+300<br />
+400<br />
+500</td><td>100 100<br />
+200 200<br />
+300 300<br />
+400 400<br />
+500 500<br />
+500 500<br />
+400 400<br />
+300 300<br />
+200 200<br />
+100 100</td></tr><tr><td>1 5<br />
+1 11 111 1111 11111</td><td>1 11 111 1111 11111 11111 1111 111 11 1<br />
+1 11 111 1111 11111 11111 1111 111 11 1</td></tr><tr><td>10 10<br />
+9 1 8 6 8 2 4 8 5 9<br />
+7 5 4 8 6 2 2 3 4 9<br />
+6 3 4 5 7 8 1 2 6 7<br />
+0 8 7 6 5 4 9 8 7 6<br />
+2 5 6 1 5 4 8 4 6 8<br />
+7 5 4 8 6 2 2 3 4 9<br />
+6 3 4 5 7 8 1 2 6 7<br />
+9 1 8 6 8 2 4 8 5 9<br />
+7 5 4 8 6 2 2 3 4 9<br />
+6 3 4 5 7 8 1 2 6 7</td><td>9 1 8 6 8 2 4 8 5 9 9 5 8 4 2 8 6 8 1 9<br />
+7 5 4 8 6 2 2 3 4 9 9 4 3 2 2 6 8 4 5 7<br />
+6 3 4 5 7 8 1 2 6 7 7 6 2 1 8 7 5 4 3 6<br />
+0 8 7 6 5 4 9 8 7 6 6 7 8 9 4 5 6 7 8 0<br />
+2 5 6 1 5 4 8 4 6 8 8 6 4 8 4 5 1 6 5 2<br />
+7 5 4 8 6 2 2 3 4 9 9 4 3 2 2 6 8 4 5 7<br />
+6 3 4 5 7 8 1 2 6 7 7 6 2 1 8 7 5 4 3 6<br />
+9 1 8 6 8 2 4 8 5 9 9 5 8 4 2 8 6 8 1 9<br />
+7 5 4 8 6 2 2 3 4 9 9 4 3 2 2 6 8 4 5 7<br />
+6 3 4 5 7 8 1 2 6 7 7 6 2 1 8 7 5 4 3 6<br />
+6 3 4 5 7 8 1 2 6 7 7 6 2 1 8 7 5 4 3 6<br />
+7 5 4 8 6 2 2 3 4 9 9 4 3 2 2 6 8 4 5 7<br />
+9 1 8 6 8 2 4 8 5 9 9 5 8 4 2 8 6 8 1 9<br />
+6 3 4 5 7 8 1 2 6 7 7 6 2 1 8 7 5 4 3 6<br />
+7 5 4 8 6 2 2 3 4 9 9 4 3 2 2 6 8 4 5 7<br />
+2 5 6 1 5 4 8 4 6 8 8 6 4 8 4 5 1 6 5 2<br />
+0 8 7 6 5 4 9 8 7 6 6 7 8 9 4 5 6 7 8 0<br />
+6 3 4 5 7 8 1 2 6 7 7 6 2 1 8 7 5 4 3 6<br />
+7 5 4 8 6 2 2 3 4 9 9 4 3 2 2 6 8 4 5 7<br />
+9 1 8 6 8 2 4 8 5 9 9 5 8 4 2 8 6 8 1 9</td></tr></table><hr><hr><h2>Sodoku (p2v3d1)</h2><hr><b>Sodoku [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The Sodoku is a popular puzzle, commonly played in its 9 x 9 version. We will look at a generalization of this puzzle. An n x n Sodoku is defined whenever n is a perfect square like 4 or 9 or 16 etc and is presented as an n x n matrix, each of whose entries is an integer between 1 and n.<br />
+<br />
+Let k be the square root of n. Then for an n x n matrix, we define n non-overlapping <i>boxes</i> as follows. Consider the following example 4 x 4 Sodoku.<br />
+1 2 3 4<br />
+3 4 1 2<br />
+4 3 2 1<br />
+2 1 4 3<br />
+<br />
+Here, the 4 boxes are<br />
+BOX 1<br />
+1 2<br />
+3 4<br />
+<br />
+BOX 2<br />
+3 4<br />
+1 2<br />
+<br />
+BOX 3<br />
+4 3<br />
+2 1<br />
+<br />
+BOX 4<br />
+2 1<br />
+4 3<br />
+<br />
+i.e. the boxes are divided as<br />
+<br />
+1 2   ||  3 4<br />
+3 4   ||  1 2<br />
+=========<br />
+4 3   ||  2 1<br />
+2 1   ||  4 3<br />
+<br />
+Note that boxes are non-overlapping and are numbered left to right and top to bottom. There are exactly n boxes in the matrix. A Sodoku is considered valid if<br />
+<ol><br />
+<li>Every row of the matrix has all numbers from 1 to n occurring exactly once.<br />
+<li>Every column of the matrix has all numbers from 1 to n occurring exactly once.<br />
+<li>Every box in the matrix has all numbers from 1 to n occurring exactly once.<br />
+</ol><br />
+<br />
+You will be given n as a strictly positive perfect square integer in the first line of the input. Then you will be given the n rows of this matrix, each row on a separate line, with a single space separating two elements of a row. If the given Sodoku is valid, simply print "Valid Sudoku" (without quotes) in the output and that is it.<br />
+<br />
+However, if the Sodoku is not valid, you have to first described which all rows are invalid (in increasing order of rows) then describe which all columns are invalid (in increasing order of columns) then describe which all boxes are invalid (in increasing order of boxes).<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>We will not penalize you for trailing new lines at the end of your output. However, do not have trailing spaces at the end of any line of your output.<br />
+</ol><br />
+<b>Code to manipulate matrices</b><br />
+int m, n;<br />
+scanf("%d %d", &m, &n);<br />
+int num[m][n], i, j;<br />
+for(i = 0; i < m; i++)<br />
+	for(j = 0; j < n; j++)<br />
+		scanf("%d", &num[i][j]);    <br />
+		printf("%d", num[i][j]);<br />
+<br />
+<b>HINT</b>: You may use the sqrt function by including math.h to calculate the square root of a number.<br />
+----------------------------------------------------------------------<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+4<br />
+1 2 3 4<br />
+3 4 1 2<br />
+4 3 2 1<br />
+2 1 4 3<br />
+<br />
+OUTPUT:<br />
+Valid Sudoku<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+4<br />
+1 2 3 2<br />
+3 4 1 2<br />
+4 3 2 1<br />
+2 1 4 3<br />
+<br />
+OUTPUT:<br />
+Row 1 is invalid<br />
+Column 4 is invalid<br />
+Box 2 is invalid<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There will be several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>4<br />
+1 2 3 2<br />
+3 4 1 2<br />
+4 3 2 1<br />
+2 1 4 3</td><td>Row 1 is invalid<br />
+Column 4 is invalid<br />
+Box 2 is invalid<br />
+</td></tr><tr><td>1<br />
+2</td><td>Row 1 is invalid<br />
+Column 1 is invalid<br />
+Box 1 is invalid<br />
+</td></tr><tr><td>1<br />
+1</td><td>Valid Sudoku</td></tr><tr><td>9 <br />
+2 4 3 8 7 2 9 5 1 <br />
+9 5 1 2 4 3 8 6 7 <br />
+8 7 6 1 9 5 2 4 3 <br />
+3 9 4 5 2 8 1 7 6 <br />
+1 6 2 4 3 7 5 8 9 <br />
+7 8 5 7 6 1 3 2 4 <br />
+6 2 9 3 8 4 7 1 5 <br />
+3 3 7 6 1 2 4 9 8 <br />
+4 1 8 7 5 9 6 3 1</td><td>Row 1 is invalid<br />
+Row 6 is invalid<br />
+Row 8 is invalid<br />
+Row 9 is invalid<br />
+Column 1 is invalid<br />
+Column 4 is invalid<br />
+Column 6 is invalid<br />
+Column 9 is invalid<br />
+Box 2 is invalid<br />
+Box 5 is invalid<br />
+Box 7 is invalid<br />
+Box 9 is invalid<br />
+</td></tr><tr><td>16<br />
+12 10 12 9 2 6 15 5 4 3 7 11 14 16 13 1<br />
+1 15 5 2 1 8 14 7 9 13 10 16 11 12 6 3<br />
+11 14 16 7 13 3 9 12 1 6 2 5 4 11 10 15<br />
+4 13 6 3 11 1 10 16 14 8 15 12 2 5 7 9<br />
+13 5 7 11 12 9 3 2 6 15 1 8 10 4 16 14<br />
+9 3 15 9 8 13 1 11 7 10 16 14 12 6 2 9<br />
+10 16 1 8 5 15 6 14 13 4 10 2 3 11 9 7<br />
+6 2 12 14 7 16 4 10 3 5 11 9 13 15 1 8<br />
+15 9 10 16 3 2 5 8 15 11 13 4 7 1 14 6<br />
+5 8 14 12 6 4 7 13 2 9 3 1 16 10 15 11<br />
+3 4 11 1 10 14 16 15 5 7 8 6 9 2 12 13<br />
+7 6 2 13 9 11 12 1 10 16 14 15 8 3 5 4<br />
+8 11 9 10 14 12 2 3 15 1 6 13 5 7 4 16<br />
+14 12 13 15 16 5 8 6 11 2 4 7 1 9 3 10<br />
+2 1 3 5 15 7 11 4 16 14 9 10 6 13 8 12<br />
+16 7 4 6 1 10 13 9 8 12 5 3 15 14 11 2</td><td>Row 1 is invalid<br />
+Row 2 is invalid<br />
+Row 3 is invalid<br />
+Row 6 is invalid<br />
+Row 7 is invalid<br />
+Row 9 is invalid<br />
+Column 3 is invalid<br />
+Column 4 is invalid<br />
+Column 5 is invalid<br />
+Column 9 is invalid<br />
+Column 11 is invalid<br />
+Column 14 is invalid<br />
+Column 16 is invalid<br />
+Box 1 is invalid<br />
+Box 2 is invalid<br />
+Box 4 is invalid<br />
+Box 5 is invalid<br />
+Box 7 is invalid<br />
+Box 8 is invalid<br />
+Box 11 is invalid<br />
+</td></tr><tr><td>4<br />
+4 5 2 3<br />
+1 2 3 4<br />
+2 3 4 1<br />
+3 4 1 2</td><td>Row 1 is invalid<br />
+Column 2 is invalid<br />
+Box 1 is invalid<br />
+Box 2 is invalid<br />
+Box 3 is invalid<br />
+Box 4 is invalid<br />
+</td></tr></table><hr><hr><h2>The Last Line (p3v1d1)</h2><hr><b>The Last Line [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C likes debating with his friend Mr B. However, Mr B tends to make a lot of long arguments and usually, only the last sentence he speaks is worth taking into account. In your input, you will be given a speech Mr B gave. You will have to extract the last sentence he spoke. Your input will consist only of upper and lower case English alphabets, digits 0-9, comma , termination symbols (fullstop . question mark ? exclamation mark), spaces and newlines.<br />
+<br />
+A sentence will always be terminated by a termination symbol (. or ? or !) and the next sentence will always begin after one or more spaces are given after the termination symbol. The speech will contain no more than 999 characters in total and we promise that the last character will always be a termination symbol (never a space or an English alphabet).<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>The speech may span multiple lines of input<br />
+<li>The last sentence may itself span multiple lines of input<br />
+<li>There may be only one sentence in the entire speech which by default becomes the last sentence.<br />
+<li>Your output should always start with a non-space character (sentences never start with a space).<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+Hello!     How are you today?<br />
+<br />
+OUTPUT:<br />
+How are you today?<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+Hello!     How are you<br />
+today?<br />
+<br />
+OUTPUT:<br />
+How are you<br />
+today?<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>Hello ESC 101! We hope you enjoy this lab.</td><td>We hope you enjoy this lab.</td></tr><tr><td>Pointers are a lot of<br />
+fun.        However, we need to be careful!</td><td>However, we need to be careful!</td></tr><tr><td>Pointers are a lot of<br />
+fun.        However, do we need to<br />
+ be careful?</td><td>However, do we need to<br />
+ be careful?</td></tr><tr><td>Well, pointers are a form of low level programming. They are quite common! Many languages support them!</td><td>Many languages support them!</td></tr><tr><td>ESC  .  101  .  is  .  a  .  lot  .  of  .  fun!</td><td>fun!</td></tr><tr><td>This is the last sentence!</td><td>This is the last sentence!</td></tr></table><hr><hr><h2>Singular Value Decomposition (p3v2d1)</h2><hr><b>Singular Value Decomposition [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Every m x n real matrix A can be decomposed as A = U * S * V' (where ' indicates the transpose operation) where U is an m x m unitary matrix (i.e. U is its own inverse), S is an m x n diagonal matrix (all off-diagonal entries of S, i.e. entries of the form $S_{ij}$ where $i \neq j$ are zero. Only entries of the form $S_{ii}$ can be non-zero) and V is an n x n unitary matrix (i.e. V is its own inverse).<br />
+<br />
+Both m and n are guaranteed to be less than or equal to 100. In the first line of the input, you will be given m and n as two strictly positive integers, separated by a single space. In the next line, you will be given the diagonal entries of S in a single line (two entries separated by a space). In then next m lines, you will be given the m rows of the matrix U and in the next n lines you will be given the n rows of the matrix V. U, S, V will have only integer entries.<br />
+<br />
+You have to output the matrix A = U * S * V' as your output. Output one row of A in each line with a single space between two entries of that row. Make sure there are no trailing spaces at the end of each line, as well as no trailing new lines in your output.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+<li>V appears transposed in the expression for A<br />
+<li>Be careful to count how many diagonal entries, a rectangular matrix has.<br />
+</ol><br />
+<br />
+<b>Code to manipulate matrices</b><br />
+int m, n;<br />
+scanf("%d %d", &m, &n);<br />
+int num[m][n], i, j;<br />
+for(i = 0; i &lt; m; i++)<br />
+	for(j = 0; j &lt; n; j++)<br />
+		scanf("%d", &num[i][j]);    <br />
+		printf("%d", num[i][j]);<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+3 2<br />
+2 2<br />
+1 0 0<br />
+0 1 0<br />
+0 0 1<br />
+1 0<br />
+0 1<br />
+<br />
+OUTPUT:<br />
+2 0<br />
+0 2<br />
+0 0<br />
+<br />
+<b>Explanation</b>: In this case, the matrix S will look like<br />
+2 0<br />
+0 2<br />
+0 0<br />
+Note that only diagonal entries are non-zero.<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There will be m lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>3 2<br />
+2 2<br />
+1 0 0<br />
+0 1 0<br />
+0 0 1<br />
+1 0<br />
+0 1</td><td>2 0<br />
+0 2<br />
+0 0</td></tr><tr><td>3 3<br />
+6 7 0<br />
+1 2 3<br />
+0 1 2<br />
+0 0 1<br />
+1 0 9<br />
+5 1 7<br />
+2 8 1</td><td>6 44 124<br />
+0 7 56<br />
+0 0 0</td></tr><tr><td>2 4<br />
+1 1<br />
+1 0<br />
+4 1<br />
+1 0 9 1<br />
+5 1 7 1<br />
+2 8 1 1<br />
+3 8 9 5</td><td>1 5 2 3<br />
+4 21 16 20</td></tr><tr><td>2 1<br />
+5<br />
+1 2<br />
+3 4<br />
+6</td><td>30<br />
+90</td></tr><tr><td>1 6<br />
+10<br />
+5<br />
+1 2 3 4 5 6<br />
+6 5 4 3 2 1<br />
+1 2 3 4 5 6<br />
+6 5 4 3 2 1<br />
+1 2 3 4 5 6<br />
+6 5 4 3 2 1</td><td>50 300 50 300 50 300</td></tr><tr><td>3 4<br />
+0 0 0<br />
+1 2 3<br />
+4 5 6<br />
+7 8 9<br />
+1 0 0 0<br />
+0 1 0 0<br />
+0 0 1 0<br />
+0 0 0 1</td><td>0 0 0 0<br />
+0 0 0 0<br />
+0 0 0 0</td></tr></table><hr><hr><h2>Matrix Flip (p3v3d1)</h2><hr><b>Matrix Flip [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the first line of the input, you will be given two strictly positive integers n and m, separated by a space. In the next n lines, you will be given an n x m matrix A of digits (non-negative single digit integers) with each line containing a single row of the matrix. Two entries of the matrix will be separated by a single space. In the last line of the input, you will be given a list of characters which will all be capital (upper case) English alphabet letters. The list will be terminated by the character 'X' which will appear only once in the entire list, at the end. The list will be non-empty i.e. the first character in the list will not be X.<br />
+<br />
+You have to interpret the characters as instructions. If the character is 'H' you have to flip the matrix A horizontally, print "HORIZONTAL" on the output followed by a newline followed by the matrix A after the flip. If the character is 'V' you have to flip the matrix A vertically, print "VERTICAL" on the output followed by a newline followed by the matrix A after the flip. If the character is neither H nor V nor X, print "ILLEGAL" on the output followed by a newline followed by the matrix as is it is at that point.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Note that the instructions given to you have to be followed in sequence. This means that if the sequence is HVUH then flip the matrix horizontally, (print the word HORIZONTAL followed by the matrix) then vertically (print the word VERTICAL followed by the matrix) then print the word ILLEGAL followed by the matrix (do nothing to the matrix), then flip horizontally (print the word HORIZONTAL followed by the matrix).<br />
+<li>While printing the matrix A, print each row of the matrix on a separate line with a single space between two elements of a row.<br />
+<li>If you are using getchar to read in characters in the last line, make sure that you do not read in by mistake a trailing newline character left behind from the previous line.<br />
+<li>Make sure there are no trailing spaces at the end of each line and no trailing newlines.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+<br />
+<b>Code to manipulate matrices</b><br />
+int m, n;<br />
+scanf("%d %d", &m, &n);<br />
+int num[m][n], i, j;<br />
+for(i = 0; i < m; i++)<br />
+	for(j = 0; j < n; j++)<br />
+		scanf("%d", &num[i][j]);    <br />
+		printf("%d", num[i][j]);<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2 3<br />
+1 2 3<br />
+4 5 6<br />
+HVX<br />
+<br />
+OUTPUT:<br />
+HORIZONTAL<br />
+3 2 1<br />
+6 5 4<br />
+VERTICAL<br />
+6 5 4<br />
+3 2 1<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are a certain number of lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 3<br />
+1 2 3<br />
+4 5 6<br />
+HVDX</td><td>HORIZONTAL<br />
+3 2 1<br />
+6 5 4<br />
+VERTICAL<br />
+6 5 4<br />
+3 2 1<br />
+ILLEGAL<br />
+6 5 4<br />
+3 2 1</td></tr><tr><td>1 4<br />
+1 2 3 4<br />
+HHHVX</td><td>HORIZONTAL<br />
+4 3 2 1<br />
+HORIZONTAL<br />
+1 2 3 4<br />
+HORIZONTAL<br />
+4 3 2 1<br />
+VERTICAL<br />
+4 3 2 1</td></tr><tr><td>4 1<br />
+1<br />
+2<br />
+3<br />
+4<br />
+VVHHX</td><td>VERTICAL<br />
+4<br />
+3<br />
+2<br />
+1<br />
+VERTICAL<br />
+1<br />
+2<br />
+3<br />
+4<br />
+HORIZONTAL<br />
+1<br />
+2<br />
+3<br />
+4<br />
+HORIZONTAL<br />
+1<br />
+2<br />
+3<br />
+4</td></tr><tr><td>2 4<br />
+0 1 2 3<br />
+9 8 7 6<br />
+HVWWVHX</td><td>HORIZONTAL<br />
+3 2 1 0<br />
+6 7 8 9<br />
+VERTICAL<br />
+6 7 8 9<br />
+3 2 1 0<br />
+ILLEGAL<br />
+6 7 8 9<br />
+3 2 1 0<br />
+ILLEGAL<br />
+6 7 8 9<br />
+3 2 1 0<br />
+VERTICAL<br />
+3 2 1 0<br />
+6 7 8 9<br />
+HORIZONTAL<br />
+0 1 2 3<br />
+9 8 7 6</td></tr><tr><td>3 5<br />
+0 1 2 3 4<br />
+1 2 3 4 5<br />
+2 3 4 5 6<br />
+HVHVDVHHVX</td><td>HORIZONTAL<br />
+4 3 2 1 0<br />
+5 4 3 2 1<br />
+6 5 4 3 2<br />
+VERTICAL<br />
+6 5 4 3 2<br />
+5 4 3 2 1<br />
+4 3 2 1 0<br />
+HORIZONTAL<br />
+2 3 4 5 6<br />
+1 2 3 4 5<br />
+0 1 2 3 4<br />
+VERTICAL<br />
+0 1 2 3 4<br />
+1 2 3 4 5<br />
+2 3 4 5 6<br />
+ILLEGAL<br />
+0 1 2 3 4<br />
+1 2 3 4 5<br />
+2 3 4 5 6<br />
+VERTICAL<br />
+2 3 4 5 6<br />
+1 2 3 4 5<br />
+0 1 2 3 4<br />
+HORIZONTAL<br />
+6 5 4 3 2<br />
+5 4 3 2 1<br />
+4 3 2 1 0<br />
+HORIZONTAL<br />
+2 3 4 5 6<br />
+1 2 3 4 5<br />
+0 1 2 3 4<br />
+VERTICAL<br />
+0 1 2 3 4<br />
+1 2 3 4 5<br />
+2 3 4 5 6</td></tr><tr><td>4 6<br />
+0 1 2 9 8 7<br />
+1 2 3 8 7 6<br />
+2 3 4 7 6 5<br />
+3 4 5 6 5 4<br />
+HVGHVDVHHTVX</td><td>HORIZONTAL<br />
+7 8 9 2 1 0<br />
+6 7 8 3 2 1<br />
+5 6 7 4 3 2<br />
+4 5 6 5 4 3<br />
+VERTICAL<br />
+4 5 6 5 4 3<br />
+5 6 7 4 3 2<br />
+6 7 8 3 2 1<br />
+7 8 9 2 1 0<br />
+ILLEGAL<br />
+4 5 6 5 4 3<br />
+5 6 7 4 3 2<br />
+6 7 8 3 2 1<br />
+7 8 9 2 1 0<br />
+HORIZONTAL<br />
+3 4 5 6 5 4<br />
+2 3 4 7 6 5<br />
+1 2 3 8 7 6<br />
+0 1 2 9 8 7<br />
+VERTICAL<br />
+0 1 2 9 8 7<br />
+1 2 3 8 7 6<br />
+2 3 4 7 6 5<br />
+3 4 5 6 5 4<br />
+ILLEGAL<br />
+0 1 2 9 8 7<br />
+1 2 3 8 7 6<br />
+2 3 4 7 6 5<br />
+3 4 5 6 5 4<br />
+VERTICAL<br />
+3 4 5 6 5 4<br />
+2 3 4 7 6 5<br />
+1 2 3 8 7 6<br />
+0 1 2 9 8 7<br />
+HORIZONTAL<br />
+4 5 6 5 4 3<br />
+5 6 7 4 3 2<br />
+6 7 8 3 2 1<br />
+7 8 9 2 1 0<br />
+HORIZONTAL<br />
+3 4 5 6 5 4<br />
+2 3 4 7 6 5<br />
+1 2 3 8 7 6<br />
+0 1 2 9 8 7<br />
+ILLEGAL<br />
+3 4 5 6 5 4<br />
+2 3 4 7 6 5<br />
+1 2 3 8 7 6<br />
+0 1 2 9 8 7<br />
+VERTICAL<br />
+0 1 2 9 8 7<br />
+1 2 3 8 7 6<br />
+2 3 4 7 6 5<br />
+3 4 5 6 5 4</td></tr></table><hr><hr><h2>Now we are in Rome (p4v1d1)</h2><hr><b>Now we are in Rome [10 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+<br />
+We learnt the binary, octal, hexadecimal and decimal number systems in the lectures. Let’s go back in the history. Before the decimal system and other place value systems were introduced, other number systems were popular. One among them (which still finds place among people) is the Roman number system. The Roman numeral system is based on seven symbols and calculates values based on three simple rules (addition, subtraction, and concatenation rule). The numbers are represented using a sequence of these seven symbols.<br />
+ <br />
+<style> <br />
+table.GeneratedTable { <br />
+  width: 75%; <br />
+  border-collapse: collapse; <br />
+  border-width: 2px; <br />
+  border-color: #565656; <br />
+  border-style: solid; <br />
+  color: #000000; <br />
+} <br />
+ <br />
+table.GeneratedTable td, table.GeneratedTable th { <br />
+  border-width: 2px; <br />
+  border-color: #565656; <br />
+  border-style: solid; <br />
+  padding: 3px; <br />
+} <br />
+ <br />
+</style> <br />
+<table border = 1 class="GeneratedTable"> <br />
+  <thead> <br />
+    <tr> <br />
+      <th>I</th> <br />
+      <th>V</th> <br />
+      <th>X</th> <br />
+      <th>L</th> <br />
+      <th>C</th> <br />
+      <th>D</th> <br />
+      <th>M</th> <br />
+    </tr> <br />
+  </thead> <br />
+  <tbody> <br />
+    <tr> <br />
+      <td>1</td> <br />
+      <td>5</td> <br />
+      <td>10</td> <br />
+      <td>50</td> <br />
+      <td>100</td> <br />
+      <td>500</td> <br />
+      <td>1000</td> <br />
+    </tr> <br />
+  </tbody> <br />
+</table> <br />
+<!-- Codes by Quackit.com -->  <br />
+<b>Addition Rule</b>: When read from right to left, till the characters appear in non-decreasing order of their value, their values keep getting added to the final total value. For example III is 3, MX is 1010, CLXI is 161, XX is 20.<br />
+ <br />
+<table border = 1 class="GeneratedTable"> <br />
+<tbody> <br />
+    <tr> <br />
+      <td>III</td> <br />
+      <td>3</td> <br />
+      <td>1 + 1 + 1</td> <br />
+    </tr> <br />
+    <tr> <br />
+      <td>CLXI</td> <br />
+      <td>161</td> <br />
+      <td>100 + 50 + 10 + 1</td> <br />
+    </tr> <br />
+    <tr> <br />
+      <td>MMCXVIII</td> <br />
+      <td>2118</td> <br />
+      <td>2*1000 + 100 + 10 + 5 + 3*1</td> <br />
+    </tr> <br />
+  </tbody> <br />
+</table> <br />
+<!-- Codes by Quackit.com --> <br />
+<b>Subtraction Rule</b>: If when read from right to left, if a character with lower value appears after a character of higher value, then the value of the lower value character is subtracted from the total i.e. IV is 4 and IX is 9, CM is 900.<br />
+<br />
+<table border = 1 class="GeneratedTable"> <br />
+<tbody> <br />
+    <tr> <br />
+      <td>XLIX</td> <br />
+      <td>49</td> <br />
+      <td>(-10) + 50 + (-1) + 10</td> <br />
+    </tr> <br />
+    <tr> <br />
+      <td>CMXCIX</td> <br />
+      <td>999</td> <br />
+      <td>(-100) + 1000 + (-10) + (100) + (-1) + 10</td> <br />
+    </tr> <br />
+    <tr> <br />
+      <td>MMCXIX</td> <br />
+      <td>2019</td> <br />
+      <td>2*1000 + 100 + 10 + (-1) + 10</td> <br />
+    </tr> <br />
+  </tbody> <br />
+</table> <br />
+<!-- Codes by Quackit.com --><br />
+<b>Concatenation Rule</b>: Once subtraction rule has been applied, the characters must again resume being of higher and higher value so that addition rule kicks in again. This means that a number like IVX is illegal.<br />
+<br />
+In your input you will be given a roman numeral as a string of no more than 15 characters. Find the corresponding decimal value and print it in the output.<br />
+<br />
+<b>Note</b>: We must admit that we have not explained all the rules of the roman numeral system here since explaining all the rules would take ages. The system is actually very cumbersome and not neat at all which is why people stopped using it the moment the decimal system was available. However, believe it or not, some people were actually afraid of the decimal system and thought the decimal system was the work of the devil. In hindsight it is the Roman system that seems like a devilishly complicated system :)<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+XIV<br />
+<br />
+OUTPUT:<br />
+14<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[10 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). Each visible test case is worth 1 point and each hidden test case is worth 2 points. There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>MMXVIII</td><td>2018</td></tr><tr><td>XLIX</td><td>49</td></tr><tr><td>MMXIX</td><td>2019</td></tr><tr><td>MCMXCIX</td><td>1999</td></tr><tr><td>DCLXVI</td><td>666</td></tr><tr><td>LXXXIX</td><td>89</td></tr></table><hr><hr><h2>Search for the Submatrix (p4v2d1)</h2><hr><b>Search for the Submatrix [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Given a string, any contiguous set of characters occurring in that string is considered a substring of that string. Similarly we can extend that notion to submatrices as well. In the first line of the input, you will be given two strictly positive integers n and m, separated by a space. In the next n lines, you will be given the entries of an n x m integer matrix A with one row of A in each line with two entries separated by a single space.<br />
+<br />
+Then in the next line you will be given two strictly positive integers k and l, separated by a space. In the next k lines, you will be given the entries of a k x l integer matrix B with one row of B in each line with two entries separated by a single space. We promise that k will be less than or equal to n and l will be less than or equal to m.<br />
+<br />
+In your output you have to tell us if the matrix B occurs as a submatrix in A or not. If B never occurs as a submatrix inside A, simply print the words "SUBMATRIX NOT PRESENT" (without quotes) in the output. However, if B is present one or more times in A as a submatrix, then you have to print the indices (as in 2D array indices) of the top left hand corners of all these occurrences in the output, one occurrence in each line in a format given below.<br />
+<br />
+Make sure you first output all occurrences (if any) where the top left hand corner is in the first row of A, followed by all occurrences (if any) where the top left hand corner is in the second row of A, followed by all occurrences (if any) where the top left hand corner is in the third row of A and so on and so forth. If there are multiple occurrences with top left hand corner on the same row of A, output these occurrences in increasing order of the column number (index) of the top left hand corner.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>We will not penalize you if there are extra newlines at the end of your output.<br />
+<li>However, there should not be any stray, trailing spaces in your output.<br />
+<li>Note that if your occurrences are given in the wrong order, you may end up getting zero by the autograder even if you output all occurrences correctly. This is because in order to get partial credit (see grading scheme below), you must output the correct occurrence in the correct order.<br />
+<li>Submatrix occurrences may overlap with each other, just as substrings may overlap with each other.<br />
+</ol><br />
+<b>Code to manipulate matrices</b><br />
+int m, n;<br />
+scanf("%d %d", &m, &n);<br />
+int num[m][n], i, j;<br />
+for(i = 0; i < m; i++)<br />
+	for(j = 0; j < n; j++)<br />
+		scanf("%d", &num[i][j]);    <br />
+		printf("%d", num[i][j]);<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2 4<br />
+1 5 1 5<br />
+2 6 1 5<br />
+1 2<br />
+1 5<br />
+<br />
+OUTPUT:<br />
+(0, 0)<br />
+(0, 2)<br />
+(1, 2)<br />
+<br />
+<b>Explanation</b>: Note that there were three occurrences of B in A but the two occurrences in the first row got reported first and then the occurrence in the second row got reported. Also, within the two occurrences in the first row, the one with smaller column number got reported first.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There may be several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 4<br />
+1 5 1 5<br />
+2 6 1 5<br />
+1 2<br />
+1 5</td><td>(0, 0)<br />
+(0, 2)<br />
+(1, 2)<br />
+</td></tr><tr><td>2 3<br />
+1 5 10<br />
+2 6 11<br />
+1 2<br />
+1 6</td><td>SUBMATRIX NOT PRESENT</td></tr><tr><td>4 10<br />
+1 1 1 1 1 1 1 1 1 1<br />
+1 1 1 1 1 1 1 1 1 1<br />
+1 1 1 1 1 1 1 1 1 1<br />
+1 1 1 1 1 1 1 1 1 1<br />
+1 1<br />
+1</td><td>(0, 0)<br />
+(0, 1)<br />
+(0, 2)<br />
+(0, 3)<br />
+(0, 4)<br />
+(0, 5)<br />
+(0, 6)<br />
+(0, 7)<br />
+(0, 8)<br />
+(0, 9)<br />
+(1, 0)<br />
+(1, 1)<br />
+(1, 2)<br />
+(1, 3)<br />
+(1, 4)<br />
+(1, 5)<br />
+(1, 6)<br />
+(1, 7)<br />
+(1, 8)<br />
+(1, 9)<br />
+(2, 0)<br />
+(2, 1)<br />
+(2, 2)<br />
+(2, 3)<br />
+(2, 4)<br />
+(2, 5)<br />
+(2, 6)<br />
+(2, 7)<br />
+(2, 8)<br />
+(2, 9)<br />
+(3, 0)<br />
+(3, 1)<br />
+(3, 2)<br />
+(3, 3)<br />
+(3, 4)<br />
+(3, 5)<br />
+(3, 6)<br />
+(3, 7)<br />
+(3, 8)<br />
+(3, 9)<br />
+</td></tr><tr><td>3 7<br />
+1 2 1 2 1 2 1<br />
+0 1 2 1 2 1 0<br />
+0 0 1 2 1 0 0<br />
+1 3<br />
+1 2 1</td><td>(0, 0)<br />
+(0, 2)<br />
+(0, 4)<br />
+(1, 1)<br />
+(1, 3)<br />
+(2, 2)<br />
+</td></tr><tr><td>7 6<br />
+1 0 0 1 0 0<br />
+2 1 0 2 1 0<br />
+1 2 1 1 2 1<br />
+2 1 2 2 1 2<br />
+1 2 1 1 2 1<br />
+2 1 0 2 1 0<br />
+1 0 0 1 0 0<br />
+3 1<br />
+1<br />
+2<br />
+1</td><td>(0, 0)<br />
+(0, 3)<br />
+(1, 1)<br />
+(1, 4)<br />
+(2, 0)<br />
+(2, 2)<br />
+(2, 3)<br />
+(2, 5)<br />
+(3, 1)<br />
+(3, 4)<br />
+(4, 0)<br />
+(4, 3)<br />
+</td></tr><tr><td>5 7<br />
+8 8 8 8 8 8 8<br />
+8 8 8 8 8 8 8<br />
+0 0 1 2 3 4 5<br />
+0 0 6 7 8 9 0<br />
+0 0 5 4 3 2 1<br />
+3 5<br />
+1 2 3 4 5<br />
+6 7 8 9 0<br />
+5 4 3 2 1</td><td>(2, 2)<br />
+</td></tr></table><hr><hr><h2>Convoluted Convolutions (p4v3d1)</h2><hr><b>Convoluted Convolutions [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+The process of convolution is immensely useful in several areas of computer science, including image processing, robotics, machine learning etc. However, the process is actually very simple and requires a few elementary 2D array operations to be performed. You see, in computer science, images are represented as a 2D array of <i>pixels</i>. Each pixel (for sake of simplicity) can be thought of as simply an integer. If you have an image with 20 rows and 30 columns, you will have a total of 20 x 30 = 600 pixels and this image can be represented as a 2D array with 20 rows and 30 columns. Equivalently, when someone says that the size of image is 2048 x 1536 pixels, what they mean is that the matrix of pixels is of the size 2048 x 1536.<br />
+<br />
+The process of convolution is simply that of adding each element of the image to its local neighbors, weighted by a certain thing called a <i>kernel</i>. Don’t be scared by that statement. We’ll explain this to you. As we said, every image can be thought of as just a 2D matrix of pixels. Each pixel has an integer value denoting the color stored at that pixel.<br />
+<br />
+Now lets talk about kernels. A kernel is simply a square matrix with side k, where k is a strictly positive odd integer. Each value in this matrix may be a float number. Applying a kernel to any image means applying the kernel to every pixel of the image. Example: Consider the following 4 x 4 matrix given below. Let’s apply a 3 x 3 kernel to this matrix. We choose a pixel for our demonstration (the one colored red). We align the center of the kernel matrix with the required pixel (the grey 3 x 3 region). <br />
+<br />
+Image:<br />
+<style type="text/css">.tg  {border-collapse:collapse;border-spacing:0;}.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 10px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 10px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}.tg .tg-73oq{border-color:#000000;text-align:left;vertical-align:top} .tg .tg-iks7{border-color:#000000;text-align:left;vertical-align:top}.tg .tg-egp3{background-color:#fffe65;border-color:#000000;text-align:left;vertical-align:top}<br />
+.tg .tg-m9r4{background-color:#ffffc7;text-align:left;vertical-align:top} .tg .tg-tqgz{background-color:#ffffc7;border-color:#000000;text-align:left;vertical-align:top}.tg .tg-0a9k{background-color:#fe0000;border-color:#000000;text-align:left;vertical-align:top}</style><table class="tg">  <tr>    <th class="tg-73oq">A11<br></th>    <th class="tg-73oq">A12</th>    <th class="tg-73oq">A13</th>    <th class="tg-73oq">A14</th>  </tr>  <tr>    <td class="tg-73oq">A21</td>    <td class="tg-iks7">A22</td>    <td class="tg-iks7">A23</td>    <td class="tg-iks7">A24</td>  </tr>  <tr>    <td class="tg-73oq">A31</td>    <td class="tg-iks7">A32</td>    <td class="tg-iks7">A33</td>    <td class="tg-iks7">A34</td>  </tr>  <tr>    <td class="tg-73oq">A41</td>    <td class="tg-iks7">A42</td>    <td class="tg-iks7">A43</td>    <td class="tg-iks7">A44</td>  </tr></table><!-- https://www.tablesgenerator.com/html_tables --><br />
+<br />
+Kernel:<br />
+<table class="tg">  <tr>    <th class="tg-m9r4">K11</th>    <th class="tg-m9r4">K12</th>    <th class="tg-m9r4">K13<br></th>  </tr>  <tr>    <td class="tg-m9r4">K21</td>    <td class="tg-m9r4">K22</td>    <td class="tg-m9r4">K23</td>  </tr>  <tr>    <td class="tg-m9r4">K31</td>    <td class="tg-m9r4">K32</td>    <td class="tg-m9r4">K33</td>  </tr></table><!-- https://www.tablesgenerator.com/html_tables --><br />
+<br />
+Applying kernel to pixel 3,3<br />
+<table class="tg">  <tr>    <th class="tg-73oq">A11<br></th>    <th class="tg-73oq">A12</th>    <th class="tg-73oq">A13</th>    <th class="tg-73oq">A14</th>  </tr>  <tr>    <td class="tg-73oq">A21</td>    <td class="tg-tqgz">A22</td>    <td class="tg-tqgz">A23</td>    <td class="tg-tqgz">A24</td>  </tr>  <tr>    <td class="tg-73oq">A31</td>    <td class="tg-tqgz">A32</td>    <td class="tg-0a9k">A33</td>    <td class="tg-tqgz">A34</td>  </tr>  <tr>    <td class="tg-73oq">A41</td>    <td class="tg-tqgz">A42</td>    <td class="tg-tqgz">A43</td>    <td class="tg-tqgz">A44</td>  </tr></table><br />
+<br />
+Applying the filter to pixel (3, 3) updates the value of that pixel according to following equation. A’ denotes the pixel value in new image.<br />
+<br />
+\begin{align*}<br />
+A'_{3,3} = & \frac{ \Big(<br />
+    \begin{aligned}<br />
+        & A_{2,2}*K_{1,1} + A_{2,3}*K_{1,2} + A_{2,4}*K_{1,3} + A_{3,2}*K_{2,1} + \\<br />
+        & A_{3,3}*K_{2,2} + A_{3,4}*K_{2,3} + A_{4,2}*K_{3,1} + A_{4,3}*K_{3,2} + A_{4,4}*K_{3,3}<br />
+    \end{aligned} \Big)<br />
+    }{K_{1,1} + K_{1,2} + K_{1,3} + K_{2,1} + K_{2,2} + K_{2,3} + K_{3,1} + K_{3,2} + K_{1,3}}<br />
+\end{align*}<br />
+<br />
+The above expression may generate a non-integer value which is typecast to int before using it. The above is carried out for all pixels. At the edges, the kernel wraps around and uses element close to opposite edge<br />
+<br />
+Example:<br />
+<table class="tg">  <tr>    <th class="tg-73oq">A11<br></th>    <th class="tg-egp3">A12</th>    <th class="tg-egp3">A13</th>    <th class="tg-egp3">A14</th>  </tr>  <tr>    <td class="tg-73oq">A21</td>    <td class="tg-iks7">A22</td>    <td class="tg-iks7">A23</td>    <td class="tg-iks7">A24</td>  </tr>  <tr>    <td class="tg-73oq">A31</td>    <td class="tg-egp3">A32</td>    <td class="tg-egp3">A33</td>    <td class="tg-egp3">A34</td>  </tr>  <tr>    <td class="tg-73oq">A41</td>    <td class="tg-egp3">A42</td>    <td class="tg-0a9k">A43</td>    <td class="tg-egp3">A44</td>  </tr></table><br />
+<br />
+You’ll receive a image with m x n pixels and a k x k kernel. You’ve to apply the kernel to the image and print the new image.<br />
+<br />
+Input format<br />
+The first line contains 3 integers: m, n, and k. <br />
+Next m lines contain n integers each, each giving a row of the image.<br />
+Next k lines contain k real values each, each giving a row of the kernel. Note that kernel values are to be interpreted as a float value.<br />
+<br />
+Output format<br />
+The output should contain m lines, with n integers on each line. These integers should denote the pixel values of new image.<br />
+<br />
+<b>Caution</b>:<br />
+<ol><br />
+<li>Take care of trailing white-spaces.<br />
+<li>Rest ensured that the summation in the denominator of update equation is never zero.<br />
+<li>Remember that although the convolution process may generate a floating point number, make sure to cast it into an int before giving your output.<br />
+<li>In your output, make sure there are no trailing spaces or trailing new lines. Output one row in one line, with a single space between two entries of a row.<br />
+</ol><br />
+<br />
+<b>Code to manipulate matrices</b><br />
+int m, n;<br />
+scanf("%d %d", &m, &n);<br />
+int num[m][n], i, j;<br />
+for(i = 0; i &lt; m; i++)<br />
+	for(j = 0; j &lt; n; j++)<br />
+		scanf("%d", &num[i][j]);    <br />
+		printf("%d", num[i][j]);<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 4 1<br />
+1 2 3 4<br />
+4 3 2 1<br />
+1</td><td>1 2 3 4<br />
+4 3 2 1</td></tr><tr><td>3 3 3<br />
+1 2 3<br />
+4 5 6<br />
+7 8 9<br />
+0 0 0<br />
+1 0 0<br />
+0 0 0</td><td>3 1 2<br />
+6 4 5<br />
+9 7 8</td></tr><tr><td>2 4 3<br />
+1 2 3 4<br />
+4 3 2 1<br />
+-1 -1 -1<br />
+-1 1 -1<br />
+-1 -1 -1</td><td>3 2 2 2<br />
+2 2 2 3</td></tr><tr><td>3 3 3<br />
+1 2 3<br />
+4 5 6<br />
+7 8 9<br />
+1 1 1<br />
+1 1 1<br />
+1 1 1</td><td>5 5 5<br />
+5 5 5<br />
+5 5 5</td></tr><tr><td>5 5 5<br />
+36 24 6 24 36<br />
+24 16 4 16 24<br />
+6 4 1 4 6<br />
+24 16 4 16 24<br />
+36 24 6 24 36<br />
+1 4 6 4 1<br />
+4 16 24 16 4<br />
+6 24 36 24 6<br />
+4 16 24 16 4<br />
+1 4 6 4 1</td><td>25 19 15 19 25<br />
+19 15 12 15 19<br />
+15 12 9 12 15<br />
+19 15 12 15 19<br />
+25 19 15 19 25</td></tr><tr><td>4 2 1<br />
+0 1<br />
+1 0<br />
+0 1<br />
+1 0<br />
+-1</td><td>0 1<br />
+1 0<br />
+0 1<br />
+1 0</td></tr></table><hr><hr></body>
+</html>

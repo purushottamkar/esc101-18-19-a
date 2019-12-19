@@ -1,0 +1,1800 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>LAB-PRAC-10_MAT-FUN</title>
+</head>
+<body>
+<h1>LAB-PRAC-10_MAT-FUN</h1><h2>Stack (p1v1d1)</h2><hr><b>Stack [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The stack is a data structure that is incredibly useful in computer science. Mr C uses a stack to manage your programs. Your Windows and Linux operating systems also use stacks to perform various tasks. However, the basic premise of a stack is extremely simple and all of you encounter stacks all the time.<br />
+<br />
+In the hall mess, when several plates are placed on top of each other, it is called a <i>stack</i> of plates. Note that when you want to take a plate from this stack. it is not very easy to take a plate from the bottom of the stack. Instead, what you do is take the plate at the top of the stack. Similarly, when the mess workers want to add more plates to the existing stack, they dont add new plates to the bottom of the stack since it is very difficult to do that. Instead, they simply add new plates to the top of the existing stack. Stacks are often called LIFO (last-in-first-out) structures since the last element (e.g. plate, or ) that was added to the stack is the first to be remove.<br />
+<br />
+The computer science stacks work exactly the same way. The stacks we will implement in this question will have three operations. The stack will have a limit size of MAX<br />
+<ol><br />
+<li>Push x: if there are already MAX elements on the stack, print the error message "FULL" (without quotes), otherwise put the element x on the top of the stack.<br />
+<li>Pop: If the stack is empty, print the error message "EMPTY" (without quotes), otherwise remove the element at the top of the stack and print that element.<br />
+<li>Check: If the stack is empty, print "EMPTY" (without quotes), else if it is full, print "FULL" (without quotes), else print "NOT EMPTY" (without quotes)<br />
+</ol><br />
+In the first line of the input, you will be give the value of MAX as a strictly positive integer. In the next several lines, you will see instructions on what to do<br />
+<ol><br />
+<li>E x: push the integer x onto the stack or print the error message. There will be a single space between the character 'E' and the integer x.<br />
+<li>D: pop the element at the top of the stack and print it or print the error message<br />
+<li>C: perform the check operation and print the appropriate message<br />
+<li>X: no more operations to perform<br />
+</ol><br />
+Thus, the list of operations will be terminated by an X. All elements pushed onto the stack will be integers.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Print all error messages as well as popped elements on separate lines.<br />
+<li>If you are using getchar() to process input character by character, be careful to read in the newlines at the end of each line as well.<br />
+<li>We will not penalize you for extra newlines at the end of your output. However, do not have extra newlines in the middle of your output or else have trailing spaces in any line of the output.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>Use an array with MAX elements to manipulate the stack. Use an integer, say idx, to store the index of the top of the stack. Initially idx can be -1 to indicate that the stack is empty. If we then push 2 then push 3, the array will look like {2, 3, ...} and idx = 1. If we now pop an element, idx will become 0 to indicate that the top of the stack is the element 2 now since 3 got popped.<br />
+<li>Write functions to perform various stack operations to ensure your code looks neat and clean.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2<br />
+C<br />
+E 5<br />
+C<br />
+E 4<br />
+C<br />
+E 3<br />
+D<br />
+D<br />
+D<br />
+X<br />
+<br />
+OUTPUT:<br />
+EMPTY<br />
+NOT EMPTY<br />
+FULL<br />
+FULL<br />
+4<br />
+5<br />
+EMPTY<br />
+<br />
+<b>Explanation</b><br />
+<ol><br />
+<li>The stack only has a capacity of 2 elements.<br />
+<li>Command 1: C - Stack is empty at the moment so print EMPTY<br />
+<li>Command 2: E 5 - Push 5 into the stack. Now stack looks like [5]<br />
+<li>Command 3: C - Stack is neither full nor empty so print NOT EMPTY<br />
+<li>Command 4: E 4 - - Push 4 into the stack. Now stack looks like [5 4]<br />
+<li>Command 5: C - Stack is full so print FULL<br />
+<li>Command 6: E 3 - Stack is already full - cannot push another element so print FULL - stack still looks like [5 4]<br />
+<li>Command 7: D - Pop top element 4 from stack and print 4. Now stack looks like [5]<br />
+<li>Command 8: D - Pop top element 5 from stack and print 5. Now stack is empty<br />
+<li>Command 9: D - Stack is already empty - cannot pop another element so print EMPTY - stack is still empty<br />
+<li>Command 10: X - No more processing to do.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2<br />
+C<br />
+E 5<br />
+C<br />
+E 4<br />
+C<br />
+E 3<br />
+D<br />
+D<br />
+D<br />
+X</td><td>EMPTY<br />
+NOT EMPTY<br />
+FULL<br />
+FULL<br />
+4<br />
+5<br />
+EMPTY<br />
+</td></tr><tr><td>1<br />
+E 10<br />
+D<br />
+E 4<br />
+D<br />
+D<br />
+E 4<br />
+E 5<br />
+C<br />
+D<br />
+D<br />
+X</td><td>10<br />
+4<br />
+EMPTY<br />
+FULL<br />
+FULL<br />
+4<br />
+EMPTY<br />
+</td></tr><tr><td>10<br />
+E 1<br />
+E 2<br />
+E 3<br />
+E 4<br />
+E 5<br />
+E 6<br />
+D<br />
+D<br />
+C<br />
+E 7<br />
+E 8<br />
+E 9<br />
+E 0<br />
+E 5<br />
+C<br />
+E 6<br />
+C<br />
+D<br />
+D<br />
+D<br />
+D<br />
+D<br />
+D<br />
+D<br />
+D<br />
+E 4<br />
+E 5<br />
+D<br />
+D<br />
+D<br />
+D<br />
+C<br />
+X</td><td>6<br />
+5<br />
+NOT EMPTY<br />
+NOT EMPTY<br />
+FULL<br />
+6<br />
+5<br />
+0<br />
+9<br />
+8<br />
+7<br />
+4<br />
+3<br />
+5<br />
+4<br />
+2<br />
+1<br />
+EMPTY<br />
+</td></tr><tr><td>5<br />
+E 10<br />
+E 20<br />
+E 30<br />
+E 40<br />
+E 50<br />
+E 60<br />
+E 70<br />
+E 80<br />
+E 90<br />
+E 100<br />
+D<br />
+D<br />
+D<br />
+C<br />
+D<br />
+D<br />
+D<br />
+D<br />
+C<br />
+D<br />
+D<br />
+D<br />
+C<br />
+X</td><td>FULL<br />
+FULL<br />
+FULL<br />
+FULL<br />
+FULL<br />
+50<br />
+40<br />
+30<br />
+NOT EMPTY<br />
+20<br />
+10<br />
+EMPTY<br />
+EMPTY<br />
+EMPTY<br />
+EMPTY<br />
+EMPTY<br />
+EMPTY<br />
+EMPTY<br />
+</td></tr><tr><td>12<br />
+E 1<br />
+E 2<br />
+E 3<br />
+E 4<br />
+D<br />
+D<br />
+D<br />
+D<br />
+X</td><td>4<br />
+3<br />
+2<br />
+1<br />
+</td></tr><tr><td>3<br />
+E 1<br />
+C<br />
+E 2<br />
+C<br />
+E 3<br />
+C<br />
+E 4<br />
+C<br />
+D<br />
+D<br />
+D<br />
+D<br />
+X</td><td>NOT EMPTY<br />
+NOT EMPTY<br />
+FULL<br />
+FULL<br />
+FULL<br />
+3<br />
+2<br />
+1<br />
+EMPTY<br />
+</td></tr></table><hr><hr><h2>The Prutor Editor (p1v2d1)</h2><hr><b>The Prutor Editor [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+We have been using Prutor for a long time now. The Prutor has an excellent editor where we enter our code and edit it. We can enter any visible/whitespace characters, and also move left and right using arrow keys within and across different lines of our code. In this problem, we will implement a very very simple text editor.<br />
+<br />
+The first line of your input will give you a strictly positive integer n denoting the number of operations to be performed. The next n lines will contain those operations. Each operation will be denoted by a single character and will be an instruction to either move the cursor one space to the left or one space to the right or else insert a character. The only characters we will give you are English alphabet characters A-Z, a-z and digits 0-9. Below are given rules on how to implement the editor<br />
+<br />
+<ol><br />
+<li>Initially the string will be empty and the cursor will be at index 0<br />
+<li>If the instruction is the character '<' (without quotes), move the cursor one index to the left. If the cursor is already at index 0, it stays there.<br />
+<li>If the instruction is the character '>' (without quotes), move the cursor one index to the right. If the cursor is already at the end of the current input, it does not move.<br />
+<li>If the instruction is an alphabet or digit character, it gets inserted at the cursor position and the cursor moves one index to the right. However, be careful. If the cursor is at the end of the string, simply append the new character to the end of the string and move the cursor one position right. However, if the cursor is in the middle of the string, first shift all characters to the right of the cursor by one index to the right to create an empty location, then insert the new character at the cursor position, and then move the cursor one index to the right.<br />
+</ol><br />
+<br />
+After every character insertion operation i.e. when the character is not < or >, print the current state of the string on a separate line after inserting the new character.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>We assure you that the total length of the string will never exceed 99 characters.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+7<br />
+a<br />
+<<br />
+<<br />
+b<br />
+c<br />
+><br />
+d<br />
+<br />
+<br />
+OUTPUT:<br />
+a<br />
+ba<br />
+bca<br />
+bcad<br />
+<br />
+<b>Explanation</b>: The following explains the location of the cursor and the reasoning after every instruction. The location of the cursor is denoted using the pipe symbol.<br />
+<ol><br />
+<li>Initially the string is empty<br />
+<li>Instruction 'a': a|<br />
+<li>Instruction '<': |a<br />
+<li>Instruction '<': |a (cursor cannot move any more left)<br />
+<li>Instruction 'b': b|a<br />
+<li>Instruction 'c': bc|a<br />
+<li>Instruction '>': bca|<br />
+<li>Instruction 'd': bcad|<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>7<br />
+a<br />
+<<br />
+<<br />
+b<br />
+c<br />
+><br />
+d</td><td>a<br />
+ba<br />
+bca<br />
+bcad<br />
+</td></tr><tr><td>8<br />
+a<br />
+<<br />
+><br />
+><br />
+b<br />
+c<br />
+<<br />
+d</td><td>a<br />
+ab<br />
+abc<br />
+abdc<br />
+</td></tr><tr><td>4<br />
+a<br />
+b<br />
+c<br />
+d</td><td>a<br />
+ab<br />
+abc<br />
+abcd<br />
+</td></tr><tr><td>7<br />
+p<br />
+<<br />
+q<br />
+<<br />
+r<br />
+<<br />
+s</td><td>p<br />
+qp<br />
+rqp<br />
+srqp<br />
+</td></tr><tr><td>8<br />
+a<br />
+<<br />
+t<br />
+<<br />
+c<br />
+<<br />
+><br />
+d</td><td>a<br />
+ta<br />
+cta<br />
+cdta<br />
+</td></tr><tr><td>10<br />
+r<br />
+s<br />
+t<br />
+<<br />
+><br />
+<<br />
+<<br />
+><br />
+<<br />
+5</td><td>r<br />
+rs<br />
+rst<br />
+r5st<br />
+</td></tr></table><hr><hr><h2>Finding your identity (p1v3d1)</h2><hr><b>Finding your identity [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the first line of your input, you will be given two strictly positive integers n and m. In the next m lines, you will be given the n rows of an n x m matrix A, with each row on a separate line and two elements in a row separated by a single space. The matrix A will contain entries that are either 0 or 1.<br />
+<br />
+In the first line of your output, print the size of the largest identity submatrix. In the next line, print the row index and column index of the top-left element of the largest identity submatrix in the format (rowIdx,colIdx). Note that there are no spaces in the output. If there is no identity submatrix, print "0" (without quotes) in the first line of your output and print "(-1,-1)" (without quotes) in the second line of your output.<br />
+<br />
+<b>About Submatrices</b><br />
+Given a string, any contiguous set of characters occurring in that string is considered a substring of that string. Similarly we can extend that notion to submatrices as well. Given any matrix, every contiguous rectangle/square of elements inside that matrix is a submatrix of that matrix. E.g. consider the matrix<br />
+1 2 3 4<br />
+5 6 7 8<br />
+0 2 4 6<br />
+<br />
+Then the following are submatrices of the above matrix. Note that submatrices may be square or rectangular.<br />
+Example 1<br />
+1<br />
+<br />
+Example 2<br />
+6 7 8<br />
+2 4 6<br />
+<br />
+Example 3<br />
+2 3<br />
+6 7<br />
+<br />
+Example 4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+0 2 4 6<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Your code may be cleaner and easier to debug if you write a function to check for identity submatrices. This is not necessary though.<br />
+<li>We assure you that there will always be a unique largest identity submatrix in the input given to you<br />
+<li>You have to print the row index and column index of the top left element of the matrix - not the human readable notation of row number and column number. Remember, indices start from 0.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+3 4<br />
+1 1 1 1<br />
+1 1 0 1<br />
+1 0 1 0<br />
+<br />
+OUTPUT:<br />
+2<br />
+(1,1)<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>3 4<br />
+1 1 1 1<br />
+1 1 0 1<br />
+1 0 1 0</td><td>2<br />
+(1,1)</td></tr><tr><td>4 5<br />
+1 1 1 1 1<br />
+1 0 0 0 1<br />
+0 1 0 0 0<br />
+0 0 1 1 0</td><td>3<br />
+(1,0)</td></tr><tr><td>6 5<br />
+0 0 0 0 0<br />
+0 0 0 0 0<br />
+0 0 0 0 0<br />
+0 0 0 0 1<br />
+0 0 0 0 0<br />
+0 0 0 0 0</td><td>1<br />
+(3,4)</td></tr><tr><td>8 5<br />
+0 0 0 0 0<br />
+0 0 0 0 0<br />
+0 0 0 0 0<br />
+0 0 0 0 0<br />
+0 0 0 0 0<br />
+0 0 0 0 0<br />
+0 0 0 0 0<br />
+0 0 0 0 0</td><td>0<br />
+(-1,-1)</td></tr><tr><td>8 5<br />
+0 1 0 0 0<br />
+0 0 0 1 1<br />
+1 1 0 0 0<br />
+0 0 1 0 0<br />
+0 0 0 1 0<br />
+0 0 0 0 1<br />
+0 0 1 0 0<br />
+0 1 0 0 1</td><td>4<br />
+(2,1)</td></tr><tr><td>6 6<br />
+1 0 0 0 0 0<br />
+0 1 0 0 0 0<br />
+0 0 1 0 0 0<br />
+0 0 0 1 0 0<br />
+0 0 0 0 1 0<br />
+0 0 0 0 0 1</td><td>6<br />
+(0,0)</td></tr></table><hr><hr><h2>Queue (p2v1d1)</h2><hr><b>Queue [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The queue is a data structure that is incredibly useful in computer science. The Prutor server uses a queue to handle things when several students request compilation or evaluation at the same time. All these requests are put in a queue and the requests that came first are handled first and so on. Queues are also essential to the working of the internet as well as operating systems. However, the basic premise of a queue is extremely simple and all of you encounter queues all the time.<br />
+<br />
+When we are in line to get a movie ticket, the line is also called a <i>queue</i>. Note that the person who came first to the ticket counter first is at the front of the queue and when the ticket master issues the next ticket, it is to the person at the front of the queue. People who come later are at the back of the queue and are serviced later. Queues are often called FIFO (first-in-first-out) structures since the first element (e.g. person in a line) that enters the queue is also the first to leave the queue.<br />
+<br />
+The computer science queues work exactly the same way. The queues we will implement in this question will have three operations. The queues will have a limit size of MAX<br />
+<ol><br />
+<li>Enqueue x: if there are already MAX elements in the queue, print the error message "FULL" (without quotes), otherwise put the element x at the back of the queue.<br />
+<li>Dequeue: If the queue is empty, print the error message "EMPTY" (without quotes), otherwise remove the element at the front of the queue and print that element.<br />
+<li>Check: If the queue is empty, print "EMPTY" (without quotes), else if it is full, print "FULL" (without quotes), else print "NOT EMPTY" (without quotes)<br />
+</ol><br />
+In the first line of the input, you will be give the value of MAX as a strictly positive integer. In the next several lines, you will see instructions on what to do<br />
+<ol><br />
+<li>E x: enqueue the integer x into the queue or print the error message. There will be a single space between the character 'E' and the integer x.<br />
+<li>D: dequeue the element at the front of the queue and print it or else print the error message<br />
+<li>C: perform the check operation and print the appropriate message<br />
+<li>X: no more operations to perform<br />
+</ol><br />
+Thus, the list of operations will be terminated by an X. All elements enqueued will be integers.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Print all error messages as well as dequeued elements on separate lines.<br />
+<li>If you are using getchar() to process input character by character, be careful to read in the newlines at the end of each line as well.<br />
+<li>We will not penalize you for extra newlines at the end of your output. However, do not have extra newlines in the middle of your output or else have trailing spaces in any line of the output.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>Use an array with MAX elements to manipulate the queue. You will have to be a bit careful about how you manipulate the array since dequeue operations will leave empty slots at one end of the array. One solution is to shift the array elements one place to the left after every dequeue operation and use a variable to keep track of how many elements are left in the queue.<br />
+<li>Write functions to perform various queue operations to ensure your code looks neat and clean.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2<br />
+C<br />
+E 5<br />
+C<br />
+E 4<br />
+C<br />
+E 3<br />
+D<br />
+D<br />
+D<br />
+X<br />
+<br />
+OUTPUT:<br />
+EMPTY<br />
+NOT EMPTY<br />
+FULL<br />
+FULL<br />
+5<br />
+4<br />
+EMPTY<br />
+<br />
+<b>Explanation</b><br />
+<ol><br />
+<li>The queue only has a capacity of 2 elements.<br />
+<li>Command 1: C - queue is empty at the moment so print EMPTY<br />
+<li>Command 2: E 5 - enqueue 5. Now queue looks like [5]<br />
+<li>Command 3: C - queue is neither full nor empty so print NOT EMPTY<br />
+<li>Command 4: E 4 - - enqueue 4. Now stack looks like [5 4]<br />
+<li>Command 5: C - queue is full so print FULL<br />
+<li>Command 6: E 3 - queue is already full - cannot enqueue another element so print FULL - queue still looks like [5 4]<br />
+<li>Command 7: D - dequeue front element 5 and print 5. Now queue looks like [4]<br />
+<li>Command 8: D - dequeue front element 4 and print 4. Now queue is empty<br />
+<li>Command 9: D - queue is already empty - cannot dequeue another element so print EMPTY - queue is still empty<br />
+<li>Command 10: X - No more processing to do.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2<br />
+C<br />
+E 5<br />
+C<br />
+E 4<br />
+C<br />
+E 3<br />
+D<br />
+D<br />
+D<br />
+X</td><td>EMPTY<br />
+NOT EMPTY<br />
+FULL<br />
+FULL<br />
+5<br />
+4<br />
+EMPTY<br />
+</td></tr><tr><td>1<br />
+E 10<br />
+D<br />
+E 4<br />
+D<br />
+D<br />
+E 4<br />
+E 5<br />
+C<br />
+D<br />
+D<br />
+X</td><td>10<br />
+4<br />
+EMPTY<br />
+FULL<br />
+FULL<br />
+4<br />
+EMPTY<br />
+</td></tr><tr><td>10<br />
+E 1<br />
+E 2<br />
+E 3<br />
+E 4<br />
+E 5<br />
+E 6<br />
+D<br />
+D<br />
+C<br />
+E 7<br />
+E 8<br />
+E 9<br />
+E 0<br />
+E 5<br />
+C<br />
+E 6<br />
+C<br />
+D<br />
+D<br />
+D<br />
+D<br />
+D<br />
+D<br />
+D<br />
+D<br />
+E 4<br />
+E 5<br />
+D<br />
+D<br />
+D<br />
+D<br />
+C<br />
+X</td><td>1<br />
+2<br />
+NOT EMPTY<br />
+NOT EMPTY<br />
+FULL<br />
+3<br />
+4<br />
+5<br />
+6<br />
+7<br />
+8<br />
+9<br />
+0<br />
+5<br />
+6<br />
+4<br />
+5<br />
+EMPTY<br />
+</td></tr><tr><td>5<br />
+E 10<br />
+E 20<br />
+E 30<br />
+E 40<br />
+E 50<br />
+E 60<br />
+E 70<br />
+E 80<br />
+E 90<br />
+E 100<br />
+D<br />
+D<br />
+D<br />
+C<br />
+D<br />
+D<br />
+D<br />
+D<br />
+C<br />
+D<br />
+D<br />
+D<br />
+C<br />
+X</td><td>FULL<br />
+FULL<br />
+FULL<br />
+FULL<br />
+FULL<br />
+10<br />
+20<br />
+30<br />
+NOT EMPTY<br />
+40<br />
+50<br />
+EMPTY<br />
+EMPTY<br />
+EMPTY<br />
+EMPTY<br />
+EMPTY<br />
+EMPTY<br />
+EMPTY<br />
+</td></tr><tr><td>12<br />
+E 1<br />
+E 2<br />
+E 3<br />
+E 4<br />
+D<br />
+D<br />
+D<br />
+D<br />
+X</td><td>1<br />
+2<br />
+3<br />
+4<br />
+</td></tr><tr><td>3<br />
+E 1<br />
+C<br />
+E 2<br />
+C<br />
+E 3<br />
+C<br />
+E 4<br />
+C<br />
+D<br />
+D<br />
+D<br />
+D<br />
+X</td><td>NOT EMPTY<br />
+NOT EMPTY<br />
+FULL<br />
+FULL<br />
+FULL<br />
+1<br />
+2<br />
+3<br />
+EMPTY<br />
+</td></tr></table><hr><hr><h2>The Prutor Editor Part II (p2v2d1)</h2><hr><b>The Prutor Editor Part II [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+We have been using Prutor for a long time now. The Prutor has an excellent editor where we enter our code and edit it. We can enter visible or whitespace characters, move left and right using arrow keys within and across different lines of our code, as well as use delete and backspace to delete characters. In this problem, we will implement a very very simple text editor.<br />
+<br />
+The first line of your input will give you a string with at most 99 characters. The string will be presented in a single line and may contain alphabet characters (upper and lower case), digits 0-9 and spaces. The next lines will each contain an instruction to either move the cursor left or right or delete a character in one of two ways described below.<br />
+<br />
+Try to use the gets function to read in the string.<br />
+<br />
+<ol><br />
+<li>Initially the string will be what is give in the input and the cursor will be at the very end of the string i.e. if the string has n characters (n < 100), then the cursor will be at index n.<br />
+<li>If the instruction is the character '<' (without quotes), move the cursor one index to the left. If the cursor is already at index 0, it stays there.<br />
+<li>If the instruction is the character '>' (without quotes), move the cursor one index to the right. If the cursor is already at the end of the current input, it does not move.<br />
+<li>If the instruction is the character ')' (without quotes), perform the "delete" operation i.e. delete the character at the cursor position. The cursor position stays the same. The length of the string decreases by one after this operation. If the string is already empty or if the cursor is at the end of the input, the delete operation does nothing.<br />
+<li>If the instruction is the character '(' (without quotes), perform the "backspace" operation i.e. delete the character just before the cursor position. The cursor index decreases by one. The length of the string decreases by one after this operation. If the string is already empty or if the cursor is at index 0, the backspace operation does nothing.<br />
+<li>If the instruction is the character '#', no more operations to perform. Do not print the string and simply exit the program.<br />
+</ol><br />
+<br />
+After every delete or backspace operation i.e. when the character is not < or >, print the current state of the string on a separate line after performing the said operation.<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>We assure you that the total length of the string will never exceed 99 characters.<br />
+<li>We will not penalize you for extra newlines at the end of your output. However, do not have extra newlines in the middle of your output or else have trailing spaces in any line of the output.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+ABCD<br />
+)<br />
+(<br />
+<<br />
+(<br />
+#<br />
+<br />
+<br />
+OUTPUT:<br />
+ABCD<br />
+ABC<br />
+AC<br />
+<br />
+<b>Explanation</b>: The following explains the location of the cursor and the reasoning after every instruction. The location of the cursor is denoted using the pipe symbol.<br />
+<ol><br />
+<li>Initially the string is ABCD|<br />
+<li>Instruction ')': No effect since cursor at the end already. String is still ABCD|<br />
+<li>Instruction '(': Backspace. String is ABC|<br />
+<li>Instruction '<': Move cursor left. String is AB|C<br />
+<li>Instruction '(': Backspace. String is A|C<br />
+<li>Instruction '#': Terminate<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>ABCD<br />
+)<br />
+(<br />
+<<br />
+(<br />
+#</td><td>ABCD<br />
+ABC<br />
+AC<br />
+</td></tr><tr><td>ABC<br />
+<<br />
+<<br />
+<<br />
+<<br />
+(<br />
+)<br />
+)<br />
+#</td><td>ABC<br />
+BC<br />
+C<br />
+</td></tr><tr><td>Hello ESC101<br />
+<<br />
+<<br />
+)<br />
+><br />
+><br />
+><br />
+(<br />
+(<br />
+(<br />
+#</td><td>Hello ESC11<br />
+Hello ESC1<br />
+Hello ESC<br />
+Hello ES<br />
+</td></tr><tr><td>Hi Mr C<br />
+)<br />
+(<br />
+(<br />
+(<br />
+(<br />
+<<br />
+<<br />
+<<br />
+)<br />
+#</td><td>Hi Mr C<br />
+Hi Mr <br />
+Hi Mr<br />
+Hi M<br />
+Hi <br />
+i <br />
+</td></tr><tr><td>123456890<br />
+<<br />
+<<br />
+<<br />
+><br />
+><br />
+<<br />
+)<br />
+)<br />
+)<br />
+)<br />
+)<br />
+<<br />
+<<br />
+<<br />
+(<br />
+(<br />
+)<br />
+#</td><td>12345680<br />
+1234568<br />
+1234568<br />
+1234568<br />
+1234568<br />
+123568<br />
+12568<br />
+1268<br />
+</td></tr><tr><td>12345<br />
+<<br />
+<<br />
+<<br />
+<<br />
+<<br />
+)<br />
+)<br />
+)<br />
+#</td><td>2345<br />
+345<br />
+45<br />
+</td></tr></table><hr><hr><h2>Only Ones (p2v3d1)</h2><hr><b>Only Ones [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the first line of your input, you will be given two strictly positive integers n and m. In the next n lines, you will be given the n rows of an n x m matrix A, with each row on a separate line and two elements in a row separated by a single space. The matrix A will contain entries that are either 0 or 1.<br />
+<br />
+You are allowed to change the matrix given to you by swapping the values at any two positions in the matrix. You can also do any number of swaps in succession. For example, if the given matrix mat is<br />
+0 1 1 0<br />
+1 0 0 1<br />
+0 1 1 1<br />
+Then you can swap mat[0][1] with mat[1][1] to get <br />
+0 0 1 0<br />
+1 1 0 1<br />
+0 1 1 1<br />
+and then swap mat[0][2] with mat[1][2] to get<br />
+0 0 0 0<br />
+1 1 1 1<br />
+0 1 1 1<br />
+<br />
+You have to find the size (in terms of number of elements) of the largest submatrix of 1s you can create using such swaps. Details about submatrices are given below. Remember, the submatrix should only contain 1s and no zeros.<br />
+<br />
+In the first line of your output, print the number of 1s in the matrix. In the second line of your output, if this number is prime, print 1 else print 0. If the number of 1s is 0 or 1, print the number itself. In the third line of your output, print the size of the largest submatrix of 1s that can be formed using any number of swaps.<br />
+<br />
+<b>About Submatrices</b><br />
+Given a string, any contiguous set of characters occurring in that string is considered a substring of that string. Similarly we can extend that notion to submatrices as well. Given any matrix, every contiguous rectangle/square of elements inside that matrix is a submatrix of that matrix. E.g. consider the matrix<br />
+1 2 3 4<br />
+5 6 7 8<br />
+0 2 4 6<br />
+<br />
+Then the following are submatrices of the above matrix. Note that submatrices may be square or rectangular.<br />
+Example 1<br />
+1<br />
+<br />
+Example 2<br />
+6 7 8<br />
+2 4 6<br />
+<br />
+Example 3<br />
+2 3<br />
+6 7<br />
+<br />
+Example 4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+0 2 4 6<br />
+<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>You may need to do zero or more swaps to find the largest submatrix of 1s.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>The first two lines of the output may help you with the final solution.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+3 4<br />
+1 1 1 1<br />
+1 1 0 1<br />
+1 0 1 0<br />
+<br />
+OUTPUT:<br />
+9<br />
+0<br />
+9<br />
+<br />
+<b>Explanation</b>: Using two successive swaps, we can convert the matrix to<br />
+1 1 1 0<br />
+1 1 1 0<br />
+1 1 1 0<br />
+which presents to us the largest submatrix containing only 1s.<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are three lines in your output. The first two lines are worth 6.25% each. The last line is worth 87.5% marks. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>3 4<br />
+1 1 1 1<br />
+1 1 0 1<br />
+1 0 1 0</td><td>9<br />
+0<br />
+9</td></tr><tr><td>4 5<br />
+1 1 1 1 1<br />
+1 1 1 1 1<br />
+0 0 0 0 0<br />
+0 0 0 0 0</td><td>10<br />
+0<br />
+10</td></tr><tr><td>5 6<br />
+1 0 0 0 0 0<br />
+0 0 0 1 0 0<br />
+0 0 1 0 0 0<br />
+0 0 0 1 0 0<br />
+0 1 0 0 0 0</td><td>5<br />
+1<br />
+5</td></tr><tr><td>10 2<br />
+1 0<br />
+1 0<br />
+1 0<br />
+1 0<br />
+1 0<br />
+1 1<br />
+1 1<br />
+1 1<br />
+1 1<br />
+1 1</td><td>15<br />
+0<br />
+14</td></tr><tr><td>6 3<br />
+1 0 1<br />
+0 1 0<br />
+1 0 1<br />
+0 1 0<br />
+1 0 0<br />
+0 0 1</td><td>8<br />
+0<br />
+8</td></tr><tr><td>6 3<br />
+1 0 1<br />
+0 1 0<br />
+1 0 1<br />
+0 0 0<br />
+1 0 0<br />
+0 0 1</td><td>7<br />
+1<br />
+6</td></tr></table><hr><hr><h2>Graphs (p3v1d1)</h2><hr><b>Graphs [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Graphs are an integral component of computer science. The entire internet is basically one giant graph. Social networking websites like Facebook and Instagram are also, at their core, enormous graphs. A graph has nodes (also called vertices) and connections between nodes. In you have a Facebook account, you are a node in the FB graph and have connections to all your "friends" on FB. Nodes on a graph can communicate with each other.<br />
+<br />
+In the first line of the input, you will be given the number of nodes in the graph as a strictly positive integer n. Nodes in the graph will be index from 0, 1, ... n-1. In the next lines, we will give you a list of nodes which sent messages (imagine an FB chat message) to other nodes. Thus, in each subsequent line, you will be given two non-negative integers i and j. This will imply that node i sent node j a message. The list will end when we give you i and j as -1.<br />
+<br />
+In your output, you have to print four quantities<br />
+<ol><br />
+<li>The number of nodes that did not send any messages at all<br />
+<li>The number of nodes that did not receive any messages at all<br />
+<li>The node that sent the most messages. If there are many such nodes, use the index of the node with smallest index.<br />
+<li>The node that received the most messages. If there are many such nodes, use the index of the node with smallest index.<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Nodes may send messages to themselves<br />
+<li>One or more nodes may send no messages at all<br />
+<li>See below on how to format your output. Be careful about spelling, case, and spaces.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>You can use a 2D array to maintain the count of which node sent messages to which node and how many messages were sent.<br />
+<li>If there are n nodes, then you can maintain an n x n array graph where graph[i][j] can store how many messages has node i sent to node j and graph[j][i] can store how many messages has node j sent to node i.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+5<br />
+1 0<br />
+2 0<br />
+3 0<br />
+4 0<br />
+1 2<br />
+1 3<br />
+1 4<br />
+2 4<br />
+-1 -1<br />
+<br />
+OUTPUT:<br />
+1 NODES SENT NO MESSAGES<br />
+1 NODES RECEIVED NO MESSAGES<br />
+MAX 4 MESSAGES SENT BY NODE 1<br />
+MAX 4 MESSAGES RECEIVED BY NODE 0<br />
+<br />
+<b>Explanation</b>: Node 0 did not send any messages whereas node 1 did not receive any messages. Node 1 sent the maximum messages (4 messages) whereas node 0 received maximum messages (4 messages).<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are four lines in your output. Printing each line correctly, in the correct order, carries 25% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5<br />
+1 0<br />
+2 0<br />
+3 0<br />
+4 0<br />
+1 2<br />
+1 3<br />
+1 4<br />
+2 4<br />
+-1 -1</td><td>1 NODES SENT NO MESSAGES<br />
+1 NODES RECEIVED NO MESSAGES<br />
+MAX 4 MESSAGES SENT BY NODE 1<br />
+MAX 4 MESSAGES RECEIVED BY NODE 0</td></tr><tr><td>4<br />
+1 3<br />
+1 0<br />
+1 2<br />
+-1 -1</td><td>3 NODES SENT NO MESSAGES<br />
+1 NODES RECEIVED NO MESSAGES<br />
+MAX 3 MESSAGES SENT BY NODE 1<br />
+MAX 1 MESSAGES RECEIVED BY NODE 0</td></tr><tr><td>10<br />
+2 8<br />
+5 1<br />
+2 9<br />
+1 7<br />
+1 4<br />
+3 8<br />
+1 7<br />
+2 8<br />
+1 4<br />
+2 6<br />
+-1 -1</td><td>6 NODES SENT NO MESSAGES<br />
+4 NODES RECEIVED NO MESSAGES<br />
+MAX 4 MESSAGES SENT BY NODE 1<br />
+MAX 3 MESSAGES RECEIVED BY NODE 8</td></tr><tr><td>10<br />
+-1 -1</td><td>10 NODES SENT NO MESSAGES<br />
+10 NODES RECEIVED NO MESSAGES<br />
+MAX 0 MESSAGES SENT BY NODE 0<br />
+MAX 0 MESSAGES RECEIVED BY NODE 0</td></tr><tr><td>10<br />
+4 4<br />
+4 4<br />
+4 4<br />
+4 4<br />
+4 4<br />
+4 4<br />
+4 4<br />
+4 4<br />
+-1 -1</td><td>9 NODES SENT NO MESSAGES<br />
+9 NODES RECEIVED NO MESSAGES<br />
+MAX 8 MESSAGES SENT BY NODE 4<br />
+MAX 8 MESSAGES RECEIVED BY NODE 4</td></tr><tr><td>15<br />
+14 13<br />
+13 12<br />
+12 11<br />
+11 10<br />
+10 9<br />
+9 8<br />
+8 7<br />
+7 6<br />
+6 5<br />
+5 4<br />
+4 3<br />
+3 2<br />
+2 1<br />
+1 0<br />
+0 14<br />
+-1 -1</td><td>0 NODES SENT NO MESSAGES<br />
+0 NODES RECEIVED NO MESSAGES<br />
+MAX 1 MESSAGES SENT BY NODE 0<br />
+MAX 1 MESSAGES RECEIVED BY NODE 0</td></tr></table><hr><hr><h2>How Mr C actually does Math (p3v2d1)</h2><hr><b>How Mr C actually does Math [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+When you ask Mr C to evaluate a certain math expression with lots and lots of brackets and operators, he actually does not evaluate that expression as is. He first converts that expression into a format known as the <i>postfix</i> format and then evaluates the expression. An example of a postfix expression is<br />
+<br />
+2 3 + 7 * #<br />
+<br />
+The above expression is actually equivalent to the usual expression (2 + 3) * 7 and both expressions evaluate to 35. If you are wondering how the expression 2 + (3 * 7) (which is just 2 + 3 * 7 due to BODMAS rules) is represented in postfix, it is represented as 2 3 7 * +. The rules on how bracketed expressions are converted to postfix expressions will be taught to you in a more advanced course like ESO207 or CS345. However, below are given the rules of how postfix expressions are evaluated. Note that postfix expressions we looked at do not have any brackets. This is true of all postfix expressions - none of them need brackets.<br />
+<br />
+Your post fix expression will be given in a single line in the input and will only consist of single digit non-negative integers, the characters + (addition), * (multiplication), and the termination symbol #. There will be a single space between every two characters in the input. You have to maintain an integer array of length 100 and follow the rules given below<br />
+<br />
+<ol><br />
+<li>Initially the array will be empty<br />
+<li>If you encounter a digit symbol, simply insert that integer in the next available position in the array. Number of elements stored in the array goes up by one). Print the entire array on a single line of your output with a single space between two elements of the array. <br />
+<li>If you encounter a math operator symbol i.e. + or *, take the integers in the last two positions in the array, erase them from the array (number of elements stored in the array down by two), perform the addition/multiplication operation with those two numbers, and then insert the result back into the next available position in the array (number of elements in the array goes up by one). Print the entire array on a single line of your output with a single space between two elements of the array. However, if there are less than 2 elements in the array to begin with, print "ERROR" and do not change the array at all.<br />
+<li>If you encounter the # character, if there is exactly one element in the array, print that element. If there are no elements in the array or else if there are more than one elements left in the array, print "ERROR" (without quotes).<br />
+</ol><br />
+The postfix format may seem a bit funny to you but it comes with a huge advantage that no brackets are necessary in math expression which are in postfix format. You may also find it interesting that some languages like Sanskrit also operate in postfix format at times. The sentence "Ram and Sita went to the garden" translates to "Ram Sita cha udyaanam gachchatah". Note that the "and" operator appears in postfix notation in Sanskrit!<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>All your error messages or array element prints should be on separate lines. There should be no trailing spaces at the end of any line.<br />
+<li>There will be no spaces after the # character. However, there will be a single space after every other character in the expression.<br />
+<li>The results of the computations you do (addition/multiplication) may be numbers with more than one digit. However, the input will only contain single digit non-negative numbers.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>Use a variable to keep track of how many elements are present in the array at any given point of time. Although your array is of size 100, most of the time you will have less than 100 elements in the array.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+2 3 + 7 * #<br />
+<br />
+OUTPUT:<br />
+2<br />
+2 3<br />
+5<br />
+5 7<br />
+35<br />
+35<br />
+<br />
+<b>Explanation</b> Let us look at the characters and the state of the array after each operation<br />
+<ol><br />
+<li>Initially array is empty []<br />
+<li>Character 2 : Put 2 at index 0 since that is the first empty location. Array is now [2]<br />
+<li>Character 3 : Put 3 at index 1 since that is the next empty location. Array is now [2 3]<br />
+<li>Character + : Take out the last two elements in the array - array is now empty []. Put the sum of those two elements into the next available position in the array which is index 0 since array is now empty - array is now [5]<br />
+<li>Character 7 : Put 7 at index 1 since that is the next empty location. Array is now [5 7]<br />
+<li>Character * : Take out the last two elements in the array - array is now empty []. Put the product of those two elements into the next available position in the array which is index 0 since array is now empty - array is now [35]<br />
+<li>Character # : There is only one element in the array so things are nice. Print that element 35 and exit<br />
+</ol><br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+#<br />
+<br />
+OUTPUT:<br />
+ERROR<br />
+<br />
+<b>EXAMPLE 3</b>:<br />
+INPUT<br />
+1 5 + 3 #<br />
+<br />
+OUTPUT:<br />
+1<br />
+1 5<br />
+6<br />
+6 3<br />
+ERROR<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 3 + 7 * #</td><td>2<br />
+2 3<br />
+5<br />
+5 7<br />
+35<br />
+35</td></tr><tr><td>1 5 + 3 #</td><td>1<br />
+1 5<br />
+6<br />
+6 3<br />
+ERROR</td></tr><tr><td>1 2 3 4 5 + + + + #</td><td>1<br />
+1 2<br />
+1 2 3<br />
+1 2 3 4<br />
+1 2 3 4 5<br />
+1 2 3 9<br />
+1 2 12<br />
+1 14<br />
+15<br />
+15</td></tr><tr><td>6 5 4 3 2 1 * * * * * #</td><td>6<br />
+6 5<br />
+6 5 4<br />
+6 5 4 3<br />
+6 5 4 3 2<br />
+6 5 4 3 2 1<br />
+6 5 4 3 2<br />
+6 5 4 6<br />
+6 5 24<br />
+6 120<br />
+720<br />
+720</td></tr><tr><td>2 3 7 * + #</td><td>2<br />
+2 3<br />
+2 3 7<br />
+2 21<br />
+23<br />
+23</td></tr><tr><td>5 5 + 1 2 3 + + 2 3 2 5 2 * + * * * * 1 + 0 * #</td><td>5<br />
+5 5<br />
+10<br />
+10 1<br />
+10 1 2<br />
+10 1 2 3<br />
+10 1 5<br />
+10 6<br />
+10 6 2<br />
+10 6 2 3<br />
+10 6 2 3 2<br />
+10 6 2 3 2 5<br />
+10 6 2 3 2 5 2<br />
+10 6 2 3 2 10<br />
+10 6 2 3 12<br />
+10 6 2 36<br />
+10 6 72<br />
+10 432<br />
+4320<br />
+4320 1<br />
+4321<br />
+4321 0<br />
+0<br />
+0</td></tr></table><hr><hr><h2>The Hidden Positives and Negatives (p3v3d1)</h2><hr><b>The Hidden Positives and Negatives [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+The first line of the input will contain two strictly positive numbers m and n. The second line of the input will contain two strictly positive numbers p and q. The next m lines will contain the m rows of an m x n matrix A whose entries are only 0 or 1, with a single space between two entries of a row. The next p lines will contain the p rows of a p x q matrix B whose entries are only 0 or 1, with a single space between two entries of a row.<br />
+<br />
+We suspect that the matrix B is hidden inside the matrix A as a submatrix, or else the complemented matrix B is hidden inside the matrix A as a submatrix (a helpful description of submatrices is given below). It may be the case that B and complemented B are both hiding inside A, possibly multiple times. For a matrix B, its complement is obtained by replacing every 0 by a 1 and every 1 by a 0. For example, the complement of the matrix<br />
+1 0 1<br />
+0 1 1<br />
+is the matrix<br />
+0 1 0<br />
+1 0 0<br />
+<br />
+Report all instances where matrix B occurs either as itself, or in complemented form, as a submatrix of A, in the manner described below. To report an instance, report the row and column indices of the top left corner of the submatrix in the manner described below. Instances should be reported in increasing order of row and within a row, in increasing order of column of the top left corner of the submatrix, i.e. report all occurrences in the first row (if any) from left to right, then all occurrences in the second row (if any) from left to right, and so on.<br />
+</ol><br />
+<b>About Submatrices</b><br />
+Given a string, any contiguous set of characters occurring in that string is considered a substring of that string. Similarly we can extend that notion to submatrices as well. Given any matrix, every contiguous rectangle/square of elements inside that matrix is a submatrix of that matrix. E.g. consider the matrix<br />
+1 2 3 4<br />
+5 6 7 8<br />
+0 2 4 6<br />
+<br />
+Then the following are submatrices of the above matrix. Note that submatrices may be square or rectangular.<br />
+Example 1<br />
+1<br />
+<br />
+Example 2<br />
+6 7 8<br />
+2 4 6<br />
+<br />
+Example 3<br />
+2 3<br />
+6 7<br />
+<br />
+Example 4<br />
+1 2 3 4<br />
+5 6 7 8<br />
+0 2 4 6<br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>We will not penalize you for trailing newlines at the end of your output. However, make sure that there are no trailing spaces at the end of any lines in your output.<br />
+<li>Take care of the capitalization and spacing in your output lines.<br />
+<li>Be careful to report all occurrences in the first row (if any) from left to right, then all occurrences in the second row (if any) from left to right, and so on.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+2 3<br />
+1 1<br />
+1 0 1<br />
+0 1 0<br />
+1<br />
+<br />
+OUTPUT:<br />
+POSITIVE MATCH AT (0, 0)<br />
+NEGATIVE MATCH AT (0, 1)<br />
+POSITIVE MATCH AT (0, 2)<br />
+NEGATIVE MATCH AT (1, 0)<br />
+POSITIVE MATCH AT (1, 1)<br />
+NEGATIVE MATCH AT (1, 2)<br />
+<br />
+<b>Explanation</b>: The matrix A is<br />
+1 0 1<br />
+0 1 0<br />
+and the matrix B is<br />
+1<br />
+and the complemented matrix B is<br />
+0<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+2 3<br />
+1 2<br />
+1 0 1<br />
+0 1 0<br />
+1 1<br />
+<br />
+OUTPUT:<br />
+NO MATCHES<br />
+<br />
+<b>Explanation</b>: The matrix B is<br />
+1 1<br />
+and it never occurs as a submatrix of A.<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2 4<br />
+1 2<br />
+1 0 1 1<br />
+1 0 1 0<br />
+1 0</td><td>POSITIVE MATCH AT (0, 0)<br />
+NEGATIVE MATCH AT (0, 1)<br />
+POSITIVE MATCH AT (1, 0)<br />
+NEGATIVE MATCH AT (1, 1)<br />
+POSITIVE MATCH AT (1, 2)<br />
+</td></tr><tr><td>5 5<br />
+2 3<br />
+1 1 1 1 1<br />
+1 1 0 1 1<br />
+1 1 1 1 1<br />
+0 1 0 1 1<br />
+0 0 0 0 0<br />
+1 0 1<br />
+1 1 1</td><td>POSITIVE MATCH AT (1, 1)<br />
+NEGATIVE MATCH AT (3, 0)<br />
+</td></tr><tr><td>5 6<br />
+2 4<br />
+1 0 1 0 1 1<br />
+1 1 0 0 1 1<br />
+0 0 1 1 0 0<br />
+1 1 0 0 1 1<br />
+0 0 1 1 1 1<br />
+1 1 0 0<br />
+0 0 1 1</td><td>POSITIVE MATCH AT (1, 0)<br />
+NEGATIVE MATCH AT (1, 2)<br />
+NEGATIVE MATCH AT (2, 0)<br />
+POSITIVE MATCH AT (2, 2)<br />
+POSITIVE MATCH AT (3, 0)<br />
+</td></tr><tr><td>5 7<br />
+2 2<br />
+0 0 0 0 0 1 1<br />
+0 0 0 0 0 0 0<br />
+1 1 0 0 0 0 0<br />
+0 0 0 0 0 1 1<br />
+1 1 0 0 0 0 0<br />
+1 1<br />
+0 0</td><td>POSITIVE MATCH AT (0, 5)<br />
+NEGATIVE MATCH AT (1, 0)<br />
+POSITIVE MATCH AT (2, 0)<br />
+NEGATIVE MATCH AT (2, 5)<br />
+NEGATIVE MATCH AT (3, 0)<br />
+POSITIVE MATCH AT (3, 5)<br />
+</td></tr><tr><td>5 7<br />
+2 2<br />
+0 0 0 0 0 1 1<br />
+1 0 0 0 0 0 0<br />
+0 0 0 0 0 0 0<br />
+0 0 0 0 0 1 1<br />
+1 1 0 0 0 0 0<br />
+1 1<br />
+0 0</td><td>POSITIVE MATCH AT (0, 5)<br />
+NEGATIVE MATCH AT (2, 5)<br />
+NEGATIVE MATCH AT (3, 0)<br />
+POSITIVE MATCH AT (3, 5)<br />
+</td></tr><tr><td>7 7<br />
+3 3<br />
+1 0 0 0 0 0 0<br />
+0 1 0 0 0 0 0<br />
+0 0 1 0 0 0 0<br />
+0 0 0 1 0 0 0<br />
+0 0 0 0 1 0 0<br />
+0 0 0 0 0 1 0<br />
+0 0 0 0 0 0 1<br />
+1 0 0<br />
+0 1 0<br />
+0 0 1</td><td>POSITIVE MATCH AT (0, 0)<br />
+POSITIVE MATCH AT (1, 1)<br />
+POSITIVE MATCH AT (2, 2)<br />
+POSITIVE MATCH AT (3, 3)<br />
+POSITIVE MATCH AT (4, 4)<br />
+</td></tr></table><hr><hr><h2>How Prutor Manages Memory (p4v1d1)</h2><hr><b>How Prutor Manages Memory [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Prutor gets tons of requests for memory allocation from you and your friends. These can be due to your programs declaring variables, static arrays or dynamic arrays. Prutor also has to free all this memory when either your programs end or else when you release dynamically allocated memory using the free() function.<br />
+<br />
+Prutor handles such requests on a first-come-first-serve basis. This is very much like a queue (or line) for food in the mess - if you arrive first in the mess, you will be the first in the queue and when food is served, you will be the first one to receive food. In the first line of the input, you will be given a strictly positive integer MAX denoting the total amount of memory available to Prutor in bytes.<br />
+<br />
+In the next several lines, you will see four different kinds of instructions which are outlined below. We assure you that we will not give you more than 100 instructions. However, there may be zero or more instructions. Each instruction will be given on a separate line.<br />
+<br />
+<ol><br />
+<li>Memory Allocation request: If the instruction line contains the character 'M' (without quotes) followed by a space followed by a strictly positive integer n, it is a request to allocate n bytes of memory. However, do not execute this instruction just yet - just store it somewhere.<br />
+<li>Memory Release request: If the instruction line contains the character 'F' (without quotes) followed by a space followed by a strictly positive integer n, it is a request to release n bytes of allocated memory. However, do not execute this instruction just yet - just store it somewhere.<br />
+<li>Request execution request: If the instruction line contains the character 'X' (without quotes), this is a request to execute the earliest execution stored with you that has not been executed yet. If there are no non-executed instructions stored with you, print "NO MORE INSTRUCTIONS" (without quotes), else execute the earliest instruction.<br />
+<li>Termination: If the instruction line contains the character '#' (without quotes), this means that there are no more instructions to execute and you should end your program now.<br />
+</ol><br />
+<br />
+Keep in mind the following rules while processing instructions.<br />
+<br />
+<ol><br />
+<li>If it is a memory allocation request and there are less bytes remaining than what is requested, print the error message "NOT ENOUGH MEMORY". Otherwise, reduce the number of available bytes by the amount of memory requested, and print the message "Y BYTES LEFT" (without quotes) where Y is the number of bytes left after performing the allocation operation.<br />
+<li>If it is a memory release request and the request tries to release more memory than what has so far been allocated in total, print the error message "SEGFAULT". Otherwise, increase the number of available bytes by the amount of memory released, and print the message "Y BYTES LEFT" (without quotes) where Y is the number of bytes left after performing the free operation.<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Do not execute allocation/release instructions the moment you receive them. Execute them only when you get the execute instruction.<br />
+<li>Print all error messages as well as status messages on separate lines.<br />
+<li>If you are using getchar() to process input character by character, be careful to read in the newlines at the end of each line as well.<br />
+<li>We will not penalize you for extra newlines at the end of your output. However, do not have extra newlines in the middle of your output or else have trailing spaces in any line of the output.<br />
+<li>The malloc/calloc/realloc/free process is much more careful than what we described above. However, to keep the question simple, we have not bothered you with all those details. With malloc/calloc/realloc/free, we cannot release arbitrary amounts of memory at arbitrary locations. We can only use free to release the entire chunk of memory allocated by a single malloc/calloc/realloc operation. Whereas you do not have to worry about these details in the question, do remember this when actually using malloc/calloc/realloc/free in your programs.<br />
+</ol><br />
+<br />
+<b>HINTS</b>: <br />
+<ol><br />
+<li>Use arrays with 100 elements to store instructions that have not been executed yet (there wont be more than 100 instructions). You can use a variable to store the location of the earliest instruction that has not been executed yet.<br />
+<li>In order to differentiate between allocation and release instructions, you can maintain two arrays, one that stores the type of instruction 'M' or 'F' and the other that stores the amount of bytes in that instruction. Another neat way is to use a single array but store allocation instructions as positive integers and release instructions as negative integers.<br />
+<li>Write functions to perform various queue operations to ensure your code looks neat and clean.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+5<br />
+X<br />
+M 3<br />
+M 2<br />
+X<br />
+M 1<br />
+F 4<br />
+X<br />
+X<br />
+X<br />
+X<br />
+X<br />
+F 2<br />
+F 1<br />
+X<br />
+#<br />
+<br />
+OUTPUT:<br />
+NO MORE INSTRUCTIONS<br />
+2 BYTES LEFT<br />
+0 BYTES LEFT<br />
+NOT ENOUGH MEMORY<br />
+4 BYTES LEFT<br />
+NO MORE INSTRUCTIONS<br />
+NO MORE INSTRUCTIONS<br />
+SEGFAULT<br />
+<br />
+<b>Explanation</b><br />
+<ol><br />
+<li>There are a total of 5 bytes available. Instruction list is empty []<br />
+<li>Command 1:  X - no instructions to execute<br />
+<li>Command 2:  M 3 - instruction list is [(M,3)]<br />
+<li>Command 3:  M 2 - instruction list is [(M,3) (M,2)]<br />
+<li>Command 4:  X - execute instruction (M,3) - 2 bytes left - instruction list is [(M,2)]<br />
+<li>Command 5:  M 1 - instruction list is [(M,2) (M,1)]<br />
+<li>Command 6:  F 4 - instruction list is [(M,2) (M,1) (F,4)]<br />
+<li>Command 7:  X - execute instruction (M,2) - 0 bytes left - instruction list is [(M,1) (F,4)]<br />
+<li>Command 8:  X - execute instruction (M,1) - not enough bytes - instruction list is [(F,4)]<br />
+<li>Command 9:  X - execute instruction (F,4) - 4 bytes left -  - instruction list is empty []<br />
+<li>Command 10: X - no instructions to execute<br />
+<li>Command 11: X - no instructions to execute<br />
+<li>Command 12: F 2 - instruction list is [(F,2)]<br />
+<li>Command 13: F 1 - instruction list is [(F,2) (F,1)]<br />
+<li>Command 14: X - execute instruction (F,2) - but right now only 1 byte is allocated - segfault - instruction list is [(F,1)]<br />
+<li>Command 15: #<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>5<br />
+X<br />
+M 3<br />
+M 2<br />
+X<br />
+M 1<br />
+F 4<br />
+X<br />
+X<br />
+X<br />
+X<br />
+X<br />
+F 2<br />
+F 1<br />
+X<br />
+#</td><td>NO MORE INSTRUCTIONS<br />
+2 BYTES LEFT<br />
+0 BYTES LEFT<br />
+NOT ENOUGH MEMORY<br />
+4 BYTES LEFT<br />
+NO MORE INSTRUCTIONS<br />
+NO MORE INSTRUCTIONS<br />
+SEGFAULT<br />
+</td></tr><tr><td>5<br />
+M 3<br />
+X<br />
+M 1<br />
+X<br />
+M 2<br />
+X<br />
+M1<br />
+X<br />
+F 5<br />
+X<br />
+#</td><td>2 BYTES LEFT<br />
+1 BYTES LEFT<br />
+NOT ENOUGH MEMORY<br />
+0 BYTES LEFT<br />
+5 BYTES LEFT<br />
+</td></tr><tr><td>5<br />
+M 3<br />
+X<br />
+M 1<br />
+X<br />
+M 2<br />
+X<br />
+F 5<br />
+X<br />
+F 1<br />
+X<br />
+X<br />
+#</td><td>2 BYTES LEFT<br />
+1 BYTES LEFT<br />
+NOT ENOUGH MEMORY<br />
+SEGFAULT<br />
+2 BYTES LEFT<br />
+NO MORE INSTRUCTIONS<br />
+</td></tr><tr><td>14<br />
+M 10<br />
+M 2<br />
+F 4<br />
+F 10<br />
+X<br />
+X<br />
+X<br />
+X<br />
+F 8<br />
+M 3<br />
+X<br />
+X<br />
+#</td><td>4 BYTES LEFT<br />
+2 BYTES LEFT<br />
+6 BYTES LEFT<br />
+SEGFAULT<br />
+14 BYTES LEFT<br />
+11 BYTES LEFT<br />
+</td></tr><tr><td>8<br />
+M 9<br />
+M 8<br />
+F 8<br />
+M 5<br />
+M 7<br />
+M 1<br />
+X<br />
+X<br />
+X<br />
+X<br />
+X<br />
+X<br />
+# </td><td>NOT ENOUGH MEMORY<br />
+0 BYTES LEFT<br />
+8 BYTES LEFT<br />
+3 BYTES LEFT<br />
+NOT ENOUGH MEMORY<br />
+2 BYTES LEFT<br />
+</td></tr><tr><td>3<br />
+M 1<br />
+M 1<br />
+M 1<br />
+F 2<br />
+F 1<br />
+X<br />
+X<br />
+X<br />
+X<br />
+X<br />
+#</td><td>2 BYTES LEFT<br />
+1 BYTES LEFT<br />
+0 BYTES LEFT<br />
+2 BYTES LEFT<br />
+3 BYTES LEFT<br />
+</td></tr></table><hr><hr><h2>Message in the Matrix (p4v2d1)</h2><hr><b>Message in the Matrix [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the first line you will be given two strictly positive integers m and n. In the next line you will given a string of length at most 100. The string will contain only lowercase English alphabets. In the next m lines, you will be given an m x n matrix of characters, with all elements being lowercase English alphabets, one row on each line. There will be no spaces between individual characters, nor any space at the end of any line.<br />
+<br />
+You have to find whether the given string occurs in the matrix or not. The string can occur in the matrix in 3 ways - either left to right, or diagonally upwards, or diagonally downwards, as the example below suggests. Report all occurrences of the matrix by giving the row and column index of the first character of the occurrence. If there are multiple occurrences in the matrix, report them following the rules given below.<br />
+<ol><br />
+<li>First, report all occurrences where the first character is in the first row, then all occurrences where the second row, and so on.<br />
+<li>If there are multiple occurrences in a row, report them in increasing order of column index of the first character in the occurrence.<br />
+<li>If there are multiple occurrences at a given index e.g. flat as well as diagonally up, then report the diagonally upward occurrence first (if present), then the flat occurrence (if present), then the diagonally downward occurrence first (if present).<br />
+</ol><br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Use scanf("%d %d\n", &m, &n); to read the size of the matrix so that you read in the newline at the end of the first line as well.<br />
+<li>We will not penalize you for extra newlines at the end of your output. However, do not have extra newlines in the middle of your output or else have trailing spaces in any line of the output.<br />
+<li>Use gets() to read the string. However, be careful if you are using getchar to read the matrix element by element since there will be newline characters at the end of each row which will need to be excluded.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+3 3<br />
+ab<br />
+vbr<br />
+abq<br />
+cbd<br />
+<br />
+OUTPUT:<br />
+FOUND AT (1, 0) DIAG UP<br />
+FOUND AT (1, 0) FLAT<br />
+FOUND AT (1, 0) DIAG DOWN<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>3 3<br />
+ab<br />
+vbr<br />
+abq<br />
+cbd</td><td>FOUND AT (1, 0) DIAG UP<br />
+FOUND AT (1, 0) FLAT<br />
+FOUND AT (1, 0) DIAG DOWN<br />
+</td></tr><tr><td>3 3<br />
+abc<br />
+vbr<br />
+abq<br />
+cbd</td><td>NOT FOUND</td></tr><tr><td>3 3<br />
+aa<br />
+aaa<br />
+aaa<br />
+aaa</td><td>FOUND AT (0, 0) FLAT<br />
+FOUND AT (0, 0) DIAG DOWN<br />
+FOUND AT (0, 1) FLAT<br />
+FOUND AT (0, 1) DIAG DOWN<br />
+FOUND AT (1, 0) DIAG UP<br />
+FOUND AT (1, 0) FLAT<br />
+FOUND AT (1, 0) DIAG DOWN<br />
+FOUND AT (1, 1) DIAG UP<br />
+FOUND AT (1, 1) FLAT<br />
+FOUND AT (1, 1) DIAG DOWN<br />
+FOUND AT (2, 0) DIAG UP<br />
+FOUND AT (2, 0) FLAT<br />
+FOUND AT (2, 1) DIAG UP<br />
+FOUND AT (2, 1) FLAT<br />
+</td></tr><tr><td>5 5<br />
+hiesc<br />
+hdefe<br />
+diefe<br />
+deefe<br />
+defse<br />
+defec</td><td>FOUND AT (0, 0) DIAG DOWN<br />
+</td></tr><tr><td>5 4<br />
+flat<br />
+raft<br />
+frat<br />
+slit<br />
+frat<br />
+east</td><td>FOUND AT (1, 0) DIAG DOWN<br />
+FOUND AT (3, 0) DIAG UP<br />
+</td></tr><tr><td>6 6<br />
+raft<br />
+master<br />
+arootf<br />
+bsafea<br />
+craftd<br />
+drestt<br />
+breade</td><td>FOUND AT (1, 1) DIAG DOWN<br />
+FOUND AT (3, 1) FLAT<br />
+FOUND AT (4, 1) DIAG UP<br />
+</td></tr></table><hr><hr><h2>The Hidden Key (p4v3d1)</h2><hr><b>The Hidden Key [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+In the first line of the input you will be given a strictly positive integer n denoting the length of the messages. In the next two lines you will be given two messages as list of n integers separated by a single space. The first message will be the original (plain) message and the next will be the encrypted message.<br />
+<br />
+The encrypted message was obtained by taking a secret key which is itself a message of length k (we do not know k) and adding it to the message. However, since the message length may be longer than the length of the key, the key is repeated as many times as required.<br />
+<br />
+For example, if the plain message is [1 2 3 4 5 6 7 8] (i.e. n = 8) and the key is [1 2 3] (i.e. k = 3) then we first repeat the key enough to obtain a list of 8 elements as [1 2 3 1 2 3 1 2] (notice that we omitted the last 3 since we do not need it - we already have 8 integers). The encrypted message is now obtained by adding the repeated key message to the original message to obtain the encrypted message as [2 4 6 5 7 9 8 10]<br />
+<br />
+In your output, you have to first give the length k of the secret key and then output the secret key. If more than one secret key is possible, output the secret key of the smallest length possible. <br />
+<br />
+<b>Caution</b><br />
+<ol><br />
+<li>Secret keys may be of any non-negative length<br />
+<li>As the example below indicates, the integers in the messages as well as in the keys, may be negative or even zero.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces in your output.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2<br />
+31 43<br />
+31 43<br />
+<br />
+OUTPUT:<br />
+1<br />
+0<br />
+<br />
+<b>Explanation</b> The plain and encrypted message are the same. The shortest key that makes this possible is the unit length key 0.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. Each visible test case is worth 2 points and each hidden test case is worth 4 points. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2<br />
+31 43<br />
+31 43</td><td>1<br />
+0</td></tr><tr><td>10<br />
+223 15 22 175 179 92 5 30 185 249<br />
+323 215 322 275 379 392 105 230 485 349</td><td>3<br />
+100 200 300</td></tr><tr><td>5<br />
+1 2 3 4 5<br />
+5 4 3 2 1</td><td>5<br />
+4 2 0 -2 -4</td></tr><tr><td>15<br />
+181 65 122 124 7 231 67 130 128 201 214 90 119 135 128<br />
+114 153 215 39 19 32 155 47 219 221 17 130 218 220 148</td><td>15<br />
+-67 88 93 -85 12 -199 88 -83 91 20 -197 40 99 85 20</td></tr><tr><td>10<br />
+223 15 22 175 179 92 5 30 185 249<br />
+323 215 322 275 379 392 105 130 485 349</td><td>9<br />
+100 200 300 100 200 300 100 100 300</td></tr><tr><td>12<br />
+223 15 22 175 179 92 5 30 185 249 645 770<br />
+523 215 322 275 379 392 305 230 485 349 845 1070</td><td>6<br />
+300 200 300 100 200 300</td></tr></table><hr><hr></body>
+</html>
