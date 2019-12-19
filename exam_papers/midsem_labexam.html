@@ -1,0 +1,449 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>LABEXAM-PRAC-01_MIDSEM</title>
+</head>
+<body>
+<h1>LABEXAM-PRAC-01_MIDSEM</h1><h2>The D List (p1v1d1)</h2><hr><b>The D List [25 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+We will give you a list of digits given as <b>non-negative integers</b> all separated by a space. The list will be ended by a -1 which is not supposed to be considered a part of the list. You have to process this list and output the following <b>on different lines</b><br />
+<ol><br />
+<li>The number of elements in the list (not including the last -1)<br />
+<li>The number of times the digit 2 appears in the list<br />
+<li>The number of times the first digit of the list appears in the list<br />
+<li>If the number formed by the list is divisible by 11, print "YES" (without quotes), else print "NO" without quotes<br />
+</ol><br />
+<br />
+<b>HINTS</b>: To test the divisibility of a number by 11, take an alternating sum of the digits of the number. For example, if the number is 1234, an alternating sum would be 1 - 2 + 3 - 4. If this sum is divisible by 11, so is the original number. If this sum is not divisible by 11, neither is the original number.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+3 2 -1<br />
+<br />
+OUTPUT:<br />
+2<br />
+1<br />
+1<br />
+NO<br />
+<br />
+<b>Explanation</b>: The list has two digits, the digit 2 appears once, the first digit 3 also appears just once, and the number 32 is not divisible by 11.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li>The numbers 0, -22, 110, -44 etc are all considered divisible by 11. However, then numbers -4, 10, 16 etc are not divisible by 11. In particular, note that negative numbers can be divisible by 11 as well.<br />
+<li>We promise that the first digit will never be zero, as well as that the number formed by the digits will be strictly positive<br />
+<li>The number formed by the digits we give you may not fit inside int or long variables.<br />
+</ol><br />
+<br />
+<b>General Words of Caution</b><br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>Marks will be allotted for the following<br />
+	<ol><br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the calculations are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Questions will be graded by the <b>autograder as well as a human grader</b><br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>The total marks of this exam are 150.<br />
+<li>You are allowed to use the libraries math.h and stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use programming tools such as arrays, functions, recursion, pointers, in case you are familiar with the use of these. However, you will be given no special credit for using these advanced programming techniques, nor will you receive any help should you face difficulties in using them, for example, TLE or segmentation fault errors. Use these advanced techniques at your own risk.<br />
+</ol><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[25 Points]</b><br />
+<br />
+There will be partial grading in this question. There are four lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first two lines are worth 12.5% each. The third line is worth 25% and the fourth line is worth 50% weightage. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>3 2 -1</td><td>2<br />
+1<br />
+1<br />
+NO</td></tr><tr><td>4 1 0 0 1 3 5 0 4 9 8 5 3 5 2 4 0 5 7 1 1 6 9 7 7 2 3 4 6 5 3 6 -1</td><td>32<br />
+2<br />
+4<br />
+YES</td></tr><tr><td>7 9 2 9 2 8 2 8 1 3 6 7 3 0 8 1 8 9 4 0 8 9 8 1 9 3 0 3 4 8 0 4 8 7 7 3 5 2 9 1 5 3 6 7 7 2 7 4 0 5 0 3 5 2 4 6 3 7 3 7 6 5 1 9 3 9 8 6 9 1 5 4 5 0 3 4 8 1 1 7 9 9 8 4 0 8 1 3 1 7 1 7 4 -1</td><td>93<br />
+6<br />
+12<br />
+YES</td></tr><tr><td>9 0 1 8 1 4 6 9 2 3 6 3 0 5 4 1 7 -1</td><td>17<br />
+1<br />
+2<br />
+NO</td></tr><tr><td>2 2 2 2 2 2 0 0 2 2 0 0 0 0 2 2 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0 2 2 2 2 -1</td><td>40<br />
+16<br />
+16<br />
+YES</td></tr><tr><td>1 2 6 2 2 8 1 1 3 8 3 9 6 4 9 1 4 1 0 0 8 6 6 9 9 3 7 5 6 1 0 8 2 8 2 1 3 9 9 2 0 9 8 9 2 5 0 5 0 0 9 6 7 3 4 7 0 6 9 3 5 2 2 0 8 8 6 2 6 4 8 8 6 6 8 1 9 6 9 3 6 4 8 7 0 4 3 6 9 0 0 9 6 5 8 4 7 3 1 -1</td><td>99<br />
+10<br />
+9<br />
+NO</td></tr></table><hr><hr><h2>The D Factor (p1v2d1)</h2><hr><b>The D Factors [50 marks]</b><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given a <b>strictly positive integer</b> n. In <b>two separate lines</b> print the following<br />
+<ol><br />
+<li>On the first line print the distinct divisors of n <b>in increasing order</b> with two divisors separated by a space. Divisors include prime and non-prime divisors as well as 1 and the number itself. <b>There should be no trailing spaces at the end of this line</b><br />
+<li>On the second line, print the smallest strictly positive number M that has <b>exactly n distinct divisors</b> (including prime and non-prime divisors and including 1 and the number M itself)<br />
+</b><br />
+</ol><br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li>For the sake of this question, divisors of a number such as M or n, include prime and non-prime divisors, as well as include the number 1 and the number itself.<br />
+<li>We assure you that all outputs will fit inside integer variables.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+6<br />
+<br />
+OUTPUT:<br />
+1 2 3 6<br />
+12<br />
+<br />
+<b>Explanation</b>: The distinct factors of 6 (not necessarily prime and including 1 and 6 itself) are 1 2 3 and 6. The number 12 has 6 distinct divisors (not necessarily prime and including 1 and 12 itself) 1 2 3 4 6 12.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>General Words of Caution</b><br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>Marks will be allotted for the following<br />
+	<ol><br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the calculations are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Questions will be graded by the <b>autograder as well as a human grader</b><br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>The total marks of this exam are 150.<br />
+<li>You are allowed to use the libraries math.h and stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use programming tools such as arrays, functions, recursion, pointers, in case you are familiar with the use of these. However, you will be given no special credit for using these advanced programming techniques, nor will you receive any help should you face difficulties in using them, for example, TLE or segmentation fault errors. Use these advanced techniques at your own risk.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[50 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first line has 25% weightage and the second line has 75% weightage. There are 3 visible and 6 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2</td><td>1 2<br />
+2</td></tr><tr><td>6</td><td>1 2 3 6<br />
+12</td></tr><tr><td>8</td><td>1 2 4 8<br />
+24</td></tr><tr><td>15</td><td>1 3 5 15<br />
+144</td></tr><tr><td>1</td><td>1<br />
+1</td></tr><tr><td>20</td><td>1 2 4 5 10 20<br />
+240</td></tr><tr><td>18</td><td>1 2 3 6 9 18<br />
+180</td></tr><tr><td>16</td><td>1 2 4 8 16<br />
+120</td></tr><tr><td>27</td><td>1 3 9 27<br />
+900</td></tr></table><hr><hr><h2>All Charged Up (p1v3d1)</h2><hr><b>All Charged Up [75 marks]</b><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Electrostatic charges (either +1 or -1) have been placed at integer coordinates in a 3D space. The x, y, z, coordinates of these charges can all range from 1 to 256 (both limits included). The charge at a given location (i,j,k) is determined by the following rules<br />
+<ol><br />
+<li>Case 1: if the location is at the boundary of this arrangement (i.e. outer surface of this 256 x 256 x 256 sized 3D cube), the charge at that location is +1<br />
+<li>Case 2: if the location is not at the boundary but the sum i + j + k is prime, then also the charge at that location is +1<br />
+<li>Case 3: if the location is neither at the boundary, nor is the sum of coordinates prime, but still the coordinates (i,j,k) satisfy the property that the quadratic equation i * x^2 + j * x + k has only real roots, even then the location has charge +1<br />
+<li>Case 4: any location that does not have charge +1 has charge -1<br />
+</ol><br />
+<br />
+We will give you two locations (a,b,c) and (p,q,r) with all coordinates in the range [1, 256] (both ends included). Consider the <b>smallest cuboid C that contains both these locations</b>. Your task is to print the following in <b>five separate lines</b>.<br />
+<ol><br />
+<li>The number of locations inside or on the boundary of the cuboid C that satisfy case 1<br />
+<li>The number of locations inside or on the boundary of the cuboid C that satisfy case 2<br />
+<li>The number of locations inside or on the boundary of the cuboid C that satisfy case 3<br />
+<li>The number of locations inside or on the boundary of the cuboid C that satisfy case 4<br />
+<li>The sum of all charges at locations inside or on the boundary of the cuboid C<br />
+</ol><br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li>The smallest cuboid C that contains the locations (a,b,c) and (p,q,r) may have one or more side lengths zero e.g. the cuboid may be just a flat rectangle.<br />
+<li>The coordinates of the two points given to you are not necessarily in any particular order. Keep this in mind.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>INPUT</b>:<br />
+(a,b,c)(p,q,r)<br />
+<br />
+<b>OUTPUT</b>:<br />
+case1<br />
+case2<br />
+case3<br />
+case4<br />
+totalCharge<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+(1,1,1)(2,2,2)<br />
+OUTPUT:<br />
+7<br />
+0<br />
+0<br />
+1<br />
+6<br />
+<br />
+<b>Explanation</b>: All locations in the cuboid C except the location (2,2,2) lie on the boundary and have +1 charge. There are 7 such locations. The location (2,2,2) is neither on the boundary nor is the sum prime nor does the quadratic equation x^2 + x + 1 have real roots. Hence the location (2,2,2) has -1 charge. Total charge in the cuboid is 7-1 = 6.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>General Words of Caution</b><br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>Marks will be allotted for the following<br />
+	<ol><br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the calculations are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Questions will be graded by the <b>autograder as well as a human grader</b><br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>The total marks of this exam are 150.<br />
+<li>You are allowed to use the libraries math.h and stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use programming tools such as arrays, functions, recursion, pointers, in case you are familiar with the use of these. However, you will be given no special credit for using these advanced programming techniques, nor will you receive any help should you face difficulties in using them, for example, TLE or segmentation fault errors. Use these advanced techniques at your own risk.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[75 Points]</b><br />
+<br />
+There will be partial grading in this question. There are five lines in your output. Printing each line correctly, in the correct order, carries some weightage. The five lines carry 30%, 30%, 10%, 10% and 20% weightage respectively. There are 4 visible and 8 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>(1,1,1)(2,2,2)</td><td>7<br />
+0<br />
+0<br />
+1<br />
+6</td></tr><tr><td>(1,1,1)(1,2,2)</td><td>4<br />
+0<br />
+0<br />
+0<br />
+4</td></tr><tr><td>(1,1,1)(1,1,2)</td><td>2<br />
+0<br />
+0<br />
+0<br />
+2</td></tr><tr><td>(1,1,1)(1,1,1)</td><td>1<br />
+0<br />
+0<br />
+0<br />
+1</td></tr><tr><td>(5,1,1)(5,1,1)</td><td>1<br />
+0<br />
+0<br />
+0<br />
+1</td></tr><tr><td>(2,3,2)(2,3,2)</td><td>0<br />
+1<br />
+0<br />
+0<br />
+1</td></tr><tr><td>(2,4,2)(2,4,2)</td><td>0<br />
+0<br />
+1<br />
+0<br />
+1</td></tr><tr><td>(2,4,8)(2,4,8)</td><td>0<br />
+0<br />
+0<br />
+1<br />
+-1</td></tr><tr><td>(2,2,2)(1,1,1)</td><td>7<br />
+0<br />
+0<br />
+1<br />
+6</td></tr><tr><td>(20,2,20)(1,10,1)</td><td>351<br />
+830<br />
+76<br />
+2343<br />
+-1086</td></tr><tr><td>(3,30,3)(10,1,10)</td><td>64<br />
+488<br />
+877<br />
+491<br />
+938</td></tr><tr><td>(20,20,20)(10,10,10)</td><td>0<br />
+327<br />
+1<br />
+1003<br />
+-675</td></tr></table><hr><hr><h2>The S Factor (p2v1d1)</h2><hr><b>The S Factor [25 marks]</b><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+You will be given a <b>long integer</b> n as input. Using this integer, you have to print the following on <b>four different lines</b><br />
+<ol><br />
+<li>The smallest divisor of n that is strictly greater than 1 (notice that this divisor has to be prime)<br />
+<li>The number of times the digit 3 appears when we write down n<br />
+<li>The number of times the first digit of n (when seen from the left) appears when we write down n<br />
+<li>The power of the smallest divisor of n in its prime factorization<br />
+</ol><br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li>We promise that when we give you the long integer, the first digit of the integer will never be zero<br />
+<li>We promise that the number we give you will itself never be 0, it will be strictly positive<br />
+<li>Your outputs may not fit inside int variables - take precautions.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+123456<br />
+<br />
+OUTPUT:<br />
+2<br />
+1<br />
+1<br />
+6<br />
+<br />
+<b>Explanation</b>: The smallest non unity divisor of 123456 is 2. The digit 3 appears once in 123456. The first digit of 123456 is 1 and that also appears only once in 123456. The number factorizes as 64 * 1929 and hence, the power of 2, the smallest divisor, is 6 since 64 = 2^6.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>General Words of Caution</b><br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>Marks will be allotted for the following<br />
+	<ol><br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the calculations are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Questions will be graded by the <b>autograder as well as a human grader</b><br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>The total marks of this exam are 150.<br />
+<li>You are allowed to use the libraries math.h and stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use programming tools such as arrays, functions, recursion, pointers, in case you are familiar with the use of these. However, you will be given no special credit for using these advanced programming techniques, nor will you receive any help should you face difficulties in using them, for example, TLE or segmentation fault errors. Use these advanced techniques at your own risk.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[25 Points]</b><br />
+<br />
+There will be partial grading in this question. There are four lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first two lines are worth 12.5% each. The third line is worth 25% and the fourth line is worth 50% weightage. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>123456</td><td>2<br />
+1<br />
+1<br />
+6</td></tr><tr><td>135</td><td>3<br />
+1<br />
+1<br />
+3</td></tr><tr><td>1024</td><td>2<br />
+0<br />
+1<br />
+10</td></tr><tr><td>333</td><td>3<br />
+3<br />
+3<br />
+2</td></tr><tr><td>10000</td><td>2<br />
+0<br />
+1<br />
+4</td></tr><tr><td>190333</td><td>11<br />
+3<br />
+1<br />
+4</td></tr></table><hr><hr><h2>The S List (p2v2d1)</h2><hr><b>The S List [50 marks]</b><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+We will give you a <b>strictly positive integer</b> n. Given this, you have to print your output <b>in two separate lines</b><br />
+<ol><br />
+<li>In the first line, print a list of all prime numbers strictly less than the square root of n. Two primes should be separated by a space. <b>There should be no trailing spaces at the end of this line</b>. If there are no such primes, print "NO PRIMES" (without quotes).<br />
+<li>In the second line print the sum of the values of nCk for all k that are primes strictly less than the square root of n. If there are no such primes, print 0.<br />
+</ol><br />
+<br />
+$$\left(\begin{array}{c} n\\k\end{array} \right) = \frac{n!}{k!\cdot(n-k)!}$$<br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li>Take care that combinatorial expressions involve factorials that can take huge values that can even exceed the long limit.<br />
+<li>Even though your input will fit inside an integer variable, your output may require long variables.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+7<br />
+<br />
+OUTPUT:<br />
+2<br />
+21<br />
+<br />
+<b>Explanation</b>: sqrt(7) = 2.64. Thus the only prime less than sqrt(7) is 2 and 7 choose 2 is 21.<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>General Words of Caution</b><br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>Marks will be allotted for the following<br />
+	<ol><br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the calculations are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Questions will be graded by the <b>autograder as well as a human grader</b><br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>The total marks of this exam are 150.<br />
+<li>You are allowed to use the libraries math.h and stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use programming tools such as arrays, functions, recursion, pointers, in case you are familiar with the use of these. However, you will be given no special credit for using these advanced programming techniques, nor will you receive any help should you face difficulties in using them, for example, TLE or segmentation fault errors. Use these advanced techniques at your own risk.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[50 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries some weightage. The first line has 25% weightage and the second line has 75% weightage. There are 3 visible and 6 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>7</td><td>2<br />
+21</td></tr><tr><td>10</td><td>2 3<br />
+165</td></tr><tr><td>75</td><td>2 3 5 7<br />
+2002159540</td></tr><tr><td>49</td><td>2 3 5<br />
+1926484</td></tr><tr><td>100</td><td>2 3 5 7<br />
+16083014970</td></tr><tr><td>25</td><td>2 3<br />
+2600</td></tr><tr><td>26</td><td>2 3 5<br />
+68705</td></tr><tr><td>1</td><td>NO PRIMES<br />
+0</td></tr><tr><td>4</td><td>NO PRIMES<br />
+0</td></tr></table><hr><hr><h2>Smith Numbers (p2v3d1)</h2><hr><b>Smith Numbers [75 marks]</b><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Smith numbers are composite numbers for which the sum of the digits of the number is equal to the sum of the digits of all its prime factors (including repetitions).<br />
+<br />
+For example, 378 = 2 x 3 x 3 x 3 x 7 is a Smith number since 3 + 7 + 8 = 2 + 3 + 3 + 3 + 7. Another nice example of a Smith number is 22  = 2 x 11 and is a Smith number since 2 + 2 = 2 + 1 + 1.<br />
+<br />
+You will be given a <b>strictly positive integer</b> n. You have to print "Smith Number" (without quotes) in case the number is a Smith number else print "Not Smith Number" (without quotes) in case the number is not a Smith number.<br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li>Take care of spelling and other mistakes<br />
+<li>As mentioned in the problem statement above, only composite numbers can be Smith numbers, i.e. prime numbers cannot be Smith numbers.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>General Words of Caution</b><br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>Marks will be allotted for the following<br />
+	<ol><br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the calculations are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Questions will be graded by the <b>autograder as well as a human grader</b><br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>The total marks of this exam are 150.<br />
+<li>You are allowed to use the libraries math.h and stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use programming tools such as arrays, functions, recursion, pointers, in case you are familiar with the use of these. However, you will be given no special credit for using these advanced programming techniques, nor will you receive any help should you face difficulties in using them, for example, TLE or segmentation fault errors. Use these advanced techniques at your own risk.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[75 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). There are 4 visible and 8 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>22</td><td>Smith Number</td></tr><tr><td>378</td><td>Smith Number</td></tr><tr><td>12</td><td>Not Smith Number</td></tr><tr><td>42</td><td>Not Smith Number</td></tr><tr><td>627</td><td>Smith Number</td></tr><tr><td>11</td><td>Not Smith Number</td></tr><tr><td>1499</td><td>Not Smith Number</td></tr><tr><td>1000</td><td>Not Smith Number</td></tr><tr><td>121</td><td>Smith Number</td></tr><tr><td>94</td><td>Smith Number</td></tr><tr><td>355</td><td>Smith Number</td></tr><tr><td>128</td><td>Not Smith Number</td></tr></table><hr><hr></body>
+</html>

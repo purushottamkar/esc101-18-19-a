@@ -1,0 +1,1067 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>LABEXAM-PRAC-02_ENDSEM</title>
+</head>
+<body>
+<h1>LABEXAM-PRAC-02_ENDSEM</h1><h2>Meanie Numbers (p1v1d1)</h2><hr><b>Meanie Numbers [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+We all know about arithmetic and geometric means. Given two non-negative numbers $a, b$, we define the arithmetic mean of the two numbers as $\text{AM}(a,b) = (a+b)/2$ and the geometric mean of the two numbers as $\text{GM}(a,b) = \sqrt{a\cdot b}$.<br />
+<br />
+The first line of the input will give you a strictly positive integer N followed by m, another strictly positive integer which tells you the size of a list of numbers given on the second line. The second line will give you m non-negative integers, in no particular order, with two numbers separated by a space.<br />
+<br />
+In the first line of the output, print "YES" (without quotes) any two numbers in the list we have given you, have N as their AM, else print "NO" (without quotes). In the next line of the output, print "YES" (without quotes) if any two numbers in the list we have given you, have N as their GM, else print "NO" (without quotes). In the third line of the output, print "YES" (without quotes) if N is both an AM as well as a GM of two numbers in the list else print "NO" (without quotes).<br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>Some of the numbers in the second line may be zero but they will never be negative. Numbers in the second line will not be given in any particular order. Numbers in the second line may repeat as well.<br />
+<li>Beware that the sum or product of two int variables may be too large to be stored in an int variable. The numbers we give you in the input will surely fit inside an int variable, but their sum or product or both may require a long variable to be stored. Use long variables carefully to avoid overflow errors.<br />
+<li>We will not compel you to use functions in this question.<br />
+</ol><br />
+<br />
+<b>General Grading Policy</b><br />
+<ol><br />
+<li><b>TOTAL MARKS OF THE EXAM</b> 20 + 40 + 40 + 70 = 170<br />
+<li><b>TOTAL DURATION OF THE EXAM</b> 3 hours 30 minutes<br />
+<li>See below for question-specific details of how partial marking would be done by the autograder in this question<br />
+<li>Your submissions will be inspected by the autograder as well as a human grader<br />
+<li>Human graders will (among other things) allot marks for the following<br />
+	<ol><br />
+	<li>Neatly structured code that uses at least one function other than the main function to process the input. The questions will usually suggest how to use functions to process the input. Submissions that ignore these suggestions and use only the main function to solve the entire problem, will lose a small fraction of marks.<br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the steps are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>You are allowed to use the libraries stdio.h, math.h, string.h, stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use any programming tools that we have discussed in lectures/tutorials or in lab questions such as arrays (1D, 2D, 3D, arrays of arrays etc), strings, loops, structures, functions, recursion, pointers, linked lists, stacks, queues, graphs, enumerations, flags, conditionals, global, static and shadowed variables.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+8 5<br />
+13 32 8 3 2<br />
+<br />
+OUTPUT:<br />
+YES<br />
+YES<br />
+YES<br />
+<br />
+<b>Explanation</b>: (13 + 3)/2 = 8 as well as sqrt(32 * 2) = 8<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+11 5<br />
+2 3 11 6 11<br />
+<br />
+OUTPUT:<br />
+YES<br />
+YES<br />
+YES<br />
+<br />
+<b>Explanation</b>: (11 + 11)/2 = 11 as well as sqrt(11 * 11) = 11 (note that 11 appears twice in the list of numbers<br />
+<br />
+<b>EXAMPLE 3</b>:<br />
+INPUT<br />
+13 2<br />
+13 14<br />
+<br />
+OUTPUT:<br />
+NO<br />
+NO<br />
+NO<br />
+<br />
+<b>Explanation</b>: (13 + 14)/2 = 13.5 which is not equal to 13. sqrt(13 * 14) = 13.49 which is not equal to 13<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are three lines in your output. The first two lines carry 25% weightage and the last line carries 50% weightage. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>8 5<br />
+13 32 8 3 2</td><td>YES<br />
+YES<br />
+YES</td></tr><tr><td>14 8<br />
+13 7 81 23 0 19 63 1</td><td>NO<br />
+NO<br />
+NO</td></tr><tr><td>19 10<br />
+1 2 3 4 5 6 7 8 9 19</td><td>NO<br />
+NO<br />
+NO</td></tr><tr><td>12 7<br />
+21 4 37 68 6 24 81</td><td>NO<br />
+YES<br />
+NO</td></tr><tr><td>5763 20<br />
+8081 6319 7386 6263 905 6 9950 8359 5649 1714 9427 2239 9337 3531 2958 8205 2099 2670 7128 3126</td><td>YES<br />
+NO<br />
+NO</td></tr><tr><td>6 5<br />
+12 6 3 7 36</td><td>NO<br />
+YES<br />
+NO</td></tr></table><hr><hr><h2>Rotate Then Rotate Code (p1v2d1)</h2><hr><b>Rotate Then Rotate Code [40 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C had written a few messages to his friends and kept them on the desk. But his mischievous clone came and jumbled up the messages. Help Mr C figure out the original message. In your input you will be given two strings containing only lower-case English alphabets (no spaces, punctuation marks). Each string will be given to you on a separate line so you can use the gets() function to read the two strings. We promise you that both strings will have 99 characters or less.<br />
+<br />
+Mr C suspects that the second string was obtained by taking the first string and performing two rotation operations on the first string. The operations are described below<br />
+<ol><br />
+<li>First, the English alphabet was rotated to the right by k letters (k is not known to you). For example if k = 2, a would become c, b would become d, y would become a, z would become b, and so on. The clone first used this rotated alphabet to rewrite the original string. For example, if the original string was abc and k = 2 then the string now becomes cde<br />
+<li>The new string is itself rotated to the right by l locations (l is not known to you). For example, if l = 2, the new string cde, rotated one location becomes ecd and rotated two locations becomes dec.<br />
+</ol><br />
+If the second string can be obtained from the first string by performing the above two rotations, you have to print in your output the word "YES" (without quotes) followed by a space followed by the value of k followed by a space followed by the value of l. If there is no way to obtain the second string from the first string using the rotations described above, print "NO" (without quotes) in your output.<br />
+<br />
+<b>Compulsory function usage in your code</b><br />
+In your code, you should write a function in the following format that takes in two strings and sets the variables  isSame, k and l (sent as references) to their appropriate values if the first string can be converted to the second string. Be warned that not using such a function to write your code will cause you to lose a small number of manual grading marks.<br />
+<br />
+void compare(char *str1, char* str2, int *k, int *l, int *isSame){<br />
+    // Write your code here<br />
+    // If str1 can be converted to str2, you can set *isSame = 1, else *isSame = 0<br />
+    // Similarly use k and l as well.<br />
+}<br />
+<br />
+char str1[100], str2[100];<br />
+int k, l, isSame;<br />
+compare(str1, str2, &k, &l, &isSame);<br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>The number k must be between 0 and 25 (since k = 26 is the same as k = 0). Similarly, the number l must be between 0 and len - 1 where len is the length of the first string since rotating the string by len locations gives the string back.<br />
+<li>Be careful that there is only one line in your output.<br />
+<li>Do not worry, we will never give you a test case where two or more possible values of k and l exist which convert the first string to the second string. There will either exist no rotations or else a single unique way of performing the two rotations so that the first string gets converted to the second string.<br />
+</ol><br />
+<br />
+<b>General Grading Policy</b><br />
+<ol><br />
+<li><b>TOTAL MARKS OF THE EXAM</b> 20 + 40 + 40 + 70 = 170<br />
+<li><b>TOTAL DURATION OF THE EXAM</b> 3 hours 30 minutes<br />
+<li>See below for question-specific details of how partial marking would be done by the autograder in this question<br />
+<li>Your submissions will be inspected by the autograder as well as a human grader<br />
+<li>Human graders will (among other things) allot marks for the following<br />
+	<ol><br />
+	<li>Neatly structured code that uses at least one function other than the main function to process the input. The questions will usually suggest how to use functions to process the input. Submissions that ignore these suggestions and use only the main function to solve the entire problem, will lose a small fraction of marks.<br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the steps are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>You are allowed to use the libraries stdio.h, math.h, string.h, stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use any programming tools that we have discussed in lectures/tutorials or in lab questions such as arrays (1D, 2D, 3D, arrays of arrays etc), strings, loops, structures, functions, recursion, pointers, linked lists, stacks, queues, graphs, enumerations, flags, conditionals, global, static and shadowed variables.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+abc<br />
+cdb<br />
+<br />
+OUTPUT:<br />
+YES 1 2<br />
+<br />
+<b>Explanation</b>: We first shift the alphabet by 1 position to the right i.e. a->b, b->c, c->d resulting in bcd. Then we rotate the string bcd two locations to the right to get cdb<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+abc<br />
+abc<br />
+<br />
+OUTPUT:<br />
+YES 0 0<br />
+<br />
+<b>Explanation</b>: No need to rotate the alphabet or else the string<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[40 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). There are 4 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>abc<br />
+cdb</td><td>YES 1 2</td></tr><tr><td>abcd<br />
+abcd</td><td>YES 0 0</td></tr><tr><td>ewghdfrrytdhawewgh<br />
+ammtoycvrzrbczrbcy</td><td>YES 21 13</td></tr><tr><td>fbjsgjnhngmnjnkgmnhdggchbhdb<br />
+vvrwqwsquqyhvycwcvbcyczvbcws</td><td>YES 15 8</td></tr><tr><td>abcdefgh<br />
+pqrtsuvw</td><td>NO</td></tr><tr><td>dkwhnmfsnnknknbfmnslmk<br />
+zgsdjibojjgjgjxbijohig</td><td>YES 22 0</td></tr><tr><td>ghiqwechgqtysedhyp<br />
+efntbzednqvpbaevmd</td><td>YES 23 17</td></tr><tr><td>abcdefgh<br />
+efghabcd</td><td>YES 0 4</td></tr></table><hr><hr><h2>The enigma that was Enigma (p1v3d1)</h2><hr><b>The enigma that was Enigma [ marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+At the height of World War II, in the early 1940s, British mathematicians, led by Dr. Alan Turing, developed a code breaker machine called Enigma at Bletchley Park. Enigma could easily catch and breakdown the messages being sent from and to the Axis powers. Mr C is inspired by this achievement and wants to do the same.<br />
+<br />
+The first line of the input will give you a strictly positive number n. The next line will give you n digits i.e 0, 1, 2, ..., 9 (no spaces). These digits actually stand for a secret message but there could be many such secret messages, as described below. Your job is to print all secret messages in lexicographic order, i.e. in the order these messages would appear in a dictionary.<br />
+<br />
+Suppose n = 4 and the 4 digits are 1234. Then we can try to interpret this message as a sequence of alphabets with a = 1, b = 2, c = 3, d = 4 and so on. Thus, one obvious interpretation of this message is as follows<br />
+[1] [2] [3] [4] => abcd<br />
+<br />
+However, there exist other interpretations as well such as<br />
+[1][23][4] => awd<br />
+and<br />
+[12][3][4] => lcd<br />
+<br />
+Note that [12][34] is not a valid interpretation since the English alphabet contains only 26 characters and there is no 34-th character. For the same reason, [123][4], [1][234], [1234] are also invalid. Now let us see what to do when there are zeros in the digits. Suppose n = 2 and the 2 digits are 10. Then one valid interpretation is<br />
+[10] => j<br />
+However, the interpretation [1][0] is not valid since there is no 0-th character in the English alphabet. Thus, the only interpretations that are valid are those in which each chunk corresponds to a number between 1 and 26 (both included).<br />
+<br />
+We assure you that the messages that will be generated will take no more than 99 characters. We assure you that n will be no more than 99 either.<br />
+<br />
+<b>Compulsory function usage in your code</b><br />
+This is a question that benefits from use of recursion. In your code, you should write a function in the following format. Be warned that not using such a function to write your code will cause you to lose a small number of manual grading marks.<br />
+<br />
+void decode(char *str, char *msg, int n, int done, int pos)<br />
+<br />
+<ol><br />
+<li>str: the string given to you as input<br />
+<li>msg: the partially interpreted string<br />
+<li>n: how many digits are there in str<br />
+<li>done: how many digits of str have we processed yet<br />
+<li>pos: which is the next position in the msg string where a character is to be inserted.<br />
+</ol><br />
+Function invocation: invoke the function as decode(str, msg, n, 0, 0); from the main function<br />
+Base case: the base case happens when we have  done  = n. In that case we can simply set msg[pos] = '\0' and print the string.<br />
+Recursive case: Think carefully about how you will ensure lexicographic order. Remember, you can either process the next digit in str (as indicated by done) as an English alphabet letter or you can process the next two digits in str (as indicated by done) as an English alphabet letter.<br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>We assure you that there will exist at least one interpretation. There may exist several as well in which case you have to output all of them in lexicographic order.<br />
+<li>We will not penalize you for extra newlines at the end of your output. However, do not have stray spaces anywhere in your output.<br />
+</ol><br />
+<br />
+<b>General Grading Policy</b><br />
+<ol><br />
+<li><b>TOTAL MARKS OF THE EXAM</b> 20 + 40 + 40 + 70 = 170<br />
+<li><b>TOTAL DURATION OF THE EXAM</b> 3 hours 30 minutes<br />
+<li>See below for question-specific details of how partial marking would be done by the autograder in this question<br />
+<li>Your submissions will be inspected by the autograder as well as a human grader<br />
+<li>Human graders will (among other things) allot marks for the following<br />
+	<ol><br />
+	<li>Neatly structured code that uses at least one function other than the main function to process the input. The questions will usually suggest how to use functions to process the input. Submissions that ignore these suggestions and use only the main function to solve the entire problem, will lose a small fraction of marks.<br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the steps are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>You are allowed to use the libraries stdio.h, math.h, string.h, stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use any programming tools that we have discussed in lectures/tutorials or in lab questions such as arrays (1D, 2D, 3D, arrays of arrays etc), strings, loops, structures, functions, recursion, pointers, linked lists, stacks, queues, graphs, enumerations, flags, conditionals, global, static and shadowed variables.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+4<br />
+1234<br />
+<br />
+OUTPUT:<br />
+abcd<br />
+awd<br />
+lcd<br />
+<br />
+<b>Explanation</b>: see above<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. There are 4 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>4<br />
+1234</td><td>abcd<br />
+awd<br />
+lcd<br />
+</td></tr><tr><td>2<br />
+10</td><td>j<br />
+</td></tr><tr><td>6<br />
+232323</td><td>bcbcbc<br />
+bcbcw<br />
+bcwbc<br />
+bcww<br />
+wbcbc<br />
+wbcw<br />
+wwbc<br />
+www<br />
+</td></tr><tr><td>9<br />
+123456789</td><td>abcdefghi<br />
+awdefghi<br />
+lcdefghi<br />
+</td></tr><tr><td>9<br />
+101020112</td><td>jjtaab<br />
+jjtal<br />
+jjtkb<br />
+</td></tr><tr><td>10<br />
+1234432123</td><td>abcddcbabc<br />
+abcddcbaw<br />
+abcddcblc<br />
+abcddcubc<br />
+abcddcuw<br />
+awddcbabc<br />
+awddcbaw<br />
+awddcblc<br />
+awddcubc<br />
+awddcuw<br />
+lcddcbabc<br />
+lcddcbaw<br />
+lcddcblc<br />
+lcddcubc<br />
+lcddcuw<br />
+</td></tr><tr><td>6<br />
+111111</td><td>aaaaaa<br />
+aaaak<br />
+aaaka<br />
+aakaa<br />
+aakk<br />
+akaaa<br />
+akak<br />
+akka<br />
+kaaaa<br />
+kaak<br />
+kaka<br />
+kkaa<br />
+kkk<br />
+</td></tr><tr><td>14<br />
+23242526313234</td><td>bcbdbebfcacbcd<br />
+bcbdbebfcacwd<br />
+bcbdbebfcmbcd<br />
+bcbdbebfcmwd<br />
+bcbdbezcacbcd<br />
+bcbdbezcacwd<br />
+bcbdbezcmbcd<br />
+bcbdbezcmwd<br />
+bcbdybfcacbcd<br />
+bcbdybfcacwd<br />
+bcbdybfcmbcd<br />
+bcbdybfcmwd<br />
+bcbdyzcacbcd<br />
+bcbdyzcacwd<br />
+bcbdyzcmbcd<br />
+bcbdyzcmwd<br />
+bcxbebfcacbcd<br />
+bcxbebfcacwd<br />
+bcxbebfcmbcd<br />
+bcxbebfcmwd<br />
+bcxbezcacbcd<br />
+bcxbezcacwd<br />
+bcxbezcmbcd<br />
+bcxbezcmwd<br />
+bcxybfcacbcd<br />
+bcxybfcacwd<br />
+bcxybfcmbcd<br />
+bcxybfcmwd<br />
+bcxyzcacbcd<br />
+bcxyzcacwd<br />
+bcxyzcmbcd<br />
+bcxyzcmwd<br />
+wbdbebfcacbcd<br />
+wbdbebfcacwd<br />
+wbdbebfcmbcd<br />
+wbdbebfcmwd<br />
+wbdbezcacbcd<br />
+wbdbezcacwd<br />
+wbdbezcmbcd<br />
+wbdbezcmwd<br />
+wbdybfcacbcd<br />
+wbdybfcacwd<br />
+wbdybfcmbcd<br />
+wbdybfcmwd<br />
+wbdyzcacbcd<br />
+wbdyzcacwd<br />
+wbdyzcmbcd<br />
+wbdyzcmwd<br />
+wxbebfcacbcd<br />
+wxbebfcacwd<br />
+wxbebfcmbcd<br />
+wxbebfcmwd<br />
+wxbezcacbcd<br />
+wxbezcacwd<br />
+wxbezcmbcd<br />
+wxbezcmwd<br />
+wxybfcacbcd<br />
+wxybfcacwd<br />
+wxybfcmbcd<br />
+wxybfcmwd<br />
+wxyzcacbcd<br />
+wxyzcacwd<br />
+wxyzcmbcd<br />
+wxyzcmwd<br />
+</td></tr></table><hr><hr><h2>Save the Date (p2v1d1)</h2><hr><b>Save the Date [20 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C wanted to go for a skiing trip with one of his clones. However, he got impatient and kept asking the clone on what date would they go for the trip. again and again at which he clone got irritated and gave Mr C the answer but in a funny way. The clone said "We will go on the trip on the k-th day of year y". The input will give you 2 strictly positive integers k and y, on two different lines.<br />
+<br />
+In the output your have to print the day 1, 2, 3, ... 30, 31 on the first line, the month, 1, 2, 3, ..., 12 on the second line, and the final date in the dd.mm.yyyy format on the third line. Be careful that when you are printing the first two lines, you just have to print the numbers as numbers i.e. 5 is printed as 5. However, while printing the third line, the format must be followed i.e. 5 must be printed as 05 it is a day or a month and it must be printed as 0005 if it is a year. Also notice that there is a dot between day and month and another dot between month and year. There are no spaces.<br />
+<br />
+You will have to take care of leap years while finding the date. Remember that a leap year is any year which is a multiple of 4 and is not a multiple of 100 or which is a multiple of 400. So, 2004 and 2000 are leap years, while 2100 is not a leap year. Also remember that Jan, Mar, May, Jul, Aug, Oct, Dec have 31 days in all years, April, June, September, November have 30 days in all years. February has 28 days in regular years and 29 days in leap years.<br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>Take very good care of following the format carefully when printing the third line of the output.<br />
+<li>We will never give you an illegal date for example k = 367 (since a year has at most 366 days)<br />
+<li>We will not compel you to use functions in this question.<br />
+</ol><br />
+<br />
+<b>General Grading Policy</b><br />
+<ol><br />
+<li><b>TOTAL MARKS OF THE EXAM</b> 20 + 40 + 40 + 70 = 170<br />
+<li><b>TOTAL DURATION OF THE EXAM</b> 3 hours 30 minutes<br />
+<li>See below for question-specific details of how partial marking would be done by the autograder in this question<br />
+<li>Your submissions will be inspected by the autograder as well as a human grader<br />
+<li>Human graders will (among other things) allot marks for the following<br />
+	<ol><br />
+	<li>Neatly structured code that uses at least one function other than the main function to process the input. The questions will usually suggest how to use functions to process the input. Submissions that ignore these suggestions and use only the main function to solve the entire problem, will lose a small fraction of marks.<br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the steps are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>You are allowed to use the libraries stdio.h, math.h, string.h, stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use any programming tools that we have discussed in lectures/tutorials or in lab questions such as arrays (1D, 2D, 3D, arrays of arrays etc), strings, loops, structures, functions, recursion, pointers, linked lists, stacks, queues, graphs, enumerations, flags, conditionals, global, static and shadowed variables.<br />
+</ol><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+2018<br />
+64<br />
+<br />
+OUTPUT:<br />
+5<br />
+3<br />
+05.03.2018<br />
+<br />
+<b>Explanation</b>: Since 2018 is not a leap year, there are only 28 days in February. Since there are 31 days in January, the 64th day is the 5st of March, written as “05.03.2018” (without quotes).<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[20 Points]</b><br />
+<br />
+There will be partial grading in this question. There are three lines in your output. The first two lines carry 25% weightage and the last line carries 50% weightage. There are 2 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>2020<br />
+64</td><td>4<br />
+3<br />
+04.03.2020</td></tr><tr><td>800<br />
+270</td><td>26<br />
+9<br />
+26.09.0800</td></tr><tr><td>2014<br />
+33</td><td>2<br />
+2<br />
+02.02.2014</td></tr><tr><td>2016<br />
+310</td><td>5<br />
+11<br />
+05.11.2016</td></tr><tr><td>2100<br />
+340</td><td>6<br />
+12<br />
+06.12.2100</td></tr><tr><td>2016<br />
+305</td><td>31<br />
+10<br />
+31.10.2016</td></tr></table><hr><hr><h2>Pretty Patterns (p2v2d1)</h2><hr><b>Pretty Patterns [40 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C wanted to generate pretty patterns according to some rules. He asked one of his clones to generate a pattern. However, that clone frequently makes mistakes. Help Mr C verify if the clone generated a pattern according to the rules or not.<br />
+<br />
+The first line of the input will be a string that will only contain the following characters: upper and lower case English characters i.e a-z and A-Z, digits 1-9, the plus symbol + and the multiplication symbol *. Let us call it the rule string. The second line of the input will be another string which will only contain upper and lower case English characters i.e a-z and A-Z. Let us call it the pattern string. You have to find out whether the pattern string follows the rules given in the rule string or not. If it follows the rules, print "YES" (without quotes) else print "NO" (without quotes). The rule and pattern strings will contain no more than 99 characters.<br />
+<br />
+The rule string will always give you an alphabet character (either upper or lower case) followed by either a single digit, or else the symbols + or *. Let us call this pair a token. The pattern string will basically be a sequence of such tokens. For example a4c+a* has 3 tokens [a4][c+][a*]. The above pattern is interpreted as follows<br />
+<ol><br />
+<li>The token [a4] means that the character 'a' (without quotes) should appear exactly 4 times<br />
+<li>The token [c+] means that the character 'c' (without quotes) should appear one or more times<br />
+<li>The token [a*] means that the character 'a' (without quotes) should appear zero or more times<br />
+</ol><br />
+Thus, the second character of the token tells us how many times the first character must repeat. This is why we call the second character a repetition character. Thus, the above rule is interpreted as a command "a should appear exactly 4 times followed by one or more appearances of c followed by zero or more appearances of a". Suppose the pattern string is "aaaac" (without quotes). Then it is clear that this message follows the command as it has four 'a' followed by one 'c' (the third token asks for zero or more 'a' after the 'c's are over and this string has 0 'a's after the 'c's are over which is fine). However, the string "aacccaa" does not follow the rule since it starts off with 2 'a' whereas the rule demands that the pattern start with four 'a'. Some other patterns that satisfy the rule are "aaaacccaaaa" and "aaaacccc". Some other patterns that violate the rule are "aaaa" (there is no c but there should be at one or more c after the 4 a), "aaaaa" (missing c), "Aaaaca" (case error) and "abaaca" (the rule does not allow b to appear anywhere in the string).<br />
+<br />
+We promise you that we will never give you a rule string where two consecutive tokens have the same first character. For example, we will never give you the rule string a2a+b5c* since a appears in two consecutive tokens.<br />
+<br />
+<b>Compulsory function usage in your code</b><br />
+In your code, you should write a function in the following format that takes two strings, the rule string and the pattern string and returns 1 if the pattern string does follow the rules given in the rule string and 0 otherwise. Be warned that not using such a function to write your code will cause you to lose a small number of manual grading marks.<br />
+<br />
+int checkRule(char *rule, char* pattern){<br />
+    // Write your code here<br />
+    // If pattern follows the rule, return 1 else return 0<br />
+}<br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>If the repetition character will never be '0'.<br />
+<li>There is only one line in your output.<br />
+<li>Consecutive tokens in the rule string will have different first characters but they may have the same repetition character. Moreover, two or more tokens in the rule string may have the same first character, just that two consecutive tokens will never have the same first character. This means that a5b+a* is a valid rule string that can be given to you.<br />
+</ol><br />
+<br />
+<b>General Grading Policy</b><br />
+<ol><br />
+<li><b>TOTAL MARKS OF THE EXAM</b> 20 + 40 + 40 + 70 = 170<br />
+<li><b>TOTAL DURATION OF THE EXAM</b> 3 hours 30 minutes<br />
+<li>See below for question-specific details of how partial marking would be done by the autograder in this question<br />
+<li>Your submissions will be inspected by the autograder as well as a human grader<br />
+<li>Human graders will (among other things) allot marks for the following<br />
+	<ol><br />
+	<li>Neatly structured code that uses at least one function other than the main function to process the input. The questions will usually suggest how to use functions to process the input. Submissions that ignore these suggestions and use only the main function to solve the entire problem, will lose a small fraction of marks.<br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the steps are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>You are allowed to use the libraries stdio.h, math.h, string.h, stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use any programming tools that we have discussed in lectures/tutorials or in lab questions such as arrays (1D, 2D, 3D, arrays of arrays etc), strings, loops, structures, functions, recursion, pointers, linked lists, stacks, queues, graphs, enumerations, flags, conditionals, global, static and shadowed variables.<br />
+</ol><br />
+<br />
+---------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+a4c+a*<br />
+aaaac<br />
+<br />
+OUTPUT:<br />
+YES<br />
+<br />
+<b>Explanation</b>: see example above<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[40 Points]</b><br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). There are 4 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>a4c+a*<br />
+aaaac</td><td>YES</td></tr><tr><td>A*b*C*<br />
+A</td><td>YES</td></tr><tr><td>a9B*C+c*b+z8<br />
+aaaaaaaaaBBCb</td><td>NO</td></tr><tr><td>a+B1C1<br />
+ABC</td><td>NO</td></tr><tr><td>A+B+C+D+b*c*d*<br />
+ABCD</td><td>YES</td></tr><tr><td>a*A+B+C+D+b*c*d*p1z1<br />
+ABCDbbbbbbbbcccddddppppppppppppzzzzzzzzzzzz</td><td>NO</td></tr><tr><td>a*b*c*s*p6z9A+B+z0<br />
+sssssssppppppzzzzzzzzzAB</td><td>YES</td></tr><tr><td>A+B1C1D5<br />
+AAACDDDDD</td><td>NO</td></tr></table><hr><hr><h2>Trivial Tic-Tac-Toe (p2v3d1)</h2><hr><b>Trivial Tic-Tac-Toe [40 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+Mr C was playing tic-tac-toe with his clone. Mr C was playing X and the clone was playing O. However, their game got interrupted since a student asked Mr C to compile a student's program. We will give you the incomplete tic-tac-toe board as input. In your output, you have to generate all possible ways Mr C, i.e. the X player, can win this game if the two of them resume playing.<br />
+<br />
+Recall that the tic-tac-toe board is a 3 x 3 board with 9 cells<br />
+   |   | <br />
+-----------<br />
+   |   | <br />
+-----------<br />
+   |   | <br />
+We will be playing a slightly simplified version of the tic-tac-toe game in this question for your convenience. In our version, X starts playing in the first round and places an X in some blank cell. Then O places an O in some blank cell. This continues till all the cells are filled in. Given the filled board, if any row is completely filled with X, then X is declared a winner.<br />
+<br />
+Beware that this is not the standard tic-tac-toe game. In the standard game, X wins even if any column is completely filled with X or any diagonal is completely filled with X. A standard game also does not wait for the board to be completely filled in. In a standard game, the moment X is winning, the game ends even if there are blank cells left. However, in this question we are going to use a much simpler version of the game where only row fills allow Mr C i.e. X, to win.<br />
+<br />
+Your output should print every winning board for Mr C on a separate line. A board is printed by first printing the first row then the second row then the third row. Each row is printed from left to right. There are no spaces while printing each board. For example, the board (which is not winning for Mr C)<br />
+ X | O | X<br />
+-----------<br />
+ X | X | O<br />
+-----------<br />
+ O | X | X<br />
+will be printed as "XOXXXOOXX" (without quotes). Print the winning combinations in lexicographic order i.e. in the order in which these strings would appear in a dictionary (note that O comes before X in the alphabet).<br />
+<br />
+Your input will be given to you as a sequence of 9 characters on the same line (no spaces), indicating the board position at the beginning. An X and O will indicate that those letters have been placed. A B will indicate a blank cell. So<br />
+XOBBBBBBB will indicate the starting position.<br />
+ X | O | <br />
+-----------<br />
+   |   | <br />
+-----------<br />
+   |   | <br />
+<br />
+<b>Compulsory function usage in your code</b><br />
+This is a question that benefits from use of recursion. In your code, you should write a function in the following format. Be warned that not using such a function to write your code will cause you to lose a small number of manual grading marks.<br />
+<br />
+void genWinX(char *board, int *blanks, int b, int done)<br />
+<ol><br />
+<li>board: the partially filled in board (may still have some blanks left in)<br />
+<li>blanks: an array with the locations of the cells that were originally blank<br />
+<li>b how many cells are blank<br />
+<li>done: blank cells have been filled<br />
+</ol><br />
+Function invocation: invoke the function as genWinX(board, blanks, b, 0); from the main function<br />
+Base case: the base case happens when we have  done  = b. In that case we can simply print the board<br />
+Recursive case: Think carefully about how you will ensure lexicographic order. Remember, you can either put an O or an X in the next blank position.<br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>Notice that when the board is full, there will always be 5 X and 4 O on the board. This is because X always starts the game. Also remember that Mr C is playing X.<br />
+<li>You cannot modify the positions of the board that are already filled in the input. You can only fill in positions that are marked as blank using a B in the input.<br />
+<li>We assure you that there will be at least one valid winning combination for X given our starting point. However, there may be several. You have to output all of them in lexicographic order.<br />
+<li>We assure you that the starting point of the board will itself be a valid position of the game. For instance, we will never give you the board as XXXBBBBBBBBB since this would mean that the first 3 rounds were taken by X which is not allowed. X and O alternate in the rounds and X starts off.<br />
+<li>We will not penalize you for extra newlines at the end of your output. However, do not have stray spaces anywhere in your output.<br />
+</ol><br />
+<br />
+<b>General Grading Policy</b><br />
+<ol><br />
+<li><b>TOTAL MARKS OF THE EXAM</b> 20 + 40 + 40 + 70 = 170<br />
+<li><b>TOTAL DURATION OF THE EXAM</b> 3 hours 30 minutes<br />
+<li>See below for question-specific details of how partial marking would be done by the autograder in this question<br />
+<li>Your submissions will be inspected by the autograder as well as a human grader<br />
+<li>Human graders will (among other things) allot marks for the following<br />
+	<ol><br />
+	<li>Neatly structured code that uses at least one function other than the main function to process the input. The questions will usually suggest how to use functions to process the input. Submissions that ignore these suggestions and use only the main function to solve the entire problem, will lose a small fraction of marks.<br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the steps are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>You are allowed to use the libraries stdio.h, math.h, string.h, stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use any programming tools that we have discussed in lectures/tutorials or in lab questions such as arrays (1D, 2D, 3D, arrays of arrays etc), strings, loops, structures, functions, recursion, pointers, linked lists, stacks, queues, graphs, enumerations, flags, conditionals, global, static and shadowed variables.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+XXXOOBBBB<br />
+<br />
+OUTPUT:<br />
+XXXOOOOXX<br />
+XXXOOOXOX<br />
+XXXOOOXXO<br />
+XXXOOXOOX<br />
+XXXOOXOXO<br />
+XXXOOXXOO<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[40 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. There are 4 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>XXXXBOOOO</td><td>XXXXXOOOO<br />
+</td></tr><tr><td>XXXOOBBBB</td><td>XXXOOOOXX<br />
+XXXOOOXOX<br />
+XXXOOOXXO<br />
+XXXOOXOOX<br />
+XXXOOXOXO<br />
+XXXOOXXOO<br />
+</td></tr><tr><td>XOXOBBBBB</td><td>XOXOOOXXX<br />
+</td></tr><tr><td>XOXBBBBBB</td><td>XOXOOOXXX<br />
+XOXXXXOOO<br />
+</td></tr><tr><td>BBBBBBXOX</td><td>OOOXXXXOX<br />
+XXXOOOXOX<br />
+</td></tr><tr><td>BBBBBBBBB</td><td>OOOOXXXXX<br />
+OOOXOXXXX<br />
+OOOXXOXXX<br />
+OOOXXXOXX<br />
+OOOXXXXOX<br />
+OOOXXXXXO<br />
+OOXOOXXXX<br />
+OOXOXOXXX<br />
+OOXXOOXXX<br />
+OOXXXXOOX<br />
+OOXXXXOXO<br />
+OOXXXXXOO<br />
+OXOOOXXXX<br />
+OXOOXOXXX<br />
+OXOXOOXXX<br />
+OXOXXXOOX<br />
+OXOXXXOXO<br />
+OXOXXXXOO<br />
+OXXOOOXXX<br />
+OXXXXXOOO<br />
+XOOOOXXXX<br />
+XOOOXOXXX<br />
+XOOXOOXXX<br />
+XOOXXXOOX<br />
+XOOXXXOXO<br />
+XOOXXXXOO<br />
+XOXOOOXXX<br />
+XOXXXXOOO<br />
+XXOOOOXXX<br />
+XXOXXXOOO<br />
+XXXOOOOXX<br />
+XXXOOOXOX<br />
+XXXOOOXXO<br />
+XXXOOXOOX<br />
+XXXOOXOXO<br />
+XXXOOXXOO<br />
+XXXOXOOOX<br />
+XXXOXOOXO<br />
+XXXOXOXOO<br />
+XXXOXXOOO<br />
+XXXXOOOOX<br />
+XXXXOOOXO<br />
+XXXXOOXOO<br />
+XXXXOXOOO<br />
+XXXXXOOOO<br />
+</td></tr><tr><td>XOOXBBXBB</td><td>XOOXOOXXX<br />
+XOOXXXXOO<br />
+</td></tr><tr><td>OXXOBBBBB</td><td>OXXOOOXXX<br />
+</td></tr></table><hr><hr><h2>How Mr C reads your code (p1v4d1)</h2><hr><b>How Mr C reads your code [70 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+When you write code in the C language, the compiler has to make sense of what you have written, for example, what are the variables in your program, are they integer or character variables, what are the functions in your program, where are the brackets in your program, etc. To do so Mr C does a lot of pattern matching using what are called regular expressions. Regular expressions are basically patterns and correct C programs always obey those patterns.<br />
+<br />
+The first line of the input will be a string that will only contain the following characters: upper and lower case English characters i.e a-z and A-Z, digits 0-9, the plus symbol + and the multiplication symbol *. Let us call it the pattern string. The second line of the input will be another string which will only contain upper and lower case English characters i.e a-z and A-Z. Let us call it the message string. You have to find out whether the message string follows the pattern given in the pattern string or not. The pattern and message strings will contain no more than 99 characters.<br />
+<br />
+The pattern string will always give you an alphabet character (either upper or lower case) followed by either a single digit, or else the symbols + or *. Let us call this pair a token. The pattern string will basically be a sequence of such tokens. For example a4c+a* has 3 tokens [a4][c+][a*]. Read the string from the input and store and create an array of variables of type Token (see structure definition below). The above pattern is interpreted as follows<br />
+<ol><br />
+<li>The token [a4] means that the character 'a' (without quotes) should appear exactly 4 times<br />
+<li>The token [c+] means that the character 'c' (without quotes) should appear one or more times<br />
+<li>The token [a*] means that the character 'a' (without quotes) should appear zero or more times<br />
+</ol><br />
+Thus, the second character of the token tells us how many times the first character must repeat. This is why we call the second character a repetition character. Thus, the above pattern is interpreted as a command "a should appear exactly 4 times followed by one or more appearances of c followed by zero or more appearances of a". Suppose the message string is "aaaac" (without quotes). Then it is clear that this message follows the command as it has four  'a' followed by one 'c' (the third token asks for zero or more 'a' after the 'c's are over and this string has 0 'a's after the 'c's are over which is fine). However, the string "aacccaa" does not follow the pattern since it starts off with 2 'a' whereas the pattern demands that the string start with four 'a'.<br />
+<br />
+Some other strings that satisfy the pattern are "aaaacccaaaa" and "aaaacccc". Some other strings that violate the pattern are "aaaa" (there is no c but there should be at one or more c after the 4 a), "aaaaa" (missing c), "Aaaaca" (case error) and "abaaca" (the pattern does not allow b to appear anywhere in the string).<br />
+<br />
+Now, we might also give you patterns of the following kind "a*a4a+b+" where two consecutive tokens in the pattern have the same character. You should not try to match the message string with such patterns because it will be very hard to do so (since it is hard to figure out which ‘a’  in the message string corresponds to which token in the pattern string). For such cases, you must first "reduce" the pattern string to an equivalent pattern string - we will call this new pattern string the reduced pattern string). The reduced pattern string has two properties<br />
+<ol><br />
+<li>The reduced pattern string cannot have '0' or '+' as a repetition character for any token.<br />
+<li>In a reduced pattern string, if two consecutive tokens have the same first character, then the first token must have repetition character as a digit and the second token must have the repetition character as *. For example a6a* is a reduced pattern that demands 6 or more a but a5a+, a4a2a*, a+a* are not reduced strings. However a+ is also not a reduced string since it contains the repetition character +<br />
+<li>If a message obey the pattern string it must obey the reduced pattern string and vice versa.<br />
+</ol><br />
+To find the reduced pattern string, let us see what command does the original pattern string give. The pattern "a*a4a+b+" commands that "there should be zero or more 'a' followed by exactly 4 'a' followed by one or more 'a' followed by one or more 'b'". However, it is easy to see that this command is the same as "there should be 5 or more 'a' followed by one or more 'b'" which corresponds to the pattern "a5a*b+".<br />
+<br />
+Some other examples of pattern reductions are given below<br />
+<br />
+a+ => a1a* (both demand 1 or more a)<br />
+a+a5 => a6a* (both demand 6 or more a)<br />
+a+a+ => a2a* (both demand 2 or more a)<br />
+a+a* => a1a* (both demand one or more a)<br />
+<br />
+a5a4 => a9 (both demand 9 a)<br />
+a5a+ => a6a* (both demand 6 or more a)<br />
+a5a* => a5a* (already in reduced form)<br />
+<br />
+a*a5 => a5a* (ordering of consecutive tokens with the same first character as per rule above)<br />
+a*a+ => a1a* (both demand one or more a)<br />
+a*a* => a* (both demand zero or more a)<br />
+<br />
+p4p2q1 => p6q1 (both patterns demand 6 'p' followed by a q)<br />
+h4h+ => h5h* (both patterns demand 5 or more 'h')<br />
+a4a2a* = > a6a* (both demand 6 or more a)<br />
+A1A*A5A+s5 => A7A*s5 (1 A then zero or more A then 5 A then one or more A then 5 s is the same as demanding 7 or more A then 5 s)<br />
+<br />
+In your output you have to first print the reduced pattern string in the first line (if the given pattern is already in reduced form, simply print the original pattern string once more). Then in the second line you have to print "YES" (without quotes) if the message string given to you obeys the pattern string or not (due to the properties of the reduced pattern strings described above, the message string will either obey, both the original pattern string and the reduced pattern string or it will obey neither.<br />
+<br />
+<b>Compulsory structure usage in your code</b><br />
+In your code, you should use variables of type Token where the structure is defined below:<br />
+struct Token{<br />
+    char c;<br />
+    char repetition;<br />
+};<br />
+Create an array of Token variables to represent the given and reduced pattern strings.<br />
+int n;<br />
+struct Token arr[n];<br />
+Be warned that not using such a structure to write your code will cause you to lose a small number of manual grading marks.<br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>Although the pattern string we give you may have tokens where the repetition character is '0', your reduced pattern must never contain a token with a repetition character '0'.<br />
+<li>We assure you that we will never give you a case where the reduced pattern string looks like a11b5c* since here, the repetition count is 11 which cannot be stored in a single character. The reduced patterns in our test cases will always require only single digits as the repetition characters.<br />
+<li>We will not insist that you write separate functions, other than main, to solve this problem. However, solutions that do write functions to, for example, reduce the pattern to its lowest form, will get more marks.<br />
+<li>Reduce the pattern to its absolute lowest form. Partially reducing the pattern will not receive any marks form the autograder.<br />
+</ol><br />
+<br />
+<b>General Grading Policy</b><br />
+<ol><br />
+<li><b>TOTAL MARKS OF THE EXAM</b> 20 + 40 + 40 + 70 = 170<br />
+<li><b>TOTAL DURATION OF THE EXAM</b> 3 hours 30 minutes<br />
+<li>See below for question-specific details of how partial marking would be done by the autograder in this question<br />
+<li>Your submissions will be inspected by the autograder as well as a human grader<br />
+<li>Human graders will (among other things) allot marks for the following<br />
+	<ol><br />
+	<li>Neatly structured code that uses at least one function other than the main function to process the input. The questions will usually suggest how to use functions to process the input. Submissions that ignore these suggestions and use only the main function to solve the entire problem, will lose a small fraction of marks.<br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the steps are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>You are allowed to use the libraries stdio.h, math.h, string.h, stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use any programming tools that we have discussed in lectures/tutorials or in lab questions such as arrays (1D, 2D, 3D, arrays of arrays etc), strings, loops, structures, functions, recursion, pointers, linked lists, stacks, queues, graphs, enumerations, flags, conditionals, global, static and shadowed variables.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE</b>:<br />
+INPUT<br />
+a4c+a*<br />
+aaaac<br />
+<br />
+OUTPUT:<br />
+a4c1c*a*<br />
+YES<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[70 Points]</b><br />
+<br />
+There will be partial grading in this question. There are two lines in your output. Printing each line correctly, in the correct order, carries 50% weightage. There are 4 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>a4c+a*<br />
+aaaac</td><td>a4c1c*a*<br />
+YES</td></tr><tr><td>b*c*a*<br />
+bcab</td><td>b*c*a*<br />
+NO</td></tr><tr><td>a+a*a3c2a*a*a*<br />
+aaaacc</td><td>a4a*c2a*<br />
+YES</td></tr><tr><td>a1a2a+b1b2b+c1c2c+<br />
+AAAABBBBCCCC</td><td>a4a*b4b*c4c*<br />
+NO</td></tr><tr><td>a8a*a+B*C+c*b+z8<br />
+aaaaaaaaaBBCb</td><td>a9a*B*C1C*c*b1b*z8<br />
+NO</td></tr><tr><td>A+A*A*A*B0B0B1B*C+D+b*c*d*<br />
+ABCD</td><td>A1A*B1B*C1C*D1D*b*c*d*<br />
+YES</td></tr><tr><td>a*A+B+C+D+b*c*d*p1z1<br />
+ABCDbbbbbbbbcccddddppppppppppppzzzzzzzzzzzz</td><td>a*A1A*B1B*C1C*D1D*b*c*d*p1z1<br />
+NO</td></tr><tr><td>a*b*c*s*p6z9A+B+z0<br />
+sssssssppppppzzzzzzzzzAB</td><td>a*b*c*s*p6z9A1A*B1B*<br />
+YES</td></tr></table><hr><hr><h2>Malloc Mystery (p2v4d1)</h2><hr><b>Malloc Mystery [70 marks]</b><br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Problem Statement</b><br />
+We have in this course, seen several applications of dynamic memory allocation using malloc and free (and we will see several more in the weeks to come as well). These give us the ability to return arrays from function, dynamically change the size of the array as per our need, and in general, make our life extremely simple. However, we should pause to think how hard Mr C has to work behind the scenes to make all of this work. In this problem, we will see a very very toy example to gain this appreciation.<br />
+<br />
+This question will require us to simulate malloc and free calls on a toy system with only 1000 bytes of memory. As I mentioned in the 03 November lecture, not so long ago, this was actually how much memory that was available on computers. Create an integer array called MEM of length 1000. This array will act as our memory bytes. If we set MEM[i] = 0 then it will indicate that the i-th byte is not allocated to any variable. If we set MEM[i] = 1, it will mean that some variable has already been allocated this memory location. Recall that i can take valid values between 0 and 999.<br />
+<br />
+The first line of the input will give you N, the number of malloc or free commands that we will give you in the next N lines. Each command will be in one of the following two forms<br />
+<ol><br />
+<li>malloc <identifier> <block_size><br />
+<li>free <identifier><br />
+</ol><br />
+identifier will always be a single character (indicating the variable name being referred to) and block size will always be a strictly positive integer. <br />
+<br />
+<b>How to handle malloc commands</b><br />
+If the command is a malloc command, you have to allocate allocate a memory block from the MEM array. For example, if the command is malloc p 20, the name and size of this block will be p and 20 respectively. Store these blocks using variables of a structure Block (defined below). Please note the following details about this operation<br />
+<ol><br />
+<li>malloc requires contiguous chunks of memory to be free to perform allocation. Thus, if 20 bytes are requested, malloc can work only if 20 consecutive locations in the MEM array are unassigned (i.e. are set to 0).<br />
+<li>If a block of required length is free, set those memory locations in MEM as occupied (by setting them to 1) and use a Block variable to store the starting and ending indices of this block, and the name of this block (i.e. the identifier name)<br />
+<li>If multiple possible consecutive 20 locations exist that are free, choose the one with the least starting index.<br />
+<li>If a memory block is already allocated with name <identifier> (in the current example the identifier is p), print "MEMORY LEAK" in the output. Do not free the old block. Allocate a new block if possible, using the above method and associate it with the name <identifier>. The new size of M will be <block_size> (in the current example, block size is 20)<br />
+<li>If you are able to allocate memory this way, print "SUCCESS" (without quotes) in the output, corresponding to this command.<br />
+<li>If no block of this length is available, print "FAILURE" (without quotes) in the output corresponding to this command.<br />
+<li>Please note that if there is no more memory available, there cannot be a memory leak scenario since no new memory can be allocated at all. For this reason, if you get a memory leak scenario where allocation is simply not possible, do not print "MEMORY LEAK". Just print "FAILURE". Otherwise, print "MEMORY LEAK" followed by "SUCCESS" since even in the event of memory leak, you still have to try and allocate the requested number of bytes (as Mr C also does in real life).<br />
+</ol><br />
+<br />
+<b>How to handle free commands</b><br />
+If the command is a free command, you have to free any memory block associated with the identifier in the command. For example if the command is free q, you have to free any memory block associated with the identifier q. Please note the following points regarding this operation<br />
+<ol><br />
+</ol>A free operation will be a success if there is a memory block associated with the name <identifier> (in our example, the identifier is q). Print "SUCCESS" (without quotes) in the output corresponding to this command and also set all memory locations in the MEM array corresponding to this block to 0 indicating that they are free now.<br />
+B) A free operation will be a failure if there is no memory block associated with the name <identifier> (in our example, the identifier is q). Beware that this may happen if q was earlier associated with a block but was freed earlier too so that now q is no longer associated with any block.<br />
+</ol><br />
+<br />
+After handling all the commands, print the total amount of memory in use in the last line of the output.<br />
+<br />
+<b>Compulsory structure usage in your code</b><br />
+In your code, you should use variables of type Block where the structure is defined below:<br />
+struct Block{<br />
+    char name;        // Name of the memory block<br />
+    int start;        // Starting index of the memory block.<br />
+    int end;        // Ending index of the memory block.<br />
+    int valid;        // If this block is valid. (Becomes invalid once it is freed.)<br />
+};<br />
+Create an array of Block variables to represent the blocks you have allocated so far and the ones that have been freed so far.<br />
+int n;<br />
+struct Block blocks[n];<br />
+Be warned that not using such a structure to write your code will cause you to lose a small number of manual grading marks.<br />
+<br />
+<b>Problem-specific Words of Caution</b>: <br />
+<ol><br />
+<li><b>Do not forget to submit your code</b>. You can submit multiple times. Your last submission will get graded.<br />
+<li>Note that you have to print some message (FAILURE, SUCCESS, MEMORY LEAK) corresponding to every command we give you. The only exception are cases of malloc where memory leaks happen but allocation is still possible. In those cases, you have to print two lines on the output - one indicating the memory leak case and the other indicating that the requested malloc operation was a success. In case the requested malloc operation was a failure, do not print the warning for memory leak.<br />
+<li> In addition to the above, in the last line of the output, print the total amount of memory in use after processing all the commands<br />
+<li>We will not insist that you write separate functions, other than main, to solve this problem. However, solutions that do write functions to, for example, perform the malloc operation or the free operation, will get more marks.<br />
+<li>We will not penalize you for extra newlines at the end of your output. However, do not have stray spaces anywhere in your output.<br />
+</ol><br />
+<br />
+<b>General Grading Policy</b><br />
+<ol><br />
+<li><b>TOTAL MARKS OF THE EXAM</b> 20 + 40 + 40 + 70 = 170<br />
+<li><b>TOTAL DURATION OF THE EXAM</b> 3 hours 30 minutes<br />
+<li>See below for question-specific details of how partial marking would be done by the autograder in this question<br />
+<li>Your submissions will be inspected by the autograder as well as a human grader<br />
+<li>Human graders will (among other things) allot marks for the following<br />
+	<ol><br />
+	<li>Neatly structured code that uses at least one function other than the main function to process the input. The questions will usually suggest how to use functions to process the input. Submissions that ignore these suggestions and use only the main function to solve the entire problem, will lose a small fraction of marks.<br />
+	<li>Proper and meaningful variable names<br />
+	<li>Nice looking and consistent indentation<br />
+	<li>At least a couple of comments explaining to the human grader what are you doing, especially when the steps are not obvious<br />
+	<li>Comments, good indentation and meaningful variable names are very important for the human grader to understand what are you doing and why. If they cannot understand your code, do not expect them to give you (partial) marks either.<br />
+	</ol><br />
+<li>Solutions that indulge in hard-coding <b>will get a straight zero</b> even if they are passing some test cases. Hard-coding is a form of cheating strategy where someone write code of the form "if(input == A ) printf( B )" without doing any calculations on A to obtain B. The values of A and B are either read from the evaluation/submission window or else guessed.<br />
+<li>Be careful about extra/missing lines and extra/missing spaces if you do not want to lose autograder marks<br />
+<li>Proportion of marks allotted to autograder (in particular, weightage to visible and hidden test cases) and human grader will be revealed when marks and grading rubrics are released<br />
+<li>You are allowed to use the libraries stdio.h, math.h, string.h, stdlib.h <b>but not any other library</b>. Use of unpermitted libraries will carry a penalty. You may use any programming tools that we have discussed in lectures/tutorials or in lab questions such as arrays (1D, 2D, 3D, arrays of arrays etc), strings, loops, structures, functions, recursion, pointers, linked lists, stacks, queues, graphs, enumerations, flags, conditionals, global, static and shadowed variables.<br />
+</ol><br />
+----------------------------------------------------------------------<br />
+<br />
+<b>EXAMPLE 1</b>:<br />
+INPUT<br />
+3<br />
+malloc a 100<br />
+malloc b 100<br />
+free a<br />
+<br />
+OUTPUT:<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+100<br />
+<br />
+<b>EXAMPLE 2</b>:<br />
+INPUT<br />
+3<br />
+malloc p 1000<br />
+free q<br />
+malloc q 100<br />
+<br />
+OUTPUT:<br />
+SUCCESS<br />
+FAILURE<br />
+FAILURE<br />
+1000<br />
+<br />
+----------------------------------------------------------------------<br />
+<br />
+<b>Grading Scheme</b>:<br />
+Total marks: <b>[70 Points]</b><br />
+<br />
+There will be partial grading in this question. There are several lines in your output. Printing each line correctly, in the correct order, carries equal weightage. There are 4 visible and 4 hidden test cases.<br />
+<br />
+Please remember, however, that when you press Submit/Evaluate, you will get a green bar only if all parts of your answer are correct. Thus, if your answer is only partly correct, Prutor will say that you have not passed that test case completely, but when we do autograding afterwards, you will get partial marks.<br />
+<br />
+There will be no partial grading in this question. An exact match will receive full marks whereas an incomplete match will receive 0 points. Please be careful of missing/extra spaces and missing/lines (take help of visible test cases). There are 2 visible and 4 hidden test cases.<h3>All Test Cases (Visible + Hidden)</h3><table border = "1"><tr><th>Input</th><th>Output</th><tr><td>3<br />
+malloc a 1000<br />
+malloc a 100<br />
+free a</td><td>SUCCESS<br />
+FAILURE<br />
+SUCCESS<br />
+0</td></tr><tr><td>4<br />
+free b<br />
+malloc a 100<br />
+free a<br />
+free a</td><td>FAILURE<br />
+SUCCESS<br />
+SUCCESS<br />
+FAILURE<br />
+0</td></tr><tr><td>5<br />
+malloc a 500<br />
+malloc a 100<br />
+malloc b 900<br />
+malloc b 400<br />
+free a</td><td>SUCCESS<br />
+MEMORY LEAK<br />
+SUCCESS<br />
+FAILURE<br />
+SUCCESS<br />
+SUCCESS<br />
+900</td></tr><tr><td>7<br />
+malloc a 300<br />
+malloc b 300<br />
+malloc c 300<br />
+free b<br />
+malloc d 400<br />
+free a<br />
+free d</td><td>SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+FAILURE<br />
+SUCCESS<br />
+FAILURE<br />
+300</td></tr><tr><td>11<br />
+free a<br />
+free b<br />
+malloc a 400<br />
+malloc b 400<br />
+free a<br />
+free b<br />
+malloc c 200<br />
+malloc b 100<br />
+free a<br />
+free b<br />
+free c</td><td>FAILURE<br />
+FAILURE<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+FAILURE<br />
+SUCCESS<br />
+SUCCESS<br />
+0</td></tr><tr><td>6<br />
+malloc a 500<br />
+malloc b 501<br />
+malloc b 500<br />
+malloc d 100<br />
+free a<br />
+free b</td><td>SUCCESS<br />
+FAILURE<br />
+SUCCESS<br />
+FAILURE<br />
+SUCCESS<br />
+SUCCESS<br />
+0</td></tr><tr><td>14<br />
+malloc a 200<br />
+malloc b 200<br />
+malloc c 200<br />
+malloc d 200<br />
+malloc e 200<br />
+free a<br />
+free a<br />
+malloc a 400<br />
+malloc b 100<br />
+free a<br />
+free b<br />
+free c<br />
+free d<br />
+free e</td><td>SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+FAILURE<br />
+FAILURE<br />
+MEMORY LEAK<br />
+SUCCESS<br />
+FAILURE<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+200</td></tr><tr><td>6<br />
+malloc a 900<br />
+malloc a 100<br />
+malloc b 100<br />
+free a<br />
+malloc a 100<br />
+free a</td><td>SUCCESS<br />
+MEMORY LEAK<br />
+SUCCESS<br />
+FAILURE<br />
+SUCCESS<br />
+SUCCESS<br />
+SUCCESS<br />
+900</td></tr></table><hr><hr></body>
+</html>
