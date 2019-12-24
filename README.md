@@ -1,6 +1,9 @@
 # ESC 101A: Fundamentals of Computing (C Programming Course)
 These are the course materials used for the 2018-19 autumn offering of the course ESC 101A (Fundamentals of Computing) at IIT Kanpur. This is an introductory C programming course taught to first year undergraduate students at IIT Kanpur.
 
+## Credits
+This course offering had an awesome set of student tutors (_Prakhar Agarwal, Nikita Awasthi, Sanket Gandhi, Abhibhav Garg, Ankit Jalan, Kunal Kapila, Siddharth Mittal, Paramkusam Niranjan, Abhisek Panda, Parth Sharma, Shashank Shekhar, Massand Sagar Sunil, Ayush Tulsyan_). The tutors set nice and innovative problems for labs, exams and quizzes. The course would also not have been possible without help from the course admins (_Umair Z Ahmed_ for Prutor and _Bhaskar Mukhoty_ for logistics). Any faults in the lecture slides, lecture codes, tutorial sheets or practice problems are to be blamed on the instructor :)
+
 ## Usage
 The material in this repository may be used freely for the purpose of research and self-study. However, if you are an instructor/professor/lecturer at an educational institution and wish to use this material to offer a course of your own, it would be greatly appreciated if you could drop a mail to the author at the email address <a href="mailto:purushot@cse.iitk.ac.in">purushot@cse.iitk.ac.in</a> mentioning the same.
 
