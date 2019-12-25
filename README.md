@@ -1,11 +1,16 @@
 # ESC 101A: Fundamentals of Computing (C Programming Course)
 These are the course materials used for the 2018-19 autumn offering of the course ESC 101A (Fundamentals of Computing) at IIT Kanpur. This is an introductory C programming course taught to first year undergraduate students at IIT Kanpur.
 
-## Credits
-This course offering had an awesome set of student tutors (_Prakhar Agarwal, Nikita Awasthi, Sanket Gandhi, Abhibhav Garg, Ankit Jalan, Kunal Kapila, Siddharth Mittal, Paramkusam Niranjan, Abhisek Panda, Parth Sharma, Shashank Shekhar, Massand Sagar Sunil, Ayush Tulsyan_). The tutors set nice and innovative problems for labs, exams and quizzes. The course would also not have been possible without help from the course admins (_Umair Z Ahmed_ for Prutor and _Bhaskar Mukhoty_ for logistics). Any faults in the lecture slides, lecture codes, tutorial sheets or practice problems are to be blamed on the instructor :)
-
 ## Usage
 The material in this repository may be used freely for the purpose of research and self-study. However, if you are an instructor/professor/lecturer at an educational institution and wish to use this material to offer a course of your own, it would be greatly appreciated if you could drop a mail to the author at the email address <a href="mailto:purushot@cse.iitk.ac.in">purushot@cse.iitk.ac.in</a> mentioning the same.
+
+## Credits
+This course offering was made possible by the combined efforts of a large team.
+- **Tutors**: the course offering had an awesome team of student tutors (_Prakhar Agarwal, Nikita Awasthi, Sanket Gandhi, Abhibhav Garg, Ankit Jalan, Kunal Kapila, Siddharth Mittal, Paramkusam Niranjan, Abhisek Panda, Parth Sharma, Shashank Shekhar, Massand Sagar Sunil, Ayush Tulsyan_). The tutors conducted weekly tutorials for students as well as set nice and innovative problems for labs, exams and quizzes.
+- **Teaching Assistants**: The weekly lab sessions and examinations were made possible due to the contributions of more than 50 teaching assistants who helped students during labs and performed grading on exam submissions. Their names are listed in the concluding lecture slides. Lab and weekly quiz submissions were autograded using code that was developed jointly by _Umair Z Ahmed_ and the instructor.
+- **Admins**: The course would also not have been possible without help from the course admins (_Umair Z Ahmed_ for Prutor and _Bhaskar Mukhoty_ for logistics), the CSE office staff members (_Mr Prashant Kumar Sahu, Mr Rajesh Kumar, Mr Ranjan Kumar, Mr Anubhav Kumar Arya,
+Mr Amit Kumar Bharti_) and CC/NCL staff members (_Mr Gopesh Tiwari, Mr Soumitri Mishra, Mr Awanish Kumar_).
+- **Previous instructors**: Material developed by previous instructors of the course (_Prof. Sumit Ganguly, Prof. Nitin Saxena, Prof. Amey Karkare, Prof. Indranil Saha, Prof. Nisheeth Srivastava, Prof. Rajat Mittal (Hindi lectures), Prof. Vinay Namboodiri_) was very helpful in developing fresh material for this offering. However, any faults/errors in the lecture slides, lecture codes, tutorial sheets or practice problems should be blamed on the instructor :) Please report any major errors, suggestions to the instructor at <a href="mailto:purushot@cse.iitk.ac.in">purushot@cse.iitk.ac.in</a>
 
 ## Compiler Used
 For our offering, we used the CLang compiler for all laboratory, practice and exam problems. Please keep this in mind while checking the expected evaluation outputs in lab and practice problems as other compilers like GCC, Turbo C, Visual C etc. may offer rare and subtle differences in output. In particular, we used the *Prutor* interface [\[link\]](https://prutor.ai/) to conduct laboratory sessions and examinations.
