@@ -2,7 +2,7 @@
 These are the course materials used for the 2018-19 autumn offering of the course ESC 101A (Fundamentals of Computing) at IIT Kanpur. This is an introductory C programming course taught to first year undergraduate students at IIT Kanpur.
 
 ## Usage
-The material in this repository may be used freely for the purpose of research and self-study. However, if you are an instructor/professor/lecturer at an educational institution and wish to use this material to offer a course of your own, it would be greatly appreciated if you could drop a mail to the author at the email address <a href="mailto:purushot@cse.iitk.ac.in">purushot@cse.iitk.ac.in</a> mentioning the same.
+The material in this repository may be used freely for the purpose of research and self-study. It can also be freely used and/or modified to create material to offer courses at an educational institution. If you are an instructor/professor/lecturer using this material for your course, you can make the author very happy by sending an email at the address <a href="mailto:purushot@cse.iitk.ac.in">purushot@cse.iitk.ac.in</a> describing your experience using this material.
 
 ## Credits
 This course offering was made possible by the combined efforts of a large team.
